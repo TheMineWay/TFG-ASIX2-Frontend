@@ -6,7 +6,11 @@ type Route = {
 const routes: Route[] = [
     {
         path: '/',
-        loader: () => import('../view/mainPage/MainPage')
+        loader: () => import('../view/mainPage/MainPage'),
+    },
+    {
+        path: '*',
+        loader: () => import('../view/errors/404'),
     },
 ];
 

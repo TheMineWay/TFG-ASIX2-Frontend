@@ -1,3 +1,11 @@
 {
-    
+    "actions": {
+        "GoHome": "Torna a la pàgina principal"
+    },
+    "errors": {
+        "404": {
+            "Title": "No s'ha trobat la pàgina",
+            "Subtitle": "La pàgina a la que vols accedir-hi no s'ha trobat o no està disponible"
+        }
+    }
 }

@@ -6,6 +6,10 @@
         "404": {
             "Title": "No s'ha trobat la pàgina",
             "Subtitle": "La pàgina a la que vols accedir-hi no s'ha trobat o no està disponible"
+        },
+        "unauthenticated": {
+            "Title": "No pots accedir a la pàgina",
+            "Subtitle": "Per poder accedir a aquesta pàgina necessites estar autenticat"
         }
     }
 }

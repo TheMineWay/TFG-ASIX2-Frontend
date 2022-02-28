@@ -1,6 +1,7 @@
 type Route = {
     path: string;
     loader: () => any;
+    requiresAuth?: boolean;
 };
 
 const routes: Route[] = [

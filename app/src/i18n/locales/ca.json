@@ -6,6 +6,9 @@
         "options": {
             "main": {
                 "Title": "Pàgina principal"
+            },
+            "login": {
+                "Title": "Iniciar sessió"
             }
         }
     },

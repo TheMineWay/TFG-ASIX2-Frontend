@@ -15,14 +15,14 @@ export default function BaseHeader() {
 
         if (option.children) {
             return (
-                <SubMenu key={option.key} title={text} onTitleClick={() => option.path && navigate(option.path)}>
+                <SubMenu icon={option.icon} key={option.key} title={text} onTitleClick={() => option.path && navigate(option.path)}>
                     {
                         option.children.map(constructOption)
                     }
                 </SubMenu>
             );
         }
-        return <Item key={option.key} onClick={() => option.path && navigate(option.path)}>{text}</Item>;
+        return <Item icon={option.icon} key={option.key} onClick={() => option.path && navigate(option.path)}>{text}</Item>;
     }
 
     return (

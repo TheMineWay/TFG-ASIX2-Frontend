@@ -1,0 +1,36 @@
+{
+    "actions": {
+        "GoHome": "Torna a la pàgina principal"
+    },
+    "menu": {
+        "options": {
+            "main": {
+                "Title": "Pàgina principal"
+            },
+            "auth": {
+                "Title": "Compte",
+                "login": {
+                    "Title": "Iniciar sessió"
+                },
+                "signup": {
+                    "Title": "Crear compte"
+                }
+            }
+        }
+    },
+    "view": {
+        "login": {
+            "Title": "Iniciar sessió"
+        }
+    },
+    "errors": {
+        "404": {
+            "Title": "No s'ha trobat la pàgina",
+            "Subtitle": "La pàgina a la que vols accedir-hi no s'ha trobat o no està disponible"
+        },
+        "unauthenticated": {
+            "Title": "No pots accedir a la pàgina",
+            "Subtitle": "Per poder accedir a aquesta pàgina necessites estar autenticat"
+        }
+    }
+}

@@ -7,9 +7,20 @@
             "main": {
                 "Title": "Pàgina principal"
             },
-            "login": {
-                "Title": "Iniciar sessió"
+            "auth": {
+                "Title": "Compte",
+                "login": {
+                    "Title": "Iniciar sessió"
+                },
+                "signup": {
+                    "Title": "Crear compte"
+                }
             }
+        }
+    },
+    "view": {
+        "login": {
+            "Title": "Iniciar sessió"
         }
     },
     "errors": {

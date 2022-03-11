@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import BaseLayout from '../view/layout/Layout';
 import LoadingRoute from './LoadingRoute';
 import routes from './routes';
 
@@ -9,21 +10,21 @@ export default function Router() {
 
     return (
         <BrowserRouter>
-            <Routes>
-                {
-                    routes.map((route) => {
-                        const LazyComponent = isAuthenticated || !route.requiresAuth ? React.lazy(route.loader) : unauthenticatedComponent;
+            <BaseLayout>
+                <Suspense fallback={<LoadingRoute />}>
+                    <Routes>
+                        {
+                            routes.map((route, i) => {
+                                const LazyComponent = isAuthenticated || !route.requiresAuth ? React.lazy(route.loader) : unauthenticatedComponent;
 
-                        return (
-                            <Route path={route.path} key={route.path} element={
-                                <Suspense key={route.path} fallback={<LoadingRoute />}>
-                                    <LazyComponent />
-                                </Suspense>
-                            } />
-                        );
-                    })
-                }
-            </Routes>
+                                return (
+                                    <Route path={route.path} element={<LazyComponent />} />
+                                );
+                            })
+                        }
+                    </Routes>
+                </Suspense>
+            </BaseLayout>
         </BrowserRouter>
     );
 }

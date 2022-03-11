@@ -2,6 +2,13 @@
     "actions": {
         "GoHome": "Torna a la pàgina principal"
     },
+    "menu": {
+        "options": {
+            "main": {
+                "Title": "Pàgina principal"
+            }
+        }
+    },
     "errors": {
         "404": {
             "Title": "No s'ha trobat la pàgina",

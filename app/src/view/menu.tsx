@@ -15,12 +15,6 @@ const menuOptions: MenuOption[] = [
         key: 'main',
         icon: <HomeOutlined/>,
     },
-    {
-        text: 'login',
-        path: '/login',
-        key: 'login',
-        icon: <UserOutlined/>,
-    },
 ];
 
 export default menuOptions;

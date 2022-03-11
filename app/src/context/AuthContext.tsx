@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { UserModel } from '../services/auth/User.model';
 
 type Props = {
@@ -10,26 +10,18 @@ export type AuthCredentials = {
     expiresAt: Date;
 }
 
-export type AuthContext = {
+export type AuthData = {
     credentials: AuthCredentials;
     user: UserModel;
 }
 
-export const AuthCredentialsContext = React.createContext<AuthContext | null>(null);
+export const AuthCredentialsContext = React.createContext<[AuthData | undefined, (context: AuthData) => void] | null>(null);
 
 export default function AuthContext(props: Props) {
+    const [ authState, setAuthState ] = useState<AuthData>();
+
     return (
-        <AuthCredentialsContext.Provider value={{
-            credentials: {
-                session: "sessid",
-                expiresAt: new Date(),
-            },
-            user: {
-                name: "Joel",
-                lastname: "Campos",
-                login: "jcampos",
-            },
-        }}>
+        <AuthCredentialsContext.Provider value={[authState, setAuthState]}>
             {props.children}
         </AuthCredentialsContext.Provider>
     )

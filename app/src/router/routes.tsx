@@ -10,10 +10,6 @@ const routes: Route[] = [
         loader: () => import('../view/mainPage/MainPage'),
     },
     {
-        path: '/login',
-        loader: () => import('../view/login/LoginPage'),
-    },
-    {
         path: '*',
         loader: () => import('../view/errors/404'),
     },

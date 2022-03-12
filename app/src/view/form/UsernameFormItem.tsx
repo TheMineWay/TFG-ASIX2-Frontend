@@ -4,14 +4,16 @@ import { t } from 'i18next';
 
 type Props = {
     name: string;
+    required?: boolean;
+    requiredInvisibility?: boolean;
 }
 
 export default function UsernameFormItem(props: Props) {
     const placeholderUsernames: string[] = ['john', 'toni'];
 
     return (
-        <Form.Item name={props.name} label={t('common.form.Username')}>
-            <Input prefix={<UserOutlined/>} type='text' placeholder={placeholderUsernames[Math.floor(Math.random() * placeholderUsernames.length)]}/>
+        <Form.Item name={props.name} label={t('common.form.Username')} required={props.required && !props.requiredInvisibility}>
+            <Input prefix={<UserOutlined/>} type='text' placeholder={placeholderUsernames[Math.floor(Math.random() * placeholderUsernames.length)]} required={props.required}/>
         </Form.Item>
     );
 }

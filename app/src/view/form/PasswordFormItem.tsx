@@ -5,12 +5,14 @@ import { t } from 'i18next';
 type Props = {
     name: string;
     showStrenght?: boolean; // TODO: implement
+    required?: boolean;
+    requiredInvisibility?: boolean;
 }
 
 export default function PasswordFormItem(props: Props) {
     return (
-        <Form.Item label={t('common.form.Password')}>
-            <Input.Password prefix={<LockOutlined/>} type='password' name={props.name}/>
+        <Form.Item name={props.name} label={t('common.form.Password')} required={props.required && !props.requiredInvisibility}>
+            <Input.Password prefix={<LockOutlined/>} type='password' required={props.required}/>
         </Form.Item>
     );
 }

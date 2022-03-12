@@ -18,7 +18,7 @@ type RequestOpts = {
     
 };
 
-export default async function request<T>(method: 'get' | 'post', route: string, data?: {[id: string]: any}, opts?: RequestOpts): Promise<T | undefined> {
+export default async function request<T>(method: 'get' | 'post', route: string, data?: {[id: string]: any}, opts?: RequestOpts): Promise<T> {
     
     const auth = {};
 
@@ -33,7 +33,7 @@ export default async function request<T>(method: 'get' | 'post', route: string, 
 
     const result: AxiosResponse<RequestResponse<T>> = await axios(config);
 
-    if(!result.data || result.data.code !== "200") {
+    if(!result.data || !result.data.data || result.data.code !== "200") {
         const error: ErrorResponse = result.data ?? {
             section: 'http',
             code: '500',
@@ -42,5 +42,5 @@ export default async function request<T>(method: 'get' | 'post', route: string, 
         throw error;
     }
 
-    return result.data.data;
+    return result.data!.data!;
 }

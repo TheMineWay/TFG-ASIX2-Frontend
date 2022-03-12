@@ -17,14 +17,19 @@ type LoginResponse = {
     expiresAt: Date;
 }
 
+type LoginRequest = {
+    login: string;
+    password: string;
+}
+
 export default function LoginForm(props: Props) {
 
     const [loading, setLoading] = useState<boolean>(false);
 
-    const submit = async () => {
+    const submit = async (data: LoginRequest) => {
         setLoading(true);
         try {
-            const result = await request<LoginResponse>('post', '/actions/login');
+            const result = await request<LoginResponse>('post', '/actions/login', data);
         } catch(e: any) {
             notificationErrorDisplay(e);
         }
@@ -36,18 +41,22 @@ export default function LoginForm(props: Props) {
             <Form
                 form={props.form}
                 layout='vertical'
+                onFinish={submit}
             >
                 <UsernameFormItem
                     name='login'
+                    required
+                    requiredInvisibility
                 />
                 <PasswordFormItem
                     name='password'
+                    required
+                    requiredInvisibility
                 />
 
                 <Space>
                     <SubmitFormItem
                         text={t('common.actions.Login')}
-                        submit={submit}
                         loading={loading}
                     />
                     <ResetFormItem

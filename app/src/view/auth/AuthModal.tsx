@@ -28,6 +28,7 @@ export default function LoginModal(props: Props) {
             >
                 <LoginForm
                     form={loginForm}
+                    hide={hide}
                 />
             </Modal>
             <Modal

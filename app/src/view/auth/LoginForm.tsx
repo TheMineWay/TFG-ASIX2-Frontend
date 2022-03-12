@@ -1,7 +1,9 @@
-import { Form, FormInstance, notification, Space } from 'antd';
+import { Form, FormInstance, Space } from 'antd';
 import { t } from 'i18next';
 import { useState } from 'react';
+import useAuthState from '../../hooks/auth/useAuthState';
 import request from '../../services/api/Request';
+import { UserModel } from '../../services/auth/User.model';
 import notificationErrorDisplay from '../errors/display/NotificationErrorDisplay';
 import PasswordFormItem from '../form/PasswordFormItem';
 import ResetFormItem from '../form/ResetFormItem';
@@ -10,11 +12,13 @@ import UsernameFormItem from '../form/UsernameFormItem';
 
 type Props = {
     form: FormInstance;
+    hide: () => void;
 }
 
 type LoginResponse = {
     token: string;
-    expiresAt: Date;
+    expiresAt: string;
+    user: UserModel;
 }
 
 type LoginRequest = {
@@ -25,11 +29,20 @@ type LoginRequest = {
 export default function LoginForm(props: Props) {
 
     const [loading, setLoading] = useState<boolean>(false);
+    const  [authState, setAuthState] = useAuthState();
 
     const submit = async (data: LoginRequest) => {
         setLoading(true);
         try {
             const result = await request<LoginResponse>('post', '/actions/login', data);
+            setAuthState({
+                credentials: {
+                    session: result.token,
+                    expiresAt: new Date(Date.parse(result.expiresAt)),
+                },
+                user: result.user,
+            });
+            props.hide();
         } catch(e: any) {
             notificationErrorDisplay(e);
         }

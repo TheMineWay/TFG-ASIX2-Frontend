@@ -18,7 +18,15 @@ type Props = {
 type LoginResponse = {
     token: string;
     expiresAt: string;
-    user: UserModel;
+    user: {
+        name: string;
+        lastname: string;
+        login: string;
+        phone: string;
+        isEmailVerified: "1" | "0";
+        createdAt: string;
+        id: string;
+    };
 }
 
 type LoginRequest = {
@@ -29,21 +37,26 @@ type LoginRequest = {
 export default function LoginForm(props: Props) {
 
     const [loading, setLoading] = useState<boolean>(false);
-    const  [authState, setAuthState] = useAuthState();
+    const [authState, setAuthState] = useAuthState();
 
     const submit = async (data: LoginRequest) => {
         setLoading(true);
         try {
             const result = await request<LoginResponse>('post', '/actions/login', data);
+
             setAuthState({
                 credentials: {
                     session: result.token,
                     expiresAt: new Date(Date.parse(result.expiresAt)),
                 },
-                user: result.user,
+                user: {
+                    ...result.user,
+                    createdAt: new Date(Date.parse(result.user.createdAt)),
+                    isEmailVerified: result.user.isEmailVerified === '1',
+                },
             });
             props.hide();
-        } catch(e: any) {
+        } catch (e: any) {
             notificationErrorDisplay(e);
         }
         setLoading(false);

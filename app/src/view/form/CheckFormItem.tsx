@@ -9,6 +9,7 @@ export default function CheckFormItem(props: Props) {
     return (
         <Form.Item
             name={props.name}
+            valuePropName="checked"
         >
             <Checkbox>{props.text}</Checkbox>
         </Form.Item>

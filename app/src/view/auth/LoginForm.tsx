@@ -1,6 +1,7 @@
 import { Form, FormInstance, Space } from 'antd';
 import { t } from 'i18next';
 import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 import useAuthState from '../../hooks/auth/useAuthState';
 import request from '../../services/api/Request';
 import { UserModel } from '../../services/auth/User.model';
@@ -41,6 +42,8 @@ export default function LoginForm(props: Props) {
     const [loading, setLoading] = useState<boolean>(false);
     const [authState, setAuthState] = useAuthState();
 
+    const [cookies, setCookie] = useCookies();
+
     const submit = async (data: LoginRequest) => {
         setLoading(true);
         try {
@@ -59,7 +62,7 @@ export default function LoginForm(props: Props) {
             });
 
             if(data.remember) {
-                
+                setCookie('authCredentials', { token: result.token, expiresAt: result.expiresAt });
             }
 
             props.hide();

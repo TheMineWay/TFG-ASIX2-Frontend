@@ -48,7 +48,8 @@
     "common": {
         "form": {
             "Username": "Nom d'usuari",
-            "Password": "Contrasenya"
+            "Password": "Contrasenya",
+            "RememberMe": "Recorda'm"
         },
         "actions": {
             "Login": "Iniciar sessió",

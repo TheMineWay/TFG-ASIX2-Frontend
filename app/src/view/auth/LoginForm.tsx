@@ -5,6 +5,7 @@ import useAuthState from '../../hooks/auth/useAuthState';
 import request from '../../services/api/Request';
 import { UserModel } from '../../services/auth/User.model';
 import notificationErrorDisplay from '../errors/display/NotificationErrorDisplay';
+import CheckFormItem from '../form/CheckFormItem';
 import PasswordFormItem from '../form/PasswordFormItem';
 import ResetFormItem from '../form/ResetFormItem';
 import SubmitFormItem from '../form/SubmitFormItem';
@@ -32,6 +33,7 @@ type LoginResponse = {
 type LoginRequest = {
     login: string;
     password: string;
+    remember: boolean;
 }
 
 export default function LoginForm(props: Props) {
@@ -55,6 +57,11 @@ export default function LoginForm(props: Props) {
                     isEmailVerified: result.user.isEmailVerified === '1',
                 },
             });
+
+            if(data.remember) {
+                
+            }
+
             props.hide();
         } catch (e: any) {
             notificationErrorDisplay(e);
@@ -78,6 +85,10 @@ export default function LoginForm(props: Props) {
                     name='password'
                     required
                     requiredInvisibility
+                />
+                <CheckFormItem
+                    name='remember'
+                    text={t('common.form.RememberMe')}
                 />
 
                 <Space>

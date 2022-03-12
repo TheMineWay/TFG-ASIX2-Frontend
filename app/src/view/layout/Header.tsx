@@ -5,6 +5,7 @@ import { t } from "i18next";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthState from "../../hooks/auth/useAuthState";
+import useUserState from "../../hooks/user/useUserState";
 import AuthModal from "../auth/AuthModal";
 import menuOptions, { MenuOption } from "../menu";
 
@@ -14,6 +15,7 @@ export default function BaseHeader() {
 
     const navigate = useNavigate();
     const [authState] = useAuthState();
+    const [userState] = useUserState();
 
     const [authModal, setAuthModal] = useState<'login' | 'register' | null>(null);
 
@@ -46,7 +48,9 @@ export default function BaseHeader() {
                     }
                     {
                         authState ? (
-                            <Item>{"AUTH"}</Item>
+                            userState && (
+                                <Item>{userState.name}</Item>
+                            )
                         ) : (
                             <>
                                 <Item

@@ -1,24 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import request from '../../services/api/Request';
-import { UserModel } from '../../services/auth/User.model';
-import useAuthState from '../auth/useAuthState';
+import { useContext } from 'react';
+import { UserDataContext } from '../../context/UserContext';
 
 export default function useUserState() {
-    const [state, setState] = useState<UserModel>();
-    const [auth] = useAuthState();
+    const userContext = useContext(UserDataContext)!;
 
-    useEffect(() => {
-        fetch();
-    }, []);
-
-    async function fetch(): Promise<void> {
-        const result = await request<UserModel>('post', '/me/user', {}, { authCredentials: auth });
-
-        setState(result);
-    }
-
-    return {
-        data: state,
-        fetch,
-    };
+    return userContext;
 }

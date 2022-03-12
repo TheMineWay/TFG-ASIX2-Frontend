@@ -47,7 +47,7 @@ export default function LoginForm(props: Props) {
     const submit = async (data: LoginRequest) => {
         setLoading(true);
         try {
-            const result = await request<LoginResponse>('post', '/actions/login', data);
+            const result = await request<LoginResponse>('post', '/actions/auth/login', data);
 
             const expiresAt = new Date(Date.parse(result.expiresAt));
 

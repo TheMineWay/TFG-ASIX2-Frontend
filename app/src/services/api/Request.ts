@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
 import { getBaseUrl } from "../../conf/conf";
+import { AuthCredentials } from "../../context/AuthContext";
 
 type Section = 'auth' | 'http';
 
@@ -15,12 +16,12 @@ export type ErrorResponse = {
 }
 
 type RequestOpts = {
-    
+    authCredentials?: AuthCredentials;
 };
 
 export default async function request<T>(method: 'get' | 'post', route: string, data?: {[id: string]: any}, opts?: RequestOpts): Promise<T> {
     
-    const auth = {};
+    const auth = opts?.authCredentials;
 
     const config: AxiosRequestConfig = {
         method,

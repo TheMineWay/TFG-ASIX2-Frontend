@@ -1,7 +1,7 @@
 import { Form, FormInstance, notification, Space } from 'antd';
 import { t } from 'i18next';
 import { useState } from 'react';
-import request, { ErrorResponse } from '../../services/api/Request';
+import request from '../../services/api/Request';
 import notificationErrorDisplay from '../errors/display/NotificationErrorDisplay';
 import PasswordFormItem from '../form/PasswordFormItem';
 import ResetFormItem from '../form/ResetFormItem';

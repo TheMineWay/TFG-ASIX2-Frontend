@@ -32,5 +32,15 @@
             "Title": "No pots accedir a la pàgina",
             "Subtitle": "Per poder accedir a aquesta pàgina necessites estar autenticat"
         }
+    },
+    "common": {
+        "form": {
+            "Username": "Nom d'usuari",
+            "Password": "Contrasenya"
+        },
+        "actions": {
+            "Login": "Iniciar sessió",
+            "Reset": "Esborrar"
+        }
     }
 }

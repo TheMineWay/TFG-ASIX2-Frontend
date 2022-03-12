@@ -1,5 +1,8 @@
-import { Form, FormInstance, Space } from 'antd';
+import { Form, FormInstance, notification, Space } from 'antd';
 import { t } from 'i18next';
+import { useState } from 'react';
+import request, { ErrorResponse } from '../../services/api/Request';
+import notificationErrorDisplay from '../errors/display/NotificationErrorDisplay';
 import PasswordFormItem from '../form/PasswordFormItem';
 import ResetFormItem from '../form/ResetFormItem';
 import SubmitFormItem from '../form/SubmitFormItem';
@@ -9,10 +12,23 @@ type Props = {
     form: FormInstance;
 }
 
+type LoginResponse = {
+    token: string;
+    expiresAt: Date;
+}
+
 export default function LoginForm(props: Props) {
 
-    const submit = () => {
-        
+    const [loading, setLoading] = useState<boolean>(false);
+
+    const submit = async () => {
+        setLoading(true);
+        try {
+            const result = await request<LoginResponse>('post', '/actions/login');
+        } catch(e: any) {
+            notificationErrorDisplay(e);
+        }
+        setLoading(false);
     }
 
     return (
@@ -32,6 +48,7 @@ export default function LoginForm(props: Props) {
                     <SubmitFormItem
                         text={t('common.actions.Login')}
                         submit={submit}
+                        loading={loading}
                     />
                     <ResetFormItem
                         onReset={props.form.resetFields}

@@ -14,7 +14,7 @@ export default function UserContext(props: Props) {
     const [userState, setUserState] = useState<UserModel>();
 
     useEffect(() => {
-        fetch();
+        if(authState) fetch();
     }, [authState]);
 
     async function fetch() {

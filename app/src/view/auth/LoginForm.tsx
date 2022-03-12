@@ -57,7 +57,7 @@ export default function LoginForm(props: Props) {
             });
 
             if(data.remember) {
-                setCookie('authCredentials', { token: result.token, expiresAt }, {expires: expiresAt});
+                setCookie('authCredentials', { session: result.token, expiresAt }, {expires: expiresAt});
             }
 
             props.hide();

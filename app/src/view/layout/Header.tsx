@@ -14,7 +14,7 @@ const { Item, SubMenu } = Menu;
 export default function BaseHeader() {
 
     const navigate = useNavigate();
-    const [authState] = useAuthState();
+    const [authState, setAuthState] = useAuthState();
     const [userState] = useUserState();
 
     const [authModal, setAuthModal] = useState<'login' | 'register' | null>(null);
@@ -49,7 +49,13 @@ export default function BaseHeader() {
                     {
                         authState ? (
                             userState && (
-                                <Item>{userState.name}</Item>
+                                <SubMenu title={userState.name}>
+                                    <Item
+                                        onClick={() => {
+                                            setAuthState();
+                                        }}
+                                    >{t('common.actions.Logout')}</Item>
+                                </SubMenu>
                             )
                         ) : (
                             <>

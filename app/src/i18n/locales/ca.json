@@ -53,7 +53,8 @@
         },
         "actions": {
             "Login": "Iniciar sessió",
-            "Reset": "Esborrar"
+            "Reset": "Esborrar",
+            "Logout": "Tancar sessió"
         }
     }
 }

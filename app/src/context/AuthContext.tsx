@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
+import useUserState from '../hooks/user/useUserState';
 import { UserModel } from '../services/auth/User.model';
 
 type Props = {
@@ -17,7 +18,7 @@ export type AuthData = {
     user: UserModel;
 }
 
-export const AuthCredentialsContext = React.createContext<[AuthCredentials | undefined, (context: AuthCredentials) => void] | null>(null);
+export const AuthCredentialsContext = React.createContext<[AuthCredentials | undefined, (context?: AuthCredentials) => void] | null>(null);
 
 export default function AuthContext(props: Props) {
     const [cookies, setCookie, removeCookie] = useCookies();
@@ -36,7 +37,10 @@ export default function AuthContext(props: Props) {
     }, []);
 
     return (
-        <AuthCredentialsContext.Provider value={[authState, setAuthState]}>
+        <AuthCredentialsContext.Provider value={[authState, (context) => {
+            removeCookie('authCredentials');
+            setAuthState(context);
+        }]}>
             {props.children}
         </AuthCredentialsContext.Provider>
     )

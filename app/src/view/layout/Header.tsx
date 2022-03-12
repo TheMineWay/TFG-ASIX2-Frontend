@@ -46,7 +46,7 @@ export default function BaseHeader() {
                     }
                     {
                         authState ? (
-                            <Item>{authState.user.name}</Item>
+                            <Item>{"AUTH"}</Item>
                         ) : (
                             <>
                                 <Item

@@ -50,15 +50,8 @@ export default function LoginForm(props: Props) {
             const result = await request<LoginResponse>('post', '/actions/login', data);
 
             setAuthState({
-                credentials: {
-                    session: result.token,
-                    expiresAt: new Date(Date.parse(result.expiresAt)),
-                },
-                user: {
-                    ...result.user,
-                    createdAt: new Date(Date.parse(result.user.createdAt)),
-                    isEmailVerified: result.user.isEmailVerified === '1',
-                },
+                session: result.token,
+                expiresAt: new Date(Date.parse(result.expiresAt)),
             });
 
             if(data.remember) {

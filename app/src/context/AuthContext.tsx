@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import { useCookies } from 'react-cookie';
 import { UserModel } from '../services/auth/User.model';
 
 type Props = {
@@ -15,10 +16,12 @@ export type AuthData = {
     user: UserModel;
 }
 
-export const AuthCredentialsContext = React.createContext<[AuthData | undefined, (context: AuthData) => void] | null>(null);
+export const AuthCredentialsContext = React.createContext<[AuthCredentials | undefined, (context: AuthCredentials) => void] | null>(null);
 
 export default function AuthContext(props: Props) {
-    const [ authState, setAuthState ] = useState<AuthData>();
+    const [cookies] = useCookies();
+
+    const [ authState, setAuthState ] = useState<AuthCredentials | undefined>(cookies.authCredentials ?? undefined);
 
     return (
         <AuthCredentialsContext.Provider value={[authState, setAuthState]}>

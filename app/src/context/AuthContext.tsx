@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { UserModel } from '../services/auth/User.model';
 
@@ -19,9 +20,20 @@ export type AuthData = {
 export const AuthCredentialsContext = React.createContext<[AuthCredentials | undefined, (context: AuthCredentials) => void] | null>(null);
 
 export default function AuthContext(props: Props) {
-    const [cookies] = useCookies();
+    const [cookies, setCookie, removeCookie] = useCookies();
 
-    const [ authState, setAuthState ] = useState<AuthCredentials | undefined>(cookies.authCredentials ?? undefined);
+    const [ authState, setAuthState ] = useState<AuthCredentials>();
+
+    useEffect(() => {
+        if(cookies.authCredentials) {
+            const authCredentials: AuthCredentials = cookies.authCredentials;
+            if(moment(authCredentials.expiresAt).isSameOrBefore(new Date())) {
+                removeCookie('authCredentials');
+            } else {
+                setAuthState(authCredentials);
+            }
+        }
+    }, []);
 
     return (
         <AuthCredentialsContext.Provider value={[authState, setAuthState]}>

@@ -49,13 +49,15 @@ export default function LoginForm(props: Props) {
         try {
             const result = await request<LoginResponse>('post', '/actions/login', data);
 
+            const expiresAt = new Date(Date.parse(result.expiresAt));
+
             setAuthState({
                 session: result.token,
-                expiresAt: new Date(Date.parse(result.expiresAt)),
+                expiresAt,
             });
 
             if(data.remember) {
-                setCookie('authCredentials', { token: result.token, expiresAt: result.expiresAt });
+                setCookie('authCredentials', { token: result.token, expiresAt }, {expires: expiresAt});
             }
 
             props.hide();

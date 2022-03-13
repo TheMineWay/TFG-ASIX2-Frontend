@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
 import { getBaseUrl } from "../../conf/conf";
 import { AuthCredentials } from "../../context/AuthContext";
 
-type Section = 'auth' | 'http';
+type Section = 'auth' | 'http' | 'sess';
 
 type RequestResponse<T> = {
     code: string;
@@ -39,6 +39,10 @@ export default async function request<T>(method: 'get' | 'post', route: string, 
             section: 'http',
             code: '500',
         };
+
+        if(error.code === '401' && error.section === 'sess') {
+            // Should signout
+        }
 
         throw error;
     }

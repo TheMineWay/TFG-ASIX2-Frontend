@@ -16,21 +16,24 @@ export default function PasswordFormItem(props: Props) {
     const [password, setPassword] = useState<string>('');
 
     return (
-        <Form.Item
-            name={props.name}
-            label={props.label === null ? undefined : props.label ?? t('common.form.Password')}
-            required={props.required && !props.requiredInvisibility}
-        >
-            <Input.Password
-                prefix={<LockOutlined/>}
-                type='password'
-                required={props.required}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
+        <>
+            <Form.Item
+                name={props.name}
+                label={props.label === null ? undefined : props.label ?? t('common.form.Password')}
+                required={props.required && !props.requiredInvisibility}
+            >
+                <Input.Password
+                    prefix={<LockOutlined />}
+                    type='password'
+                    required={props.required}
+                    name={props.name}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+            </Form.Item>
             {
-                props.showStrenght && <PasswordStrengthIndicator password={password}/>
+                props.showStrenght && <PasswordStrengthIndicator password={password} />
             }
-        </Form.Item>
+        </>
     );
 }

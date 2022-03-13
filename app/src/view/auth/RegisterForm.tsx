@@ -1,4 +1,5 @@
 import { Form, FormInstance } from 'antd';
+import { t } from 'i18next';
 import PasswordFormItem from '../form/PasswordFormItem';
 
 type Props = {
@@ -12,6 +13,7 @@ type SignupRequest = {
     email: string;
     phone: string;
     password: string;
+    repeatPassword: string;
     login: string;
 }
 
@@ -22,8 +24,19 @@ export default function RegisterForm(props: Props) {
     }
 
     return (
-        <Form>
-            
+        <Form
+            form={props.form}
+            layout='vertical'
+            onFinish={submit}
+        >
+            <PasswordFormItem
+                name='password'
+                showStrenght
+                label={t('common.form.RepeatPassword')}
+            />
+            <PasswordFormItem
+                name='repeatPassword'
+            />
         </Form>
     );
 }

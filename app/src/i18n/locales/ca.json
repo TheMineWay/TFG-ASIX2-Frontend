@@ -52,7 +52,8 @@
         "form": {
             "Username": "Nom d'usuari",
             "Password": "Contrasenya",
-            "RememberMe": "Recorda'm"
+            "RememberMe": "Recorda'm",
+            "RepeatPassword": "Repeteix la contrasenya"
         },
         "actions": {
             "Login": "Iniciar sessió",

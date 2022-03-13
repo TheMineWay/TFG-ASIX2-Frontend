@@ -94,9 +94,7 @@ export default function LoginForm(props: Props) {
                         text={t('common.actions.Login')}
                         loading={loading}
                     />
-                    <ResetFormItem
-                        onReset={props.form.resetFields}
-                    />
+                    <ResetFormItem/>
                 </Space>
             </Form>
         </>

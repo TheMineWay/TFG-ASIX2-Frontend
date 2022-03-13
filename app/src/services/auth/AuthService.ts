@@ -1,5 +1,44 @@
-import { UserModel } from "./User.model";
+import { LoginRequest } from "../../view/auth/LoginForm";
+import request from "../api/Request";
 
+type LoginResponse = {
+    token: string;
+    expiresAt: Date;
+    user: {
+        name: string;
+        lastname: string;
+        login: string;
+        phone: string;
+        isEmailVerified: boolean;
+        createdAt: string;
+        id: string;
+    };
+}
 export default class AuthService {
-    
+    static async login(data: LoginRequest): Promise<LoginResponse> {
+        type RawLoginResponse = {
+            token: string;
+            expiresAt: string;
+            user: {
+                name: string;
+                lastname: string;
+                login: string;
+                phone: string;
+                isEmailVerified: "1" | "0";
+                createdAt: string;
+                id: string;
+            };
+        }
+
+        const result = await request<RawLoginResponse>('post', '/actions/auth/login', data);
+
+        return {
+            ...result,
+            expiresAt: new Date(Date.parse(result.expiresAt)),
+            user: {
+                ...result.user,
+                isEmailVerified: result.user.isEmailVerified === '1'
+            }
+        };
+    }
 }

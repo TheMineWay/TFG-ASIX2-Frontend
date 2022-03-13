@@ -1,10 +1,11 @@
-import { LoginOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
+import { LoginOutlined, LogoutOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import { Header } from "antd/lib/layout/layout";
 import { t } from "i18next";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthState from "../../hooks/auth/useAuthState";
+import useUserState from "../../hooks/user/useUserState";
 import AuthModal from "../auth/AuthModal";
 import menuOptions, { MenuOption } from "../menu";
 
@@ -13,7 +14,8 @@ const { Item, SubMenu } = Menu;
 export default function BaseHeader() {
 
     const navigate = useNavigate();
-    const [authState] = useAuthState();
+    const [authState, setAuthState] = useAuthState();
+    const [userState] = useUserState();
 
     const [authModal, setAuthModal] = useState<'login' | 'register' | null>(null);
 
@@ -46,7 +48,16 @@ export default function BaseHeader() {
                     }
                     {
                         authState ? (
-                            <Item>{authState.user.name}</Item>
+                            userState && (
+                                <SubMenu icon={<UserOutlined/>} title={userState.name}>
+                                    <Item
+                                        icon={<LogoutOutlined/>}
+                                        onClick={() => {
+                                            setAuthState();
+                                        }}
+                                    >{t('common.actions.Logout')}</Item>
+                                </SubMenu>
+                            )
                         ) : (
                             <>
                                 <Item

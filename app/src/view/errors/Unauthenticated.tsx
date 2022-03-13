@@ -8,8 +8,8 @@ export default function Unauthenticated(props: Props) {
     return (
         <Result
             status='403'
-            title={t('errors.unauthenticated.Title')}
-            subTitle={t('errors.unauthenticated.Subtitle')}
+            title={t('errors.frontend.403.Title')}
+            subTitle={t('errors.frontend.403.Subtitle')}
             extra={<Link to="/"><Button type='primary'>{t('actions.GoHome')}</Button></Link>}
         />
     );

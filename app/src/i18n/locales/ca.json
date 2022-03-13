@@ -53,7 +53,15 @@
             "Username": "Nom d'usuari",
             "Password": "Contrasenya",
             "RememberMe": "Recorda'm",
-            "RepeatPassword": "Repeteix la contrasenya"
+            "RepeatPassword": "Repeteix la contrasenya",
+            "password": {
+                "TooShort": "Massa  curta",
+                "TooWeak": "Massa fluixa",
+                "Weak": "Fluixa",
+                "Okay": "Acceptable",
+                "Good": "Bona",
+                "Strong": "Forta"
+            }
         },
         "actions": {
             "Login": "Iniciar sessió",

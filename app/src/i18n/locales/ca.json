@@ -47,6 +47,12 @@
                 "Title": "Credencials fallides",
                 "Message": "Les credencials proporcionades no són correctes."
             }
+        },
+        "form": {
+            "passwords-no-match": {
+                "Title": "Les contrasenyes no coincideixen",
+                "Message": "Les contrasenyes introduides han de coincidir"
+            }
         }
     },
     "common": {

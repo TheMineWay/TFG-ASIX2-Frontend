@@ -39,6 +39,13 @@ export default function RegisterForm(props: Props) {
     const submit = async (values: SignupRequest) => {
         setLoading(true);
         try {
+            if(values.password !== values.repeatPassword) {
+                throw {
+                    code: 'passwords-no-match',
+                    section: 'form'
+                };
+            }
+            
             const result = await AuthService.signup(values);
 
             setAuthState({

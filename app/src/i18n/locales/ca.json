@@ -61,7 +61,11 @@
                 "Okay": "Acceptable",
                 "Good": "Bona",
                 "Strong": "Forta"
-            }
+            },
+            "Name": "Nom",
+            "LastName": "Cognom",
+            "Email": "Correu electrònic",
+            "Phone": "Telèfon"
         },
         "actions": {
             "Login": "Iniciar sessió",

@@ -1,8 +1,17 @@
-import { Col, Form, FormInstance, Row } from 'antd';
+import { IdcardOutlined } from '@ant-design/icons';
+import { Col, Form, FormInstance, Row, Space } from 'antd';
 import { t } from 'i18next';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import useAuthState from '../../hooks/auth/useAuthState';
+import AuthService from '../../services/auth/AuthService';
+import notificationErrorDisplay from '../errors/display/NotificationErrorDisplay';
+import CheckFormItem from '../form/CheckFormItem';
 import EmailFormItem from '../form/EmailFormItem';
 import PasswordFormItem from '../form/PasswordFormItem';
 import PhoneFormItem from '../form/PhoneFormItem';
+import ResetFormItem from '../form/ResetFormItem';
+import SubmitFormItem from '../form/SubmitFormItem';
 import TextFormItem from '../form/TextFormItem';
 import UsernameFormItem from '../form/UsernameFormItem';
 
@@ -11,7 +20,7 @@ type Props = {
     hide: () => void;
 }
 
-type SignupRequest = {
+export type SignupRequest = {
     name: string;
     lastname: string;
     email: string;
@@ -19,12 +28,29 @@ type SignupRequest = {
     password: string;
     repeatPassword: string;
     login: string;
+    policy: boolean;
 }
 
 export default function RegisterForm(props: Props) {
 
-    const submit = (values: SignupRequest) => {
+    const [loading, setLoading] = useState<boolean>(false);
+    const [authState, setAuthState] = useAuthState();
 
+    const submit = async (values: SignupRequest) => {
+        setLoading(true);
+        try {
+            const result = await AuthService.signup(values);
+
+            setAuthState({
+                expiresAt: result.expiresAt,
+                session: result.token,
+            });
+
+            props.hide();
+        } catch(e: any) {
+            notificationErrorDisplay(e);
+        }
+        setLoading(false);
     }
 
     return (
@@ -36,6 +62,7 @@ export default function RegisterForm(props: Props) {
             <Row gutter={[12, 12]}>
                 <Col span={12}>
                     <TextFormItem
+                        icon={<IdcardOutlined />}
                         name='name'
                         label={t('common.form.Name')}
                         required requiredInvisibility
@@ -43,6 +70,7 @@ export default function RegisterForm(props: Props) {
                 </Col>
                 <Col span={12}>
                     <TextFormItem
+                        icon={<IdcardOutlined />}
                         name='lastName'
                         label={t('common.form.LastName')}
                         required requiredInvisibility
@@ -78,6 +106,17 @@ export default function RegisterForm(props: Props) {
                 label={t('common.form.RepeatPassword')}
                 required requiredInvisibility
             />
+            <CheckFormItem
+                name='policy'
+                text={<small>{t('view.signup.AcceptPP')} <Link to="/privacy" target='_blank'>{t('common.other.privacyPolicy')}</Link>.</small>}
+            />
+            <Space>
+                <SubmitFormItem
+                    text={t('common.actions.Signup')}
+                    loading={loading}
+                />
+                <ResetFormItem/>
+            </Space>
         </Form>
     );
 }

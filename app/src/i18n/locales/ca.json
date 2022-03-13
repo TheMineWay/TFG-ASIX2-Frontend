@@ -23,7 +23,8 @@
             "Title": "Iniciar sessió"
         },
         "signup": {
-            "Title": "Crear un compte"
+            "Title": "Crear un compte",
+            "AcceptPP": "He llegit i accepto les"
         }
     },
     "errors": {
@@ -70,7 +71,11 @@
         "actions": {
             "Login": "Iniciar sessió",
             "Reset": "Esborrar",
-            "Logout": "Tancar sessió"
+            "Logout": "Tancar sessió",
+            "Signup": "Crear compte"
+        },
+        "other": {
+            "privacyPolicy": "polítiques de privacitat"
         }
     }
 }

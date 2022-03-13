@@ -1,4 +1,5 @@
 import { LoginRequest } from "../../view/auth/LoginForm";
+import { SignupRequest } from "../../view/auth/RegisterForm";
 import request from "../api/Request";
 
 type LoginResponse = {
@@ -13,6 +14,10 @@ type LoginResponse = {
         createdAt: string;
         id: string;
     };
+}
+type SignupResponse = {
+    token: string;
+    expiresAt: Date;
 }
 export default class AuthService {
     static async login(data: LoginRequest): Promise<LoginResponse> {
@@ -39,6 +44,20 @@ export default class AuthService {
                 ...result.user,
                 isEmailVerified: result.user.isEmailVerified === '1'
             }
+        };
+    }
+
+    static async signup(data: SignupRequest): Promise<SignupResponse> {
+        type RawRegisterResponse = {
+            token: string;
+            expiresAt: string;
+        }
+
+        const result = await request<RawRegisterResponse>('post', '/actions/auth/signup', data);
+
+        return {
+            ...result,
+            expiresAt: new Date(Date.parse(result.expiresAt))
         };
     }
 }

@@ -40,7 +40,7 @@ export default async function request<T>(method: 'get' | 'post', route: string, 
             code: '500',
         };
 
-        if(error.code === '401' && error.section === 'sess') {
+        if(error.section === 'sess') {
             // Should signout
         }
 

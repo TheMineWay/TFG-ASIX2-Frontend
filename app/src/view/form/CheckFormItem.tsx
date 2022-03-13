@@ -2,7 +2,7 @@ import { Checkbox, Form } from 'antd';
 
 type Props = {
     name: string;
-    text: string;
+    text: string | JSX.Element;
 }
 
 export default function CheckFormItem(props: Props) {

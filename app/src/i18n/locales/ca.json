@@ -21,6 +21,9 @@
     "view": {
         "login": {
             "Title": "Iniciar sessió"
+        },
+        "signup": {
+            "Title": "Crear un compte"
         }
     },
     "errors": {

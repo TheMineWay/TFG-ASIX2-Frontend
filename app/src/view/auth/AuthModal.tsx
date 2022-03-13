@@ -2,6 +2,7 @@ import { Modal } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import { t } from 'i18next';
 import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 
 type Props = {
     visible: 'login' | 'register' | null;
@@ -11,9 +12,11 @@ type Props = {
 export default function LoginModal(props: Props) {
 
     const [loginForm] = useForm();
+    const [registerForm] = useForm();
 
     function hide() {
         loginForm.resetFields();
+        registerForm.resetFields();
 
         props.hide();
     }
@@ -37,7 +40,10 @@ export default function LoginModal(props: Props) {
                 title={t('view.signup.Title')}
                 footer={null}
             >
-
+                <RegisterForm
+                    form={registerForm}
+                    hide={hide}
+                />
             </Modal>
         </>
     )

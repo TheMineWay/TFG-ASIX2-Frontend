@@ -1,4 +1,4 @@
-import { LoginOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
+import { LoginOutlined, LogoutOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import { Header } from "antd/lib/layout/layout";
 import { t } from "i18next";
@@ -49,8 +49,9 @@ export default function BaseHeader() {
                     {
                         authState ? (
                             userState && (
-                                <SubMenu title={userState.name}>
+                                <SubMenu icon={<UserOutlined/>} title={userState.name}>
                                     <Item
+                                        icon={<LogoutOutlined/>}
                                         onClick={() => {
                                             setAuthState();
                                         }}

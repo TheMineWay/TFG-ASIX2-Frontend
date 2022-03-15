@@ -19,7 +19,7 @@ export default function UsernameFormItem(props: Props) {
                 type='text'
                 placeholder={props.hidePlaceholder ? undefined : placeholderUsernames[Math.floor(Math.random() * placeholderUsernames.length)]}
                 required={props.required}
-                minLength={8}
+                minLength={6}
                 maxLength={32}
             />
         </Form.Item>

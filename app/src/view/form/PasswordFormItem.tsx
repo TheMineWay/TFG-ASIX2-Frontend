@@ -29,7 +29,7 @@ export default function PasswordFormItem(props: Props) {
                     name={props.name}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    minLength={6}
+                    minLength={8}
                     maxLength={128}
                 />
             </Form.Item>

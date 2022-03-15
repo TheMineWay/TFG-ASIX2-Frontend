@@ -73,6 +73,8 @@ export default function RegisterForm(props: Props) {
                         name='name'
                         label={t('common.form.Name')}
                         required requiredInvisibility
+                        min={1}
+                        max={32}
                     />
                 </Col>
                 <Col span={12}>
@@ -81,6 +83,8 @@ export default function RegisterForm(props: Props) {
                         name='lastName'
                         label={t('common.form.LastName')}
                         required requiredInvisibility
+                        min={1}
+                        max={32}
                     />
                 </Col>
             </Row>

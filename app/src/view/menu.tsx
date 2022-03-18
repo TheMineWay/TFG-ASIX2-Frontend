@@ -16,9 +16,9 @@ const menuOptions: MenuOption[] = [
         icon: <HomeOutlined/>,
     },
     {
-        text: 'main',
+        text: 'logs',
         path: '/admin/logs',
-        key: 'main',
+        key: 'logs',
         icon: <ToolOutlined/>,
     },
 ];

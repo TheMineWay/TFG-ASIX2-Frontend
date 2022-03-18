@@ -39,10 +39,17 @@ export default function RegisterForm(props: Props) {
     const submit = async (values: SignupRequest) => {
         setLoading(true);
         try {
+            if(!values.policy) {
+                throw {
+                    code: 'must-accept-policy',
+                    section: 'form',
+                };
+            }
+
             if(values.password !== values.repeatPassword) {
                 throw {
                     code: 'passwords-no-match',
-                    section: 'form'
+                    section: 'form',
                 };
             }
             

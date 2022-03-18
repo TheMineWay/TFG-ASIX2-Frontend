@@ -46,12 +46,24 @@
             "403": {
                 "Title": "Credencials fallides",
                 "Message": "Les credencials proporcionades no són correctes."
+            },
+            "login-in-use": {
+                "Title": "Credencials en ús",
+                "Message": "Ja existeix un/a usuari/a amb aquest login."
+            },
+            "email-in-use": {
+                "Title": "Credencials en ús",
+                "Message": "Ja existeix un/a usuari/a amb aquest correu electrónic."
             }
         },
         "form": {
             "passwords-no-match": {
                 "Title": "Les contrasenyes no coincideixen",
                 "Message": "Les contrasenyes introduides han de coincidir"
+            },
+            "must-accept-policy": {
+                "Title": "Has d'acceptar les polítiques de privacitat",
+                "Message": "Per poder crear-te un compte has d'acceptar els termes icondicions d'ús."
             }
         }
     },

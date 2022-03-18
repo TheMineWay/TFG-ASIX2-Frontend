@@ -41,7 +41,8 @@ export default async function request<T>(method: 'get' | 'post', route: string, 
         };
 
         if(error.section === 'sess') {
-            // Should signout
+            document.cookie = "authCredentials=";
+            window.location.reload();
         }
 
         throw error;

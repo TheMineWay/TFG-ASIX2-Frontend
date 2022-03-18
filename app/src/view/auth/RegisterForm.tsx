@@ -34,7 +34,7 @@ export type SignupRequest = {
 export default function RegisterForm(props: Props) {
 
     const [loading, setLoading] = useState<boolean>(false);
-    const [authState, setAuthState] = useAuthState();
+    const [, setAuthState] = useAuthState();
 
     const submit = async (values: SignupRequest) => {
         setLoading(true);

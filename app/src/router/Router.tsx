@@ -1,11 +1,14 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import useAuthState from '../hooks/auth/useAuthState';
 import BaseLayout from '../view/layout/Layout';
 import LoadingRoute from './LoadingRoute';
 import routes from './routes';
 
 export default function Router() {
-    const isAuthenticated: boolean = false; // Implement auth detection
+    const [authState] = useAuthState();
+
+    const isAuthenticated: boolean = authState ? true : false;
     const unauthenticatedComponent = React.lazy(() => import('../view/errors/Unauthenticated'))
 
     return (
@@ -14,7 +17,7 @@ export default function Router() {
                 <Suspense fallback={<LoadingRoute />}>
                     <Routes>
                         {
-                            routes.map((route, i) => {
+                            routes.map((route) => {
                                 const LazyComponent = isAuthenticated || !route.requiresAuth ? React.lazy(route.loader) : unauthenticatedComponent;
 
                                 return (

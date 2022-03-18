@@ -13,6 +13,11 @@ const routes: Route[] = [
         path: '*',
         loader: () => import('../view/errors/404'),
     },
+    {
+        path: '/admin/logs',
+        loader: () => import('../view/logs/ViewLogsPage'),
+        requiresAuth: true,
+    }
 ];
 
 export default routes;

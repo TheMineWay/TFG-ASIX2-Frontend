@@ -1,4 +1,4 @@
-import { HomeOutlined, UserOutlined } from "@ant-design/icons";
+import { HomeOutlined, ToolOutlined, UserOutlined } from "@ant-design/icons";
 
 export type MenuOption = {
     text: string;
@@ -14,6 +14,12 @@ const menuOptions: MenuOption[] = [
         path: '/',
         key: 'main',
         icon: <HomeOutlined/>,
+    },
+    {
+        text: 'main',
+        path: '/admin/logs',
+        key: 'main',
+        icon: <ToolOutlined/>,
     },
 ];
 

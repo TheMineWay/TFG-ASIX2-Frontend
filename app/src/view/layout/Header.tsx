@@ -42,7 +42,7 @@ export default function BaseHeader() {
             />
 
             <Header>
-                <Menu theme="dark" mode="horizontal" key={"mainMenu"}>
+                <Menu theme="dark" mode="horizontal" key={"mainMenu"} selectedKeys={[]}>
                     {
                         menuOptions.map(constructOption)
                     }

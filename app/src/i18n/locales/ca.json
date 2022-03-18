@@ -23,7 +23,8 @@
             "Title": "Iniciar sessió"
         },
         "signup": {
-            "Title": "Crear un compte"
+            "Title": "Crear un compte",
+            "AcceptPP": "He llegit i accepto les"
         }
     },
     "errors": {
@@ -45,6 +46,24 @@
             "403": {
                 "Title": "Credencials fallides",
                 "Message": "Les credencials proporcionades no són correctes."
+            },
+            "login-in-use": {
+                "Title": "Credencials en ús",
+                "Message": "Ja existeix un/a usuari/a amb aquest login."
+            },
+            "email-in-use": {
+                "Title": "Credencials en ús",
+                "Message": "Ja existeix un/a usuari/a amb aquest correu electrónic."
+            }
+        },
+        "form": {
+            "passwords-no-match": {
+                "Title": "Les contrasenyes no coincideixen",
+                "Message": "Les contrasenyes introduides han de coincidir"
+            },
+            "must-accept-policy": {
+                "Title": "Has d'acceptar les polítiques de privacitat",
+                "Message": "Per poder crear-te un compte has d'acceptar els termes icondicions d'ús."
             }
         }
     },
@@ -52,12 +71,29 @@
         "form": {
             "Username": "Nom d'usuari",
             "Password": "Contrasenya",
-            "RememberMe": "Recorda'm"
+            "RememberMe": "Recorda'm",
+            "RepeatPassword": "Repeteix la contrasenya",
+            "password": {
+                "TooShort": "Massa  curta",
+                "TooWeak": "Massa fluixa",
+                "Weak": "Fluixa",
+                "Okay": "Acceptable",
+                "Good": "Bona",
+                "Strong": "Forta"
+            },
+            "Name": "Nom",
+            "LastName": "Cognom",
+            "Email": "Correu electrònic",
+            "Phone": "Telèfon"
         },
         "actions": {
             "Login": "Iniciar sessió",
             "Reset": "Esborrar",
-            "Logout": "Tancar sessió"
+            "Logout": "Tancar sessió",
+            "Signup": "Crear compte"
+        },
+        "other": {
+            "privacyPolicy": "polítiques de privacitat"
         }
     }
 }

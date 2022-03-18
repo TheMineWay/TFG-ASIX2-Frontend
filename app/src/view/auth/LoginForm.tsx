@@ -3,8 +3,7 @@ import { t } from 'i18next';
 import { useState } from 'react';
 import { useCookies } from 'react-cookie';
 import useAuthState from '../../hooks/auth/useAuthState';
-import request from '../../services/api/Request';
-import { UserModel } from '../../services/auth/User.model';
+import AuthService from '../../services/auth/AuthService';
 import notificationErrorDisplay from '../errors/display/NotificationErrorDisplay';
 import CheckFormItem from '../form/CheckFormItem';
 import PasswordFormItem from '../form/PasswordFormItem';
@@ -17,21 +16,7 @@ type Props = {
     hide: () => void;
 }
 
-type LoginResponse = {
-    token: string;
-    expiresAt: string;
-    user: {
-        name: string;
-        lastname: string;
-        login: string;
-        phone: string;
-        isEmailVerified: "1" | "0";
-        createdAt: string;
-        id: string;
-    };
-}
-
-type LoginRequest = {
+export type LoginRequest = {
     login: string;
     password: string;
     remember: boolean;
@@ -47,17 +32,15 @@ export default function LoginForm(props: Props) {
     const submit = async (data: LoginRequest) => {
         setLoading(true);
         try {
-            const result = await request<LoginResponse>('post', '/actions/auth/login', data);
-
-            const expiresAt = new Date(Date.parse(result.expiresAt));
+            const result = await AuthService.login(data);
 
             setAuthState({
                 session: result.token,
-                expiresAt,
+                expiresAt: result.expiresAt,
             });
 
             if(data.remember) {
-                setCookie('authCredentials', { session: result.token, expiresAt }, {expires: expiresAt});
+                setCookie('authCredentials', { session: result.token, expiresAt: result.expiresAt }, {expires: result.expiresAt});
             }
 
             props.hide();
@@ -94,9 +77,7 @@ export default function LoginForm(props: Props) {
                         text={t('common.actions.Login')}
                         loading={loading}
                     />
-                    <ResetFormItem
-                        onReset={props.form.resetFields}
-                    />
+                    <ResetFormItem/>
                 </Space>
             </Form>
         </>

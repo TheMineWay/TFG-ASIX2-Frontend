@@ -54,6 +54,10 @@
             "403": {
                 "Title": "No pots accedir a la pàgina",
                 "Subtitle": "Per poder accedir a aquesta pàgina necessites estar autenticat"
+            },
+            "401": {
+                "Title": "No pots accedir a la pàgina",
+                "Subtitle": "Per poder accedir a aquesta pàgina necessites tenir permisos"
             }
         },
         "auth": {

@@ -22,6 +22,7 @@ const menuOptions: MenuOption[] = [
         path: '/admin/logs',
         key: 'logs',
         icon: <ToolOutlined/>,
+        permissions: [ Permissions.viewLogs ]
     },
 ];
 

@@ -1,4 +1,5 @@
-import { HomeOutlined, ToolOutlined, UserOutlined } from "@ant-design/icons";
+import { HomeOutlined, ToolOutlined } from "@ant-design/icons";
+import { Permissions } from "../services/security/permissions";
 
 export type MenuOption = {
     text: string;
@@ -6,6 +7,7 @@ export type MenuOption = {
     children?: MenuOption[];
     key: string;
     icon?: JSX.Element;
+    permissions?: Permissions[]
 }
 
 const menuOptions: MenuOption[] = [

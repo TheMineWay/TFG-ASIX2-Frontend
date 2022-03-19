@@ -15,7 +15,7 @@ const routes: Route[] = [
     },
     {
         path: '/admin/logs',
-        loader: () => import('../view/logs/ViewLogsPage'),
+        loader: () => import('../view/logsPage/ViewLogsPage'),
         requiresAuth: true,
     }
 ];

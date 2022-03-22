@@ -2,7 +2,7 @@ import { Table } from 'antd';
 import Column from 'antd/lib/table/Column';
 import { t } from 'i18next';
 import moment from 'moment';
-import useLogs, { LogAction } from '../../hooks/logs/useLogs';
+import useLogs, { LogAction } from '../../hooks/logsViewer/useLogs';
 
 type Props = {}
 

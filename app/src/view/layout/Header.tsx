@@ -5,6 +5,7 @@ import { t } from "i18next";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthState from "../../hooks/auth/useAuthState";
+import useSecurityState from "../../hooks/security/useSecurityState";
 import useUserState from "../../hooks/user/useUserState";
 import AuthModal from "../auth/AuthModal";
 import menuOptions, { MenuOption } from "../menu";
@@ -16,10 +17,17 @@ export default function BaseHeader() {
     const navigate = useNavigate();
     const [authState, setAuthState] = useAuthState();
     const [userState] = useUserState();
+    const [securityState] = useSecurityState();
 
     const [authModal, setAuthModal] = useState<'login' | 'register' | null>(null);
 
-    function constructOption(option: MenuOption): JSX.Element {
+    function constructOption(option: MenuOption): JSX.Element | null {
+        if (option.permissions) {
+            for(const permission of option.permissions) {
+                if(!(securityState?.permissions.includes(permission))) return null;
+            }
+        }
+
         const text = t(`menu.options.${option.text}.Title`);
 
         if (option.children) {
@@ -49,9 +57,9 @@ export default function BaseHeader() {
                     {
                         authState ? (
                             userState && (
-                                <SubMenu icon={<UserOutlined/>} title={userState.name}>
+                                <SubMenu icon={<UserOutlined />} title={userState.name}>
                                     <Item
-                                        icon={<LogoutOutlined/>}
+                                        icon={<LogoutOutlined />}
                                         onClick={() => {
                                             setAuthState();
                                         }}

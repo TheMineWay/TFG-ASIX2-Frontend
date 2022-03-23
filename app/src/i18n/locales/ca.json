@@ -7,6 +7,9 @@
             "main": {
                 "Title": "Pàgina principal"
             },
+            "logs": {
+                "Title": "Veure logs"
+            },
             "auth": {
                 "Title": "Compte",
                 "login": {
@@ -25,6 +28,21 @@
         "signup": {
             "Title": "Crear un compte",
             "AcceptPP": "He llegit i accepto les"
+        },
+        "logs": {
+            "table": {
+                "columns": {
+                    "Id": "Id",
+                    "User": "Usuari",
+                    "Action": "Acció",
+                    "Date": "Data",
+                    "Ip": "Adreça IP",
+                    "actions": {
+                        "login": "Inici de sessió",
+                        "register": "Creació de compte"
+                    }
+                }
+            }
         }
     },
     "errors": {
@@ -36,6 +54,10 @@
             "403": {
                 "Title": "No pots accedir a la pàgina",
                 "Subtitle": "Per poder accedir a aquesta pàgina necessites estar autenticat"
+            },
+            "401": {
+                "Title": "No pots accedir a la pàgina",
+                "Subtitle": "Per poder accedir a aquesta pàgina necessites tenir permisos"
             }
         },
         "auth": {

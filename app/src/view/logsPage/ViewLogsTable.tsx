@@ -35,6 +35,7 @@ export default function ViewLogsTable(props: Props) {
                         value: action,
                     }))
                 }
+                onFilter={(value, record: any) => value === record.action}
             />
             <Column
                 dataIndex='ip'

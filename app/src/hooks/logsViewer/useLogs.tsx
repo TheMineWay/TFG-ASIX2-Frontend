@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import request from '../../services/api/Request';
+import useAuthState from '../auth/useAuthState';
 
 export enum LogAction {
     login = 'login',
@@ -18,6 +19,7 @@ export default function useLogs() {
 
     const [state, setState] = useState<Log[]>();
     const [loading, setLoading] = useState<boolean>(false);
+    const [authState] = useAuthState();
 
     useEffect(() => {
         fetch();
@@ -25,7 +27,7 @@ export default function useLogs() {
 
     async function fetch() {
         setLoading(true);
-        const result = await request<Log[]>('get', '/actions/admin/logs/readLogs');
+        const result = await request<Log[]>('post', '/actions/admin/logs/readLogs', {}, { authCredentials: authState });
         setState(result);
         setLoading(false);
     }

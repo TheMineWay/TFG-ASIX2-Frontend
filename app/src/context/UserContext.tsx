@@ -23,6 +23,7 @@ export default function UserContext(props: Props) {
 
     useEffect(() => {
         if (authState) fetch();
+        else setSecurityState({permissions: [], roles: []});
     }, [authState]);
 
     async function fetch() {

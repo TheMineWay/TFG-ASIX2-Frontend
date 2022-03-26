@@ -56,8 +56,14 @@ export default function BaseHeader() {
                     }
                     {
                         authState ? (
-                            userState && (
-                                <SubMenu icon={<UserOutlined />} title={userState.name}>
+                            userState && ( // Is logged in
+                                <SubMenu
+                                    icon={<UserOutlined />}
+                                    title={userState.name}
+                                    onTitleClick={() => {
+                                        navigate("/user/profile");
+                                    }}
+                                >
                                     <Item
                                         icon={<LogoutOutlined />}
                                         onClick={() => {
@@ -66,7 +72,7 @@ export default function BaseHeader() {
                                     >{t('common.actions.Logout')}</Item>
                                 </SubMenu>
                             )
-                        ) : (
+                        ) : ( // Is logged out
                             <>
                                 <Item
                                     icon={<LoginOutlined />}

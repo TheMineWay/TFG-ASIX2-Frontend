@@ -87,6 +87,12 @@
                 "Title": "Has d'acceptar les polítiques de privacitat",
                 "Message": "Per poder crear-te un compte has d'acceptar els termes icondicions d'ús."
             }
+        },
+        "http": {
+            "406": {
+                "Title": "Error de format",
+                "Message": "El servidor informa de que el format de les dades no és correcte"
+            }
         }
     },
     "common": {

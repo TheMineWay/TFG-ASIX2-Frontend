@@ -13,11 +13,16 @@ export default function useUserProfile() {
 
     async function update(user: UserEditFormValues) {
         setLoading(true);
-        const result = await request<{
-            user: UserModel
-        }>('post', '/actions/me/updateUser', user, { authCredentials: authState });
-        setUserState(result.user);
-        setLoading(false);
+        try {
+            const result = await request<{
+                user: UserModel
+            }>('post', '/actions/me/updateUser', user, { authCredentials: authState });
+            setUserState(result.user);
+            setLoading(false);
+        } catch(e: any) {
+            setLoading(false);
+            throw e;
+        }
     }
 
     return {

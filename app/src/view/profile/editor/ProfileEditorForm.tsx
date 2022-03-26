@@ -4,17 +4,20 @@ import { useForm } from 'antd/lib/form/Form'
 import { t } from 'i18next';
 import useUserProfile from '../../../hooks/user/useUserProfile';
 import { UserModel } from '../../../services/auth/User.model'
+import notificationErrorDisplay from '../../errors/display/NotificationErrorDisplay';
 import EmailFormItem from '../../form/EmailFormItem'
 import PhoneFormItem from '../../form/PhoneFormItem'
 import ResetFormItem from '../../form/ResetFormItem'
 import SubmitFormItem from '../../form/SubmitFormItem'
 import TextFormItem from '../../form/TextFormItem'
+import UsernameFormItem from '../../form/UsernameFormItem';
 
 export type UserEditFormValues = {
     name: string;
     lastName: string;
     email: string;
     phone: string;
+    login: string;
 }
 
 export default function ProfileEditorForm() {
@@ -24,7 +27,11 @@ export default function ProfileEditorForm() {
     const [form] = useForm<UserEditFormValues>();
 
     const submit = async (values: UserEditFormValues): Promise<void> => {
-        await userProfile.update(values);
+        try {
+            await userProfile.update(values);
+        } catch(e: any) {
+            notificationErrorDisplay(e);
+        }
     }
 
     return (
@@ -52,6 +59,9 @@ export default function ProfileEditorForm() {
                 />
                 <EmailFormItem
                     name='email'
+                />
+                <UsernameFormItem
+                    name='login'
                 />
 
                 <Row gutter={[12, 12]}>

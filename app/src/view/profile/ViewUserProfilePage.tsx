@@ -7,8 +7,6 @@ import ProfileUserCard from './ProfileUserCard';
 export default function ViewUserProfilePage() {
     const [userState] = useUserState();
 
-    console.log(userState);
-
     if (!userState) return <Loading />;
 
     const getFullName = (): string => {

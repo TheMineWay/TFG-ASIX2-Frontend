@@ -1,4 +1,4 @@
-import { Col, Row } from 'antd';
+import { Col as AntCol, Row } from 'antd';
 import useUserState from '../../hooks/user/useUserState';
 import Loading from '../shared/Loading';
 import UserAvatar from '../shared/UserAvatar';
@@ -9,23 +9,42 @@ export default function ViewUserProfilePage() {
 
     console.log(userState);
 
-    if (!userState) return <Loading/>;
+    if (!userState) return <Loading />;
 
     const getFullName = (): string => {
         return userState!.name + (userState!.lastName ? " " + userState!.lastName : '');
-    }
+    };
+
+    const Col = (props: { children: JSX.Element | JSX.Element[] }) => (
+        <AntCol
+            xxl={10}
+            xs={24}
+            md={20}
+            lg={16}
+            xl={12}
+        >
+            {props.children}
+        </AntCol>
+    );
 
     return (
-        <Row gutter={[24,24]}>
-            <Col span={24} style={{textAlign: 'center'}}>
-                <UserAvatar size={128}/>
+        <Row gutter={[24, 24]}>
+            <AntCol span={24} style={{ textAlign: 'center' }}>
+                <UserAvatar size={128} />
                 <h2>{getFullName()}</h2>
-            </Col>
-            <Col
-                xxl={8}
+            </AntCol>
+            <AntCol
+                span={24}
             >
-                <ProfileUserCard/>
-            </Col>
+                <Row
+                    gutter={[24, 24]}
+                    justify='center'
+                >
+                    <Col>
+                        <ProfileUserCard />
+                    </Col>
+                </Row>
+            </AntCol>
         </Row>
     );
 }

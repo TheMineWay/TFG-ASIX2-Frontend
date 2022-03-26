@@ -7,7 +7,7 @@ type LoginResponse = {
     expiresAt: Date;
     user: {
         name: string;
-        lastname: string;
+        lastName: string;
         login: string;
         phone: string;
         isEmailVerified: boolean;
@@ -26,7 +26,7 @@ export default class AuthService {
             expiresAt: string;
             user: {
                 name: string;
-                lastname: string;
+                lastName: string;
                 login: string;
                 phone: string;
                 isEmailVerified: "1" | "0";

@@ -1,6 +1,6 @@
 export type UserModel = {
     name: string;
-    lastname: string;
+    lastName: string;
     login: string;
     phone: string;
     isEmailVerified: boolean;

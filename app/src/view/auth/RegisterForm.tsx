@@ -22,7 +22,7 @@ type Props = {
 
 export type SignupRequest = {
     name: string;
-    lastname: string;
+    lastName: string;
     email: string;
     phone: string;
     password: string;

@@ -112,7 +112,9 @@
             "Login": "Iniciar sessió",
             "Reset": "Esborrar",
             "Logout": "Tancar sessió",
-            "Signup": "Crear compte"
+            "Signup": "Crear compte",
+            "Edit": "Editar",
+            "Save": "Desar"
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat"

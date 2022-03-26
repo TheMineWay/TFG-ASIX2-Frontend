@@ -6,4 +6,5 @@ export type UserModel = {
     isEmailVerified: boolean;
     createdAt: Date;
     id: string;
+    email: string;
 }

@@ -6,7 +6,7 @@ import ProfileEditorDrawer from './editor/ProfileEditorDrawer';
 
 export default function ProfileUserCard() {
 
-    const [ isEditing, setEdit ] = useState<boolean>(false);
+    const [isEditing, setEdit] = useState<boolean>(false);
 
     const EditButton = (): JSX.Element => (
         <Button icon={<EditOutlined />} type='primary' onClick={() => setEdit(true)}>

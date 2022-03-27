@@ -39,20 +39,20 @@ export default function RegisterForm(props: Props) {
     const submit = async (values: SignupRequest) => {
         setLoading(true);
         try {
-            if(!values.policy) {
+            if (!values.policy) {
                 throw {
                     code: 'must-accept-policy',
                     section: 'form',
                 };
             }
 
-            if(values.password !== values.repeatPassword) {
+            if (values.password !== values.repeatPassword) {
                 throw {
                     code: 'passwords-no-match',
                     section: 'form',
                 };
             }
-            
+
             const result = await AuthService.signup(values);
 
             setAuthState({
@@ -61,7 +61,7 @@ export default function RegisterForm(props: Props) {
             });
 
             props.hide();
-        } catch(e: any) {
+        } catch (e: any) {
             notificationErrorDisplay(e);
         }
         setLoading(false);
@@ -133,7 +133,7 @@ export default function RegisterForm(props: Props) {
                     text={t('common.actions.Signup')}
                     loading={loading}
                 />
-                <ResetFormItem/>
+                <ResetFormItem />
             </Space>
         </Form>
     );

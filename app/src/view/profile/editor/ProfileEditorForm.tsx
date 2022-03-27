@@ -29,7 +29,7 @@ export default function ProfileEditorForm() {
     const submit = async (values: UserEditFormValues): Promise<void> => {
         try {
             await userProfile.update(values);
-        } catch(e: any) {
+        } catch (e: any) {
             notificationErrorDisplay(e);
         }
     }

@@ -22,7 +22,7 @@ export default function PasswordEditForm() {
 
     const submit = async (values: PasswordEditFormValues): Promise<void> => {
         try {
-            if(values.newPassword !== values.oldPassword) {
+            if(values.newPassword !== values.newPasswordAgain) {
                 throw {
                     code: 'passwords-no-match',
                     section: 'form',

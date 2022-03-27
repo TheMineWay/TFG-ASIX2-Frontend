@@ -43,6 +43,16 @@
                     }
                 }
             }
+        },
+        "profile": {
+            "editPassword": {
+                "form": {
+                    "OldPassword": "Contrasenya actual",
+                    "NewPassword": "Nova contrasenya",
+                    "NewPasswordAgain": "Repeteix la nova contrasenya",
+                    "UpdatePassword": "Modificar contrasenya"
+                }
+            }
         }
     },
     "errors": {
@@ -120,7 +130,12 @@
             "Logout": "Tancar sessió",
             "Signup": "Crear compte",
             "Edit": "Editar",
-            "Save": "Desar"
+            "Save": "Desar",
+            "ChangePassword": "Modificar contrasenya",
+            "Ok": "Ok",
+            "Done": "Fet",
+            "Cancel": "Cancel·lar",
+            "Exit": "Sortir"
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat"

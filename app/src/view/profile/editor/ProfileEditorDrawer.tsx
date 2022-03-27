@@ -3,13 +3,13 @@ import ProfileEditorForm from "./ProfileEditorForm";
 
 type Props = {
     visible: boolean;
-    setVisibility: (v: boolean) => void;
+    hide: () => void;
 }
 
 export default function ProfileEditorDrawer(props: Props) {
 
     const hide = (): void => {
-        props.setVisibility(false);
+        props.hide();
     }
 
     return (

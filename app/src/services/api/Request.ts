@@ -29,7 +29,11 @@ export default async function request<T>(method: 'get' | 'post', route: string, 
         data: {
             auth,
             data,
-        }
+        },
+        headers: {
+            'Content-Type': 'text/plain',
+            'Accept': '*/*'
+        },
     };
 
     const result: AxiosResponse<RequestResponse<T>> = await axios(config);

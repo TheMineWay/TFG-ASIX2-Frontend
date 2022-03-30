@@ -1,3 +1,3 @@
 export function getBaseUrl(): string {
-    return "http://localhost/api";
+    return "https://devprojecte.000webhostapp.com/api";
 }

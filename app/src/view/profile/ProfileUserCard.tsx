@@ -1,13 +1,14 @@
-import { EditOutlined, KeyOutlined } from '@ant-design/icons';
+import { EditOutlined, FileImageOutlined, KeyOutlined } from '@ant-design/icons';
 import { Button, Card, Space } from 'antd';
 import { t } from 'i18next';
 import { useState } from 'react';
+import AvatarEditorModal from './avatarEditor/AvatarEditorModal';
 import ProfileEditorDrawer from './editor/ProfileEditorDrawer';
 import PasswordEditModal from './passwordEditor/PasswordEditModal';
 
 export default function ProfileUserCard() {
 
-    const [isEditing, setEdit] = useState<null | 'profile' | 'password'>(null);
+    const [isEditing, setEdit] = useState<null | 'profile' | 'password' | 'avatar'>(null);
 
     const hide = (): void => {
         setEdit(null);
@@ -23,10 +24,20 @@ export default function ProfileUserCard() {
         </Button>
     );
 
+    const ProfileImageEditButton = (): JSX.Element => (
+        <Button
+            type='primary'
+            icon={<FileImageOutlined />}
+            onClick={() => setEdit('avatar')}
+        >
+            {t('common.actions.ChangeProfileImage')}
+        </Button>
+    );
+
     const EditPasswordButton = (): JSX.Element => (
         <Button
             type='primary'
-            icon={<KeyOutlined/>}
+            icon={<KeyOutlined />}
             onClick={() => setEdit('password')}
         >
             {t('common.actions.ChangePassword')}
@@ -45,10 +56,16 @@ export default function ProfileUserCard() {
                 hide={hide}
             />
 
+            <AvatarEditorModal
+                visible={isEditing === 'avatar'}
+                hide={hide}
+            />
+
             <Card>
                 <Space>
                     <EditPasswordButton />
                     <EditButton />
+                    <ProfileImageEditButton />
                 </Space>
             </Card>
         </>

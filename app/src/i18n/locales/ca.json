@@ -122,7 +122,12 @@
             "Name": "Nom",
             "LastName": "Cognom",
             "Email": "Correu electrònic",
-            "Phone": "Telèfon"
+            "Phone": "Telèfon",
+            "upload": {
+                "generic": {
+                    "Title": "Prem o arrossega fitxers a sobre per pujar-los"
+                }
+            }
         },
         "actions": {
             "Login": "Iniciar sessió",

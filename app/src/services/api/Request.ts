@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
 import { getBaseUrl } from "../../conf/conf";
 import { AuthCredentials } from "../../context/AuthContext";
 
-type Section = 'auth' | 'http' | 'sess';
+type Section = 'auth' | 'http' | 'sess' | 'frontend';
 
 type RequestResponse<T> = {
     code: string;

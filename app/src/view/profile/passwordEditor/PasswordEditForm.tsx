@@ -15,7 +15,11 @@ type PasswordEditFormValues = {
     newPasswordAgain: string;
 }
 
-export default function PasswordEditForm() {
+type Props = {
+    hide: () => void;
+}
+
+export default function PasswordEditForm(props: Props) {
 
     const [form] = useForm<PasswordEditFormValues>();
     const [ authState ] = useAuthState();
@@ -33,6 +37,8 @@ export default function PasswordEditForm() {
                 old: values.oldPassword,
                 new: values.newPassword,
             }, authState);
+
+            props.hide();
         } catch(e: any) {
             notificationErrorDisplay(e);
         }

@@ -22,7 +22,9 @@ export default function PasswordEditModal(props: Props) {
             ]}
             destroyOnClose
         >
-            <PasswordEditForm/>
+            <PasswordEditForm
+                hide={props.hide}
+            />
         </Modal>
     );
 }

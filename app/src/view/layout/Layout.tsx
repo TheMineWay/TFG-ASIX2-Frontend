@@ -16,7 +16,6 @@ export default function BaseLayout(props: Props) {
     
     useEffect(() => {
         ReactGA.pageview(location.pathname);
-        console.log(location.pathname);
     }, [location.pathname]);
 
     return (

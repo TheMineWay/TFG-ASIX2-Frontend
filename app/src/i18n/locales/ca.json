@@ -127,7 +127,8 @@
                 "generic": {
                     "Title": "Prem o arrossega fitxers a sobre per pujar-los"
                 }
-            }
+            },
+            "Birthdate": "Data de naixement"
         },
         "actions": {
             "Login": "Iniciar sessió",

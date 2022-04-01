@@ -5,6 +5,7 @@ import { t } from 'i18next';
 import useUserProfile from '../../../hooks/user/useUserProfile';
 import { UserModel } from '../../../services/auth/User.model'
 import notificationErrorDisplay from '../../errors/display/NotificationErrorDisplay';
+import DateFormItem from '../../form/DateFormItem';
 import EmailFormItem from '../../form/EmailFormItem'
 import PhoneFormItem from '../../form/PhoneFormItem'
 import ResetFormItem from '../../form/ResetFormItem'
@@ -18,6 +19,7 @@ export type UserEditFormValues = {
     email: string;
     phone: string;
     login: string;
+    birthdate: Date;
 }
 
 export default function ProfileEditorForm() {
@@ -62,6 +64,10 @@ export default function ProfileEditorForm() {
                 />
                 <UsernameFormItem
                     name='login'
+                />
+                <DateFormItem
+                    name='birthdate'
+                    label={t('common.form.Birthdate')}
                 />
 
                 <Row gutter={[12, 12]}>

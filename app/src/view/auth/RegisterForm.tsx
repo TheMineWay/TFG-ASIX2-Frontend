@@ -7,6 +7,7 @@ import useAuthState from '../../hooks/auth/useAuthState';
 import AuthService from '../../services/auth/AuthService';
 import notificationErrorDisplay from '../errors/display/NotificationErrorDisplay';
 import CheckFormItem from '../form/CheckFormItem';
+import DateFormItem from '../form/DateFormItem';
 import EmailFormItem from '../form/EmailFormItem';
 import PasswordFormItem from '../form/PasswordFormItem';
 import PhoneFormItem from '../form/PhoneFormItem';
@@ -29,6 +30,7 @@ export type SignupRequest = {
     repeatPassword: string;
     login: string;
     policy: boolean;
+    birthdate: Date;
 }
 
 export default function RegisterForm(props: Props) {
@@ -106,6 +108,12 @@ export default function RegisterForm(props: Props) {
                     <PhoneFormItem
                         name='phone'
                         required requiredInvisibility
+                    />
+                </Col>
+                <Col span={12}>
+                    <DateFormItem
+                        name='birthdate'
+                        label={t('common.form.Birthdate')}
                     />
                 </Col>
             </Row>

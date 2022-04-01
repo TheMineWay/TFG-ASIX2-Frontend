@@ -141,7 +141,8 @@
             "Ok": "Ok",
             "Done": "Fet",
             "Cancel": "Cancel·lar",
-            "Exit": "Sortir"
+            "Exit": "Sortir",
+            "ChangeProfileImage": "Modificar avatar"
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat"

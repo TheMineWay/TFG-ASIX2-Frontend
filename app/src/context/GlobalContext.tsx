@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import AuthContext, { AuthData } from './AuthContext';
+import AuthContext from './AuthContext';
 import UserContext from './UserContext';
 
 type Props = {

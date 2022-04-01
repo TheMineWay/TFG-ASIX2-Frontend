@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAuthState from '../hooks/auth/useAuthState';
 import request from '../services/api/Request';
-import { UserModel } from '../services/auth/User.model';
+import { processRawUserModel, RawUserModel, UserModel } from '../services/auth/User.model';
 import { Permissions } from '../services/security/permissions';
 
 type Props = {
@@ -28,8 +28,8 @@ export default function UserContext(props: Props) {
 
     async function fetch() {
         if (authState) {
-            const data = await request<{ user: UserModel, permissions: Permissions[], roles: string[] }>('post', '/actions/me/user', {}, { authCredentials: authState });
-            setUserState(data.user);
+            const data = await request<{ user: RawUserModel, permissions: Permissions[], roles: string[] }>('post', '/actions/me/user', {}, { authCredentials: authState });
+            setUserState(processRawUserModel(data.user));
             setSecurityState({
                 permissions: data.permissions,
                 roles: data.roles,

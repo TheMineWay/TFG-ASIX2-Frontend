@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react';
 import request from '../../services/api/Request';
-import { UserModel } from '../../services/auth/User.model';
+import { processRawUserModel, RawUserModel } from '../../services/auth/User.model';
 import { UserEditFormValues } from '../../view/profile/editor/ProfileEditorForm';
 import useAuthState from '../auth/useAuthState';
 import useUserState from './useUserState'
@@ -15,9 +15,9 @@ export default function useUserProfile() {
         setLoading(true);
         try {
             const result = await request<{
-                user: UserModel
+                user: RawUserModel
             }>('post', '/actions/me/updateUser', user, { authCredentials: authState });
-            setUserState(result.user);
+            setUserState(processRawUserModel(result.user));
             setLoading(false);
         } catch(e: any) {
             setLoading(false);

@@ -10,6 +10,9 @@ export type RawInventoryItem = {
     discount: string;
     price: string;
     stock: string;
+    deletedAt: Date;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 export type InventoryItem = {
@@ -19,6 +22,9 @@ export type InventoryItem = {
     discount: number;
     price: number;
     stock: number;
+    deletedAt: Date;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 export function processRawInventoryItem(raw: RawInventoryItem): InventoryItem {
@@ -31,7 +37,7 @@ export function processRawInventoryItem(raw: RawInventoryItem): InventoryItem {
 }
 
 export default function useInventory() {
-    const [inventory, setInventory] = useState<any>();
+    const [inventory, setInventory] = useState<InventoryItem[]>();
     const [loading, setLoading] = useState<boolean>(false);
 
     const [authState] = useAuthState();
@@ -43,8 +49,8 @@ export default function useInventory() {
     async function fetch(): Promise<void> {
         setLoading(true);
         try {
-            const result = await request<{inventory: RawInventoryItem}>('post', '/actions/inventory/inventoryList', {}, { authCredentials: authState });
-            setInventory(processRawInventoryItem(result.inventory));
+            const result = await request<{inventory: RawInventoryItem[]}>('post', '/actions/admin/inventory/inventoryList', {}, { authCredentials: authState });
+            setInventory(result.inventory.map(processRawInventoryItem));
         } catch (e: any) {
             notificationErrorDisplay(e);
         }

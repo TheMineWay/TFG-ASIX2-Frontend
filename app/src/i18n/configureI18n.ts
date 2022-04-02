@@ -8,7 +8,7 @@ export enum Languages {
     es = 'es'
 };
 
-export default function initI18n(language: Languages) {
+export default async function initI18n(language: Languages) {
     const resources = {
         ca: {
             translation: ca,
@@ -18,7 +18,7 @@ export default function initI18n(language: Languages) {
         },
     };
 
-    i18n.init({
+    await i18n.init({
         resources: resources,
         fallbackLng: 'ca',
         lng: language

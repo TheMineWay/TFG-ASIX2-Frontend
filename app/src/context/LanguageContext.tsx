@@ -12,11 +12,16 @@ export default function LanguageContext(props: Props) {
     const [ language, setLanguage ] = useState<Languages>(Languages.ca);
 
     useEffect(() => {
-        initI18n(language);
-    }, [language]);
+        updateLang(Languages.ca);
+    }, []);
+
+    const updateLang = async (lang: Languages) => {
+        await initI18n(lang);
+        setLanguage(lang);
+    }
 
     return (
-        <LanguageDataContext.Provider value={[language, (l) => setLanguage(l)]}>
+        <LanguageDataContext.Provider value={[language, updateLang]}>
             {props.children}
         </LanguageDataContext.Provider>
     )

@@ -12,13 +12,13 @@ const languages: {
     lang: Languages,
     flag?: JSX.Element,
 }[] = [
-        {
-            lang: Languages.ca,
-        },
-        {
-            lang: Languages.es,
-        }
-    ];
+    {
+        lang: Languages.ca,
+    },
+    {
+        lang: Languages.es,
+    }
+];
 
 export default function LanguageDrawer(props: Props) {
 

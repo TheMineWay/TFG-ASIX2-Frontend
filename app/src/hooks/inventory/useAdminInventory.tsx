@@ -17,10 +17,11 @@ export type AdminInventory = {
         loading: boolean;
         fetch: () => Promise<void>;
     };
+    loading: boolean;
     deleteItem: (id: string) => Promise<void>;
     recoverItem: (id: string) => Promise<void>;
     editItem: (id: string, item: InventoryItem) => Promise<void>;
-    createItem: (item: InventoryItem) => Promise<void>;
+    createItem: (item: CreateInventoryItem) => Promise<void>;
 }
 
 export default function useAdminInventory(): AdminInventory {
@@ -69,5 +70,6 @@ export default function useAdminInventory(): AdminInventory {
         recoverItem,
         editItem,
         createItem,
+        loading: inventory.loading,
     }
 }

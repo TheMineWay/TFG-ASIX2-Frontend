@@ -1,36 +1,44 @@
-import { SaveOutlined } from '@ant-design/icons';
-import { Form } from 'antd';
-import { useForm } from 'antd/lib/form/Form';
-import { t } from 'i18next';
-import { AdminInventory } from '../../../hooks/inventory/useAdminInventory';
-import { InventoryItem } from '../../../hooks/inventory/useInventory';
-import DrawerFormActions from '../../form/DrawerFormActions';
-import NumberFormItem from '../../form/NumberFormItem';
-import SlideNumberFormItem from '../../form/SlideNumberFormItem';
-import SubmitFormItem from '../../form/SubmitFormItem';
-import TextAreaFormItem from '../../form/TextAreaFormItem';
-import TextFormItem from '../../form/TextFormItem';
+import { PlusOutlined } from "@ant-design/icons";
+import { Form } from "antd";
+import { useForm } from "antd/lib/form/Form";
+import { t } from "i18next";
+import { useState } from "react";
+import { AdminInventory, CreateInventoryItem } from "../../../hooks/inventory/useAdminInventory";
+import notificationErrorDisplay from "../../errors/display/NotificationErrorDisplay";
+import DrawerFormActions from "../../form/DrawerFormActions";
+import NumberFormItem from "../../form/NumberFormItem";
+import SlideNumberFormItem from "../../form/SlideNumberFormItem";
+import SubmitFormItem from "../../form/SubmitFormItem";
+import TextAreaFormItem from "../../form/TextAreaFormItem";
+import TextFormItem from "../../form/TextFormItem";
 
 type Props = {
-    item: InventoryItem;
     adminInventory: AdminInventory;
 }
 
-export default function AdminInventoryEditForm(props: Props) {
+export default function AdminInventoryAddItemForm(props: Props) {
 
-    const item = props.item;
-    const [form] = useForm<InventoryItem>();
+    const [form] = useForm<CreateInventoryItem>();
+    const [loading, setLoading] = useState<boolean>(false);
 
-    const submit = async (values: InventoryItem) => {
-        await props.adminInventory.editItem(props.item.id, values);
+    const submit = async (item: CreateInventoryItem) => {
+        setLoading(true);
+        try {
+            await props.adminInventory.createItem({
+                ...item,
+                discount: item.discount ?? 0,
+            });
+        } catch(e: any) {
+            notificationErrorDisplay(e);
+        }
+        setLoading(false);
     }
 
     return (
         <Form
             form={form}
-            initialValues={item}
-            layout='vertical'
             onFinish={submit}
+            layout='vertical'
         >
             <TextFormItem
                 required requiredInvisibility
@@ -67,10 +75,10 @@ export default function AdminInventoryEditForm(props: Props) {
 
             <DrawerFormActions
                 submit={<SubmitFormItem
+                    text={t('common.actions.Add')}
+                    icon={<PlusOutlined/>}
+                    loading={loading}
                     block
-                    text={t('common.actions.Save')}
-                    icon={<SaveOutlined />}
-                    loading={props.adminInventory.loading}
                 />}
             />
         </Form>

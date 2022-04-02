@@ -117,7 +117,8 @@
                     "Delete": "Esborrar",
                     "Recover": "Recuperar",
                     "SureToDelete": "Segur que vols esborrar l'ítem?",
-                    "SureToRecover": "Segur que vols recuperar l'ítem?"
+                    "SureToRecover": "Segur que vols recuperar l'ítem?",
+                    "Add": "Afegir ítem"
                 }
             }
         }
@@ -214,7 +215,9 @@
             "Cancel": "Cancel·lar",
             "Exit": "Sortir",
             "ChangeProfileImage": "Modificar avatar",
-            "Send": "Enviar"
+            "Send": "Enviar",
+            "Create": "Crear",
+            "Add": "Afegir"
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat"

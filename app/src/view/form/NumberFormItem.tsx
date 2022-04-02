@@ -1,4 +1,4 @@
-import { Form, Input } from 'antd';
+import { Form, InputNumber } from 'antd';
 
 type Props = {
     name: string;
@@ -8,19 +8,17 @@ type Props = {
     icon?: JSX.Element;
     min?: number;
     max?: number;
-    showCount?: boolean;
 }
 
-export default function TextFormItem(props: Props) {
+export default function NumberFormItem(props: Props) {
     return (
         <Form.Item name={props.name} label={props.label} required={props.required && !props.requiredInvisibility}>
-            <Input
-                showCount={props.showCount}
+            <InputNumber
+                style={{width: '100%'}}
                 prefix={props.icon}
-                type='text'
                 required={props.required}
-                minLength={props.min}
-                maxLength={props.max}
+                min={props.min}
+                max={props.max}
             />
         </Form.Item>
     );

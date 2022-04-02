@@ -1,9 +1,11 @@
 import { Button, Table } from 'antd';
 import { t } from 'i18next';
+import { useState } from 'react';
 import useCoins from '../../hooks/coins/useCoins';
 import useAdminInventory from '../../hooks/inventory/useAdminInventory';
 import { InventoryItem } from '../../hooks/inventory/useInventory';
 import Popconfirm from '../shared/Popconfirm';
+import AdminInventoryEditDrawer from './inventoryEditor/AdminInventoryEditDrawer';
 
 const { Column } = Table;
 
@@ -12,10 +14,14 @@ export default function AdminInventoryViewList() {
     const { inventory, deleteItem, recoverItem } = useAdminInventory();
     const { displayPrice } = useCoins();
 
+    const [editingItem, setEditingItem] = useState<InventoryItem>();
+
     const Actions = (props: { item: InventoryItem }): JSX.Element => {
         return (
             <>
-                <Button type='link'>{t('common.actions.Edit')}</Button>
+                <Button type='link'
+                    onClick={() => setEditingItem(props.item)}
+                >{t('common.actions.Edit')}</Button>
                 {
                     props.item.deletedAt ? (
                         <Popconfirm
@@ -39,6 +45,11 @@ export default function AdminInventoryViewList() {
 
     return (
         <>
+            <AdminInventoryEditDrawer
+                item={editingItem}
+                hide={() => setEditingItem(undefined)}
+            />
+
             <Table
                 loading={inventory.loading}
                 dataSource={inventory.inventory}

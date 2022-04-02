@@ -7,6 +7,9 @@
             "main": {
                 "Title": "Pàgina principal"
             },
+            "logs": {
+                "Title": "Veure logs"
+            },
             "auth": {
                 "Title": "Compte",
                 "login": {
@@ -21,16 +24,128 @@
     "view": {
         "login": {
             "Title": "Iniciar sessió"
+        },
+        "signup": {
+            "Title": "Crear un compte",
+            "AcceptPP": "He llegit i accepto les"
+        },
+        "logs": {
+            "table": {
+                "columns": {
+                    "Id": "Id",
+                    "User": "Usuari",
+                    "Action": "Acció",
+                    "Date": "Data",
+                    "Ip": "Adreça IP",
+                    "actions": {
+                        "login": "Inici de sessió",
+                        "register": "Creació de compte"
+                    }
+                }
+            }
+        },
+        "profile": {
+            "editPassword": {
+                "form": {
+                    "OldPassword": "Contrasenya actual",
+                    "NewPassword": "Nova contrasenya",
+                    "NewPasswordAgain": "Repeteix la nova contrasenya",
+                    "UpdatePassword": "Modificar contrasenya"
+                }
+            }
         }
     },
     "errors": {
-        "404": {
-            "Title": "No s'ha trobat la pàgina",
-            "Subtitle": "La pàgina a la que vols accedir-hi no s'ha trobat o no està disponible"
+        "frontend": {
+            "404": {
+                "Title": "No s'ha trobat la pàgina",
+                "Subtitle": "La pàgina a la que vols accedir-hi no s'ha trobat o no està disponible"
+            },
+            "403": {
+                "Title": "No pots accedir a la pàgina",
+                "Subtitle": "Per poder accedir a aquesta pàgina necessites estar autenticat"
+            },
+            "401": {
+                "Title": "No pots accedir a la pàgina",
+                "Subtitle": "Per poder accedir a aquesta pàgina necessites tenir permisos"
+            }
         },
-        "unauthenticated": {
-            "Title": "No pots accedir a la pàgina",
-            "Subtitle": "Per poder accedir a aquesta pàgina necessites estar autenticat"
+        "auth": {
+            "404": {
+                "Title": "Usuari no trobat",
+                "Message": "L'usuari proporcionat no s'ha trobat al sistema."
+            },
+            "403": {
+                "Title": "Credencials fallides",
+                "Message": "Les credencials proporcionades no són correctes."
+            },
+            "login-in-use": {
+                "Title": "Credencials en ús",
+                "Message": "Ja existeix un/a usuari/a amb aquest login."
+            },
+            "email-in-use": {
+                "Title": "Credencials en ús",
+                "Message": "Ja existeix un/a usuari/a amb aquest correu electrónic."
+            }
+        },
+        "form": {
+            "passwords-no-match": {
+                "Title": "Les contrasenyes no coincideixen",
+                "Message": "Les contrasenyes introduides han de coincidir"
+            },
+            "must-accept-policy": {
+                "Title": "Has d'acceptar les polítiques de privacitat",
+                "Message": "Per poder crear-te un compte has d'acceptar els termes icondicions d'ús."
+            }
+        },
+        "http": {
+            "406": {
+                "Title": "Error de format",
+                "Message": "El servidor informa de que el format de les dades no és correcte"
+            }
+        }
+    },
+    "common": {
+        "form": {
+            "Username": "Nom d'usuari",
+            "Password": "Contrasenya",
+            "RememberMe": "Recorda'm",
+            "RepeatPassword": "Repeteix la contrasenya",
+            "password": {
+                "TooShort": "Massa  curta",
+                "TooWeak": "Massa fluixa",
+                "Weak": "Fluixa",
+                "Okay": "Acceptable",
+                "Good": "Bona",
+                "Strong": "Forta"
+            },
+            "Name": "Nom",
+            "LastName": "Cognom",
+            "Email": "Correu electrònic",
+            "Phone": "Telèfon",
+            "upload": {
+                "generic": {
+                    "Title": "Prem o arrossega fitxers a sobre per pujar-los"
+                }
+            },
+            "Birthdate": "Data de naixement"
+        },
+        "actions": {
+            "Login": "Iniciar sessió",
+            "Reset": "Esborrar",
+            "Logout": "Tancar sessió",
+            "Signup": "Crear compte",
+            "Edit": "Editar",
+            "Save": "Desar",
+            "ChangePassword": "Modificar contrasenya",
+            "Ok": "Ok",
+            "Done": "Fet",
+            "Cancel": "Cancel·lar",
+            "Exit": "Sortir",
+            "ChangeProfileImage": "Modificar avatar"
+        },
+        "other": {
+            "privacyPolicy": "polítiques de privacitat"
         }
     }
 }

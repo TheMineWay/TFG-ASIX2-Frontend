@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import AuthContext, { AuthData } from './AuthContext';
+import AuthContext from './AuthContext';
+import UserContext from './UserContext';
 
 type Props = {
     children: JSX.Element;
@@ -8,7 +8,9 @@ type Props = {
 export default function GlobalContext(props: Props) {
     return (
         <AuthContext>
-            {props.children}
+            <UserContext>
+                {props.children}
+            </UserContext>
         </AuthContext>
     )
 }

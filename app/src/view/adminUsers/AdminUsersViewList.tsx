@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { UserAdmin } from '../../hooks/user/useUserAdmin';
 import { UserModel } from '../../services/auth/User.model';
 import { listFilter } from '../../services/filters/genericFilter';
+import AdminUserProfileEditorDrawer from './userEditor/AdminUserProfileEditorDrawer';
 
 const { Column } = Table;
 
@@ -19,6 +20,8 @@ export default function AdminUsersViewList(props: Props) {
     const [searchFilter, setSearchFilter] = useState<string>('');
     const usersList = props.userAdmin.userList.list?.filter((u) => listFilter([u.name, u.lastName, u.email, u.login], searchFilter));
     const loading = props.userAdmin.loading;
+
+    const [ userEditor, setUserEditor ] = useState<UserModel>();
 
     const Filters = (): JSX.Element => {
 
@@ -78,69 +81,78 @@ export default function AdminUsersViewList(props: Props) {
         return (
             <Space>
                 <Delete />
-                <Button type='link'>{tr('view.userAdmin.userTable.actions.Edit')}</Button>
+                <Button type='link'
+                    onClick={() => setUserEditor(props.row)}
+                >{tr('view.userAdmin.userTable.actions.Edit')}</Button>
             </Space>
         );
     };
 
     return (
-        <Row gutter={[24, 24]}>
-            <Col span={24}>
-                <Card>
-                    <Filters />
-                </Card>
-            </Col>
-            <Col span={24}>
-                <Table
-                    dataSource={usersList}
-                    loading={loading}
-                >
-                    <Column
-                        title={t('Avatar')}
-                        render={() => <Avatar icon={<UserOutlined />} />}
-                    />
-                    <Column
-                        title={t('Id')}
-                        dataIndex='id'
-                    />
-                    <Column
-                        title={t('Login')}
-                        dataIndex='login'
-                    />
-                    <Column
-                        title={t('Name')}
-                        render={(r: any, record: UserModel) => `${record.name} ${record.lastName}`}
-                    />
-                    <Column
-                        title={t('Email')}
-                        dataIndex='email'
-                    />
-                    <Column
-                        title={t('CreatedAt')}
-                        dataIndex='createdAt'
-                    />
-                    <Column
-                        title={t('DeletedAt')}
-                        dataIndex='deletedAt'
-                        filters={[
-                            {
-                                text: tr('view.userAdmin.userTable.filters.NeverDeleted'),
-                                value: 'neverDeleted',
-                            },
-                            {
-                                text: tr('view.userAdmin.userTable.filters.Deleted'),
-                                value: 'deleted',
-                            },
-                        ]}
-                        onFilter={(v, r: UserModel) => (!r.deletedAt && v === 'neverDeleted') || (r.deletedAt && v === 'deleted') ? true : false}
-                        defaultFilteredValue={['neverDeleted']}
-                    />
-                    <Column
-                        title={t('Actions')}
-                        render={(v, row: UserModel) => <UserActions row={row} />}
-                    />
-                </Table>
-            </Col>
-        </Row>
+        <>
+            <AdminUserProfileEditorDrawer
+                user={userEditor}
+                hide={() => setUserEditor(undefined)}
+            />
+
+            <Row gutter={[24, 24]}>
+                <Col span={24}>
+                    <Card>
+                        <Filters />
+                    </Card>
+                </Col>
+                <Col span={24}>
+                    <Table
+                        dataSource={usersList}
+                        loading={loading}
+                    >
+                        <Column
+                            title={t('Avatar')}
+                            render={() => <Avatar icon={<UserOutlined />} />}
+                        />
+                        <Column
+                            title={t('Id')}
+                            dataIndex='id'
+                        />
+                        <Column
+                            title={t('Login')}
+                            dataIndex='login'
+                        />
+                        <Column
+                            title={t('Name')}
+                            render={(r: any, record: UserModel) => `${record.name} ${record.lastName}`}
+                        />
+                        <Column
+                            title={t('Email')}
+                            dataIndex='email'
+                        />
+                        <Column
+                            title={t('CreatedAt')}
+                            dataIndex='createdAt'
+                        />
+                        <Column
+                            title={t('DeletedAt')}
+                            dataIndex='deletedAt'
+                            filters={[
+                                {
+                                    text: tr('view.userAdmin.userTable.filters.NeverDeleted'),
+                                    value: 'neverDeleted',
+                                },
+                                {
+                                    text: tr('view.userAdmin.userTable.filters.Deleted'),
+                                    value: 'deleted',
+                                },
+                            ]}
+                            onFilter={(v, r: UserModel) => (!r.deletedAt && v === 'neverDeleted') || (r.deletedAt && v === 'deleted') ? true : false}
+                            defaultFilteredValue={['neverDeleted']}
+                        />
+                        <Column
+                            title={t('Actions')}
+                            render={(v, row: UserModel) => <UserActions row={row} />}
+                        />
+                    </Table>
+                </Col>
+            </Row>
+        </>
     );
 }

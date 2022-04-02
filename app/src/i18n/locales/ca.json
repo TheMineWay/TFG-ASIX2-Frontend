@@ -79,11 +79,16 @@
                     "Name": "Nom",
                     "Email": "Correu electrònic",
                     "DeletedAt": "Esborrat el",
-                    "CreatedAt": "Creat el"
+                    "CreatedAt": "Creat el",
+                    "Actions": "Accions"
                 },
                 "filters": {
                     "NeverDeleted": "No esborrats",
                     "Deleted": "Esborrats"
+                },
+                "actions": {
+                    "Delete": "Esborrar",
+                    "Edit": "Editar"
                 }
             }
         }

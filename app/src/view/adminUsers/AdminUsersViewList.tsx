@@ -1,5 +1,5 @@
-import { SearchOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Card, Col, Input, Row, Space, Table } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { Avatar, Button, Card, Col, Input, Row, Space, Table } from 'antd';
 import { t as tr } from 'i18next';
 import { useState } from 'react';
 import { UserAdmin } from '../../hooks/user/useUserAdmin';
@@ -16,7 +16,7 @@ export default function AdminUsersViewList(props: Props) {
 
     const t = (id: string): string => tr(`view.userAdmin.userTable.headers.${id}`);
 
-    const [ searchFilter, setSearchFilter ] = useState<string>('');
+    const [searchFilter, setSearchFilter] = useState<string>('');
     const usersList = props.userAdmin.userList.list?.filter((u) => listFilter([u.name, u.lastName, u.email, u.login], searchFilter));
     const loading = props.userAdmin.userList.loading;
 
@@ -44,11 +44,18 @@ export default function AdminUsersViewList(props: Props) {
         return (
             <Row gutter={[12, 12]}>
                 <FCol>
-                    <SearchFilter/>
+                    <SearchFilter />
                 </FCol>
             </Row>
         );
     };
+
+    const UserActions = (props: { row: UserModel }): JSX.Element => (
+        <Space>
+            <Button type='link'>{tr('view.userAdmin.userTable.actions.Delete')}</Button>
+            <Button type='link'>{tr('view.userAdmin.userTable.actions.Edit')}</Button>
+        </Space>
+    );
 
     return (
         <Row gutter={[24, 24]}>
@@ -64,7 +71,7 @@ export default function AdminUsersViewList(props: Props) {
                 >
                     <Column
                         title={t('Avatar')}
-                        render={() => <Avatar icon={<UserOutlined/>}/>}
+                        render={() => <Avatar icon={<UserOutlined />} />}
                     />
                     <Column
                         title={t('Id')}
@@ -101,6 +108,10 @@ export default function AdminUsersViewList(props: Props) {
                         ]}
                         onFilter={(v, r: UserModel) => (!r.deletedAt && v === 'neverDeleted') || (r.deletedAt && v === 'deleted') ? true : false}
                         defaultFilteredValue={['neverDeleted']}
+                    />
+                    <Column
+                        title={t('Actions')}
+                        render={(v, row: UserModel) => <UserActions row={row} />}
                     />
                 </Table>
             </Col>

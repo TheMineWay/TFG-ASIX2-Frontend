@@ -1,0 +1,151 @@
+{
+    "actions": {
+        "GoHome": "Volver a la página principal"
+    },
+    "menu": {
+        "options": {
+            "main": {
+                "Title": "Página principal"
+            },
+            "logs": {
+                "Title": "Ver registros"
+            },
+            "auth": {
+                "Title": "Cuenta",
+                "login": {
+                    "Title": "Iniciar sesión"
+                },
+                "signup": {
+                    "Title": "Crear cuenta"
+                }
+            }
+        }
+    },
+    "view": {
+        "login": {
+            "Title": "Iniciar sesión"
+        },
+        "signup": {
+            "Title": "Crear una cuenta",
+            "AcceptPP": "He leido y acepto las"
+        },
+        "logs": {
+            "table": {
+                "columns": {
+                    "Id": "Id",
+                    "User": "Usuario",
+                    "Action": "Acción",
+                    "Date": "Fecha",
+                    "Ip": "Dirección IP",
+                    "actions": {
+                        "login": "Inicio de sesión",
+                        "register": "Creación de cuenta"
+                    }
+                }
+            }
+        },
+        "profile": {
+            "editPassword": {
+                "form": {
+                    "OldPassword": "Contraseña actual",
+                    "NewPassword": "Nueva contraseña",
+                    "NewPasswordAgain": "Repite la nueva contraseña",
+                    "UpdatePassword": "Modificar contraseña"
+                }
+            }
+        }
+    },
+    "errors": {
+        "frontend": {
+            "404": {
+                "Title": "Página no encontrada",
+                "Subtitle": "La página a la que quieres acceder no se ha encontrado o no está disponible"
+            },
+            "403": {
+                "Title": "No puedes acceder a la página",
+                "Subtitle": "Para poder acceder a esta página necesitas estar autenticado"
+            },
+            "401": {
+                "Title": "No puedes acceder a la página",
+                "Subtitle": "Para poder acceder a esta página necesitas tener permisos"
+            }
+        },
+        "auth": {
+            "404": {
+                "Title": "Usuario no encontrado",
+                "Message": "El usuario proporcionado no se ha encontrado en el sistema."
+            },
+            "403": {
+                "Title": "Credenciales erróneas",
+                "Message": "Las credenciales proporcionadas no son correctas."
+            },
+            "login-in-use": {
+                "Title": "Credenciales en uso",
+                "Message": "Ya existe un/a usuario/a con este login."
+            },
+            "email-in-use": {
+                "Title": "Credenciales en uso",
+                "Message": "Ya existe un/a usuario/a con este correo electrónico."
+            }
+        },
+        "form": {
+            "passwords-no-match": {
+                "Title": "Las contraseñas no coinciden",
+                "Message": "Las contraseñas introducidas no coinciden"
+            },
+            "must-accept-policy": {
+                "Title": "Debes aceptar las políticas de privacidad",
+                "Message": "Para poder crearte una cuenta deber aceptar los términos y condiciones de uso."
+            }
+        },
+        "http": {
+            "406": {
+                "Title": "Error de formato",
+                "Message": "El servidor informa de que el formato de los datos no es correcto"
+            }
+        }
+    },
+    "common": {
+        "form": {
+            "Username": "Nombre de usuario",
+            "Password": "Contraseña",
+            "RememberMe": "Recuérdame",
+            "RepeatPassword": "Repite la contraseña",
+            "password": {
+                "TooShort": "Demasiado corta",
+                "TooWeak": "Demasiado débil",
+                "Weak": "Débil",
+                "Okay": "Aceptable",
+                "Good": "Buena",
+                "Strong": "Fuerte"
+            },
+            "Name": "Nombre",
+            "LastName": "Apellido",
+            "Email": "Correo electrónico",
+            "Phone": "Teléfono",
+            "upload": {
+                "generic": {
+                    "Title": "Pulsa o arrastra archivos para subirlos"
+                }
+            },
+            "Birthdate": "Fecha de nacimiento"
+        },
+        "actions": {
+            "Login": "Iniciar sesión",
+            "Reset": "Eliminar",
+            "Logout": "Cerrar sesión",
+            "Signup": "Crear cuenta",
+            "Edit": "Editar",
+            "Save": "Guardar",
+            "ChangePassword": "Modificar contraseña",
+            "Ok": "Ok",
+            "Done": "Hecho",
+            "Cancel": "Cancelar",
+            "Exit": "Salir",
+            "ChangeProfileImage": "Modificar avatar"
+        },
+        "other": {
+            "privacyPolicy": "políticas de privacidad"
+        }
+    }
+}

@@ -1,3 +1,4 @@
+import { AuthCredentials } from "../../context/AuthContext";
 import { LoginRequest } from "../../view/auth/LoginForm";
 import { SignupRequest } from "../../view/auth/RegisterForm";
 import request from "../api/Request";
@@ -7,7 +8,7 @@ type LoginResponse = {
     expiresAt: Date;
     user: {
         name: string;
-        lastname: string;
+        lastName: string;
         login: string;
         phone: string;
         isEmailVerified: boolean;
@@ -26,7 +27,7 @@ export default class AuthService {
             expiresAt: string;
             user: {
                 name: string;
-                lastname: string;
+                lastName: string;
                 login: string;
                 phone: string;
                 isEmailVerified: "1" | "0";
@@ -59,5 +60,9 @@ export default class AuthService {
             ...result,
             expiresAt: new Date(Date.parse(result.expiresAt))
         };
+    }
+
+    static async updatePassword(data: { old: string, new: string }, authCredentials?: AuthCredentials): Promise<void> {
+        const result = await request<{}>('post', '/actions/me/updatePassword', data, { authCredentials });
     }
 }

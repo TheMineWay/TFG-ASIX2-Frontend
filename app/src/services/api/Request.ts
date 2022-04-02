@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
 import { getBaseUrl } from "../../conf/conf";
 import { AuthCredentials } from "../../context/AuthContext";
 
-type Section = 'auth' | 'http' | 'sess';
+type Section = 'auth' | 'http' | 'sess' | 'frontend';
 
 type RequestResponse<T> = {
     code: string;
@@ -29,7 +29,11 @@ export default async function request<T>(method: 'get' | 'post', route: string, 
         data: {
             auth,
             data,
-        }
+        },
+        headers: {
+            'Content-Type': 'text/plain',
+            'Accept': '*/*'
+        },
     };
 
     const result: AxiosResponse<RequestResponse<T>> = await axios(config);

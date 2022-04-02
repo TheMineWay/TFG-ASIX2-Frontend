@@ -7,6 +7,7 @@ import useAuthState from '../../hooks/auth/useAuthState';
 import AuthService from '../../services/auth/AuthService';
 import notificationErrorDisplay from '../errors/display/NotificationErrorDisplay';
 import CheckFormItem from '../form/CheckFormItem';
+import DateFormItem from '../form/DateFormItem';
 import EmailFormItem from '../form/EmailFormItem';
 import PasswordFormItem from '../form/PasswordFormItem';
 import PhoneFormItem from '../form/PhoneFormItem';
@@ -22,13 +23,14 @@ type Props = {
 
 export type SignupRequest = {
     name: string;
-    lastname: string;
+    lastName: string;
     email: string;
     phone: string;
     password: string;
     repeatPassword: string;
     login: string;
     policy: boolean;
+    birthdate: Date;
 }
 
 export default function RegisterForm(props: Props) {
@@ -39,20 +41,20 @@ export default function RegisterForm(props: Props) {
     const submit = async (values: SignupRequest) => {
         setLoading(true);
         try {
-            if(!values.policy) {
+            if (!values.policy) {
                 throw {
                     code: 'must-accept-policy',
                     section: 'form',
                 };
             }
 
-            if(values.password !== values.repeatPassword) {
+            if (values.password !== values.repeatPassword) {
                 throw {
                     code: 'passwords-no-match',
                     section: 'form',
                 };
             }
-            
+
             const result = await AuthService.signup(values);
 
             setAuthState({
@@ -61,7 +63,7 @@ export default function RegisterForm(props: Props) {
             });
 
             props.hide();
-        } catch(e: any) {
+        } catch (e: any) {
             notificationErrorDisplay(e);
         }
         setLoading(false);
@@ -108,6 +110,12 @@ export default function RegisterForm(props: Props) {
                         required requiredInvisibility
                     />
                 </Col>
+                <Col span={12}>
+                    <DateFormItem
+                        name='birthdate'
+                        label={t('common.form.Birthdate')}
+                    />
+                </Col>
             </Row>
             <UsernameFormItem
                 name='login'
@@ -133,7 +141,7 @@ export default function RegisterForm(props: Props) {
                     text={t('common.actions.Signup')}
                     loading={loading}
                 />
-                <ResetFormItem/>
+                <ResetFormItem />
             </Space>
         </Form>
     );

@@ -34,9 +34,10 @@ export default function AdminUsersViewList(props: Props) {
         );
 
         const SearchFilter = (): JSX.Element => (
-            <Input
-                prefix={<SearchOutlined/>}
+            <Input.Search
                 allowClear
+                defaultValue={searchFilter}
+                onSearch={(v) => setSearchFilter(v)}
             />
         );
 

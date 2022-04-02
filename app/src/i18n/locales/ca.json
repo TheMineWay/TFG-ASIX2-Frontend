@@ -183,7 +183,8 @@
             "Done": "Fet",
             "Cancel": "Cancel·lar",
             "Exit": "Sortir",
-            "ChangeProfileImage": "Modificar avatar"
+            "ChangeProfileImage": "Modificar avatar",
+            "Send": "Enviar"
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat"

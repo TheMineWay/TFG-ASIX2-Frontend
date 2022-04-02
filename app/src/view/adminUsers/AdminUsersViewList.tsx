@@ -91,6 +91,7 @@ export default function AdminUsersViewList(props: Props) {
     return (
         <>
             <AdminUserProfileEditorDrawer
+                userAdmin={props.userAdmin}
                 user={userEditor}
                 hide={() => setUserEditor(undefined)}
             />

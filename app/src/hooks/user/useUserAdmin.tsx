@@ -2,6 +2,7 @@ import moment from 'moment';
 import { useEffect, useState } from 'react'
 import request from '../../services/api/Request';
 import { processRawUserModel, RawUserModel, UserModel } from '../../services/auth/User.model'
+import { AdminUserEditValues } from '../../view/adminUsers/userEditor/AdminUserProfileEditorForm';
 import notificationErrorDisplay from '../../view/errors/display/NotificationErrorDisplay';
 import useAuthState from '../auth/useAuthState';
 
@@ -14,6 +15,7 @@ export type UserAdmin = {
     loading: boolean,
     deleteUser: (id: string) => Promise<void>;
     recoverUser: (id: string) => Promise<void>;
+    updateUser: (id: string, values: AdminUserEditValues) => Promise<void>;
 }
 
 export default function useUserAdmin(): UserAdmin {
@@ -49,6 +51,12 @@ export default function useUserAdmin(): UserAdmin {
         await fetchUserList();
     }
 
+    async function updateUser(id: string, values: AdminUserEditValues): Promise<void> {
+        await request<{}>('post', '/actions/admin/users/editUser', { userId: id, values }, { authCredentials: authState });
+        
+        await fetchUserList();
+    }
+
     return {
         userList: {
             loading: userListLoading,
@@ -58,5 +66,6 @@ export default function useUserAdmin(): UserAdmin {
         loading: userListLoading,
         deleteUser,
         recoverUser,
+        updateUser,
     };
 }

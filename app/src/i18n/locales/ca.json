@@ -90,8 +90,12 @@
                     "Delete": "Esborrar",
                     "Edit":"Editar",
                     "Recover": "Recuperar",
+                    "Ban": "Bloquejar",
+                    "Unban": "Desbloquejar",
                     "SureToDelete": "Segur que vols esborrar l'usuari?",
-                    "SureToRecover": "Segur que vols restaurar l'usuari?"
+                    "SureToRecover": "Segur que vols restaurar l'usuari?",
+                    "SureToBan": "Segur que vols bloquejar l'usuari?",
+                    "SureToUnban": "Segur que vols desbloquejar l'usuari?"
                 }
             }
         }

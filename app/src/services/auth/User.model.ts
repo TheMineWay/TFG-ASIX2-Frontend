@@ -12,6 +12,7 @@ export type UserModel = {
     id: string;
     email: string;
     birthdate: Moment;
+    isBanned: boolean;
 }
 
 export type RawUserModel = {
@@ -26,11 +27,13 @@ export type RawUserModel = {
     id: string;
     email: string;
     birthdate: string;
+    isBanned: '1' | '0';
 }
 
 export function processRawUserModel(raw: RawUserModel): UserModel {
     return {
         ...raw,
+        isBanned: raw.isBanned === '1' ? true : false,
         birthdate: moment(new Date(Date.parse(raw.birthdate)))
     };
 }

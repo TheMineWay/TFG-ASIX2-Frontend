@@ -16,6 +16,8 @@ export type UserAdmin = {
     deleteUser: (id: string) => Promise<void>;
     recoverUser: (id: string) => Promise<void>;
     updateUser: (id: string, values: AdminUserEditValues) => Promise<void>;
+    banUser: (id: string) => Promise<void>;
+    unbanUser: (id: string) => Promise<void>;
 }
 
 export default function useUserAdmin(): UserAdmin {
@@ -57,6 +59,18 @@ export default function useUserAdmin(): UserAdmin {
         await fetchUserList();
     }
 
+    async function banUser(id: string): Promise<void> {
+        await request<{}>('post', '/actions/admin/users/banUser', { userId: id }, { authCredentials: authState });
+
+        await fetchUserList();
+    }
+
+    async function unbanUser(id: string): Promise<void> {
+        await request<{}>('post', '/actions/admin/users/unbanUser', { userId: id }, { authCredentials: authState });
+
+        await fetchUserList();
+    }
+
     return {
         userList: {
             loading: userListLoading,
@@ -67,5 +81,7 @@ export default function useUserAdmin(): UserAdmin {
         deleteUser,
         recoverUser,
         updateUser,
+        banUser,
+        unbanUser,
     };
 }

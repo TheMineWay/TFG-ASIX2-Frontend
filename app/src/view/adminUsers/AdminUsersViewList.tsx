@@ -21,7 +21,7 @@ export default function AdminUsersViewList(props: Props) {
     const usersList = props.userAdmin.userList.list?.filter((u) => listFilter([u.name, u.lastName, u.email, u.login], searchFilter));
     const loading = props.userAdmin.loading;
 
-    const [ userEditor, setUserEditor ] = useState<UserModel>();
+    const [userEditor, setUserEditor] = useState<UserModel>();
 
     const Filters = (): JSX.Element => {
 
@@ -61,6 +61,14 @@ export default function AdminUsersViewList(props: Props) {
         await props.userAdmin.recoverUser(id);
     }
 
+    const banUser = async (id: string) => {
+        props.userAdmin.banUser(id);
+    }
+
+    const unbanUser = async (id: string) => {
+        props.userAdmin.unbanUser(id);
+    }
+
     const UserActions = (props: { row: UserModel }): JSX.Element => {
         const Delete = (): JSX.Element => props.row.deletedAt ? (
             <Popconfirm
@@ -78,12 +86,29 @@ export default function AdminUsersViewList(props: Props) {
             </Popconfirm >
         );
 
+        const Ban = (): JSX.Element => props.row.isBanned ? (
+            <Popconfirm
+                onConfirm={() => unbanUser(props.row.id)}
+                title={tr('view.userAdmin.userTable.actions.SureToUnban')}
+            >
+                <Button type='link'>{tr('view.userAdmin.userTable.actions.Unban')}</Button>
+            </Popconfirm>
+        ) : (
+            <Popconfirm
+                onConfirm={() => banUser(props.row.id)}
+                title={tr('view.userAdmin.userTable.actions.SureToBan')}
+            >
+                <Button type='link'>{tr('view.userAdmin.userTable.actions.Ban')}</Button>
+            </Popconfirm>
+        );
+
         return (
             <Space>
-                <Delete />
                 <Button type='link'
                     onClick={() => setUserEditor(props.row)}
                 >{tr('view.userAdmin.userTable.actions.Edit')}</Button>
+                <Delete />
+                <Ban />
             </Space>
         );
     };

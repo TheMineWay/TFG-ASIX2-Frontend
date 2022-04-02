@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useEffect, useState } from 'react'
 import request from '../../services/api/Request';
 import { processRawUserModel, RawUserModel, UserModel } from '../../services/auth/User.model'
@@ -9,14 +10,16 @@ export type UserAdmin = {
         loading: boolean;
         list?: UserModel[];
         fetch: () => Promise<void>;
-    }
+    },
+    loading: boolean,
+    deleteUser: (id: string) => Promise<void>;
 }
 
 export default function useUserAdmin(): UserAdmin {
-    const [ authState ] = useAuthState();
+    const [authState] = useAuthState();
 
-    const [ userList, setUserList ] = useState<UserModel[]>();
-    const [ userListLoading, setUserListLoading ] = useState<boolean>(false);
+    const [userList, setUserList] = useState<UserModel[]>();
+    const [userListLoading, setUserListLoading] = useState<boolean>(false);
 
     useEffect(() => {
         fetchUserList();
@@ -25,12 +28,18 @@ export default function useUserAdmin(): UserAdmin {
     async function fetchUserList(): Promise<void> {
         setUserListLoading(true);
         try {
-            const result = await request<{users: RawUserModel[]}>('post', '/actions/admin/users/usersList', {}, { authCredentials: authState });
+            const result = await request<{ users: RawUserModel[] }>('post', '/actions/admin/users/usersList', {}, { authCredentials: authState });
             setUserList(result.users.map(processRawUserModel));
-        } catch(e: any) {
+        } catch (e: any) {
             notificationErrorDisplay(e);
         }
         setUserListLoading(false);
+    }
+
+    async function deleteUser(id: string): Promise<void> {
+        await request<{}>('post', '/actions/admin/users/deleteUser', { userId: id }, { authCredentials: authState });
+
+        await fetchUserList();
     }
 
     return {
@@ -39,5 +48,7 @@ export default function useUserAdmin(): UserAdmin {
             list: userList,
             fetch: fetchUserList,
         },
+        loading: userListLoading,
+        deleteUser,
     };
 }

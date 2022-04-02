@@ -88,7 +88,8 @@
                 },
                 "actions": {
                     "Delete": "Esborrar",
-                    "Edit": "Editar"
+                    "Edit":"Editar",
+                    "SureToDelete": "Segur que vols esborrar l'usuari?"
                 }
             }
         }

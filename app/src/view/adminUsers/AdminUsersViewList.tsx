@@ -1,5 +1,5 @@
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, Button, Card, Col, Input, Row, Space, Table } from 'antd';
+import { Avatar, Button, Card, Col, Input, Popconfirm, Row, Space, Table } from 'antd';
 import { t as tr } from 'i18next';
 import { useState } from 'react';
 import { UserAdmin } from '../../hooks/user/useUserAdmin';
@@ -18,7 +18,7 @@ export default function AdminUsersViewList(props: Props) {
 
     const [searchFilter, setSearchFilter] = useState<string>('');
     const usersList = props.userAdmin.userList.list?.filter((u) => listFilter([u.name, u.lastName, u.email, u.login], searchFilter));
-    const loading = props.userAdmin.userList.loading;
+    const loading = props.userAdmin.loading;
 
     const Filters = (): JSX.Element => {
 
@@ -50,9 +50,18 @@ export default function AdminUsersViewList(props: Props) {
         );
     };
 
+    const deleteUser = async (id: string) => {
+        await props.userAdmin.deleteUser(id);
+    }
+
     const UserActions = (props: { row: UserModel }): JSX.Element => (
         <Space>
-            <Button type='link'>{tr('view.userAdmin.userTable.actions.Delete')}</Button>
+            <Popconfirm
+                title={tr('view.userAdmin.userTable.actions.SureToDelete')}
+                onConfirm={() => deleteUser(props.row.id)}
+            >
+                <Button type='link'>{tr('view.userAdmin.userTable.actions.Delete')}</Button>
+            </Popconfirm>
             <Button type='link'>{tr('view.userAdmin.userTable.actions.Edit')}</Button>
         </Space>
     );

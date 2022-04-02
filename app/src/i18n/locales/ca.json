@@ -73,10 +73,13 @@
         "userAdmin": {
             "userTable": {
                 "headers": {
+                    "Avatar": "Avatar",
                     "Id": "Id",
+                    "Login": "login",
                     "Name": "Nom",
                     "Email": "Correu electrònic",
-                    "DeletedAt": "Esborrat el"
+                    "DeletedAt": "Esborrat el",
+                    "CreatedAt": "Creat el"
                 },
                 "filters": {
                     "NeverDeleted": "No esborrats",

@@ -1,5 +1,5 @@
-import { SearchOutlined } from '@ant-design/icons';
-import { Card, Col, Input, Row, Space, Table } from 'antd';
+import { SearchOutlined, UserOutlined } from '@ant-design/icons';
+import { Avatar, Card, Col, Input, Row, Space, Table } from 'antd';
 import { t as tr } from 'i18next';
 import { useState } from 'react';
 import { UserAdmin } from '../../hooks/user/useUserAdmin';
@@ -17,7 +17,7 @@ export default function AdminUsersViewList(props: Props) {
     const t = (id: string): string => tr(`view.userAdmin.userTable.headers.${id}`);
 
     const [ searchFilter, setSearchFilter ] = useState<string>('');
-    const usersList = props.userAdmin.userList.list?.filter((u) => listFilter([u.name, u.lastName, u.email], searchFilter));
+    const usersList = props.userAdmin.userList.list?.filter((u) => listFilter([u.name, u.lastName, u.email, u.login], searchFilter));
     const loading = props.userAdmin.userList.loading;
 
     const Filters = (): JSX.Element => {
@@ -63,8 +63,16 @@ export default function AdminUsersViewList(props: Props) {
                     loading={loading}
                 >
                     <Column
+                        title={t('Avatar')}
+                        render={() => <Avatar icon={<UserOutlined/>}/>}
+                    />
+                    <Column
                         title={t('Id')}
                         dataIndex='id'
+                    />
+                    <Column
+                        title={t('Login')}
+                        dataIndex='login'
                     />
                     <Column
                         title={t('Name')}
@@ -73,6 +81,10 @@ export default function AdminUsersViewList(props: Props) {
                     <Column
                         title={t('Email')}
                         dataIndex='email'
+                    />
+                    <Column
+                        title={t('CreatedAt')}
+                        dataIndex='createdAt'
                     />
                     <Column
                         title={t('DeletedAt')}

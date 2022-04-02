@@ -7,6 +7,8 @@ export type UserModel = {
     phone: string;
     isEmailVerified: boolean;
     createdAt: Date;
+    updatedAt: Date;
+    deletedAt: Date;
     id: string;
     email: string;
     birthdate: Moment;
@@ -19,6 +21,8 @@ export type RawUserModel = {
     phone: string;
     isEmailVerified: boolean;
     createdAt: Date;
+    updatedAt: Date;
+    deletedAt: Date;
     id: string;
     email: string;
     birthdate: string;

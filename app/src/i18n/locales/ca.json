@@ -69,6 +69,20 @@
         },
         "languageSelector": {
             "Title": "Selector d'idioma"
+        },
+        "userAdmin": {
+            "userTable": {
+                "headers": {
+                    "Id": "Id",
+                    "Name": "Nom",
+                    "Email": "Correu electrònic",
+                    "DeletedAt": "Esborrat el"
+                },
+                "filters": {
+                    "NeverDeleted": "No esborrats",
+                    "Deleted": "Esborrats"
+                }
+            }
         }
     },
     "errors": {

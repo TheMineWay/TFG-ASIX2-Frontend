@@ -1,14 +1,17 @@
-import { LoginOutlined, LogoutOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
-import { Menu } from "antd";
+import { CommentOutlined, LoginOutlined, LogoutOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
+import { Dropdown, Menu } from "antd";
 import { Header } from "antd/lib/layout/layout";
 import { t } from "i18next";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthState from "../../hooks/auth/useAuthState";
+import useLanguage from "../../hooks/language/useLanguage";
 import useSecurityState from "../../hooks/security/useSecurityState";
 import useUserState from "../../hooks/user/useUserState";
+import { Languages } from "../../i18n/configureI18n";
 import AuthModal from "../auth/AuthModal";
 import menuOptions, { MenuOption } from "../menu";
+import LanguageDrawer from "./language/LanguageDrawer";
 
 const { Item, SubMenu } = Menu;
 
@@ -20,11 +23,12 @@ export default function BaseHeader() {
     const [securityState] = useSecurityState();
 
     const [authModal, setAuthModal] = useState<'login' | 'register' | null>(null);
+    const [ languageDrawer, setLanguageDrawer ] = useState<boolean>(false);
 
     function constructOption(option: MenuOption): JSX.Element | null {
         if (option.permissions) {
-            for(const permission of option.permissions) {
-                if(!(securityState?.permissions.includes(permission))) return null;
+            for (const permission of option.permissions) {
+                if (!(securityState?.permissions.includes(permission))) return null;
             }
         }
 
@@ -44,6 +48,11 @@ export default function BaseHeader() {
 
     return (
         <>
+            <LanguageDrawer
+                visible={languageDrawer}
+                hide={() => setLanguageDrawer(false)}
+            />
+
             <AuthModal
                 visible={authModal}
                 hide={() => setAuthModal(null)}
@@ -54,6 +63,9 @@ export default function BaseHeader() {
                     {
                         menuOptions.map(constructOption)
                     }
+
+                    {/* USER DROPDOWN */}
+
                     {
                         authState ? (
                             userState && ( // Is logged in
@@ -85,6 +97,15 @@ export default function BaseHeader() {
                             </>
                         )
                     }
+
+                    {/* LANGUAGE SELECTOR */}
+
+                    <Item
+                        icon={<CommentOutlined />}
+                        onClick={() => setLanguageDrawer(true)}
+                    >
+                        {t('menu.options.lang.Title')}
+                    </Item>
                 </Menu>
             </Header>
         </>

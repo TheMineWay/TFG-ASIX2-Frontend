@@ -1,4 +1,5 @@
 import AuthContext from './AuthContext';
+import LanguageContext from './LanguageContext';
 import UserContext from './UserContext';
 
 type Props = {
@@ -7,10 +8,12 @@ type Props = {
 
 export default function GlobalContext(props: Props) {
     return (
-        <AuthContext>
-            <UserContext>
-                {props.children}
-            </UserContext>
-        </AuthContext>
+        <LanguageContext>
+            <AuthContext>
+                <UserContext>
+                    {props.children}
+                </UserContext>
+            </AuthContext>
+        </LanguageContext>
     )
 }

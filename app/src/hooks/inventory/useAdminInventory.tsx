@@ -1,7 +1,7 @@
 import request from '../../services/api/Request';
 import notificationErrorDisplay from '../../view/errors/display/NotificationErrorDisplay';
 import useAuthState from '../auth/useAuthState';
-import useInventory from './useInventory';
+import useInventory, { InventoryItem } from './useInventory';
 
 export type CreateInventoryItem = {
     name: string;
@@ -11,7 +11,19 @@ export type CreateInventoryItem = {
     stock: number;
 }
 
-export default function useAdminInventory() {
+export type AdminInventory = {
+    inventory: {
+        inventory?: InventoryItem[];
+        loading: boolean;
+        fetch: () => Promise<void>;
+    };
+    deleteItem: (id: string) => Promise<void>;
+    recoverItem: (id: string) => Promise<void>;
+    editItem: (id: string, item: InventoryItem) => Promise<void>;
+    createItem: (item: InventoryItem) => Promise<void>;
+}
+
+export default function useAdminInventory(): AdminInventory {
     const inventory = useInventory();
     const [authState] = useAuthState();
 

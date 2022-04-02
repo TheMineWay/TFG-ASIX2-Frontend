@@ -11,7 +11,8 @@ const { Column } = Table;
 
 export default function AdminInventoryViewList() {
 
-    const { inventory, deleteItem, recoverItem } = useAdminInventory();
+    const adminInventory = useAdminInventory();
+    const { inventory, deleteItem, recoverItem } = adminInventory;
     const { displayPrice } = useCoins();
 
     const [editingItem, setEditingItem] = useState<InventoryItem>();
@@ -46,6 +47,7 @@ export default function AdminInventoryViewList() {
     return (
         <>
             <AdminInventoryEditDrawer
+                adminInventory={adminInventory}
                 item={editingItem}
                 hide={() => setEditingItem(undefined)}
             />

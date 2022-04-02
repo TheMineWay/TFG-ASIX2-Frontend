@@ -131,6 +131,10 @@
             "email-in-use": {
                 "Title": "Credencials en ús",
                 "Message": "Ja existeix un/a usuari/a amb aquest correu electrónic."
+            },
+            "401": {
+                "Title": "No es pot iniciar sessió",
+                "Message": "No s'ha autoritzat l'inici de sessió. Es possible que el compte estigui bloquejat."
             }
         },
         "form": {

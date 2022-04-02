@@ -54,17 +54,34 @@ export default function AdminUsersViewList(props: Props) {
         await props.userAdmin.deleteUser(id);
     }
 
-    const UserActions = (props: { row: UserModel }): JSX.Element => (
-        <Space>
+    const recoverUser = async (id: string) => {
+        await props.userAdmin.recoverUser(id);
+    }
+
+    const UserActions = (props: { row: UserModel }): JSX.Element => {
+        const Delete = (): JSX.Element => props.row.deletedAt ? (
+            <Popconfirm
+                title={tr('view.userAdmin.userTable.actions.SureToRecover')}
+                onConfirm={() => recoverUser(props.row.id)}
+            >
+                <Button type='link'>{tr('view.userAdmin.userTable.actions.Recover')}</Button>
+            </Popconfirm>
+        ) : (
             <Popconfirm
                 title={tr('view.userAdmin.userTable.actions.SureToDelete')}
                 onConfirm={() => deleteUser(props.row.id)}
             >
                 <Button type='link'>{tr('view.userAdmin.userTable.actions.Delete')}</Button>
-            </Popconfirm>
-            <Button type='link'>{tr('view.userAdmin.userTable.actions.Edit')}</Button>
-        </Space>
-    );
+            </Popconfirm >
+        );
+
+        return (
+            <Space>
+                <Delete />
+                <Button type='link'>{tr('view.userAdmin.userTable.actions.Edit')}</Button>
+            </Space>
+        );
+    };
 
     return (
         <Row gutter={[24, 24]}>

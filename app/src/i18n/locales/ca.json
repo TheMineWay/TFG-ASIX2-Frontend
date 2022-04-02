@@ -89,7 +89,9 @@
                 "actions": {
                     "Delete": "Esborrar",
                     "Edit":"Editar",
-                    "SureToDelete": "Segur que vols esborrar l'usuari?"
+                    "Recover": "Recuperar",
+                    "SureToDelete": "Segur que vols esborrar l'usuari?",
+                    "SureToRecover": "Segur que vols restaurar l'usuari?"
                 }
             }
         }

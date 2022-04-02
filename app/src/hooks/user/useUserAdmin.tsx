@@ -13,6 +13,7 @@ export type UserAdmin = {
     },
     loading: boolean,
     deleteUser: (id: string) => Promise<void>;
+    recoverUser: (id: string) => Promise<void>;
 }
 
 export default function useUserAdmin(): UserAdmin {
@@ -42,6 +43,12 @@ export default function useUserAdmin(): UserAdmin {
         await fetchUserList();
     }
 
+    async function recoverUser(id: string): Promise<void> {
+        await request<{}>('post', '/actions/admin/users/recoverUser', { userId: id }, { authCredentials: authState });
+
+        await fetchUserList();
+    }
+
     return {
         userList: {
             loading: userListLoading,
@@ -50,5 +57,6 @@ export default function useUserAdmin(): UserAdmin {
         },
         loading: userListLoading,
         deleteUser,
+        recoverUser,
     };
 }

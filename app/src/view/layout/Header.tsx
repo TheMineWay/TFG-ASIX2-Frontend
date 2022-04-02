@@ -11,6 +11,7 @@ import useUserState from "../../hooks/user/useUserState";
 import { Languages } from "../../i18n/configureI18n";
 import AuthModal from "../auth/AuthModal";
 import menuOptions, { MenuOption } from "../menu";
+import LanguageDrawer from "./language/LanguageDrawer";
 
 const { Item, SubMenu } = Menu;
 
@@ -20,9 +21,9 @@ export default function BaseHeader() {
     const [authState, setAuthState] = useAuthState();
     const [userState] = useUserState();
     const [securityState] = useSecurityState();
-    const { setLanguage } = useLanguage();
 
     const [authModal, setAuthModal] = useState<'login' | 'register' | null>(null);
+    const [ languageDrawer, setLanguageDrawer ] = useState<boolean>(false);
 
     function constructOption(option: MenuOption): JSX.Element | null {
         if (option.permissions) {
@@ -45,23 +46,13 @@ export default function BaseHeader() {
         return <Item icon={option.icon} key={option.key} onClick={() => option.path && navigate(option.path)}>{text}</Item>;
     }
 
-    const languageMenu = (
-        <Menu>
-            <Item
-                onClick={() => setLanguage(Languages.ca)}
-            >
-                Català
-            </Item>
-            <Item
-                onClick={() => setLanguage(Languages.es)}
-            >
-                Espanyol
-            </Item>
-        </Menu>
-    );
-
     return (
         <>
+            <LanguageDrawer
+                visible={languageDrawer}
+                hide={() => setLanguageDrawer(false)}
+            />
+
             <AuthModal
                 visible={authModal}
                 hide={() => setAuthModal(null)}
@@ -111,14 +102,9 @@ export default function BaseHeader() {
 
                     <Item
                         icon={<CommentOutlined />}
+                        onClick={() => setLanguageDrawer(true)}
                     >
-                        <Dropdown
-                            overlay={languageMenu}
-                            placement='bottomCenter'
-                            arrow
-                        >
-                            <a>{t('menu.options.lang.Title')}</a>
-                        </Dropdown>
+                        {t('menu.options.lang.Title')}
                     </Item>
                 </Menu>
             </Header>

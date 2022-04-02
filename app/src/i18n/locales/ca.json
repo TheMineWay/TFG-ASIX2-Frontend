@@ -60,6 +60,9 @@
                     "UpdatePassword": "Modificar contrasenya"
                 }
             }
+        },
+        "languageSelector": {
+            "Title": "Selector d'idioma"
         }
     },
     "errors": {

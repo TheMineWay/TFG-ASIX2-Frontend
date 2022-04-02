@@ -3,26 +3,50 @@ import notificationErrorDisplay from '../../view/errors/display/NotificationErro
 import useAuthState from '../auth/useAuthState';
 import useInventory from './useInventory';
 
+export type CreateInventoryItem = {
+    name: string;
+    description: string;
+    discount: number;
+    price: number;
+    stock: number;
+}
+
 export default function useAdminInventory() {
     const inventory = useInventory();
     const [authState] = useAuthState();
 
     async function deleteItem(id: string) {
         try {
-            await request<{}>('post', '/actions/admin/inventory/deleteItem', {itemId: id}, {authCredentials: authState});
-
+            await request<{}>('post', '/actions/admin/inventory/deleteItem', { itemId: id }, { authCredentials: authState });
             await inventory.fetch();
-        } catch(e: any) {
+        } catch (e: any) {
             notificationErrorDisplay(e);
         }
     }
 
     async function recoverItem(id: string) {
         try {
-            await request<{}>('post', '/actions/admin/inventory/recoverItem', {itemId: id}, {authCredentials: authState});
-
+            await request<{}>('post', '/actions/admin/inventory/recoverItem', { itemId: id }, { authCredentials: authState });
             await inventory.fetch();
-        } catch(e: any) {
+        } catch (e: any) {
+            notificationErrorDisplay(e);
+        }
+    }
+
+    async function createItem(item: CreateInventoryItem) {
+        try {
+            await request<{}>('post', '/actions/admin/inventory/createItem', { item }, { authCredentials: authState });
+            await inventory.fetch();
+        } catch (e: any) {
+            notificationErrorDisplay(e);
+        }
+    }
+
+    async function editItem(id: string, item: CreateInventoryItem) {
+        try {
+            await request<{}>('post', '/actions/admin/inventory/editItem', { item, itemId: id }, { authCredentials: authState });
+            await inventory.fetch();
+        } catch (e: any) {
             notificationErrorDisplay(e);
         }
     }
@@ -31,5 +55,7 @@ export default function useAdminInventory() {
         inventory,
         deleteItem,
         recoverItem,
+        editItem,
+        createItem,
     }
 }

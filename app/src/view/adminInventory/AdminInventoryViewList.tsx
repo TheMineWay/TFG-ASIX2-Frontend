@@ -12,8 +12,8 @@ export default function AdminInventoryViewList() {
     const { inventory, deleteItem, recoverItem } = useAdminInventory();
     const { displayPrice } = useCoins();
 
-    const Actions = (props: { item: InventoryItem}): JSX.Element => {
-        return (        
+    const Actions = (props: { item: InventoryItem }): JSX.Element => {
+        return (
             <>
                 <Button type='link'>{t('common.actions.Edit')}</Button>
                 {
@@ -37,43 +37,43 @@ export default function AdminInventoryViewList() {
         );
     }
 
-return (
-    <>
-        <Table
-            loading={inventory.loading}
-            dataSource={inventory.inventory}
-        >
-            <Column
-                title={t('view.inventory.list.headers.Id')}
-                dataIndex='id'
-            />
-            <Column
-                title={t('view.inventory.list.headers.Name')}
-                dataIndex='name'
-            />
-            <Column
-                title={t('view.inventory.list.headers.Description')}
-                dataIndex='description'
-            />
-            <Column
-                title={t('view.inventory.list.headers.Price')}
-                dataIndex='price'
-                render={displayPrice}
-            />
-            <Column
-                title={t('view.inventory.list.headers.Discount')}
-                dataIndex='discount'
-                render={(v: number) => `${v.toString()}%`}
-            />
-            <Column
-                title={t('view.inventory.list.headers.Stock')}
-                dataIndex='stock'
-            />
-            <Column
-                title={t('view.inventory.list.headers.Actions')}
-                render={(v: any, row: InventoryItem) => <Actions item={row} />}
-            />
-        </Table>
-    </>
-);
+    return (
+        <>
+            <Table
+                loading={inventory.loading}
+                dataSource={inventory.inventory}
+            >
+                <Column
+                    title={t('view.inventory.list.headers.Id')}
+                    dataIndex='id'
+                />
+                <Column
+                    title={t('view.inventory.list.headers.Name')}
+                    dataIndex='name'
+                />
+                <Column
+                    title={t('view.inventory.list.headers.Description')}
+                    dataIndex='description'
+                />
+                <Column
+                    title={t('view.inventory.list.headers.Price')}
+                    dataIndex='price'
+                    render={displayPrice}
+                />
+                <Column
+                    title={t('view.inventory.list.headers.Discount')}
+                    dataIndex='discount'
+                    render={(v: number) => `${v.toString()}%`}
+                />
+                <Column
+                    title={t('view.inventory.list.headers.Stock')}
+                    dataIndex='stock'
+                />
+                <Column
+                    title={t('view.inventory.list.headers.Actions')}
+                    render={(v: any, row: InventoryItem) => <Actions item={row} />}
+                />
+            </Table>
+        </>
+    );
 }

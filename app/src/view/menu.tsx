@@ -1,4 +1,4 @@
-import { HomeOutlined, ToolOutlined, UserOutlined } from "@ant-design/icons";
+import { HomeOutlined, InboxOutlined, ToolOutlined, UserOutlined } from "@ant-design/icons";
 import { Permissions } from "../services/security/permissions";
 
 export type MenuOption = {
@@ -23,6 +23,13 @@ const menuOptions: MenuOption[] = [
         icon: <ToolOutlined />,
         permissions: [Permissions.adminScreens],
         children: [
+            {
+                text: 'inventory',
+                path: '/admin/inventory',
+                key: 'inventory',
+                icon: <InboxOutlined />,
+                permissions: [Permissions.adminInventory],
+            },
             {
                 text: 'users',
                 path: '/admin/users',

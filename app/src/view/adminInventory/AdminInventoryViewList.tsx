@@ -105,6 +105,22 @@ export default function AdminInventoryViewList() {
                             dataIndex='stock'
                         />
                         <Column
+                            title={t('view.inventory.list.headers.DeletedAt')}
+                            dataIndex='deletedAt'
+                            defaultFilteredValue={['neverDeleted']}
+                            filters={[
+                                {
+                                    text: t('view.inventory.list.filters.Deleted'),
+                                    value: 'deleted'
+                                },
+                                {
+                                    text: t('view.inventory.list.filters.NeverDeleted'),
+                                    value: 'neverDeleted'
+                                }
+                            ]}
+                            onFilter={(v, row: InventoryItem) => ((v === 'deleted' && row.deletedAt) || (v === 'neverDeleted' && !row.deletedAt)) ? true : false}
+                        />
+                        <Column
                             title={t('view.inventory.list.headers.Actions')}
                             render={(v: any, row: InventoryItem) => <Actions item={row} />}
                         />

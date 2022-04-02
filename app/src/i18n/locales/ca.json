@@ -111,7 +111,8 @@
                     "Stock": "Stock",
                     "Discount": "Descompte",
                     "Description": "Descripció",
-                    "Actions": "Accions"
+                    "Actions": "Accions",
+                    "DeletedAt": "Esborrat el"
                 },
                 "actions": {
                     "Delete": "Esborrar",
@@ -119,6 +120,10 @@
                     "SureToDelete": "Segur que vols esborrar l'ítem?",
                     "SureToRecover": "Segur que vols recuperar l'ítem?",
                     "Add": "Afegir ítem"
+                },
+                "filters": {
+                    "NeverDeleted": "No esborrat",
+                    "Deleted": "Esborrat"
                 }
             }
         }

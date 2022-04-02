@@ -27,6 +27,12 @@ const routes: Route[] = [
         loader: () => import('../view/profile/ViewUserProfilePage'),
         requiresAuth: true,
     },
+    {
+        path: '/admin/users',
+        loader: () => import('../view/adminUsers/AdminUsersViewPage'),
+        requiresAuth: true,
+        permissions: [ Permissions.adminUsers ],
+    },
 ];
 
 export default routes;

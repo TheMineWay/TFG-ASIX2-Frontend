@@ -25,6 +25,12 @@
             },
             "lang": {
                 "Title": "Idioma"
+            },
+            "admin": {
+                "Title": "Administrar"
+            },
+            "users": {
+                "Title": "Usuaris"
             }
         }
     },

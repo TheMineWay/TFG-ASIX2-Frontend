@@ -1,5 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Card, Col, Input, Row, Space, Table } from 'antd';
+import { Avatar, Button, Card, Col, Input, Row, Space, Table } from 'antd';
 import { t } from 'i18next';
 import { useState } from 'react';
 import useCoins from '../../hooks/coins/useCoins';
@@ -88,6 +88,11 @@ export default function AdminInventoryViewList() {
                         loading={inventory.loading}
                         dataSource={inventory.inventory?.filter((item) => listFilter([item.name, item.description], searchFilter))}
                     >
+                        <Column
+                            title={t('view.inventory.list.headers.Image')}
+                            dataIndex='imageUrl'
+                            render={(url: string) => <Avatar src={url}/>}
+                        />
                         <Column
                             title={t('view.inventory.list.headers.Id')}
                             dataIndex='id'

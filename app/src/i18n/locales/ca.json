@@ -113,7 +113,8 @@
                     "Description": "Descripció",
                     "Actions": "Accions",
                     "DeletedAt": "Esborrat el",
-                    "Image": "URL de la imatge"
+                    "ImageUrl": "URL de la imatge",
+                    "Image": "Imatge"
                 },
                 "actions": {
                     "Delete": "Esborrar",

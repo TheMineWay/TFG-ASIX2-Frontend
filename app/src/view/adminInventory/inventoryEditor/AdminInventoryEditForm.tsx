@@ -68,7 +68,7 @@ export default function AdminInventoryEditForm(props: Props) {
             <ImageByUrlFormItem
                 required requiredInvisibility
                 name='imageUrl'
-                label={t('view.inventory.list.headers.Image')}
+                label={t('view.inventory.list.headers.ImageUrl')}
                 min={1}
                 max={511}
             />

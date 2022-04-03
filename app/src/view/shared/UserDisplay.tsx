@@ -1,4 +1,5 @@
-import { Tooltip } from "antd";
+import { UserOutlined } from "@ant-design/icons";
+import { Avatar, List, Tooltip } from "antd";
 import { UseUsers } from "../../hooks/user/useUsers";
 
 type Props = {
@@ -12,7 +13,21 @@ export default function UserDisplay(props: Props) {
 
     return (
         <Tooltip
-            title={`Name: ${user?.name}`}
+            color='white'
+            title={(
+                <List
+                    itemLayout='horizontal'
+                    style={{width: 350}}
+                >
+                    <List.Item>
+                        <List.Item.Meta
+                            avatar={<Avatar icon={<UserOutlined/>}/>}
+                            title={`${user?.name} ${user?.lastName}`}
+                            description={`${user?.email} - ${user?.login}`}
+                        />
+                    </List.Item>
+                </List>
+            )}
         >
             {props.id}
         </Tooltip>

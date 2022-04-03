@@ -32,6 +32,15 @@ export default class CoinsService {
             {
                 name: "qtum",
             },
+            {
+                name: 'dogecoin',
+            },
+            {
+                name: 'solana',
+            },
+            {
+                name: 'monero',
+            },
         ];
 
     static async getCoins(): Promise<Coin[]> {

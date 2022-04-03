@@ -38,7 +38,13 @@ const routes: Route[] = [
         loader: () => import('../view/adminInventory/AdminInventoryViewPage'),
         requiresAuth: true,
         permissions: [Permissions.adminInventory],
-    }
+    },
+    {
+        path: '/admin/payments',
+        loader: () => import('../view/adminPayments/ViewAdminPaymentsPage'),
+        requiresAuth: true,
+        permissions: [Permissions.adminPayments]
+    },
 ];
 
 export default routes;

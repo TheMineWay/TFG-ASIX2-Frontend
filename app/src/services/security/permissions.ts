@@ -9,5 +9,6 @@ export enum Permissions {
     adminUsers = 'adminUsers',
     adminInventory = 'adminInventory',
     adminDiscounts = 'adminDiscounts',
-    adminScreens = 'adminScreens'
+    adminScreens = 'adminScreens',
+    adminPayments = 'adminPayments',
 }

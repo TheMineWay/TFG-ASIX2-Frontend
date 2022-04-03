@@ -34,6 +34,9 @@
             },
             "inventory": {
                 "Title": "Inventari"
+            },
+            "payments": {
+                "Title": "Pagaments"
             }
         }
     },
@@ -126,6 +129,17 @@
                 "filters": {
                     "NeverDeleted": "No esborrat",
                     "Deleted": "Esborrat"
+                }
+            }
+        },
+        "paymentsAdmin": {
+            "list": {
+                "headers": {
+                    "Id": "Id",
+                    "Amount": "Quantitat",
+                    "CreatedAt": "Creat el",
+                    "User": "Usuari",
+                    "Last4Card": "4 dígits de la tarjeta"
                 }
             }
         }

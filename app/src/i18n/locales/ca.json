@@ -112,7 +112,8 @@
                     "Discount": "Descompte",
                     "Description": "Descripció",
                     "Actions": "Accions",
-                    "DeletedAt": "Esborrat el"
+                    "DeletedAt": "Esborrat el",
+                    "Image": "URL de la imatge"
                 },
                 "actions": {
                     "Delete": "Esborrar",

@@ -13,6 +13,7 @@ export type RawInventoryItem = {
     deletedAt: Date;
     createdAt: Date;
     updatedAt: Date;
+    imageUrl: string;
 }
 
 export type InventoryItem = {
@@ -25,6 +26,7 @@ export type InventoryItem = {
     deletedAt: Date;
     createdAt: Date;
     updatedAt: Date;
+    imageUrl: string;
 }
 
 export function processRawInventoryItem(raw: RawInventoryItem): InventoryItem {

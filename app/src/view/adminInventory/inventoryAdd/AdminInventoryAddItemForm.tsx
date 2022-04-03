@@ -72,6 +72,13 @@ export default function AdminInventoryAddItemForm(props: Props) {
                 label={t('view.inventory.list.headers.Stock')}
                 min={0}
             />
+            <TextFormItem
+                required requiredInvisibility
+                name='imageUrl'
+                label={t('view.inventory.list.headers.Image')}
+                min={1}
+                max={511}
+            />
 
             <DrawerFormActions
                 submit={<SubmitFormItem

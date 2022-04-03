@@ -31,6 +31,9 @@
             },
             "users": {
                 "Title": "Usuaris"
+            },
+            "inventory": {
+                "Title": "Inventari"
             }
         }
     },
@@ -98,6 +101,33 @@
                     "SureToUnban": "Segur que vols desbloquejar l'usuari?"
                 }
             }
+        },
+        "inventory": {
+            "list": {
+                "headers": {
+                    "Id": "Id",
+                    "Name": "Nom",
+                    "Price": "Preu",
+                    "Stock": "Stock",
+                    "Discount": "Descompte",
+                    "Description": "Descripció",
+                    "Actions": "Accions",
+                    "DeletedAt": "Esborrat el",
+                    "ImageUrl": "URL de la imatge",
+                    "Image": "Imatge"
+                },
+                "actions": {
+                    "Delete": "Esborrar",
+                    "Recover": "Recuperar",
+                    "SureToDelete": "Segur que vols esborrar l'ítem?",
+                    "SureToRecover": "Segur que vols recuperar l'ítem?",
+                    "Add": "Afegir ítem"
+                },
+                "filters": {
+                    "NeverDeleted": "No esborrat",
+                    "Deleted": "Esborrat"
+                }
+            }
         }
     },
     "errors": {
@@ -131,6 +161,10 @@
             "email-in-use": {
                 "Title": "Credencials en ús",
                 "Message": "Ja existeix un/a usuari/a amb aquest correu electrónic."
+            },
+            "401": {
+                "Title": "No es pot iniciar sessió",
+                "Message": "No s'ha autoritzat l'inici de sessió. Es possible que el compte estigui bloquejat."
             }
         },
         "form": {
@@ -188,7 +222,9 @@
             "Cancel": "Cancel·lar",
             "Exit": "Sortir",
             "ChangeProfileImage": "Modificar avatar",
-            "Send": "Enviar"
+            "Send": "Enviar",
+            "Create": "Crear",
+            "Add": "Afegir"
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat"

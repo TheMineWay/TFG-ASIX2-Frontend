@@ -5,19 +5,16 @@ type Props = {
     required?: boolean;
     requiredInvisibility?: boolean;
     label: string;
-    icon?: JSX.Element;
     min?: number;
     max?: number;
     showCount?: boolean;
 }
 
-export default function TextFormItem(props: Props) {
+export default function TextAreaFormItem(props: Props) {
     return (
         <Form.Item name={props.name} label={props.label} required={props.required && !props.requiredInvisibility}>
-            <Input
+            <Input.TextArea
                 showCount={props.showCount}
-                prefix={props.icon}
-                type='text'
                 required={props.required}
                 minLength={props.min}
                 maxLength={props.max}

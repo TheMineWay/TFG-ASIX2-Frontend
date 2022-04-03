@@ -3,17 +3,17 @@ import Column from 'antd/lib/table/Column';
 import { t } from 'i18next';
 import useCoins from '../../hooks/coins/useCoins';
 import usePayments from '../../hooks/payments/usePayments';
+import useUsers from '../../hooks/user/useUsers';
 import DateDisplay from '../shared/DateDisplay';
 import UserDisplay from '../shared/UserDisplay';
 
 export default function ViewAdminPaymentsList() {
 
+    const users = useUsers();
     const { DisplayPrice } = useCoins();
     const { payments, loading } = usePayments();
 
     const dataSource = payments;
-
-    console.log(payments);
 
     return (
         <>
@@ -28,7 +28,7 @@ export default function ViewAdminPaymentsList() {
                 <Column
                     title={t('view.paymentsAdmin.list.headers.User')}
                     dataIndex='user'
-                    render={(id) => <UserDisplay id={id}/>}
+                    render={(id) => <UserDisplay id={id} users={users}/>}
                 />
                 <Column
                     title={t('view.paymentsAdmin.list.headers.Last4Card')}

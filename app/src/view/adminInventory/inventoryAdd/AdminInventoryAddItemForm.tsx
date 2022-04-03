@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AdminInventory, CreateInventoryItem } from "../../../hooks/inventory/useAdminInventory";
 import notificationErrorDisplay from "../../errors/display/NotificationErrorDisplay";
 import DrawerFormActions from "../../form/DrawerFormActions";
+import ImageByUrlFormItem from "../../form/ImageByUrlFormItem";
 import NumberFormItem from "../../form/NumberFormItem";
 import SlideNumberFormItem from "../../form/SlideNumberFormItem";
 import SubmitFormItem from "../../form/SubmitFormItem";
@@ -72,7 +73,7 @@ export default function AdminInventoryAddItemForm(props: Props) {
                 label={t('view.inventory.list.headers.Stock')}
                 min={0}
             />
-            <TextFormItem
+            <ImageByUrlFormItem
                 required requiredInvisibility
                 name='imageUrl'
                 label={t('view.inventory.list.headers.Image')}

@@ -16,7 +16,7 @@ export default function AdminInventoryViewList() {
 
     const adminInventory = useAdminInventory();
     const { inventory, deleteItem, recoverItem } = adminInventory;
-    const { displayPrice } = useCoins();
+    const { DisplayPrice } = useCoins();
 
     const [editingItem, setEditingItem] = useState<InventoryItem>();
     const [addItem, setAddItem] = useState<boolean>(false);
@@ -108,7 +108,7 @@ export default function AdminInventoryViewList() {
                         <Column
                             title={t('view.inventory.list.headers.Price')}
                             dataIndex='price'
-                            render={displayPrice}
+                            render={(p) => <DisplayPrice price={p}/>}
                         />
                         <Column
                             title={t('view.inventory.list.headers.Discount')}

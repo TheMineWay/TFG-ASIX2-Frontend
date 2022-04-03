@@ -18,8 +18,20 @@ export default class CoinsService {
                 name: "bitcoin",
             },
             {
-                name: "ethereum"
-            }
+                name: "ethereum",
+            },
+            {
+                name: "litecoin",
+            },
+            {
+                name: "cardano",
+            },
+            {
+                name: "polkadot",
+            },
+            {
+                name: "qtum",
+            },
         ];
 
     static async getCoins(): Promise<Coin[]> {

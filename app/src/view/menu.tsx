@@ -1,4 +1,4 @@
-import { HomeOutlined, InboxOutlined, ToolOutlined, UserOutlined } from "@ant-design/icons";
+import { DollarOutlined, HomeOutlined, InboxOutlined, ToolOutlined, UserOutlined } from "@ant-design/icons";
 import { Permissions } from "../services/security/permissions";
 
 export type MenuOption = {
@@ -29,6 +29,13 @@ const menuOptions: MenuOption[] = [
                 key: 'inventory',
                 icon: <InboxOutlined />,
                 permissions: [Permissions.adminInventory],
+            },
+            {
+                text: 'payments',
+                path: '/admin/payments',
+                key: 'adminPayments',
+                icon: <DollarOutlined/>,
+                permissions: [Permissions.adminPayments],
             },
             {
                 text: 'users',

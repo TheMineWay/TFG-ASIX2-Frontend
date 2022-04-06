@@ -1,10 +1,13 @@
-import { Card } from 'antd';
-import React from 'react'
+import ImageSidedCard from '../shared/ImageSidedCard';
 
 export default function SessionsHistoryProfileCard() {
     return (
-        <Card>
+        <ImageSidedCard
+            src={require('../../resources/profile/timeline/Timeline.png')}
+            hoverable
+            preview={false}
+        >
             
-        </Card>
+        </ImageSidedCard>
     );
 }

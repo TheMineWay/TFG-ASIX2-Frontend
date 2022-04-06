@@ -25,6 +25,18 @@
             },
             "lang": {
                 "Title": "Idioma"
+            },
+            "admin": {
+                "Title": "Administrar"
+            },
+            "users": {
+                "Title": "Usuaris"
+            },
+            "inventory": {
+                "Title": "Inventari"
+            },
+            "payments": {
+                "Title": "Pagaments"
             }
         }
     },
@@ -63,6 +75,73 @@
         },
         "languageSelector": {
             "Title": "Selector d'idioma"
+        },
+        "userAdmin": {
+            "userTable": {
+                "headers": {
+                    "Avatar": "Avatar",
+                    "Id": "Id",
+                    "Login": "login",
+                    "Name": "Nom",
+                    "Email": "Correu electrònic",
+                    "DeletedAt": "Esborrat el",
+                    "CreatedAt": "Creat el",
+                    "Actions": "Accions"
+                },
+                "filters": {
+                    "NeverDeleted": "No esborrats",
+                    "Deleted": "Esborrats"
+                },
+                "actions": {
+                    "Delete": "Esborrar",
+                    "Edit":"Editar",
+                    "Recover": "Recuperar",
+                    "Ban": "Bloquejar",
+                    "Unban": "Desbloquejar",
+                    "SureToDelete": "Segur que vols esborrar l'usuari?",
+                    "SureToRecover": "Segur que vols restaurar l'usuari?",
+                    "SureToBan": "Segur que vols bloquejar l'usuari?",
+                    "SureToUnban": "Segur que vols desbloquejar l'usuari?"
+                }
+            }
+        },
+        "inventory": {
+            "list": {
+                "headers": {
+                    "Id": "Id",
+                    "Name": "Nom",
+                    "Price": "Preu",
+                    "Stock": "Stock",
+                    "Discount": "Descompte",
+                    "Description": "Descripció",
+                    "Actions": "Accions",
+                    "DeletedAt": "Esborrat el",
+                    "ImageUrl": "URL de la imatge",
+                    "Image": "Imatge"
+                },
+                "actions": {
+                    "Delete": "Esborrar",
+                    "Recover": "Recuperar",
+                    "SureToDelete": "Segur que vols esborrar l'ítem?",
+                    "SureToRecover": "Segur que vols recuperar l'ítem?",
+                    "Add": "Afegir ítem"
+                },
+                "filters": {
+                    "NeverDeleted": "No esborrat",
+                    "Deleted": "Esborrat"
+                }
+            }
+        },
+        "paymentsAdmin": {
+            "list": {
+                "headers": {
+                    "Id": "Id",
+                    "Amount": "Quantitat",
+                    "CreatedAt": "Creat el",
+                    "User": "Usuari",
+                    "Last4Card": "4 dígits de la tarjeta"
+                }
+            }
         }
     },
     "errors": {
@@ -96,6 +175,10 @@
             "email-in-use": {
                 "Title": "Credencials en ús",
                 "Message": "Ja existeix un/a usuari/a amb aquest correu electrónic."
+            },
+            "401": {
+                "Title": "No es pot iniciar sessió",
+                "Message": "No s'ha autoritzat l'inici de sessió. Es possible que el compte estigui bloquejat."
             }
         },
         "form": {
@@ -152,7 +235,10 @@
             "Done": "Fet",
             "Cancel": "Cancel·lar",
             "Exit": "Sortir",
-            "ChangeProfileImage": "Modificar avatar"
+            "ChangeProfileImage": "Modificar avatar",
+            "Send": "Enviar",
+            "Create": "Crear",
+            "Add": "Afegir"
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat"

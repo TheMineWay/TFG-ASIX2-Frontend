@@ -3,11 +3,14 @@ import Column from 'antd/lib/table/Column';
 import { t } from 'i18next';
 import moment from 'moment';
 import useLogs, { LogAction } from '../../hooks/logsViewer/useLogs';
+import useUsers from '../../hooks/user/useUsers';
+import UserDisplay from '../shared/UserDisplay';
 
 type Props = {}
 
 export default function ViewLogsTable(props: Props) {
 
+    const users = useUsers();
     const logs = useLogs();
 
     const logActions: LogAction[] = [LogAction.login, LogAction.register];
@@ -24,6 +27,7 @@ export default function ViewLogsTable(props: Props) {
             <Column
                 dataIndex='user'
                 title={t('view.logs.table.columns.User')}
+                render={(id: string) => <UserDisplay id={id} users={users}/>}
             />
             <Column
                 dataIndex='action'

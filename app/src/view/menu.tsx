@@ -1,4 +1,4 @@
-import { HomeOutlined, ToolOutlined } from "@ant-design/icons";
+import { DollarOutlined, HomeOutlined, InboxOutlined, ToolOutlined, UserOutlined } from "@ant-design/icons";
 import { Permissions } from "../services/security/permissions";
 
 export type MenuOption = {
@@ -15,14 +15,43 @@ const menuOptions: MenuOption[] = [
         text: 'main',
         path: '/',
         key: 'main',
-        icon: <HomeOutlined/>,
+        icon: <HomeOutlined />,
     },
     {
-        text: 'logs',
-        path: '/admin/logs',
-        key: 'logs',
-        icon: <ToolOutlined/>,
-        permissions: [ Permissions.viewLogs ]
+        text: 'admin',
+        key: 'admin',
+        icon: <ToolOutlined />,
+        permissions: [Permissions.adminScreens],
+        children: [
+            {
+                text: 'inventory',
+                path: '/admin/inventory',
+                key: 'inventory',
+                icon: <InboxOutlined />,
+                permissions: [Permissions.adminInventory],
+            },
+            {
+                text: 'payments',
+                path: '/admin/payments',
+                key: 'adminPayments',
+                icon: <DollarOutlined/>,
+                permissions: [Permissions.adminPayments],
+            },
+            {
+                text: 'users',
+                path: '/admin/users',
+                key: 'users',
+                icon: <UserOutlined />,
+                permissions: [Permissions.adminUsers],
+            },
+            {
+                text: 'logs',
+                path: '/admin/logs',
+                key: 'logs',
+                icon: <ToolOutlined />,
+                permissions: [Permissions.viewLogs],
+            },
+        ],
     },
 ];
 

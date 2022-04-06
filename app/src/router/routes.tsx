@@ -20,12 +20,30 @@ const routes: Route[] = [
         path: '/admin/logs',
         loader: () => import('../view/logsPage/ViewLogsPage'),
         requiresAuth: true,
-        permissions: [ Permissions.viewLogs ],
+        permissions: [Permissions.viewLogs],
     },
     {
         path: '/user/profile',
         loader: () => import('../view/profile/ViewUserProfilePage'),
         requiresAuth: true,
+    },
+    {
+        path: '/admin/users',
+        loader: () => import('../view/adminUsers/AdminUsersViewPage'),
+        requiresAuth: true,
+        permissions: [Permissions.adminUsers],
+    },
+    {
+        path: '/admin/inventory',
+        loader: () => import('../view/adminInventory/AdminInventoryViewPage'),
+        requiresAuth: true,
+        permissions: [Permissions.adminInventory],
+    },
+    {
+        path: '/admin/payments',
+        loader: () => import('../view/adminPayments/ViewAdminPaymentsPage'),
+        requiresAuth: true,
+        permissions: [Permissions.adminPayments]
     },
 ];
 

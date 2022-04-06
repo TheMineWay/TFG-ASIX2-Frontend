@@ -114,6 +114,7 @@ export default function RegisterForm(props: Props) {
                     <DateFormItem
                         name='birthdate'
                         label={t('common.form.Birthdate')}
+                        required requiredInvisibility
                     />
                 </Col>
             </Row>

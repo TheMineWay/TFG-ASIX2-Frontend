@@ -1,14 +1,12 @@
 import { CommentOutlined, LoginOutlined, LogoutOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
-import { Dropdown, Menu } from "antd";
+import { Menu } from "antd";
 import { Header } from "antd/lib/layout/layout";
 import { t } from "i18next";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthState from "../../hooks/auth/useAuthState";
-import useLanguage from "../../hooks/language/useLanguage";
 import useSecurityState from "../../hooks/security/useSecurityState";
 import useUserState from "../../hooks/user/useUserState";
-import { Languages } from "../../i18n/configureI18n";
 import AuthModal from "../auth/AuthModal";
 import menuOptions, { MenuOption } from "../menu";
 import LanguageDrawer from "./language/LanguageDrawer";

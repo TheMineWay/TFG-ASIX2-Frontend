@@ -3,6 +3,7 @@ import useUserState from '../../hooks/user/useUserState';
 import Loading from '../shared/Loading';
 import UserAvatar from '../shared/UserAvatar';
 import ProfileUserCard from './ProfileUserCard';
+import SessionsHistoryProfileCard from './SessionsHistoryProfileCard';
 
 export default function ViewUserProfilePage() {
     const [userState] = useUserState();
@@ -25,6 +26,19 @@ export default function ViewUserProfilePage() {
         </AntCol>
     );
 
+    const Body = () => (
+        <Row gutter={[24, 24]}>
+            {
+                [
+                    <ProfileUserCard />,
+                    <SessionsHistoryProfileCard />,
+                ].map((c) => (
+                    <AntCol span={24}>{c}</AntCol>
+                ))
+            }
+        </Row>
+    );
+
     return (
         <Row gutter={[24, 24]}>
             <AntCol span={24} style={{ textAlign: 'center' }}>
@@ -39,7 +53,7 @@ export default function ViewUserProfilePage() {
                     justify='center'
                 >
                     <Col>
-                        <ProfileUserCard />
+                        <Body />
                     </Col>
                 </Row>
             </AntCol>

@@ -45,6 +45,11 @@ const routes: Route[] = [
         requiresAuth: true,
         permissions: [Permissions.adminPayments]
     },
+    {
+        path: '/user/session-history',
+        loader: () => import('../view/sessionHistory/SessionHistoryViewPage'),
+        requiresAuth: true,
+    }
 ];
 
 export default routes;

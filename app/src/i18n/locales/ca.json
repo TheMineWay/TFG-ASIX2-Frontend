@@ -74,7 +74,10 @@
             },
             "sessionHistory": {
                 "card": {
-                    "Message": "Coneix amb detall les sessions que s'han obert amb el teu compte al llarg de l'existència del teu compte. Fes servir les alertes i recomanacions per tal de descobrir activitats sospitoses que poden posar en perill la seguretat del compte. Pots actuar sobre les sessions que semblen sospitoses."
+                    "Message": "Coneix amb detall les sessions que s'han obert amb el teu compte al llarg de l'existència del teu compte. Fes servir les alertes i recomanacions per tal de descobrir activitats sospitoses que poden posar en perill la seguretat del compte. Pots actuar sobre les sessions que semblen sospitoses.",
+                    "actions": {
+                        "Go": "Anar a l'històric"
+                    }
                 }
             }
         },

@@ -1,3 +1,4 @@
+import { Tooltip } from "antd";
 import moment from "moment";
 
 type Props = {
@@ -6,6 +7,8 @@ type Props = {
 
 export default function DateDisplay(props: Props) {
     return (
-        <>{moment(props.children).toString()}</>
+        <Tooltip
+            title={moment(props.children).toString()}
+        >{moment(props.children).format('L LT')}</Tooltip>
     );
 }

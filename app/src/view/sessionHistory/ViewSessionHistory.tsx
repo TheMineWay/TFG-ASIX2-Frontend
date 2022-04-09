@@ -43,10 +43,11 @@ export default function ViewSessionHistory() {
                                     <GeoCard
                                         includeCard={false}
                                         geolocation={gl}
-                                        width={400}
+                                        width={'100%'}
                                     />
                                 )}
                                 color='white'
+                                style={{width: 900}}
                             >
                                 {ip}
                             </Tooltip>

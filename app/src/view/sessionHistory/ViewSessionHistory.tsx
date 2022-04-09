@@ -1,5 +1,6 @@
 import { Card, Timeline } from "antd";
 import useSessionHistory from "../../hooks/sessions/useSessionHistory";
+import Container from "../shared/Container";
 import Loading from "../shared/Loading";
 import SessionHistoryItem from "./SessionHistoryItem";
 
@@ -23,13 +24,8 @@ export default function ViewSessionHistory() {
     };
 
     return (
-        <div
-            style={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}
-        >
+        <Container>
             {sessions.sessionHistory.loading || !sessions.sessionHistory.sessions ? <Loading /> : <SessionsTimeline />}
-        </div>
+        </Container>
     );
 }

@@ -59,6 +59,7 @@ const menuOptions: MenuOption[] = [
         path: '/disk-builder',
         key: 'disk-builder',
         icon: <BuildOutlined/>,
+        requiresAuth: true,
     }
 ];
 

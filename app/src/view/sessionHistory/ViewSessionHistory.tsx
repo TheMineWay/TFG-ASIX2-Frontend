@@ -1,12 +1,19 @@
 import { Card, Col, Row, Timeline } from "antd";
-import useSessionHistory from "../../hooks/sessions/useSessionHistory";
+import useSessionHistory, { Session } from "../../hooks/sessions/useSessionHistory";
 import Container from "../shared/Container";
 import Loading from "../shared/Loading";
-import SessionHistoryItem from "./SessionHistoryItem";
 
 export default function ViewSessionHistory() {
 
     const sessions = useSessionHistory();
+
+    const SessionHistoryItem = (props: { session: Session }) => {
+        const session = props.session;
+
+        return (
+            <Timeline.Item label="2015-09-01">Create a services</Timeline.Item>
+        );
+    }
 
     const SessionsTimeline = () => {
 
@@ -15,7 +22,7 @@ export default function ViewSessionHistory() {
         return (
             <Row
                 justify='center'
-                style={{width: '100%'}}
+                style={{ width: '100%' }}
             >
                 <Col
                     xs={24}
@@ -28,9 +35,16 @@ export default function ViewSessionHistory() {
                     <Card>
                         <Timeline
                             mode="left"
+                            style={{ width: '100%' }}
                         >
                             {
-                                sessionsList.map((session) => <SessionHistoryItem session={session} />)
+                                sessionsList.map((session) => (
+                                    <Timeline.Item label={session.createdAt.toString()}>
+                                        {
+                                            session.ip
+                                        }
+                                    </Timeline.Item>
+                                ))
                             }
                         </Timeline>
                     </Card>

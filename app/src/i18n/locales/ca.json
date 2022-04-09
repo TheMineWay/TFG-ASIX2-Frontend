@@ -78,6 +78,14 @@
                     "actions": {
                         "Go": "Anar a l'històric"
                     }
+                },
+                "table": {
+                    "headers": {
+                        "Id": "Id",
+                        "CreatedAt": "Creat el",
+                        "Ip": "Direcció IP",
+                        "ExpiredAt": "Expirat el"
+                    }
                 }
             }
         },

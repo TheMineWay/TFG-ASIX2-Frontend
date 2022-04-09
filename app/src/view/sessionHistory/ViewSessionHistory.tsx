@@ -1,69 +1,43 @@
-import { Card, Col, Row, Timeline } from "antd";
+import { Table } from "antd";
+import { t } from "i18next";
+import moment from "moment";
 import useSessionHistory, { Session } from "../../hooks/sessions/useSessionHistory";
-import Container from "../shared/Container";
 import DateDisplay from "../shared/DateDisplay";
-import Loading from "../shared/Loading";
+
+const { Column } = Table;
 
 export default function ViewSessionHistory() {
 
     const sessions = useSessionHistory();
 
-    const SessionHistoryItem = (props: { session: Session }) => {
-        const session = props.session;
-
-        return (
-            <Timeline.Item label="2015-09-01">Create a services</Timeline.Item>
-        );
-    }
-
-    const SessionsTimeline = () => {
-
-        const sessionsList = sessions.sessionHistory.sessions!;
-
-        return (
-            <Row
-                justify='center'
-                style={{ width: '100%' }}
-            >
-                <Col
-                    xs={24}
-                    sm={22}
-                    md={20}
-                    lg={18}
-                    xl={16}
-                    xxl={14}
-                >
-                    <Card>
-                        <Timeline
-                            mode="left"
-                            style={{ width: '100%' }}
-                        >
-                            {
-                                sessionsList.map((session) => (
-                                    <Timeline.Item label={<DateDisplay>{session.createdAt}</DateDisplay>}>
-                                        {
-                                            session.ip
-                                        }
-                                    </Timeline.Item>
-                                ))
-                            }
-                        </Timeline>
-                    </Card>
-                </Col>
-            </Row>
-        );
-    };
-
     return (
-        <Container>
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center'
+        <Table
+            dataSource={sessions.sessionHistory.sessions}
+            loading={sessions.sessionHistory.loading}
+        >
+            <Column
+                dataIndex='id'
+                title={t('view.profile.sessionHistory.table.headers.Id')}
+            />
+            <Column
+                dataIndex='createdAt'
+                title={t('view.profile.sessionHistory.table.headers.CreatedAt')}
+                render={(date: Date) => <DateDisplay>{date}</DateDisplay>}
+            />
+            <Column
+                dataIndex='ip'
+                title={t('view.profile.sessionHistory.table.headers.Ip')}
+            />
+            <Column
+                title={t('view.profile.sessionHistory.table.headers.ExpiredAt')}
+                render={(r: any, row: Session) => {
+                    if(moment(row.createdAt).add(1, 'days').isBefore(new Date())) {
+                        return <DateDisplay>{moment(row.createdAt).add(1, 'days').toDate()}</DateDisplay>
+                    }
+
+                    return "";
                 }}
-            >
-                {sessions.sessionHistory.loading || !sessions.sessionHistory.sessions ? <Loading /> : <SessionsTimeline />}
-            </div>
-        </Container>
+            />
+        </Table>
     );
 }

@@ -5,6 +5,7 @@ type Props = {
     src: string;
     preview?: boolean;
     children: JSX.Element | JSX.Element[];
+    actions?: JSX.Element[];
 }
 
 export default function ImageSidedCard(props: Props) {
@@ -13,22 +14,61 @@ export default function ImageSidedCard(props: Props) {
             hoverable={props.hoverable}
             bodyStyle={{ padding: 0 }}
         >
-            <Row
-                gutter={[24, 24]}
-            >
+            <Row>
                 <Col
-                    xxl={8}
+                    xxl={6}
+                    md={8}
+                    xs={24}
                 >
                     <Image
-                        width={'100%'}
+                        width='100%'
                         src={props.src}
                         preview={props.preview}
+                        style={{
+                            objectFit: 'cover'
+                        }}
+                        height='100%'
                     />
                 </Col>
                 <Col
-                    xxl={16}
+                    xxl={18}
+                    md={16}
+                    xs={24}
                 >
-                    {props.children}
+                    <div
+                        style={{
+                            padding: 25,
+                            display: 'flex',
+                            alignContent: 'space-between',
+                            width: '100%',
+                            flexDirection: 'column',
+                            height: '100%'
+                        }}
+                    >
+                        <div style={{width: '100%'}}>
+                            {props.children}
+                        </div>
+                        <div style={{width: '100%'}}>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'flex-end'
+                                }}
+                            >
+                                {
+                                    props.actions?.map((action) => (
+                                        <div
+                                            style={{
+
+                                            }}
+                                        >
+                                            {action}
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </Col>
             </Row>
         </Card>

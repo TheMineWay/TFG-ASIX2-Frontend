@@ -49,6 +49,11 @@ const routes: Route[] = [
         path: '/user/session-history',
         loader: () => import('../view/sessionHistory/SessionHistoryViewPage'),
         requiresAuth: true,
+    },
+    {
+        path: '/disk-builder',
+        loader: () => import('../view/diskBuilder/DiskBuilderViewPage'),
+        requiresAuth: true,
     }
 ];
 

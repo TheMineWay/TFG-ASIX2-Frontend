@@ -37,6 +37,9 @@
             },
             "payments": {
                 "Title": "Pagaments"
+            },
+            "diskBuilder": {
+                "Title": "Crear disc"
             }
         }
     },
@@ -158,6 +161,9 @@
                     "Last4Card": "4 dígits de la tarjeta"
                 }
             }
+        },
+        "diskBuilder": {
+
         }
     },
     "errors": {

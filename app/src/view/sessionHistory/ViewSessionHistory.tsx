@@ -1,6 +1,7 @@
 import { Card, Col, Row, Timeline } from "antd";
 import useSessionHistory, { Session } from "../../hooks/sessions/useSessionHistory";
 import Container from "../shared/Container";
+import DateDisplay from "../shared/DateDisplay";
 import Loading from "../shared/Loading";
 
 export default function ViewSessionHistory() {
@@ -39,7 +40,7 @@ export default function ViewSessionHistory() {
                         >
                             {
                                 sessionsList.map((session) => (
-                                    <Timeline.Item label={session.createdAt.toString()}>
+                                    <Timeline.Item label={<DateDisplay>{session.createdAt}</DateDisplay>}>
                                         {
                                             session.ip
                                         }

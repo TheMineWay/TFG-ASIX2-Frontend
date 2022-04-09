@@ -257,7 +257,8 @@
             "Add": "Afegir"
         },
         "other": {
-            "privacyPolicy": "polítiques de privacitat"
+            "privacyPolicy": "polítiques de privacitat",
+            "Timezone": "Zona horaria"
         }
     }
 }

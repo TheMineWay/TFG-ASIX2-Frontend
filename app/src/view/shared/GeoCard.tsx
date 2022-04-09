@@ -1,6 +1,7 @@
 import { Card, List } from "antd";
 import { GeoLocation } from "../../hooks/geolocation/useGeolocation";
 import { Marker, ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
+import { t } from "i18next";
 
 const { Item } = List;
 
@@ -16,7 +17,17 @@ export default function GeoCard(props: Props) {
         <List style={{ width: props.width }}>
             <Item>
                 <Item.Meta
-                    title={props.geolocation.country}
+                    title={[
+                        props.geolocation.continent,
+                        props.geolocation.country,
+                        props.geolocation.city ?? props.geolocation.province,
+                    ].join(', ')}
+                />
+            </Item>
+            <Item>
+                <Item.Meta
+                    title={t('common.other.Timezone')}
+                    description={props.geolocation.timezone}
                 />
             </Item>
             <Item>

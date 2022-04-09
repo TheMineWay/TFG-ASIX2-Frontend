@@ -11,11 +11,14 @@ type Props = {
 
 export default function GeoCard(props: Props) {
     const GeoInfo = () => (
-        <List style={{width: props.width}}>
+        <List style={{ width: props.width }}>
             <Item>
                 <Item.Meta
                     title={props.geolocation.country}
                 />
+            </Item>
+            <Item>
+                
             </Item>
         </List>
     );

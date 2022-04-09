@@ -35,18 +35,22 @@ export default function ViewSessionHistory() {
                     const gl = geo.getByIp(ip);
 
                     return (
-                        <Tooltip
-                            title={gl === undefined ? (<></>) : (
-                                <GeoCard
-                                    includeCard={false}
-                                    geolocation={gl}
-                                    width={400}
-                                />
-                            )}
-                            color='white'
-                        >
-                            {ip}
-                        </Tooltip>
+                        gl === undefined || !gl.latitude ? (
+                            <>{ ip }</>
+                        ) : (
+                            <Tooltip
+                                title={(
+                                    <GeoCard
+                                        includeCard={false}
+                                        geolocation={gl}
+                                        width={400}
+                                    />
+                                )}
+                                color='white'
+                            >
+                                {ip}
+                            </Tooltip>
+                        )
                     );
                 }}
             />

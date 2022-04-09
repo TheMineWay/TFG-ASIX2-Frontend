@@ -1,5 +1,4 @@
 import { Timeline } from "antd";
-import moment from "moment";
 import { Session } from "../../hooks/sessions/useSessionHistory";
 import DateDisplay from "../shared/DateDisplay";
 

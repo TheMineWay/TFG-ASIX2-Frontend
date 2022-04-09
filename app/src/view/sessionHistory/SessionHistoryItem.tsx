@@ -13,7 +13,7 @@ export default function SessionHistoryItem(props: Props) {
         <Timeline.Item
             label={<DateDisplay>{session.createdAt}</DateDisplay>}
         >
-            {session.id}
+            
         </Timeline.Item>
     );
 }

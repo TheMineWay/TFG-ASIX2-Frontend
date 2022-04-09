@@ -6,6 +6,6 @@ type Props = {
 
 export default function DateDisplay(props: Props) {
     return (
-        <>{moment(props.children).toString()}</>
+        <>{moment(props.children).format('L LT')}</>
     );
 }

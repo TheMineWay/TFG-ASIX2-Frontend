@@ -168,6 +168,9 @@
                 "send": "Métode d'enviament",
                 "payment": "Pagament",
                 "sent": "Enviat"
+            },
+            "tabs": {
+                "Tab": "Pàgina"
             }
         }
     },

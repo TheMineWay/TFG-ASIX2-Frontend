@@ -36,7 +36,9 @@ export default function DiskRequestViewPage() {
 
     return (
         <Container>
-            <Row>
+            <Row
+                gutter={[24, 24]}
+            >
                 <Col
                     span={24}
                 >

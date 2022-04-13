@@ -172,9 +172,16 @@
             "tabs": {
                 "Tab": "Pàgina"
             },
-            "form": {
-                "Amount": "Quantitat",
-                "Items": "Ítems"
+            "step": {
+                "build": {
+                    "form": {
+                        "Amount": "Quantitat",
+                        "Items": "Ítems"
+                    },
+                    "actions": {
+                        "FinishBuild": "Finalitzar personalització del disc"
+                    }
+                }
             }
         }
     },

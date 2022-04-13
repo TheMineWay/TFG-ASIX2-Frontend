@@ -34,11 +34,11 @@ export default function DiskBuilderForm(props: Props) {
                 name='amount'
                 min={1}
                 max={32}
-                label={t('view.diskRequest.form.Amount')}
+                label={t('view.diskRequest.step.build.form.Amount')}
             />
             <TransferFormItem
                 name='items'
-                label={t('view.diskRequest.form.Items')}
+                label={t('view.diskRequest.step.build.form.Items')}
                 datasource={datasource}
                 render={(i) => {
 

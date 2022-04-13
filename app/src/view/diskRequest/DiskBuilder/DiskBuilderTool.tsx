@@ -1,20 +1,26 @@
-import { TransferItem } from "antd/lib/transfer";
+import { Button, Col, Row } from "antd";
 import { t } from "i18next";
 import { useState } from "react";
 import useInventory from "../../../hooks/inventory/useInventory";
+import notificationErrorDisplay from "../../errors/display/NotificationErrorDisplay";
 import Loading from "../../shared/Loading";
+import Popconfirm from "../../shared/Popconfirm";
 import DiskBuilderTabs from "./DiskBuilderTabs";
 
 export type DiskBuilderFormValues = {
     amount: number;
+    items: string[];
 }
 
 type Props = {
     onFinish: () => void;
+    disks: {[id: string]: DiskBuilderFormValues};
+    setDisks: (disks: {[id: string]: DiskBuilderFormValues}) => void;
 }
 
-const defaultDisk: DiskBuilderFormValues = {
+export const defaultDiskRequest: DiskBuilderFormValues = {
     amount: 1,
+    items: [],
 }
 
 export default function DiskBuilderTool(props: Props) {
@@ -24,52 +30,79 @@ export default function DiskBuilderTool(props: Props) {
 
     // Disks pagination
     const [diskTab, setDiskTab] = useState<string>('1');
-    const [disks, setDisks] = useState<{ [id: string]: DiskBuilderFormValues }>({
-        '1': defaultDisk,
-    });
+    const disks = props.disks;
+    const setDisks = props.setDisks;
 
     if (loading) return <Loading />;
 
     const findValidTabId = (): string => {
-        for(let i = 1; i > 0; i++) {
+        for (let i = 1; i > 0; i++) {
             const name = `${t('view.diskRequest.tabs.Tab')} ${i}`;
-            if(!Object.keys(disks).includes(i.toString())) {
+            if (!Object.keys(disks).includes(i.toString())) {
                 return i.toString();
             }
         }
         return "Sth went wrong";
     }
 
+    const submit = async (values: {}): Promise<void> => {
+        try {
+            props.onFinish();
+        } catch (e: any) {
+            notificationErrorDisplay(e);
+        }
+    }
+
     return (
-        <>
-            <DiskBuilderTabs
-                current={diskTab}
-                disks={disks}
-                change={setDiskTab}
-                inventory={inventory.inventory ?? []}
-                remove={(id) => {
-                    
-                    let ds: {[id: string]: DiskBuilderFormValues} = {};
+        <Row
+            gutter={[24, 24]}
+        >
+            <Col span={24}>
+                <DiskBuilderTabs
+                    current={diskTab}
+                    disks={disks}
+                    change={setDiskTab}
+                    inventory={inventory.inventory ?? []}
+                    remove={(id) => {
 
-                    for(const dId in disks) {
-                        if(dId === id) continue;
+                        let ds: { [id: string]: DiskBuilderFormValues } = {};
 
-                        const disk = disks[dId];
-                        ds[dId] = disk;
-                    }
+                        for (const dId in disks) {
+                            if (dId === id) continue;
 
-                    setDisks(ds);
+                            const disk = disks[dId];
+                            ds[dId] = disk;
+                        }
+
+                        setDisks(ds);
+                    }}
+                    add={() => {
+                        const dks = disks;
+                        const id = findValidTabId();
+                        dks[id] = defaultDiskRequest;
+
+                        setDisks({
+                            ...dks
+                        });
+                    }}
+                />
+            </Col>
+
+            <Col
+                span={24}
+                style={{
+                    display: 'flex',
+                    justifyContent: 'end'
                 }}
-                add={() => {
-                    const dks = disks;
-                    const id = findValidTabId();
-                    dks[id] = defaultDisk;
-
-                    setDisks({
-                        ...dks
-                    });
-                }}
-            />
-        </>
+            >
+                <Button
+                    disabled={Object.keys(disks).length <= 0}
+                    type='primary'
+                    onClick={async () => {
+                        await submit({});
+                    }}
+                >{t('view.diskRequest.step.build.actions.FinishBuild')}</Button>
+            </Col>
+        </Row>
     );
 }

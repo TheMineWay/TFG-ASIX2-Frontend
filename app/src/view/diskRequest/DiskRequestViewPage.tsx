@@ -44,7 +44,25 @@ export default function DiskRequestViewPage() {
             {
                 step: 1,
                 component: (
-                    <Button onClick={() => setStep(0)}>Back</Button>
+                    <>
+
+                    </>
+                )
+            },
+            {
+                step: 2,
+                component: (
+                    <>
+                        
+                    </>
+                )
+            },
+            {
+                step: 3,
+                component: (
+                    <>
+                        
+                    </>
                 )
             }
         ];
@@ -59,6 +77,7 @@ export default function DiskRequestViewPage() {
                 >
                     <DiskRequestSteps
                         step={step}
+                        setStep={setStep}
                     />
                 </Col>
                 <Col span={24}>

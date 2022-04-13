@@ -6,6 +6,7 @@ const { Step } = Steps;
 
 type Props = {
     step: number;
+    setStep: (step: number) => void;
 };
 
 export default function DiskRequestSteps(props: Props) {
@@ -25,16 +26,25 @@ export default function DiskRequestSteps(props: Props) {
                 status={getState(0)}
                 title={t('view.diskRequest.steps.build')}
                 icon={<BuildOutlined />}
+                onClick={() => {
+                    props.setStep(0);
+                }}
             />
             <Step
                 status={getState(1)}
                 title={t('view.diskRequest.steps.send')}
                 icon={<SendOutlined />}
+                onClick={() => {
+                    if(props.step >= 1) props.setStep(1);
+                }}
             />
             <Step
                 status={getState(2)}
                 title={t('view.diskRequest.steps.payment')}
                 icon={<PayCircleOutlined />}
+                onClick={() => {
+                    if(props.step >= 2) props.setStep(2);
+                }}
             />
             <Step
                 status={getState(3)}

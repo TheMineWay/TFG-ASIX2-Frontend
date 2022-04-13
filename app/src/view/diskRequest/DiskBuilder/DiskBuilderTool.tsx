@@ -14,8 +14,8 @@ export type DiskBuilderFormValues = {
 
 type Props = {
     onFinish: () => void;
-    disks: {[id: string]: DiskBuilderFormValues};
-    setDisks: (disks: {[id: string]: DiskBuilderFormValues}) => void;
+    disks: { [id: string]: DiskBuilderFormValues };
+    setDisks: (disks: { [id: string]: DiskBuilderFormValues }) => void;
 }
 
 export const defaultDiskRequest: DiskBuilderFormValues = {
@@ -43,14 +43,6 @@ export default function DiskBuilderTool(props: Props) {
             }
         }
         return "Sth went wrong";
-    }
-
-    const submit = async (values: {}): Promise<void> => {
-        try {
-            props.onFinish();
-        } catch (e: any) {
-            notificationErrorDisplay(e);
-        }
     }
 
     return (
@@ -98,8 +90,8 @@ export default function DiskBuilderTool(props: Props) {
                 <Button
                     disabled={Object.keys(disks).length <= 0}
                     type='primary'
-                    onClick={async () => {
-                        await submit({});
+                    onClick={() => {
+                        props.onFinish();
                     }}
                 >{t('view.diskRequest.step.build.actions.FinishBuild')}</Button>
             </Col>

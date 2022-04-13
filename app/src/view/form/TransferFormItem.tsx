@@ -1,4 +1,4 @@
-import { Form, List, Transfer } from 'antd';
+import { Form, Transfer } from 'antd';
 import { TransferItem } from 'antd/lib/transfer';
 import { useState } from 'react';
 

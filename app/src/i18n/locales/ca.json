@@ -162,8 +162,13 @@
                 }
             }
         },
-        "diskBuilder": {
-
+        "diskRequest": {
+            "steps": {
+                "build": "Construir disc",
+                "send": "Métode d'enviament",
+                "payment": "Pagament",
+                "sent": "Enviat"
+            }
         }
     },
     "errors": {

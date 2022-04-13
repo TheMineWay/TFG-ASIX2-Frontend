@@ -14,6 +14,7 @@ export type RawInventoryItem = {
     createdAt: Date;
     updatedAt: Date;
     imageUrl: string;
+    isDrive: '1' | '0';
 }
 
 export type InventoryItem = {
@@ -27,6 +28,7 @@ export type InventoryItem = {
     createdAt: Date;
     updatedAt: Date;
     imageUrl: string;
+    isDrive: boolean;
 }
 
 export function processRawInventoryItem(raw: RawInventoryItem): InventoryItem {
@@ -35,6 +37,7 @@ export function processRawInventoryItem(raw: RawInventoryItem): InventoryItem {
         discount: parseFloat(raw.discount),
         price: parseFloat(raw.price),
         stock: parseInt(raw.stock),
+        isDrive: raw.isDrive === '1',
     };
 }
 

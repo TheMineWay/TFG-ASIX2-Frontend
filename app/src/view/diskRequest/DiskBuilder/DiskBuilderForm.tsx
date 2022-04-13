@@ -27,7 +27,7 @@ export default function DiskBuilderForm(props: Props) {
         form.setFieldsValue(props.originalValue);
     }, []);
 
-    const datasource: TransferItem[] = props.inventory.map((i) => ({
+    const datasource: TransferItem[] = props.inventory.filter((i) => !i.isDrive).map((i) => ({
         title: i.name,
         key: i.id,
         chosen: true
@@ -65,7 +65,7 @@ export default function DiskBuilderForm(props: Props) {
                     <SingleSelectFormItem
                         name='disk'
                         label={t('view.diskRequest.step.build.form.Disk')}
-                        options={props.inventory.map((i) => ({
+                        options={props.inventory.filter((i) => i.isDrive).map((i) => ({
                             title: <>{i.name} - <DisplayPrice price={i.price}/></>,
                             key: i.id,
                         }))}

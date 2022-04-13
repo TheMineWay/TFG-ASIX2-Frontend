@@ -7,6 +7,7 @@ import useAdminInventory from '../../hooks/inventory/useAdminInventory';
 import { InventoryItem } from '../../hooks/inventory/useInventory';
 import { listFilter } from '../../services/filters/genericFilter';
 import Popconfirm from '../shared/Popconfirm';
+import YesNo from '../shared/YesNo';
 import AdminInventoryAddItemDrawer from './inventoryAdd/AdminInventoryAddItemDrawer';
 import AdminInventoryEditDrawer from './inventoryEditor/AdminInventoryEditDrawer';
 
@@ -118,6 +119,11 @@ export default function AdminInventoryViewList() {
                         <Column
                             title={t('view.inventory.list.headers.Stock')}
                             dataIndex='stock'
+                        />
+                        <Column
+                            title={t('view.inventory.list.headers.IsDrive')}
+                            dataIndex='isDrive'
+                            render={(i: boolean) => <YesNo>{i}</YesNo>}
                         />
                         <Column
                             title={t('view.inventory.list.headers.DeletedAt')}

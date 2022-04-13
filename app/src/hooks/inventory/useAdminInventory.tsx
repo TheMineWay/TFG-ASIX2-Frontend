@@ -9,6 +9,7 @@ export type CreateInventoryItem = {
     discount: number;
     price: number;
     stock: number;
+    isDrive: boolean;
 }
 
 export type AdminInventory = {

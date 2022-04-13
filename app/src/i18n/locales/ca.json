@@ -136,7 +136,8 @@
                     "Actions": "Accions",
                     "DeletedAt": "Esborrat el",
                     "ImageUrl": "URL de la imatge",
-                    "Image": "Imatge"
+                    "Image": "Imatge",
+                    "IsDrive": "És suport d'emmagatzematge"
                 },
                 "actions": {
                     "Delete": "Esborrar",
@@ -285,7 +286,9 @@
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat",
-            "Timezone": "Zona horaria"
+            "Timezone": "Zona horaria",
+            "Yes": "Sí",
+            "No": "No"
         }
     }
 }

@@ -4,34 +4,40 @@ import { t } from 'i18next';
 
 const { Step } = Steps;
 
-export type DiskRequestStepsType = 'build' | 'send' | 'pay' | 'sent';
-
 type Props = {
-    step: DiskRequestStepsType;
+    step: number;
 };
 
 export default function DiskRequestSteps(props: Props) {
+
+    const getState = (step: number): 'finish' | 'process' | 'wait' => {
+        if(step === props.step) return 'process';
+        if(step < props.step) return 'finish';
+        
+        return 'wait';
+    }
+
     return (
         <Steps
             style={{ width: '100%' }}
         >
             <Step
-                status={['build', 'send', 'pay', 'sent'].includes(props.step) ? 'process' : 'wait'}
+                status={getState(0)}
                 title={t('view.diskRequest.steps.build')}
                 icon={<BuildOutlined />}
             />
             <Step
-                status={['send', 'pay', 'sent'].includes(props.step) ? 'process' : 'wait'}
+                status={getState(1)}
                 title={t('view.diskRequest.steps.send')}
                 icon={<SendOutlined />}
             />
             <Step
-                status={['pay', 'sent'].includes(props.step) ? 'process' : 'wait'}
+                status={getState(2)}
                 title={t('view.diskRequest.steps.payment')}
                 icon={<PayCircleOutlined />}
             />
             <Step
-                status={['sent'].includes(props.step) ? 'process' : 'wait'}
+                status={getState(3)}
                 title={t('view.diskRequest.steps.sent')}
                 icon={<CheckOutlined />}
             />

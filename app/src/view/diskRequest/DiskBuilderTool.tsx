@@ -2,12 +2,12 @@ import { Col, Row } from "antd";
 import { useState } from "react";
 import useInventory from "../../hooks/inventory/useInventory";
 import Loading from "../shared/Loading";
-import DiskRequestSteps, { DiskRequestStepsType } from "./DiskRequestSteps";
+import DiskRequestSteps from "./DiskRequestSteps";
 
 export default function DiskBuilderTool() {
 
     const inventory = useInventory();
-    const [step, setStep] = useState<DiskRequestStepsType>('build');
+    const [step, setStep] = useState<number>(0);
 
     const loading = inventory.loading;
 

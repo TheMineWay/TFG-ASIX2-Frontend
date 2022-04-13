@@ -15,13 +15,8 @@ export default function DiskBuilderTool(props: Props) {
     if (loading) return <Loading />;
 
     return (
-        <Row
-            justify='center'
-            gutter={[12,12]}
-        >
-            <Col span={20}>
-
-            </Col>
-        </Row>
+        <>
+            
+        </>
     );
 }

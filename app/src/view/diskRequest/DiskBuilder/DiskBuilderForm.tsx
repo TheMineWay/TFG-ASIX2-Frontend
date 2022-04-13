@@ -69,7 +69,7 @@ export default function DiskBuilderForm(props: Props) {
                 }}
             />
             <SubmitFormItem
-                text={t('common.actions.Save')}
+                text={t('view.diskRequest.step.build.actions.SavePage')}
                 icon={<SaveOutlined/>}
             />
         </Form>

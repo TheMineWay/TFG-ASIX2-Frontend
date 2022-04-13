@@ -179,7 +179,8 @@
                         "Items": "Ítems"
                     },
                     "actions": {
-                        "FinishBuild": "Finalitzar personalització del disc"
+                        "FinishBuild": "Finalitzar personalització del disc",
+                        "SavePage": "Desar pàgina"
                     }
                 }
             }

@@ -1,4 +1,4 @@
-import { Button, Col, Row } from "antd";
+import { Button, Col, Divider, Row } from "antd";
 import { t } from "i18next";
 import { useState } from "react";
 import useInventory from "../../../hooks/inventory/useInventory";
@@ -88,6 +88,7 @@ export default function DiskBuilderTool(props: Props) {
                 />
             </Col>
 
+            <Divider/>
             <Col
                 span={24}
                 style={{

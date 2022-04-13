@@ -1,6 +1,7 @@
 import { Button, Col, Divider, Row } from "antd";
 import { t } from "i18next";
 import { useState } from "react";
+import useCoins from "../../../hooks/coins/useCoins";
 import useInventory from "../../../hooks/inventory/useInventory";
 import Loading from "../../shared/Loading";
 import DiskBuilderTabs from "./DiskBuilderTabs";
@@ -33,6 +34,8 @@ export default function DiskBuilderTool(props: Props) {
     const disks = props.disks;
     const setDisks = props.setDisks;
 
+    const { DisplayPrice } = useCoins();
+
     if (loading) return <Loading />;
 
     const findValidTabId = (): string => {
@@ -43,6 +46,22 @@ export default function DiskBuilderTool(props: Props) {
             }
         }
         return "Sth went wrong";
+    }
+
+    const finalPrice = (): number => {
+        let price = 0;
+
+        for(const disk of Object.entries(disks)) {
+            const items = inventory.inventory?.filter((item) => disk[1].items.includes(item.id));
+            const diskItem = inventory.inventory?.find((item) => item.id === disk[1].disk);
+
+            price += diskItem?.price ?? 0;
+            for(const i of items ?? []) {
+                price += i.price;
+            }
+        }
+
+        return price;
     }
 
     return (
@@ -92,7 +111,14 @@ export default function DiskBuilderTool(props: Props) {
 
             <Divider/>
             <Col
-                span={24}
+                xs={24}
+                md={12}
+            >
+                <p>{t('view.diskRequest.step.build.messages.FinalPrice')} <DisplayPrice price={finalPrice()}/></p>
+            </Col>
+            <Col
+                xs={24}
+                md={12}
                 style={{
                     display: 'flex',
                     justifyContent: 'end'

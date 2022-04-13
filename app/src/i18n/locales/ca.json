@@ -183,6 +183,9 @@
                     "actions": {
                         "FinishBuild": "Finalitzar personalització del disc",
                         "SavePage": "Desar pàgina"
+                    },
+                    "messages": {
+                        "FinalPrice": "Preu total"
                     }
                 }
             }

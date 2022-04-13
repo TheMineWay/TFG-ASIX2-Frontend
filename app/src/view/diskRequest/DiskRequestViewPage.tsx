@@ -1,7 +1,7 @@
 import { Col, Row } from "antd";
 import { useState } from "react";
 import Container from "../shared/Container";
-import DiskBuilderTool from "./DiskBuilderTool";
+import DiskBuilderTool from "./DiskBuilder/DiskBuilderTool";
 import DiskRequestSteps from "./DiskRequestSteps";
 
 export default function DiskRequestViewPage() {

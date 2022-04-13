@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 
 export type UseCache<T> = {
@@ -13,11 +14,20 @@ type Props = {
 export default function useCache<T>(props: Props): UseCache<T> {
     
     const [cookies, setCookie, removeCookie] = useCookies();
+    const [state, setState] = useState<T>();
+
 
     const data = cookies["CACHE_" + props.cacheId] as T ?? undefined;
 
+    useEffect(() => {
+        setState(data);
+        return () => {
+            setCookie("CACHE_" + props.cacheId, state);
+        };
+    }, []);
+
     const set = (data: T): void => {
-        setCookie("CACHE_" + props.cacheId, data);
+        setState(data);
     }
 
     const clear = (): void => {

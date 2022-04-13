@@ -55,9 +55,9 @@ const menuOptions: MenuOption[] = [
         ],
     },
     {
-        text: 'diskBuilder',
-        path: '/disk-builder',
-        key: 'disk-builder',
+        text: 'diskRequest',
+        path: '/disk-request',
+        key: 'disk-request',
         icon: <BuildOutlined/>,
         requiresAuth: true,
     }

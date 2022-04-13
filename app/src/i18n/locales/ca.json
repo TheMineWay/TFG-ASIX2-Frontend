@@ -38,8 +38,8 @@
             "payments": {
                 "Title": "Pagaments"
             },
-            "diskBuilder": {
-                "Title": "Crear disc"
+            "diskRequest": {
+                "Title": "Sol·licitar disc"
             }
         }
     },

@@ -51,8 +51,8 @@ const routes: Route[] = [
         requiresAuth: true,
     },
     {
-        path: '/disk-builder',
-        loader: () => import('../view/diskBuilder/DiskBuilderViewPage'),
+        path: '/disk-request',
+        loader: () => import('../view/diskBuilder/DiskRequestViewPage'),
         requiresAuth: true,
     }
 ];

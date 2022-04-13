@@ -8,6 +8,7 @@ import DiskBuilderTabs from "./DiskBuilderTabs";
 export type DiskBuilderFormValues = {
     amount: number;
     items: string[];
+    disk: string;
 }
 
 type Props = {
@@ -19,6 +20,7 @@ type Props = {
 export const defaultDiskRequest: DiskBuilderFormValues = {
     amount: 1,
     items: [],
+    disk: ''
 }
 
 export default function DiskBuilderTool(props: Props) {

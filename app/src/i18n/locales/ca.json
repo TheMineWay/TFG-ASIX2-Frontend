@@ -176,7 +176,8 @@
                 "build": {
                     "form": {
                         "Amount": "Quantitat",
-                        "Items": "Ítems"
+                        "Items": "Ítems",
+                        "Disk": "Suport d'emmagatzematge"
                     },
                     "actions": {
                         "FinishBuild": "Finalitzar personalització del disc",

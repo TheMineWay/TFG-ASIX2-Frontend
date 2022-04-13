@@ -52,7 +52,7 @@ const routes: Route[] = [
     },
     {
         path: '/disk-request',
-        loader: () => import('../view/diskBuilder/DiskRequestViewPage'),
+        loader: () => import('../view/diskRequest/DiskRequestViewPage'),
         requiresAuth: true,
     }
 ];

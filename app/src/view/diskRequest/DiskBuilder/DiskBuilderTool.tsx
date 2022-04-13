@@ -25,7 +25,7 @@ export default function DiskBuilderTool(props: Props) {
     // Disks pagination
     const [diskTab, setDiskTab] = useState<string>('1');
     const [disks, setDisks] = useState<{ [id: string]: DiskBuilderFormValues }>({
-        '0': defaultDisk,
+        '1': defaultDisk,
     });
 
     if (loading) return <Loading />;

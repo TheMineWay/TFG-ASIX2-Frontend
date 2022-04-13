@@ -13,6 +13,16 @@ export default function DiskBuilderTool() {
 
     if (loading) return <Loading />;
 
+    const next = () => {
+        if(step >= 3) return;
+        setStep(step + 1);
+    }
+
+    const back = () => {
+        if(step <= 0) return;
+        setStep(step - 1);
+    }
+
     return (
         <Row
             justify='center'

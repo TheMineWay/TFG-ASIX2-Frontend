@@ -62,7 +62,8 @@ export default function DiskBuilderTool(props: Props) {
                 }}
                 add={() => {
                     const dks = disks;
-                    dks[findValidTabId()] = defaultDisk;
+                    const id = findValidTabId();
+                    dks[id] = defaultDisk;
 
                     setDisks({
                         ...dks

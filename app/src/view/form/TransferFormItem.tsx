@@ -8,6 +8,7 @@ type Props = {
     required?: boolean;
     requiredInvisibility?: boolean;
     label: string;
+    render?: (item: { title?: string, key?: string, description?: string }) => JSX.Element;
 }
 
 export default function TransferFormItem(props: Props) {
@@ -32,7 +33,11 @@ export default function TransferFormItem(props: Props) {
                 }}
                 dataSource={props.datasource}
                 showSearch
-                render={(item) => <List.Item>{item.title}</List.Item>}
+                render={(item) => {
+
+                    if(props.render) return props.render(item);
+                    return <>{item.title}</>;
+                }}
                 selectedKeys={selected}
                 onSelectChange={onSelectChange}
                 targetKeys={target}

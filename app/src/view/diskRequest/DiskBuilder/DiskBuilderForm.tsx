@@ -1,6 +1,7 @@
-import { Form } from 'antd';
+import { Avatar, Form, List } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import { TransferItem } from 'antd/lib/transfer';
+import { t } from 'i18next';
 import { InventoryItem } from '../../../hooks/inventory/useInventory';
 import NumberFormItem from '../../form/NumberFormItem';
 import TransferFormItem from '../../form/TransferFormItem';
@@ -13,7 +14,7 @@ type Props = {
 }
 
 export default function DiskBuilderForm(props: Props) {
-    
+
     const [form] = useForm<DiskBuilderFormValues>();
 
     const datasource: TransferItem[] = props.inventory.map((i) => ({
@@ -27,17 +28,33 @@ export default function DiskBuilderForm(props: Props) {
             form={form}
             onFinish={props.onSave}
             initialValues={props.originalValue}
+            layout='vertical'
         >
             <NumberFormItem
                 name='amount'
                 min={1}
                 max={32}
-                label={'_amount'}
+                label={t('view.diskRequest.form.Amount')}
             />
             <TransferFormItem
                 name='items'
-                label={'_items'}
+                label={t('view.diskRequest.form.Items')}
                 datasource={datasource}
+                render={(i) => {
+
+                    const item: InventoryItem | undefined = props.inventory.find((it) => it.id === i.key);
+
+                    if(!item) return <>{i.title}</>
+
+                    return (
+                        <List.Item>
+                            <List.Item.Meta
+                                title={i.title}
+                                avatar={<Avatar src={item.imageUrl}/>}
+                            />
+                        </List.Item>
+                    );
+                }}
             />
         </Form>
     )

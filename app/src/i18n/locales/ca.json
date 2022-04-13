@@ -171,6 +171,10 @@
             },
             "tabs": {
                 "Tab": "Pàgina"
+            },
+            "form": {
+                "Amount": "Quantitat",
+                "Items": "Ítems"
             }
         }
     },

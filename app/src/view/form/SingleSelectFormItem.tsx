@@ -12,7 +12,9 @@ type Props = {
 export default function SingleSelectFormItem(props: Props) {
     return (
         <Form.Item name={props.name} label={props.label} required={props.required && !props.requiredInvisibility}>
-            <Select>
+            <Select
+              allowClear
+            >
               {
                 props.options.map((o) => (
                   <Select.Option

@@ -201,6 +201,10 @@
             "401": {
                 "Title": "No pots accedir a la pàgina",
                 "Subtitle": "Per poder accedir a aquesta pàgina necessites tenir permisos"
+            },
+            "406": {
+                "Title": "Error de format",
+                "Message": "El format de les dades no és correcte. Comprova que s'han emplenat correctament tols els camps"
             }
         },
         "auth": {

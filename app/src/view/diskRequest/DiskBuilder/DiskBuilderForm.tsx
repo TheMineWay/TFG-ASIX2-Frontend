@@ -6,6 +6,7 @@ import { t } from 'i18next';
 import { useEffect } from 'react';
 import useCoins from '../../../hooks/coins/useCoins';
 import { InventoryItem } from '../../../hooks/inventory/useInventory';
+import notificationErrorDisplay from '../../errors/display/NotificationErrorDisplay';
 import NumberFormItem from '../../form/NumberFormItem';
 import SingleSelectFormItem from '../../form/SingleSelectFormItem';
 import SubmitFormItem from '../../form/SubmitFormItem';
@@ -34,7 +35,12 @@ export default function DiskBuilderForm(props: Props) {
     })) ?? [];
 
     const submit = (values: DiskBuilderFormValues) => {
-        props.onSave(values);
+        try {
+            if(!values.disk) throw { code: 406, section: 'frontend' };
+            props.onSave(values);
+        } catch(e: any) {
+            notificationErrorDisplay(e);
+        }
     }
 
     return (
@@ -63,6 +69,7 @@ export default function DiskBuilderForm(props: Props) {
                     lg={12}
                 >
                     <SingleSelectFormItem
+                        required requiredInvisibility
                         name='disk'
                         label={t('view.diskRequest.step.build.form.Disk')}
                         options={props.inventory.filter((i) => i.isDrive).map((i) => ({

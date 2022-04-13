@@ -9,12 +9,13 @@ type Props = {
     requiredInvisibility?: boolean;
     label: string;
     render?: (item: { title?: string, key?: string, description?: string }) => JSX.Element;
+    initial?: string[];
 }
 
 export default function TransferFormItem(props: Props) {
 
-    const [selected, setSelected] = useState<string[]>([]);
-    const [target, setTarget] = useState<string[]>([]);
+    const [selected, setSelected] = useState<string[]>(props.initial ?? []);
+    const [target, setTarget] = useState<string[]>(props.initial ?? []);
 
     const onSelectChange = (source: string[], target: string[]) => {
         setSelected([...source, ...target]);

@@ -2,9 +2,7 @@ import { Button, Col, Row } from "antd";
 import { t } from "i18next";
 import { useState } from "react";
 import useInventory from "../../../hooks/inventory/useInventory";
-import notificationErrorDisplay from "../../errors/display/NotificationErrorDisplay";
 import Loading from "../../shared/Loading";
-import Popconfirm from "../../shared/Popconfirm";
 import DiskBuilderTabs from "./DiskBuilderTabs";
 
 export type DiskBuilderFormValues = {
@@ -76,6 +74,16 @@ export default function DiskBuilderTool(props: Props) {
                         setDisks({
                             ...dks
                         });
+                    }}
+                    set={(id, values) => {
+                        let ds: { [id: string]: DiskBuilderFormValues } = {};
+
+                        for (const dId in disks) {
+                            const disk = dId === id ? values : disks[dId];
+                            ds[dId] = disk;
+                        }
+
+                        setDisks(ds);
                     }}
                 />
             </Col>

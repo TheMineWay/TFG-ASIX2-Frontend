@@ -13,6 +13,7 @@ type Props = {
     add: () => void;
     remove: (id: string) => void;
     inventory: InventoryItem[];
+    set: (id: string, values: DiskBuilderFormValues) => void;
 }
 
 export default function DiskBuilderTabs(props: Props) {
@@ -42,7 +43,7 @@ export default function DiskBuilderTabs(props: Props) {
                         >
                             <DiskBuilderForm
                                 onSave={(values) => {
-
+                                    props.set(id, values);
                                 }}
                                 originalValue={disk}
                                 inventory={props.inventory}

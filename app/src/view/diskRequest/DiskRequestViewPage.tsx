@@ -1,20 +1,32 @@
-import { Button, Col, Row } from "antd";
+import { Col, Row } from "antd";
 import { useState } from "react";
-import useDiskRequest from "../../hooks/diskRequest/useDiskRequest";
+import useCoins from "../../hooks/coins/useCoins";
+import useDiskRequest, { DiskRequestObj } from "../../hooks/diskRequest/useDiskRequest";
+import useInventory from "../../hooks/inventory/useInventory";
 import Container from "../shared/Container";
+import Loading from "../shared/Loading";
 import DiskBuilderTool, { defaultDiskRequest, DiskBuilderFormValues } from "./DiskBuilder/DiskBuilderTool";
 import DiskRequestSteps from "./DiskRequestSteps";
+import DiskRequestSummary from "./DiskRequestSummary";
 
 export default function DiskRequestViewPage() {
+
+    const inventory = useInventory();
 
     // Step 1 - DISKS
     const [disks, setDisks] = useState<{ [id: string]: DiskBuilderFormValues }>({'1': defaultDiskRequest});
 
     // Requester
-    const { request, loading } = useDiskRequest();
+
+    const diskRequest = useDiskRequest({
+        disks,
+    });
+
+    const loading = inventory.loading;
 
     const [step, setStep] = useState<number>(0);
 
+    
     const next = () => {
         if (step >= 3) return;
         setStep(step + 1);
@@ -38,6 +50,7 @@ export default function DiskRequestViewPage() {
                         }}
                         disks={disks}
                         setDisks={setDisks}
+                        inventory={inventory.inventory ?? []}
                     />
                 )
             },
@@ -67,6 +80,8 @@ export default function DiskRequestViewPage() {
             }
         ];
 
+    if(loading) return <Loading/>;
+        
     return (
         <Container>
             <Row
@@ -80,10 +95,18 @@ export default function DiskRequestViewPage() {
                         setStep={setStep}
                     />
                 </Col>
-                <Col span={24}>
+                <Col
+                    xs={24}
+                >
                     {
                         steps.find((s) => s.step === step)?.component
                     }
+                </Col>
+                <Col>
+                    <DiskRequestSummary
+                        inventory={inventory.inventory ?? []}
+                        request={diskRequest.requestObj}
+                    />
                 </Col>
             </Row>
         </Container>

@@ -1,9 +1,7 @@
 import { Button, Col, Divider, Row } from "antd";
 import { t } from "i18next";
 import { useState } from "react";
-import useCoins from "../../../hooks/coins/useCoins";
-import useInventory from "../../../hooks/inventory/useInventory";
-import Loading from "../../shared/Loading";
+import { InventoryItem } from "../../../hooks/inventory/useInventory";
 import DiskBuilderTabs from "./DiskBuilderTabs";
 
 export type DiskBuilderFormValues = {
@@ -16,6 +14,7 @@ type Props = {
     onFinish: () => void;
     disks: { [id: string]: DiskBuilderFormValues };
     setDisks: (disks: { [id: string]: DiskBuilderFormValues }) => void;
+    inventory: InventoryItem[];
 }
 
 export const defaultDiskRequest: DiskBuilderFormValues = {
@@ -26,17 +25,12 @@ export const defaultDiskRequest: DiskBuilderFormValues = {
 
 export default function DiskBuilderTool(props: Props) {
 
-    const inventory = useInventory();
-    const loading = inventory.loading;
+    const inventory = props.inventory;
 
     // Disks pagination
     const [diskTab, setDiskTab] = useState<string>('1');
     const disks = props.disks;
     const setDisks = props.setDisks;
-
-    const { DisplayPrice } = useCoins();
-
-    if (loading) return <Loading />;
 
     const findValidTabId = (): string => {
         for (let i = 1; i > 0; i++) {
@@ -48,22 +42,6 @@ export default function DiskBuilderTool(props: Props) {
         return "Sth went wrong";
     }
 
-    const finalPrice = (): number => {
-        let price = 0;
-
-        for(const disk of Object.entries(disks)) {
-            const items = inventory.inventory?.filter((item) => disk[1].items.includes(item.id));
-            const diskItem = inventory.inventory?.find((item) => item.id === disk[1].disk);
-
-            price += diskItem?.price ?? 0;
-            for(const i of items ?? []) {
-                price += i.price;
-            }
-        }
-
-        return price;
-    }
-
     return (
         <Row
             gutter={[24, 24]}
@@ -73,7 +51,7 @@ export default function DiskBuilderTool(props: Props) {
                     current={diskTab}
                     disks={disks}
                     change={setDiskTab}
-                    inventory={inventory.inventory ?? []}
+                    inventory={inventory ?? []}
                     remove={(id) => {
 
                         let ds: { [id: string]: DiskBuilderFormValues } = {};
@@ -110,12 +88,6 @@ export default function DiskBuilderTool(props: Props) {
             </Col>
 
             <Divider/>
-            <Col
-                xs={24}
-                md={12}
-            >
-                <p>{t('view.diskRequest.step.build.messages.FinalPrice')} <DisplayPrice price={finalPrice()}/></p>
-            </Col>
             <Col
                 xs={24}
                 md={12}

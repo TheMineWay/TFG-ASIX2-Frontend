@@ -16,7 +16,7 @@ export default function DiskRequestSummary(props: Props) {
 
     const disks = props.request.disks;
 
-    const finalPrice = (): number => {
+    const finalDisksPrice = (): number => {
         let price = 0;
 
         for(const disk of Object.entries(disks)) {
@@ -36,7 +36,7 @@ export default function DiskRequestSummary(props: Props) {
         <Card
             hoverable
         >
-            <DisplayPrice price={finalPrice()}/>
+            <DisplayPrice price={finalDisksPrice()}/>
         </Card>
     );
 }

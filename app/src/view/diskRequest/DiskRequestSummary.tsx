@@ -1,4 +1,4 @@
-import { Card } from "antd";
+import { Card, Divider, Tree, TreeDataNode } from "antd";
 import useCoins from "../../hooks/coins/useCoins";
 import { DiskRequestObj, generateDiskRequestBill } from "../../hooks/diskRequest/useDiskRequest";
 import { InventoryItem } from "../../hooks/inventory/useInventory";
@@ -29,12 +29,25 @@ export default function DiskRequestSummary(props: Props) {
         return price;
     }
 
-    //const billTree = 
+    const billTree: TreeDataNode[] = bill?.disks?.map((disk) => ({
+        title: <>{disk?.disk.name} <DisplayPrice price={0}/></>,
+        key: disk.toString(),
+        children: disk.items.map((item) => ({
+            title: <>{item?.name} <DisplayPrice price={item?.price ?? 0}/></>,
+            key: item?.id ?? '',
+            children: []
+        }))
+    }))
 
     return (
         <Card
             hoverable
         >
+            <Tree
+                treeData={billTree ?? []}
+                showLine
+            />
+            <Divider/>
             <DisplayPrice price={finalDisksPrice()}/>
         </Card>
     );

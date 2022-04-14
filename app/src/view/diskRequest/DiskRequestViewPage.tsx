@@ -97,12 +97,18 @@ export default function DiskRequestViewPage() {
                 </Col>
                 <Col
                     xs={24}
+                    lg={18}
+                    xl={16}
                 >
                     {
                         steps.find((s) => s.step === step)?.component
                     }
                 </Col>
-                <Col>
+                <Col
+                    xs={24}
+                    lg={6}
+                    xl={8}
+                >
                     <DiskRequestSummary
                         inventory={inventory.inventory ?? []}
                         request={diskRequest.requestObj}

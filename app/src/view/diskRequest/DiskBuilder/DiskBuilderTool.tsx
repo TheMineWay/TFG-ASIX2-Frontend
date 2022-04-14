@@ -1,4 +1,4 @@
-import { Button, Col, Divider, Row } from "antd";
+import { Col, Row } from "antd";
 import { t } from "i18next";
 import { useState } from "react";
 import { InventoryItem } from "../../../hooks/inventory/useInventory";
@@ -85,24 +85,6 @@ export default function DiskBuilderTool(props: Props) {
                         setDisks(ds);
                     }}
                 />
-            </Col>
-
-            <Divider/>
-            <Col
-                xs={24}
-                md={12}
-                style={{
-                    display: 'flex',
-                    justifyContent: 'end'
-                }}
-            >
-                <Button
-                    disabled={Object.keys(disks).length <= 0}
-                    type='primary'
-                    onClick={() => {
-                        props.onFinish();
-                    }}
-                >{t('view.diskRequest.step.build.actions.FinishBuild')}</Button>
             </Col>
         </Row>
     );

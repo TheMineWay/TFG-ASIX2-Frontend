@@ -186,6 +186,10 @@
                     },
                     "messages": {
                         "FinalPrice": "Preu total"
+                    },
+                    "titles": {
+                        "Available": "Disponible",
+                        "Selected": "Seleccionat"
                     }
                 }
             }

@@ -1,5 +1,6 @@
 import { Form, Transfer } from 'antd';
 import { TransferItem } from 'antd/lib/transfer';
+import { t } from 'i18next';
 import { useState } from 'react';
 
 type Props = {
@@ -33,7 +34,6 @@ export default function TransferFormItem(props: Props) {
                     height: '100%'
                 }}
                 dataSource={props.datasource}
-                showSearch
                 render={(item) => {
 
                     if(props.render) return props.render(item);
@@ -43,6 +43,8 @@ export default function TransferFormItem(props: Props) {
                 onSelectChange={onSelectChange}
                 targetKeys={target}
                 onChange={onChange}
+                titles={[t('view.diskRequest.step.build.titles.Available'), t('view.diskRequest.step.build.titles.Selected')]}
+                pagination
             />
         </Form.Item>
     );

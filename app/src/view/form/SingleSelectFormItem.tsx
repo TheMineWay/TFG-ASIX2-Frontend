@@ -1,4 +1,4 @@
-import { Form, Input, Select } from 'antd';
+import { Form, Select } from 'antd';
 
 type Props = {
     name: string;

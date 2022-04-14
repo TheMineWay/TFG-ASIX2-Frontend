@@ -60,7 +60,7 @@ export default function DiskBuilderForm(props: Props) {
                     <NumberFormItem
                         name='amount'
                         min={1}
-                        max={32}
+                        max={128}
                         label={t('view.diskRequest.step.build.form.Amount')}
                     />
                 </Col>

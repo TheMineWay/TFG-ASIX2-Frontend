@@ -20,7 +20,7 @@ export default function DiskRequestSummary(props: Props) {
         let price = 0;
 
         for(const i of bill.disks) {
-            price += i?.disk.price ?? 0;
+            price += i?.disk?.price ?? 0;
             for(const item of i?.items ?? []) {
                 price += item?.price ?? 0;
             }

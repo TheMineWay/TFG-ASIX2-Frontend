@@ -1,7 +1,8 @@
+import { useEffect, useState } from 'react';
 import request from '../../services/api/Request';
 import notificationErrorDisplay from '../../view/errors/display/NotificationErrorDisplay';
 import useAuthState from '../auth/useAuthState';
-import useInventory, { InventoryItem } from './useInventory';
+import { InventoryItem, processRawInventoryItem, RawInventoryItem } from './useInventory';
 
 export type CreateInventoryItem = {
     name: string;
@@ -26,13 +27,18 @@ export type AdminInventory = {
 }
 
 export default function useAdminInventory(): AdminInventory {
-    const inventory = useInventory();
     const [authState] = useAuthState();
+    const [inventory, setInventory] = useState<InventoryItem[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+
+    useEffect(() => {
+        fetch();
+    }, []);
 
     async function deleteItem(id: string) {
         try {
             await request<{}>('post', '/actions/admin/inventory/deleteItem', { itemId: id }, { authCredentials: authState });
-            await inventory.fetch();
+            await fetch();
         } catch (e: any) {
             notificationErrorDisplay(e);
         }
@@ -41,7 +47,7 @@ export default function useAdminInventory(): AdminInventory {
     async function recoverItem(id: string) {
         try {
             await request<{}>('post', '/actions/admin/inventory/recoverItem', { itemId: id }, { authCredentials: authState });
-            await inventory.fetch();
+            await fetch();
         } catch (e: any) {
             notificationErrorDisplay(e);
         }
@@ -50,7 +56,7 @@ export default function useAdminInventory(): AdminInventory {
     async function createItem(item: CreateInventoryItem) {
         try {
             await request<{}>('post', '/actions/admin/inventory/createItem', { item }, { authCredentials: authState });
-            await inventory.fetch();
+            await fetch();
         } catch (e: any) {
             notificationErrorDisplay(e);
         }
@@ -59,18 +65,33 @@ export default function useAdminInventory(): AdminInventory {
     async function editItem(id: string, item: CreateInventoryItem) {
         try {
             await request<{}>('post', '/actions/admin/inventory/editItem', { item, itemId: id }, { authCredentials: authState });
-            await inventory.fetch();
+            await fetch();
         } catch (e: any) {
             notificationErrorDisplay(e);
         }
     }
 
+    async function fetch() {
+        setLoading(true);
+        try {
+            const result = await request<{inventory: RawInventoryItem[]}>('post', '/actions/admin/inventory/inventoryList', {}, { authCredentials: authState });
+            setInventory(result.inventory.map(processRawInventoryItem));
+        } catch(e: any) {
+            notificationErrorDisplay(e);
+        }
+        setLoading(false);
+    }
+
     return {
-        inventory,
+        inventory: {
+            inventory,
+            loading,
+            fetch,
+        },
         deleteItem,
         recoverItem,
         editItem,
         createItem,
-        loading: inventory.loading,
+        loading,
     }
 }

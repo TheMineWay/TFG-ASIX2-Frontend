@@ -54,7 +54,7 @@ export default function useInventory() {
     async function fetch(): Promise<void> {
         setLoading(true);
         try {
-            const result = await request<{inventory: RawInventoryItem[]}>('post', '/actions/admin/inventory/inventoryList', {}, { authCredentials: authState });
+            const result = await request<{inventory: RawInventoryItem[]}>('post', '/actions/inventory/inventoryList', {}, { authCredentials: authState });
             setInventory(result.inventory.map(processRawInventoryItem));
         } catch (e: any) {
             notificationErrorDisplay(e);

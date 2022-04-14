@@ -1,6 +1,6 @@
 import { Card } from "antd";
 import useCoins from "../../hooks/coins/useCoins";
-import { DiskRequestObj } from "../../hooks/diskRequest/useDiskRequest";
+import { DiskRequestObj, generateDiskRequestBill } from "../../hooks/diskRequest/useDiskRequest";
 import { InventoryItem } from "../../hooks/inventory/useInventory";
 
 type Props = {
@@ -14,23 +14,22 @@ export default function DiskRequestSummary(props: Props) {
 
     const inventory = props.inventory;
 
-    const disks = props.request.disks;
+    const bill = generateDiskRequestBill(props.request, { inventory });
 
     const finalDisksPrice = (): number => {
         let price = 0;
 
-        for(const disk of Object.entries(disks)) {
-            const items = inventory.filter((item) => disk[1].items.includes(item.id));
-            const diskItem = inventory.find((item) => item.id === disk[1].disk);
-
-            price += diskItem?.price ?? 0;
-            for(const i of items ?? []) {
-                price += i.price;
+        for(const i of bill.disks) {
+            price += i?.disk.price ?? 0;
+            for(const item of i?.items ?? []) {
+                price += item?.price ?? 0;
             }
         }
 
         return price;
     }
+
+    //const billTree = 
 
     return (
         <Card

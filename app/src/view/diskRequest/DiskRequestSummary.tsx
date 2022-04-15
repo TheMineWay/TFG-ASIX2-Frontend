@@ -30,12 +30,11 @@ export default function DiskRequestSummary(props: Props) {
     }
 
     const billTree: TreeDataNode[] = bill?.disks?.map((disk) => ({
-        title: <>{disk?.disk.name} <DisplayPrice price={0}/></>,
+        title: <>{disk?.disk?.name} <DisplayPrice price={0}/></>,
         key: disk.toString(),
         children: disk.items.map((item) => ({
             title: <>{item?.name} <DisplayPrice price={item?.price ?? 0}/></>,
             key: item?.id ?? '',
-            children: []
         }))
     }))
 

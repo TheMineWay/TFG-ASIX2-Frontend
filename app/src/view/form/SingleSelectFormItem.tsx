@@ -7,6 +7,7 @@ type Props = {
     label: string;
     icon?: JSX.Element;
     options: {title: JSX.Element, key: string}[];
+    onSelect?: (key: string) => void;
 }
 
 export default function SingleSelectFormItem(props: Props) {
@@ -14,6 +15,7 @@ export default function SingleSelectFormItem(props: Props) {
         <Form.Item name={props.name} label={props.label} required={props.required && !props.requiredInvisibility}>
             <Select
               allowClear
+              onChange={props.onSelect}
             >
               {
                 props.options.map((o) => (

@@ -8,6 +8,7 @@ import Loading from "../shared/Loading";
 import DiskBuilderTool, { defaultDiskRequest, DiskBuilderFormValues } from "./DiskBuilder/DiskBuilderTool";
 import DiskRequestSteps from "./DiskRequestSteps";
 import DiskRequestSummary from "./DiskRequestSummary";
+import DiskBuilderSend, { DiskSendOption } from "./DiskSend/DiskBuilderSend";
 
 export default function DiskRequestViewPage() {
 
@@ -15,6 +16,9 @@ export default function DiskRequestViewPage() {
 
     // Step 1 - DISKS
     const [disks, setDisks] = useState<{ [id: string]: DiskBuilderFormValues }>({'1': defaultDiskRequest});
+
+    // Step 2 - SEND
+    const [send, setSend] = useState<DiskSendOption>();
 
     // Requester
 
@@ -57,9 +61,13 @@ export default function DiskRequestViewPage() {
             {
                 step: 1,
                 component: (
-                    <>
-
-                    </>
+                    <DiskBuilderSend
+                        inventory={inventory.inventory ?? []}
+                        onFinish={() => {
+                            next();
+                        }}
+                        setSend={setSend}
+                    />
                 )
             },
             {

@@ -66,6 +66,7 @@ export default function DiskRequestSummary(props: Props) {
             <Table
                 dataSource={diskDatasource}
                 expandable={diskExpandable}
+                pagination={false}
             >
                 <Table.Column
                     title={t('view.diskRequest.summary.table.headers.Name')}

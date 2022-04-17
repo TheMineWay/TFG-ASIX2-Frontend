@@ -44,6 +44,7 @@ export default function FullAddressFormItem(props: Props) {
         >
             <Col>
                 <SingleSelectFormItem
+                    required requiredInvisibility
                     showSearch
                     name={props.countryFieldName}
                     label={props.countryLabel}
@@ -65,6 +66,7 @@ export default function FullAddressFormItem(props: Props) {
 
             <Col>
                 <SingleSelectFormItem
+                    required requiredInvisibility
                     showSearch
                     name={props.cityFieldName}
                     label={props.cityLabel}
@@ -78,6 +80,7 @@ export default function FullAddressFormItem(props: Props) {
 
             <Col>
                 <TextFormItem
+                    required requiredInvisibility
                     min={5}
                     max={5}
                     name={props.postalCodeFieldName}

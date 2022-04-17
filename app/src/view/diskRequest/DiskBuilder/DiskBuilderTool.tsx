@@ -89,6 +89,7 @@ export default function DiskBuilderTool(props: Props) {
             </Col>
             <Col span={24}>
                 <Button
+                    type="primary"
                     icon={<RightOutlined/>}
                     onClick={() => props.onFinish()}
                     disabled={Object.entries(props.disks).filter((e) => !!e[1].disk).length <= 0}

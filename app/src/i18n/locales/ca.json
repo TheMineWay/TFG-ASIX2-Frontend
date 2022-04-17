@@ -203,6 +203,7 @@
                     }
                 },
                 "send": {
+                    "NextBtn": "Següent (pagament)",
                     "form": {
                         "Country": "Pais",
                         "City": "Ciutat",

@@ -67,6 +67,7 @@ export default function DiskRequestViewPage() {
                             next();
                         }}
                         setSend={setSend}
+                        initial={send}
                     />
                 )
             },

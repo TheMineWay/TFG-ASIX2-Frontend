@@ -6,6 +6,7 @@ import useInventory from "../../hooks/inventory/useInventory";
 import Container from "../shared/Container";
 import Loading from "../shared/Loading";
 import DiskBuilderTool, { defaultDiskRequest, DiskBuilderFormValues } from "./DiskBuilder/DiskBuilderTool";
+import DiskBuilderPay from "./DiskPay/DiskBuilderPay";
 import DiskRequestSteps from "./DiskRequestSteps";
 import DiskRequestSummary from "./DiskRequestSummary";
 import DiskBuilderSend, { DiskSendOption } from "./DiskSend/DiskBuilderSend";
@@ -74,9 +75,7 @@ export default function DiskRequestViewPage() {
             {
                 step: 2,
                 component: (
-                    <>
-                        
-                    </>
+                    <DiskBuilderPay/>
                 )
             },
             {

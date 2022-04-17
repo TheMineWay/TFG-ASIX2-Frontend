@@ -209,6 +209,11 @@
                         "City": "Ciutat",
                         "PostalCode": "Codi postal"
                     }
+                },
+                "pay": {
+                    "form": {
+                        "Card": "Targeta"
+                    }
                 }
             }
         }

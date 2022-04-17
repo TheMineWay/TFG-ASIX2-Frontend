@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import r from '../../services/api/Request';
 import { DiskBuilderFormValues } from '../../view/diskRequest/DiskBuilder/DiskBuilderTool';
+import { DiskSendOption } from '../../view/diskRequest/DiskSend/DiskBuilderSend';
 import useAuthState from '../auth/useAuthState';
 import { InventoryItem } from '../inventory/useInventory';
 export type DiskRequestObj = {
@@ -9,6 +10,7 @@ export type DiskRequestObj = {
 
 type Props = {
     disks: {[id: string]: DiskBuilderFormValues};
+    send: DiskSendOption | undefined;
 }
 
 export default function useDiskRequest(props: Props) {

@@ -25,6 +25,7 @@ export default function DiskRequestViewPage() {
 
     const diskRequest = useDiskRequest({
         disks,
+        send,
     });
 
     const loading = inventory.loading;

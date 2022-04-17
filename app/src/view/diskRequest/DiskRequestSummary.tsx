@@ -1,3 +1,4 @@
+import { DownOutlined } from "@ant-design/icons";
 import { Card, Divider, Tree, TreeDataNode } from "antd";
 import useCoins from "../../hooks/coins/useCoins";
 import { DiskRequestObj, generateDiskRequestBill } from "../../hooks/diskRequest/useDiskRequest";
@@ -30,10 +31,10 @@ export default function DiskRequestSummary(props: Props) {
     }
 
     const billTree: TreeDataNode[] = bill?.disks?.map((disk) => ({
-        title: <>{disk?.disk?.name} <DisplayPrice price={0}/></>,
-        key: disk.toString(),
+        title: <><b>{disk?.disk?.name}</b> <DisplayPrice price={disk?.disk?.price}/></>,
+        key: (Math.random() * 999999).toString(),
         children: disk.items.map((item) => ({
-            title: <>{item?.name} <DisplayPrice price={item?.price ?? 0}/></>,
+            title: <><b>{item?.name}</b> <DisplayPrice price={item?.price ?? 0}/></>,
             key: item?.id ?? '',
         }))
     }))
@@ -45,6 +46,7 @@ export default function DiskRequestSummary(props: Props) {
             <Tree
                 treeData={billTree ?? []}
                 showLine
+                switcherIcon={<DownOutlined/>}
             />
             <Divider/>
             <DisplayPrice price={finalDisksPrice()}/>

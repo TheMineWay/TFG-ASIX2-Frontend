@@ -173,6 +173,14 @@
             "tabs": {
                 "Tab": "Pàgina"
             },
+            "summary": {
+                "table": {
+                    "headers": {
+                        "Name": "Nom",
+                        "Price": "Preu"
+                    }
+                }
+            },
             "step": {
                 "build": {
                     "form": {

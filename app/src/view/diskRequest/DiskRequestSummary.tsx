@@ -1,5 +1,6 @@
-import { DownOutlined } from "@ant-design/icons";
-import { Card, Divider, Tree, TreeDataNode } from "antd";
+import { Card, Divider, Table } from "antd";
+import { ExpandableConfig } from "antd/lib/table/interface";
+import { t } from "i18next";
 import useCoins from "../../hooks/coins/useCoins";
 import { DiskRequestObj, generateDiskRequestBill } from "../../hooks/diskRequest/useDiskRequest";
 import { InventoryItem } from "../../hooks/inventory/useInventory";
@@ -9,6 +10,8 @@ type Props = {
     request: DiskRequestObj;
 }
 
+type DisksTable = { name: string, price: number, items: (InventoryItem | undefined)[] };
+
 export default function DiskRequestSummary(props: Props) {
 
     const { DisplayPrice } = useCoins();
@@ -17,12 +20,38 @@ export default function DiskRequestSummary(props: Props) {
 
     const bill = generateDiskRequestBill(props.request, { inventory });
 
+    const diskDatasource: DisksTable[] = bill.disks.map((disk) => ({
+        ...disk.disk,
+        items: disk.items,
+    }));
+
+    const diskExpandable: ExpandableConfig<DisksTable> = {
+        expandedRowRender: (row) => {
+            return (
+                <Table
+                    dataSource={row.items as any}
+                    pagination={false}
+                >
+                    <Table.Column
+                        title={t('view.diskRequest.summary.table.headers.Name')}
+                        dataIndex={'name'}
+                    />
+                    <Table.Column
+                        title={t('view.diskRequest.summary.table.headers.Price')}
+                        dataIndex={'price'}
+                        render={(p: number) => <DisplayPrice price={p} />}
+                    />
+                </Table>
+            );
+        }
+    }
+
     const finalDisksPrice = (): number => {
         let price = 0;
 
-        for(const i of bill.disks) {
+        for (const i of bill.disks) {
             price += i?.disk?.price ?? 0;
-            for(const item of i?.items ?? []) {
+            for (const item of i?.items ?? []) {
                 price += item?.price ?? 0;
             }
         }
@@ -30,26 +59,26 @@ export default function DiskRequestSummary(props: Props) {
         return price;
     }
 
-    const billTree: TreeDataNode[] = bill?.disks?.map((disk) => ({
-        title: <><b>{disk?.disk?.name}</b> <DisplayPrice price={disk?.disk?.price}/></>,
-        key: (Math.random() * 999999).toString(),
-        children: disk.items.map((item) => ({
-            title: <><b>{item?.name}</b> <DisplayPrice price={item?.price ?? 0}/></>,
-            key: item?.id ?? '',
-        }))
-    }))
-
     return (
         <Card
             hoverable
         >
-            <Tree
-                treeData={billTree ?? []}
-                showLine
-                switcherIcon={<DownOutlined/>}
-            />
-            <Divider/>
-            <DisplayPrice price={finalDisksPrice()}/>
+            <Table
+                dataSource={diskDatasource}
+                expandable={diskExpandable}
+            >
+                <Table.Column
+                    title={t('view.diskRequest.summary.table.headers.Name')}
+                    dataIndex={'name'}
+                />
+                <Table.Column
+                    title={t('view.diskRequest.summary.table.headers.Price')}
+                    dataIndex={'price'}
+                    render={(p: number) => <DisplayPrice price={p} />}
+                />
+            </Table>
+            <Divider />
+            <DisplayPrice price={finalDisksPrice()} />
         </Card>
     );
 }

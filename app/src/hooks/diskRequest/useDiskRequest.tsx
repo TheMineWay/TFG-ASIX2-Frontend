@@ -42,12 +42,12 @@ export default function useDiskRequest(props: Props) {
 export function generateDiskRequestBill(requestObj: DiskRequestObj, data: { inventory: InventoryItem[] }) {
 
     return {
-        disks: requestObj.disks.map((d) => {
+        disks: requestObj.disks.filter((d) => !!d.disk).map((d) => {
             const disk = data.inventory.find((i) => i.id === d.disk)!;
             
             return {
                 disk,
-                items: d.items.map((i) => data.inventory.find((inv) => inv.id === i))!,
+                items: d.items.map((i) => data.inventory.find((inv) => inv.id === i))! ?? [],
             };
         }) ?? [],
     };

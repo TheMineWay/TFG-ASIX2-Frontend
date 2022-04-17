@@ -26,6 +26,7 @@ export default function FullAddressFormItem(props: Props) {
     return (
         <>
             <SingleSelectFormItem
+                showSearch
                 name={props.countryFieldName}
                 label={props.countryLabel}
                 options={[
@@ -44,6 +45,7 @@ export default function FullAddressFormItem(props: Props) {
             />
 
             <SingleSelectFormItem
+                showSearch
                 name={props.cityFieldName}
                 label={props.cityLabel}
                 options={cities.map((c) => ({

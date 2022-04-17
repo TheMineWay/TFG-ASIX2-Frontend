@@ -26,6 +26,7 @@ export default function DiskBuilderSend(props: Props) {
 
     const submit = (values: DiskSendOption) => {
         props.setSend(values);
+        props.onFinish();
     }
 
     return (

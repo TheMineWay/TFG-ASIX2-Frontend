@@ -1,5 +1,6 @@
 import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
+import { t } from "i18next";
 import { InventoryItem } from "../../../hooks/inventory/useInventory"
 import FullAddressFormItem from "../../form/FullAddressFormItem";
 
@@ -24,12 +25,15 @@ export default function DiskBuilderSend(props: Props) {
         <>
             <Form
                 form={form}
+                layout='vertical'
             >
                 <FullAddressFormItem
                     countryFieldName="country"
-                    countryLabel={"Country"}
+                    countryLabel={t('view.diskRequest.step.send.form.Country')}
                     cityFieldName="city"
-                    cityLabel={"City"}
+                    cityLabel={t('view.diskRequest.step.send.form.City')}
+                    postalCodeFieldName="postalCode"
+                    postalCodeLabel={t('view.diskRequest.step.send.form.PostalCode')}
                 />
             </Form>
         </>

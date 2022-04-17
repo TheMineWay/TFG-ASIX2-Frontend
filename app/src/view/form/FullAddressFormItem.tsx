@@ -1,13 +1,17 @@
+import { Col as AntCol, Row } from "antd";
 import { City, Country } from "country-state-city";
 import { ICity, ICountry } from "country-state-city/dist/lib/interface";
 import { useState } from "react";
 import SingleSelectFormItem from "./SingleSelectFormItem";
+import TextFormItem from "./TextFormItem";
 
 type Props = {
     countryFieldName: string;
     countryLabel: string;
     cityFieldName: string;
     cityLabel: string;
+    postalCodeFieldName: string;
+    postalCodeLabel: string;
 }
 
 export default function FullAddressFormItem(props: Props) {
@@ -23,36 +27,63 @@ export default function FullAddressFormItem(props: Props) {
         stateCode: 'LIDF'
     })) : City.getCitiesOfCountry(selectedCountry)!) : [];
 
-    return (
-        <>
-            <SingleSelectFormItem
-                showSearch
-                name={props.countryFieldName}
-                label={props.countryLabel}
-                options={[
-                    ...countries.map((c) => ({
-                        key: c.isoCode,
-                        title: <>{c.flag} {c.name}</>,
-                    })),
-                    ...[
-                        {
-                            key: 'LIDF',
-                            title: <>🏝 La isla del Fortnite</>
-                        }
-                    ]
-                ]}
-                onSelect={setSelectedCountry}
-            />
+    const Col = (props: { children: JSX.Element }) => {
+        return (
+            <AntCol
+                xs={24}
+                md={12}
+            >
+                {props.children}
+            </AntCol>
+        );
+    }
 
-            <SingleSelectFormItem
-                showSearch
-                name={props.cityFieldName}
-                label={props.cityLabel}
-                options={cities.map((c) => ({
-                    key: c.name,
-                    title: <>{c.name}</>
-                }))}
-            />
-        </>
+    return (
+        <Row
+            gutter={[24, 24]}
+        >
+            <Col>
+                <SingleSelectFormItem
+                    showSearch
+                    name={props.countryFieldName}
+                    label={props.countryLabel}
+                    options={[
+                        ...countries.map((c) => ({
+                            key: c.isoCode,
+                            title: <>{c.flag} {c.name}</>,
+                        })),
+                        ...[
+                            {
+                                key: 'LIDF',
+                                title: <>🏝 La isla del Fortnite</>
+                            }
+                        ]
+                    ]}
+                    onSelect={setSelectedCountry}
+                />
+            </Col>
+
+            <Col>
+                <SingleSelectFormItem
+                    showSearch
+                    name={props.cityFieldName}
+                    label={props.cityLabel}
+                    options={cities.map((c) => ({
+                        key: c.name,
+                        title: <>{c.name}</>
+                    }))}
+                    disabled={!selectedCountry}
+                />
+            </Col>
+
+            <Col>
+                <TextFormItem
+                    min={5}
+                    max={5}
+                    name={props.postalCodeFieldName}
+                    label={props.postalCodeLabel}
+                />
+            </Col>
+        </Row>
     );
 }

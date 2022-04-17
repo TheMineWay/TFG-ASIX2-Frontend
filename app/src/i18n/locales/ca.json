@@ -201,6 +201,13 @@
                         "Available": "Disponible",
                         "Selected": "Seleccionat"
                     }
+                },
+                "send": {
+                    "form": {
+                        "Country": "Pais",
+                        "City": "Ciutat",
+                        "PostalCode": "Codi postal"
+                    }
                 }
             }
         }

@@ -13,6 +13,7 @@ type Props = {
   options: Opt[];
   onSelect?: (key: string) => void;
   showSearch?: boolean;
+  disabled?: boolean;
 }
 
 export default function SingleSelectFormItem(props: Props) {
@@ -28,6 +29,7 @@ export default function SingleSelectFormItem(props: Props) {
   return (
     <Form.Item name={props.name} label={props.label} required={props.required && !props.requiredInvisibility}>
       <Select
+        disabled={props.disabled}
         showSearch={props.showSearch}
         allowClear
         onChange={props.onSelect}

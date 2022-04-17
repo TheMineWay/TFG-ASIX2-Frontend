@@ -25,6 +25,12 @@ export default function DiskBuilderPay() {
                 <PaymentFormItem
                     cardFieldName="card"
                     cardLabel={t('view.diskRequest.step.pay.form.Card')}
+                    ownerFieldName="owner"
+                    ownerLabel={t('view.diskRequest.step.pay.form.Owner')}
+                    pinFieldName="cvc"
+                    pinLabel={t('view.diskRequest.step.pay.form.Pin')}
+                    expireFieldName="expiresAt"
+                    expireLabel={t('view.diskRequest.step.pay.form.ExpiresAt')}
                 />
             </Form>
         </>

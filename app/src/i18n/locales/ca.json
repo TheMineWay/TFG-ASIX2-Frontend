@@ -212,7 +212,10 @@
                 },
                 "pay": {
                     "form": {
-                        "Card": "Targeta"
+                        "Card": "Targeta",
+                        "Owner": "Propietari",
+                        "Pin": "CVC/PIN",
+                        "ExpiresAt": "Expira el"
                     }
                 }
             }

@@ -22,8 +22,17 @@ export default function DiskRequestSummary(props: Props) {
 
     const diskDatasource: DisksTable[] = bill.disks.map((disk) => ({
         ...disk.disk,
+        amount: disk.amount,
         items: disk.items,
     }));
+
+    const calculateItemsPrice = (items: InventoryItem[]): number => {
+        let p = 0;
+
+        for(const item of items) p += item.price;
+
+        return p;
+    }
 
     const diskExpandable: ExpandableConfig<DisksTable> = {
         expandedRowRender: (row) => {
@@ -50,10 +59,12 @@ export default function DiskRequestSummary(props: Props) {
         let price = 0;
 
         for (const i of bill.disks) {
-            price += i?.disk?.price ?? 0;
+            let dprice = i?.disk?.price ?? 0;
             for (const item of i?.items ?? []) {
-                price += item?.price ?? 0;
+                dprice += item?.price ?? 0;
             }
+
+            price += dprice * i.amount;
         }
 
         return price;
@@ -73,9 +84,13 @@ export default function DiskRequestSummary(props: Props) {
                     dataIndex={'name'}
                 />
                 <Table.Column
+                    title={t('view.diskRequest.summary.table.headers.Amount')}
+                    dataIndex={'amount'}
+                />
+                <Table.Column
                     title={t('view.diskRequest.summary.table.headers.Price')}
                     dataIndex={'price'}
-                    render={(p: number) => <DisplayPrice price={p} />}
+                    render={(p: number, row: {amount: number, items: InventoryItem[]}) => <DisplayPrice price={((calculateItemsPrice(row.items) + p) * row.amount)} />}
                 />
             </Table>
             <Divider />

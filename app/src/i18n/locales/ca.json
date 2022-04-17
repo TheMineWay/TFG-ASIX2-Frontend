@@ -177,12 +177,14 @@
                 "table": {
                     "headers": {
                         "Name": "Nom",
-                        "Price": "Preu"
+                        "Price": "Preu",
+                        "Amount": "Quantitat"
                     }
                 }
             },
             "step": {
                 "build": {
+                    "NextBtn": "Següent (enviament)",
                     "form": {
                         "Amount": "Quantitat",
                         "Items": "Ítems",

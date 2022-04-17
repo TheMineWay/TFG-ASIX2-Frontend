@@ -47,6 +47,7 @@ export function generateDiskRequestBill(requestObj: DiskRequestObj, data: { inve
             
             return {
                 disk,
+                amount: d.amount,
                 items: d.items.map((i) => data.inventory.find((inv) => inv.id === i))! ?? [],
             };
         }) ?? [],

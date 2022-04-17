@@ -1,4 +1,5 @@
-import { Col, Row } from "antd";
+import { RightOutlined } from "@ant-design/icons";
+import { Button, Col, Row } from "antd";
 import { t } from "i18next";
 import { useState } from "react";
 import { InventoryItem } from "../../../hooks/inventory/useInventory";
@@ -85,6 +86,15 @@ export default function DiskBuilderTool(props: Props) {
                         setDisks(ds);
                     }}
                 />
+            </Col>
+            <Col span={24}>
+                <Button
+                    icon={<RightOutlined/>}
+                    onClick={() => props.onFinish()}
+                    disabled={Object.entries(props.disks).filter((e) => !!e[1].disk).length <= 0}
+                >
+                    {t('view.diskRequest.step.build.NextBtn')}
+                </Button>
             </Col>
         </Row>
     );

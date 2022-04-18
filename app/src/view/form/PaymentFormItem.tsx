@@ -44,6 +44,7 @@ export default function PaymentFormItem(props: Props) {
                 >
                     <Col>
                         <TextFormItem
+                            required requiredInvisibility
                             name={props.pinFieldName}
                             label={props.pinLabel}
                             min={3}
@@ -52,6 +53,7 @@ export default function PaymentFormItem(props: Props) {
                     </Col>
                     <Col>
                         <DateFormItem
+                            required requiredInvisibility
                             name={props.expireFieldName}
                             label={props.expireLabel}
                         />

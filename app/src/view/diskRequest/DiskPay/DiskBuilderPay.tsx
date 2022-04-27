@@ -1,4 +1,4 @@
-import { PayCircleFilled } from "@ant-design/icons";
+import { PayCircleOutlined } from "@ant-design/icons";
 import { Col, Form, Row } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import { t } from "i18next";
@@ -50,7 +50,7 @@ export default function DiskBuilderPay() {
                     <Col span={24}>
                         <SubmitFormItem
                             text={t('view.diskRequest.step.pay.NextBtn')}
-                            icon={<PayCircleFilled/>}
+                            icon={<PayCircleOutlined/>}
                         />
                     </Col>
                 </Row>

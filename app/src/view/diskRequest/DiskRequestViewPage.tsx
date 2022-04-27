@@ -1,7 +1,6 @@
 import { Col, Row } from "antd";
 import { useState } from "react";
-import useCoins from "../../hooks/coins/useCoins";
-import useDiskRequest, { DiskRequestObj } from "../../hooks/diskRequest/useDiskRequest";
+import useDiskRequest from "../../hooks/diskRequest/useDiskRequest";
 import useInventory from "../../hooks/inventory/useInventory";
 import Container from "../shared/Container";
 import Loading from "../shared/Loading";

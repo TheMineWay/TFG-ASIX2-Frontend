@@ -1,8 +1,13 @@
-import { Spin } from 'antd'
-import React from 'react'
+import { Spin } from 'antd';
 
-export default function Loading() {
+type Props = {
+    size?: 'small' | 'default' | 'large';
+}
+
+export default function Loading(props: Props) {
     return (
-        <Spin />
+        <Spin
+            size={props.size}
+        />
     );
 }

@@ -36,7 +36,7 @@ export default function useDiskRequest(props: Props): UseDiskRequest {
         try {
             setState('processing');
             await r<{}>('post', '/actions/diskRequests/request', { request: requestObj }, { authCredentials: authState });
-            setState('processed')
+            setState('processed');
         } catch (e: any) {
             setState(null);
             throw e;

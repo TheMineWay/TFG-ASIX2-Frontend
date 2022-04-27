@@ -219,6 +219,16 @@
                         "Pin": "CVC/PIN",
                         "ExpiresAt": "Expira el"
                     }
+                },
+                "finish": {
+                    "processing": {
+                        "Title": "Processant sol·licitud",
+                        "Subtitle": "S'està processant la teva compra. Esperi uns breus instants."
+                    },
+                    "processed": {
+                        "Title": "Comanda realitzada",
+                        "Subtitle": "S'ha realitzat correctament la comanda. Pots visualitzar-ne l'estat des de la web. "
+                    }
                 }
             }
         }

@@ -12,6 +12,8 @@ type Props = {
     cityLabel: string;
     postalCodeFieldName: string;
     postalCodeLabel: string;
+    addressFieldName: string;
+    addressLabel: string;
 }
 
 export default function FullAddressFormItem(props: Props) {
@@ -75,6 +77,15 @@ export default function FullAddressFormItem(props: Props) {
                         title: <>{c.name}</>
                     }))}
                     disabled={!selectedCountry}
+                />
+            </Col>
+
+            <Col>
+                <TextFormItem
+                    required requiredInvisibility
+                    name={props.addressFieldName}
+                    label={props.addressLabel}
+                    min={1} max={200}
                 />
             </Col>
 

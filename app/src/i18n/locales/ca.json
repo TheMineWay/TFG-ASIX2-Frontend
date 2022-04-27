@@ -207,7 +207,8 @@
                     "form": {
                         "Country": "Pais",
                         "City": "Ciutat",
-                        "PostalCode": "Codi postal"
+                        "PostalCode": "Codi postal",
+                        "Address": "Direcció"
                     }
                 },
                 "pay": {

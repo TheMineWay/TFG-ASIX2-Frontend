@@ -3,6 +3,7 @@ import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import { t } from "i18next";
 import { InventoryItem } from "../../../hooks/inventory/useInventory"
+import notificationErrorDisplay from "../../errors/display/NotificationErrorDisplay";
 import FullAddressFormItem from "../../form/FullAddressFormItem";
 import SubmitFormItem from "../../form/SubmitFormItem";
 
@@ -25,6 +26,15 @@ export default function DiskBuilderSend(props: Props) {
     const [form] = useForm<DiskSendOption>();
 
     const submit = (values: DiskSendOption) => {
+
+        if(!values.city || !values.country || !values.address || !values.postalCode) {
+            notificationErrorDisplay({
+                code: '406',
+                section: 'frontend',
+            });
+            return;
+        }
+
         props.setSend(values);
         props.onFinish();
     }
@@ -44,6 +54,8 @@ export default function DiskBuilderSend(props: Props) {
                     cityLabel={t('view.diskRequest.step.send.form.City')}
                     postalCodeFieldName="postalCode"
                     postalCodeLabel={t('view.diskRequest.step.send.form.PostalCode')}
+                    addressFieldName={'address'}
+                    addressLabel={t('view.diskRequest.step.send.form.Address')}
                 />
 
                 <SubmitFormItem

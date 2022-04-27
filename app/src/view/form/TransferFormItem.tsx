@@ -1,5 +1,6 @@
 import { Form, Transfer } from 'antd';
 import { TransferItem } from 'antd/lib/transfer';
+import { PaginationType } from 'antd/lib/transfer/interface';
 import { t } from 'i18next';
 import { useState } from 'react';
 
@@ -11,6 +12,7 @@ type Props = {
     label: string;
     render?: (item: { title?: string, key?: string, description?: string }) => JSX.Element;
     initial?: string[];
+    pagination?: PaginationType;
 }
 
 export default function TransferFormItem(props: Props) {
@@ -44,7 +46,7 @@ export default function TransferFormItem(props: Props) {
                 targetKeys={target}
                 onChange={onChange}
                 titles={[t('view.diskRequest.step.build.titles.Available'), t('view.diskRequest.step.build.titles.Selected')]}
-                pagination
+                pagination={props.pagination}
             />
         </Form.Item>
     );

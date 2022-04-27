@@ -84,6 +84,9 @@ export default function DiskBuilderForm(props: Props) {
                         name='items'
                         label={t('view.diskRequest.step.build.form.Items')}
                         datasource={datasource}
+                        pagination={{
+                            pageSize: 5,
+                        }}
                         render={(i) => {
 
                             const item: InventoryItem | undefined = props.inventory.find((it) => it.id === i.key);

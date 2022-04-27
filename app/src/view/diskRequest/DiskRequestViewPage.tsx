@@ -9,6 +9,7 @@ import DiskBuilderPay, { DiskBuilderPayFormValues } from "./DiskPay/DiskBuilderP
 import DiskRequestSteps from "./DiskRequestSteps";
 import DiskRequestSummary from "./DiskRequestSummary";
 import DiskBuilderSend, { DiskSendOption } from "./DiskSend/DiskBuilderSend";
+import DiskRequestFinish from "./finish/DiskRequestFinish";
 
 export default function DiskRequestViewPage() {
 
@@ -37,11 +38,13 @@ export default function DiskRequestViewPage() {
 
     
     const next = () => {
+        if(diskRequest.loading) return;
         if (step >= 3) return;
         setStep(step + 1);
     }
 
     const back = () => {
+        if(diskRequest.loading) return;
         if (step <= 0) return;
         setStep(step - 1);
     }
@@ -91,9 +94,9 @@ export default function DiskRequestViewPage() {
             {
                 step: 3,
                 component: (
-                    <>
-                        
-                    </>
+                    <DiskRequestFinish
+                        diskRequest={diskRequest}
+                    />
                 )
             }
         ];

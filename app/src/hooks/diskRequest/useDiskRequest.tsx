@@ -13,6 +13,7 @@ export type UseDiskRequest = {
     request: () => Promise<void>;
     requestObj: DiskRequestObj;
     loading: boolean;
+    state: null | 'processing' | 'processed';
 }
 
 type Props = {
@@ -25,7 +26,7 @@ export default function useDiskRequest(props: Props): UseDiskRequest {
 
     const [authState] = useAuthState();
 
-    const [loading, setLoading] = useState<boolean>(false);
+    const [state, setState] = useState<null | 'processing' | 'processed'>(null);
 
     const requestObj: DiskRequestObj = {
         disks: Object.entries(props.disks).map((d) => d[1]),
@@ -33,11 +34,11 @@ export default function useDiskRequest(props: Props): UseDiskRequest {
 
     const request = async (): Promise<void> => {
         try {
-            setLoading(true);
+            setState('processing');
             await r<{}>('post', '/actions/diskRequests/request', { request: requestObj }, { authCredentials: authState });
-            setLoading(false);
+            setState('processed')
         } catch (e: any) {
-            setLoading(false);
+            setState(null);
             throw e;
         }
     }
@@ -45,7 +46,8 @@ export default function useDiskRequest(props: Props): UseDiskRequest {
     return {
         request,
         requestObj,
-        loading,
+        loading: state !== null,
+        state,
     }
 }
 

@@ -106,7 +106,6 @@ export default function DiskRequestViewPage() {
                 </Col>
                 <Col
                     xs={24}
-                    lg={18}
                     xl={16}
                 >
                     {
@@ -115,7 +114,6 @@ export default function DiskRequestViewPage() {
                 </Col>
                 <Col
                     xs={24}
-                    lg={6}
                     xl={8}
                 >
                     <DiskRequestSummary

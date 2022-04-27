@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import r from '../../services/api/Request';
 import { DiskBuilderFormValues } from '../../view/diskRequest/DiskBuilder/DiskBuilderTool';
+import { DiskBuilderPayFormValues } from '../../view/diskRequest/DiskPay/DiskBuilderPay';
 import { DiskSendOption } from '../../view/diskRequest/DiskSend/DiskBuilderSend';
 import useAuthState from '../auth/useAuthState';
 import { InventoryItem } from '../inventory/useInventory';
@@ -8,12 +9,19 @@ export type DiskRequestObj = {
     disks: DiskBuilderFormValues[];
 }
 
-type Props = {
-    disks: {[id: string]: DiskBuilderFormValues};
-    send: DiskSendOption | undefined;
+export type UseDiskRequest = {
+    request: () => Promise<void>;
+    requestObj: DiskRequestObj;
+    loading: boolean;
 }
 
-export default function useDiskRequest(props: Props) {
+type Props = {
+    disks: {[id: string]: DiskBuilderFormValues};
+    send?: DiskSendOption;
+    pay?: DiskBuilderPayFormValues;
+}
+
+export default function useDiskRequest(props: Props): UseDiskRequest {
 
     const [authState] = useAuthState();
 

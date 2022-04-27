@@ -6,18 +6,24 @@ import notificationErrorDisplay from "../../errors/display/NotificationErrorDisp
 import PaymentFormItem from "../../form/PaymentFormItem";
 import SubmitFormItem from "../../form/SubmitFormItem";
 
-export type DiskBuilderSendFormValues = {
+export type DiskBuilderPayFormValues = {
     card: string;
     owner: string;
     cvc: string;
     expiresAt: Date;
 }
 
-export default function DiskBuilderPay() {
+type Props = {
+    onFinish: () => void;
+    setPay: (pay: DiskBuilderPayFormValues) => void;
+    initial: DiskBuilderPayFormValues | undefined;
+}
 
-    const [form] = useForm<DiskBuilderSendFormValues>();
+export default function DiskBuilderPay(props: Props) {
 
-    const submit = (values: DiskBuilderSendFormValues) => {
+    const [form] = useForm<DiskBuilderPayFormValues>();
+
+    const submit = (values: DiskBuilderPayFormValues) => {
         if(!values.card || !values.cvc || !values.expiresAt || !values.owner) {
             notificationErrorDisplay({
                 code: '406',
@@ -25,6 +31,9 @@ export default function DiskBuilderPay() {
             });
             return;
         }
+
+        props.setPay(values);
+        props.onFinish();
     }
 
     return (
@@ -33,6 +42,7 @@ export default function DiskBuilderPay() {
                 form={form}
                 layout='vertical'
                 onFinish={submit}
+                initialValues={props.initial}
             >
                 <Row>
                     <Col span={24}>

@@ -6,7 +6,7 @@ import useInventory from "../../hooks/inventory/useInventory";
 import Container from "../shared/Container";
 import Loading from "../shared/Loading";
 import DiskBuilderTool, { defaultDiskRequest, DiskBuilderFormValues } from "./DiskBuilder/DiskBuilderTool";
-import DiskBuilderPay from "./DiskPay/DiskBuilderPay";
+import DiskBuilderPay, { DiskBuilderPayFormValues } from "./DiskPay/DiskBuilderPay";
 import DiskRequestSteps from "./DiskRequestSteps";
 import DiskRequestSummary from "./DiskRequestSummary";
 import DiskBuilderSend, { DiskSendOption } from "./DiskSend/DiskBuilderSend";
@@ -21,11 +21,15 @@ export default function DiskRequestViewPage() {
     // Step 2 - SEND
     const [send, setSend] = useState<DiskSendOption>();
 
+    // Step 3 - PAY
+    const [pay, setPay] = useState<DiskBuilderPayFormValues>();
+
     // Requester
 
     const diskRequest = useDiskRequest({
         disks,
         send,
+        pay,
     });
 
     const loading = inventory.loading;
@@ -76,7 +80,13 @@ export default function DiskRequestViewPage() {
             {
                 step: 2,
                 component: (
-                    <DiskBuilderPay/>
+                    <DiskBuilderPay
+                        onFinish={() => {
+                            next();
+                        }}
+                        setPay={setPay}
+                        initial={pay}
+                    />
                 )
             },
             {

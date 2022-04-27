@@ -113,6 +113,7 @@ export default function DiskRequestViewPage() {
                 >
                     <DiskRequestSteps
                         step={step}
+                        disabledNavigation={diskRequest.state !== null}
                         setStep={setStep}
                     />
                 </Col>

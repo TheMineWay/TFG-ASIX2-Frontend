@@ -7,6 +7,7 @@ const { Step } = Steps;
 type Props = {
     step: number;
     setStep: (step: number) => void;
+    disabledNavigation: boolean;
 };
 
 export default function DiskRequestSteps(props: Props) {
@@ -16,6 +17,14 @@ export default function DiskRequestSteps(props: Props) {
         if (step < props.step) return 'finish';
 
         return 'wait';
+    }
+
+    function setStep(step: number) {
+        if(!props.disabledNavigation) {
+            if(props.step >= step) {
+                props.setStep(step);
+            }
+        }
     }
 
     return (
@@ -28,7 +37,7 @@ export default function DiskRequestSteps(props: Props) {
                     title={t('view.diskRequest.steps.build')}
                     icon={<BuildOutlined />}
                     onClick={() => {
-                        props.setStep(0);
+                        setStep(0);
                     }}
                 />
                 <Step
@@ -36,7 +45,7 @@ export default function DiskRequestSteps(props: Props) {
                     title={t('view.diskRequest.steps.send')}
                     icon={<SendOutlined />}
                     onClick={() => {
-                        if (props.step >= 1) props.setStep(1);
+                        setStep(1);
                     }}
                 />
                 <Step
@@ -44,7 +53,7 @@ export default function DiskRequestSteps(props: Props) {
                     title={t('view.diskRequest.steps.payment')}
                     icon={<PayCircleOutlined />}
                     onClick={() => {
-                        if (props.step >= 2) props.setStep(2);
+                        setStep(2);
                     }}
                 />
                 <Step

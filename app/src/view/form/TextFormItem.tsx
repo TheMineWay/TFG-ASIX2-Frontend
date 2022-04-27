@@ -9,6 +9,7 @@ type Props = {
     min?: number;
     max?: number;
     showCount?: boolean;
+    pattern?: string;
 }
 
 export default function TextFormItem(props: Props) {
@@ -21,6 +22,7 @@ export default function TextFormItem(props: Props) {
                 required={props.required}
                 minLength={props.min}
                 maxLength={props.max}
+                pattern={props.pattern}
             />
         </Form.Item>
     );

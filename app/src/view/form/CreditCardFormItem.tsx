@@ -16,6 +16,9 @@ export default function CreditCardFormItem(props: Props) {
             icon={props.icon}
             min={16}
             max={16}
+            required={props.required}
+            requiredInvisibility={props.requiredInvisibility}
+            pattern="[0-9\s]{13,16}"
         />
     );
 }

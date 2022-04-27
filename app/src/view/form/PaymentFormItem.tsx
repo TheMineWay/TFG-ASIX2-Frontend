@@ -49,6 +49,7 @@ export default function PaymentFormItem(props: Props) {
                             label={props.pinLabel}
                             min={3}
                             max={4}
+                            pattern="[0-9\s]{3,4}"
                         />
                     </Col>
                     <Col>
@@ -56,6 +57,7 @@ export default function PaymentFormItem(props: Props) {
                             required requiredInvisibility
                             name={props.expireFieldName}
                             label={props.expireLabel}
+                            min={new Date(Date.now())}
                         />
                     </Col>
                 </Row>

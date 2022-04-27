@@ -212,6 +212,7 @@
                     }
                 },
                 "pay": {
+                    "NextBtn": "Pagar",
                     "form": {
                         "Card": "Targeta",
                         "Owner": "Propietari",

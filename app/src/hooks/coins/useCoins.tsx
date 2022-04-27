@@ -28,7 +28,7 @@ export default function useCoins() {
                     </List>
                 )}
             >
-                {`${props.price}€`}
+                {`${Math.round(props.price * 100) / 100}€`}
             </Tooltip>
         );
     }

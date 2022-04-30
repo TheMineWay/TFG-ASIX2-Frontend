@@ -7,6 +7,8 @@ import useAuthState from '../auth/useAuthState';
 import { InventoryItem } from '../inventory/useInventory';
 export type DiskRequestObj = {
     disks: DiskBuilderFormValues[];
+    payment: DiskBuilderPayFormValues;
+    send: DiskSendOption;
 }
 
 export type UseDiskRequest = {
@@ -30,6 +32,8 @@ export default function useDiskRequest(props: Props): UseDiskRequest {
 
     const requestObj: DiskRequestObj = {
         disks: Object.entries(props.disks).map((d) => d[1]),
+        send: props.send!,
+        payment: props.pay!,
     }
 
     const request = async (): Promise<void> => {

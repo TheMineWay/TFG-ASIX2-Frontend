@@ -5,6 +5,7 @@ import { t } from "i18next";
 import { useState } from "react";
 import { AdminInventory, CreateInventoryItem } from "../../../hooks/inventory/useAdminInventory";
 import notificationErrorDisplay from "../../errors/display/NotificationErrorDisplay";
+import CheckFormItem from "../../form/CheckFormItem";
 import DrawerFormActions from "../../form/DrawerFormActions";
 import ImageByUrlFormItem from "../../form/ImageByUrlFormItem";
 import NumberFormItem from "../../form/NumberFormItem";
@@ -79,6 +80,10 @@ export default function AdminInventoryAddItemForm(props: Props) {
                 label={t('view.inventory.list.headers.ImageUrl')}
                 min={1}
                 max={511}
+            />
+            <CheckFormItem
+                name="isDrive"
+                text={t('view.inventory.list.headers.IsDrive')}
             />
 
             <DrawerFormActions

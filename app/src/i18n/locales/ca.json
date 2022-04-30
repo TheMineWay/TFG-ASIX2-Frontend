@@ -37,6 +37,9 @@
             },
             "payments": {
                 "Title": "Pagaments"
+            },
+            "diskRequest": {
+                "Title": "Sol·licitar disc"
             }
         }
     },
@@ -133,7 +136,8 @@
                     "Actions": "Accions",
                     "DeletedAt": "Esborrat el",
                     "ImageUrl": "URL de la imatge",
-                    "Image": "Imatge"
+                    "Image": "Imatge",
+                    "IsDrive": "És suport d'emmagatzematge"
                 },
                 "actions": {
                     "Delete": "Esborrar",
@@ -158,6 +162,75 @@
                     "Last4Card": "4 dígits de la tarjeta"
                 }
             }
+        },
+        "diskRequest": {
+            "steps": {
+                "build": "Construir disc",
+                "send": "Métode d'enviament",
+                "payment": "Pagament",
+                "sent": "Enviat"
+            },
+            "tabs": {
+                "Tab": "Pàgina"
+            },
+            "summary": {
+                "table": {
+                    "headers": {
+                        "Name": "Nom",
+                        "Price": "Preu",
+                        "Amount": "Quantitat"
+                    }
+                }
+            },
+            "step": {
+                "build": {
+                    "NextBtn": "Següent (enviament)",
+                    "form": {
+                        "Amount": "Quantitat",
+                        "Items": "Ítems",
+                        "Disk": "Suport d'emmagatzematge"
+                    },
+                    "actions": {
+                        "FinishBuild": "Finalitzar personalització del disc",
+                        "SavePage": "Desar pàgina"
+                    },
+                    "messages": {
+                        "FinalPrice": "Preu total"
+                    },
+                    "titles": {
+                        "Available": "Disponible",
+                        "Selected": "Seleccionat"
+                    }
+                },
+                "send": {
+                    "NextBtn": "Següent (pagament)",
+                    "form": {
+                        "Country": "Pais",
+                        "City": "Ciutat",
+                        "PostalCode": "Codi postal",
+                        "Address": "Direcció"
+                    }
+                },
+                "pay": {
+                    "NextBtn": "Pagar",
+                    "form": {
+                        "Card": "Targeta",
+                        "Owner": "Propietari",
+                        "Pin": "CVC/PIN",
+                        "ExpiresAt": "Expira el"
+                    }
+                },
+                "finish": {
+                    "processing": {
+                        "Title": "Processant sol·licitud",
+                        "Subtitle": "S'està processant la teva compra. Esperi uns breus instants."
+                    },
+                    "processed": {
+                        "Title": "Comanda realitzada",
+                        "Subtitle": "S'ha realitzat correctament la comanda. Pots visualitzar-ne l'estat des de la web. "
+                    }
+                }
+            }
         }
     },
     "errors": {
@@ -173,6 +246,10 @@
             "401": {
                 "Title": "No pots accedir a la pàgina",
                 "Subtitle": "Per poder accedir a aquesta pàgina necessites tenir permisos"
+            },
+            "406": {
+                "Title": "Error de format",
+                "Message": "El format de les dades no és correcte. Comprova que s'han emplenat correctament tols els camps"
             }
         },
         "auth": {
@@ -258,7 +335,9 @@
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat",
-            "Timezone": "Zona horaria"
+            "Timezone": "Zona horaria",
+            "Yes": "Sí",
+            "No": "No"
         }
     }
 }

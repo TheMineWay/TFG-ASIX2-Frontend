@@ -1,4 +1,4 @@
-import { DollarOutlined, HomeOutlined, InboxOutlined, ToolOutlined, UserOutlined } from "@ant-design/icons";
+import { BuildOutlined, DollarOutlined, HomeOutlined, InboxOutlined, ToolOutlined, UserOutlined } from "@ant-design/icons";
 import { Permissions } from "../services/security/permissions";
 
 export type MenuOption = {
@@ -7,6 +7,7 @@ export type MenuOption = {
     children?: MenuOption[];
     key: string;
     icon?: JSX.Element;
+    requiresAuth?: boolean;
     permissions?: Permissions[]
 }
 
@@ -53,6 +54,13 @@ const menuOptions: MenuOption[] = [
             },
         ],
     },
+    {
+        text: 'diskRequest',
+        path: '/disk-request',
+        key: 'disk-request',
+        icon: <BuildOutlined/>,
+        requiresAuth: true,
+    }
 ];
 
 export default menuOptions;

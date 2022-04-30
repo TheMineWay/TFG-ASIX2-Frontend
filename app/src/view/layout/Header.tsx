@@ -59,7 +59,9 @@ export default function BaseHeader() {
             <Header>
                 <Menu theme="dark" mode="horizontal" key={"mainMenu"}>
                     {
-                        menuOptions.map(constructOption)
+                        menuOptions
+                        .filter((opt) => !opt.requiresAuth || (opt.requiresAuth && authState))
+                        .map(constructOption)
                     }
 
                     {/* USER DROPDOWN */}

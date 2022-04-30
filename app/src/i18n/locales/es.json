@@ -1,4 +1,8 @@
 {
+    "languages": {
+        "ca": "Catalán",
+        "es": "Español"
+    },
     "actions": {
         "GoHome": "Volver a la página principal"
     },
@@ -18,6 +22,24 @@
                 "signup": {
                     "Title": "Crear cuenta"
                 }
+            },
+            "lang": {
+                "Title": "Idioma"
+            },
+            "admin": {
+                "Title": "Administrar"
+            },
+            "users": {
+                "Title": "Usuarios"
+            },
+            "inventory": {
+                "Title": "Inventario"
+            },
+            "payments": {
+                "Title": "Pagos"
+            },
+            "diskRequest": {
+                "Title": "Solicitar disco"
             }
         }
     },
@@ -52,6 +74,150 @@
                     "NewPasswordAgain": "Repite la nueva contraseña",
                     "UpdatePassword": "Modificar contraseña"
                 }
+            },
+            "sessionHistory": {
+                "card": {
+                    "Message": "Conoce detalladamente las sesiones que se han abierto con tu cuenta a lo largo de la existencia de tu cuenta. Usa las alertas y recomendaciones para descubrir actividades sospechosas que pueden poner en peligro la seguridad de la cuenta. Puedes actuar sobre las sesiones que parecen sospechosas.",
+                    "actions": {
+                        "Go": "Ir al histórico"
+                    }
+                },
+                "table": {
+                    "headers": {
+                        "Id": "Id",
+                        "CreatedAt": "Creado el",
+                        "Ip": "Dirección IP",
+                        "ExpiredAt": "Expira el"
+                    }
+                }
+            }
+        },
+        "languageSelector": {
+            "Title": "Selector de idioma"
+        },
+        "userAdmin": {
+            "userTable": {
+                "headers": {
+                    "Avatar": "Avatar",
+                    "Id": "Id",
+                    "Login": "login",
+                    "Name": "Nombre",
+                    "Email": "Correo electrónico",
+                    "DeletedAt": "Borrado el",
+                    "CreatedAt": "Creado el",
+                    "Actions": "Acciones"
+                },
+                "filters": {
+                    "NeverDeleted": "No eliminados",
+                    "Deleted": "Eliminados"
+                },
+                "actions": {
+                    "Delete": "Eliminar",
+                    "Edit": "Editar",
+                    "Recover": "Recuperar",
+                    "Ban": "Bloquear",
+                    "Unban": "Desbloquear",
+                    "SureToDelete": "¿Está seguro que desea eliminar este usuario?",
+                    "SureToRecover": "¿Seguro que quieres restaurar el usuario?",
+                    "SureToBan": "¿Seguro que quieres bloquear al usuario?",
+                    "SureToUnban": "¿Seguro que quieres desbloquear al usuario?"
+                }
+            }
+        },
+        "inventory": {
+            "list": {
+                "headers": {
+                    "Id": "Id",
+                    "Name": "Nombre",
+                    "Price": "Precio",
+                    "Stock": "Stock",
+                    "Discount": "Descuento",
+                    "Description": "Descripción",
+                    "Actions": "Acciones",
+                    "DeletedAt": "Borrado el",
+                    "ImageUrl": "URL de la imagen",
+                    "Image": "Imagen",
+                    "IsDrive": "Es soporte de almacenamiento"
+                },
+                "actions": {
+                    "Delete": "Eliminar",
+                    "Recover": "Recuperar",
+                    "SureToDelete": "¿Está seguro que desea eliminar este ítem?",
+                    "SureToRecover": "¿Está seguro que desea recuperar este ítem?",
+                    "Add": "Añadir elemento"
+                },
+                "filters": {
+                    "NeverDeleted": "No eliminado",
+                    "Deleted": "Eliminado"
+                }
+            }
+        },
+        "paymentsAdmin": {
+            "list": {
+                "headers": {
+                    "Id": "Id",
+                    "Amount": "Cantidad",
+                    "CreatedAt": "Creado el",
+                    "User": "Usuario",
+                    "Last4Card": "4 dígitos de la tarjeta"
+                }
+            }
+        },
+        "diskRequest": {
+            "steps": {
+                "build": "Construir disco",
+                "send": "Método de envío",
+                "payment": "Pago",
+                "sent": "Enviado"
+            },
+            "tabs": {
+                "Tab": "Página"
+            },
+            "summary": {
+                "table": {
+                    "headers": {
+                        "Name": "Nombre",
+                        "Price": "Precio",
+                        "Amount": "Cantidad"
+                    }
+                }
+            },
+            "step": {
+                "build": {
+                    "NextBtn": "Siguiente (envío)",
+                    "form": {
+                        "Amount": "Cantidad",
+                        "Items": "Elementos",
+                        "Disk": "Soporte de almacenamiento"
+                    },
+                    "actions": {
+                        "FinishBuild": "Finalizar personalización de disco",
+                        "SavePage": "Guardar página"
+                    },
+                    "messages": {
+                        "FinalPrice": "Precio total"
+                    },
+                    "titles": {
+                        "Available": "Disponible",
+                        "Selected": "Seleccionado"
+                    }
+                },
+                "send": {
+                    "NextBtn": "Siguiente (pago)",
+                    "form": {
+                        "Country": "País",
+                        "City": "Ciudad",
+                        "PostalCode": "Código postal"
+                    }
+                },
+                "pay": {
+                    "form": {
+                        "Card": "Tarjeta",
+                        "Owner": "Propietario",
+                        "Pin": "CVC/PIN",
+                        "ExpiresAt": "Expira el"
+                    }
+                }
             }
         }
     },
@@ -68,6 +234,10 @@
             "401": {
                 "Title": "No puedes acceder a la página",
                 "Subtitle": "Para poder acceder a esta página necesitas tener permisos"
+            },
+            "406": {
+                "Title": "Error de formato",
+                "Message": "El formato de datos no es correcto. Comprueba que se han rellenado correctamente todos los campos"
             }
         },
         "auth": {
@@ -86,6 +256,10 @@
             "email-in-use": {
                 "Title": "Credenciales en uso",
                 "Message": "Ya existe un/a usuario/a con este correo electrónico."
+            },
+            "401": {
+                "Title": "No se puede iniciar sesión",
+                "Message": "No se ha autorizado el inicio de sesión. Es posible que la cuenta esté bloqueada."
             }
         },
         "form": {
@@ -142,10 +316,16 @@
             "Done": "Hecho",
             "Cancel": "Cancelar",
             "Exit": "Salir",
-            "ChangeProfileImage": "Modificar avatar"
+            "ChangeProfileImage": "Modificar avatar",
+            "Send": "Enviar",
+            "Create": "Crear",
+            "Add": "Añadir"
         },
         "other": {
-            "privacyPolicy": "políticas de privacidad"
+            "privacyPolicy": "políticas de privacidad",
+            "Timezone": "Zona horaria",
+            "Yes": "Sí",
+            "No": "No"
         }
     }
 }

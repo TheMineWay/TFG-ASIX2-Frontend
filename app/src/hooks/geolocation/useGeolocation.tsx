@@ -43,7 +43,7 @@ export function processRawGeoLocation(raw: RawGeoLocation): GeoLocation {
 }
 
 export default function useGeolocation() {
-    const [locations, setLocation] = useState<{[ip: string]: GeoLocation}>({});
+    const [locations, setLocation] = useState<{[ip: string]: GeoLocation | 'cannot'}>({});
     const [loading, setLoading] = useState<boolean>(false);
 
     async function fetch(ip: string) {
@@ -59,13 +59,19 @@ export default function useGeolocation() {
             currentLoc[ip] = processRawGeoLocation(result);
             setLocation(currentLoc);
         } catch (e: any) {
-
+            let currentLoc = locations ?? {};
+            currentLoc[ip] = 'cannot';
+            setLocation(currentLoc);
         }
         setLoading(false);
     }
 
     function getByIp(ip: string): GeoLocation | undefined {
-        if(Object.keys(locations).includes(ip)) return locations[ip]!;
+        if(Object.keys(locations).includes(ip)) {
+            const ob = locations[ip];
+            if(ob === 'cannot') return undefined;
+            return ob;
+        }
         fetch(ip);
     }
 

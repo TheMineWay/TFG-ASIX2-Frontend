@@ -1,6 +1,7 @@
 import { IdcardOutlined } from '@ant-design/icons';
 import { Col, Form, FormInstance, Row, Space } from 'antd';
 import { t } from 'i18next';
+import moment from 'moment';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuthState from '../../hooks/auth/useAuthState';
@@ -115,6 +116,7 @@ export default function RegisterForm(props: Props) {
                         name='birthdate'
                         label={t('common.form.Birthdate')}
                         required requiredInvisibility
+                        max={moment().subtract(14, 'years').toDate()}
                     />
                 </Col>
             </Row>

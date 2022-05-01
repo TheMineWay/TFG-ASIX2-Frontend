@@ -1,6 +1,6 @@
 import { Modal } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
-import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 
@@ -10,8 +10,6 @@ type Props = {
 }
 
 export default function LoginModal(props: Props) {
-
-    const { t } = useTranslation();
 
     const [loginForm] = useForm();
     const [registerForm] = useForm();

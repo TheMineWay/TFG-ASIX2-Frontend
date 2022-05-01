@@ -1,6 +1,6 @@
 import { BuildOutlined, CheckOutlined, PayCircleOutlined, SendOutlined } from '@ant-design/icons';
 import { Divider, Steps } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 const { Step } = Steps;
 
@@ -11,8 +11,6 @@ type Props = {
 };
 
 export default function DiskRequestSteps(props: Props) {
-
-    const { t } = useTranslation();
 
     const getState = (step: number): 'finish' | 'process' | 'wait' => {
         if (step === props.step) return 'process';

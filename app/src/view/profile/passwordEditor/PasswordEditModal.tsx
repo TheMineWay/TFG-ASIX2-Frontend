@@ -1,5 +1,5 @@
 import { Button, Modal } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 import PasswordEditForm from './PasswordEditForm';
 
 type Props = {
@@ -8,8 +8,6 @@ type Props = {
 }
 
 export default function PasswordEditModal(props: Props) {
-    const { t } = useTranslation();
-
     return (
         <Modal
             visible={props.visible}

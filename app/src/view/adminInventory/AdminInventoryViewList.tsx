@@ -1,7 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Avatar, Button, Card, Col, Input, Row, Space, Table } from 'antd';
+import { t } from 'i18next';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import useCoins from '../../hooks/coins/useCoins';
 import useAdminInventory from '../../hooks/inventory/useAdminInventory';
 import { InventoryItem } from '../../hooks/inventory/useInventory';
@@ -14,8 +14,6 @@ import AdminInventoryEditDrawer from './inventoryEditor/AdminInventoryEditDrawer
 const { Column } = Table;
 
 export default function AdminInventoryViewList() {
-
-    const { t } = useTranslation();
 
     const adminInventory = useAdminInventory();
     const { inventory, deleteItem, recoverItem } = adminInventory;
@@ -94,7 +92,7 @@ export default function AdminInventoryViewList() {
                         <Column
                             title={t('view.inventory.list.headers.Image')}
                             dataIndex='imageUrl'
-                            render={(url: string) => <Avatar src={url} />}
+                            render={(url: string) => <Avatar src={url}/>}
                         />
                         <Column
                             title={t('view.inventory.list.headers.Id')}
@@ -111,7 +109,7 @@ export default function AdminInventoryViewList() {
                         <Column
                             title={t('view.inventory.list.headers.Price')}
                             dataIndex='price'
-                            render={(p) => <DisplayPrice price={p} />}
+                            render={(p) => <DisplayPrice price={p}/>}
                         />
                         <Column
                             title={t('view.inventory.list.headers.Discount')}

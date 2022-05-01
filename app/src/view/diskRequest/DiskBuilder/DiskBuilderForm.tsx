@@ -2,8 +2,8 @@ import { SaveOutlined } from '@ant-design/icons';
 import { Avatar, Col, Form, List, Row } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import { TransferItem } from 'antd/lib/transfer';
+import { t } from 'i18next';
 import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import useCoins from '../../../hooks/coins/useCoins';
 import { InventoryItem } from '../../../hooks/inventory/useInventory';
 import notificationErrorDisplay from '../../errors/display/NotificationErrorDisplay';
@@ -20,8 +20,6 @@ type Props = {
 }
 
 export default function DiskBuilderForm(props: Props) {
-
-    const { t } = useTranslation();
 
     const [form] = useForm<DiskBuilderFormValues>();
     const { DisplayPrice } = useCoins();

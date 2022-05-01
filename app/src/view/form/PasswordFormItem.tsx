@@ -1,7 +1,7 @@
 import { LockOutlined } from '@ant-design/icons';
 import { Form, Input } from 'antd';
+import { t } from 'i18next';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import PasswordStrengthIndicator from '../shared/PasswordStrengthIndicator';
 
 type Props = {
@@ -13,9 +13,6 @@ type Props = {
 }
 
 export default function PasswordFormItem(props: Props) {
-
-    const { t } = useTranslation();
-
     const [password, setPassword] = useState<string>('');
 
     return (

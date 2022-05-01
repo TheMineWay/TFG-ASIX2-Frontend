@@ -1,7 +1,7 @@
 import { PayCircleOutlined } from "@ant-design/icons";
 import { Col, Form, Row } from "antd";
 import { useForm } from "antd/lib/form/Form";
-import { useTranslation } from 'react-i18next';
+import { t } from "i18next";
 import notificationErrorDisplay from "../../errors/display/NotificationErrorDisplay";
 import PaymentFormItem from "../../form/PaymentFormItem";
 import SubmitFormItem from "../../form/SubmitFormItem";
@@ -21,7 +21,6 @@ type Props = {
 
 export default function DiskBuilderPay(props: Props) {
 
-    const { t, i18n } = useTranslation();
     const [form] = useForm<DiskBuilderPayFormValues>();
 
     const submit = (values: DiskBuilderPayFormValues) => {

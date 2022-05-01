@@ -1,7 +1,7 @@
 import { PlusOutlined } from "@ant-design/icons";
 import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
-import { useTranslation } from 'react-i18next';
+import { t } from "i18next";
 import { useState } from "react";
 import { AdminInventory, CreateInventoryItem } from "../../../hooks/inventory/useAdminInventory";
 import notificationErrorDisplay from "../../errors/display/NotificationErrorDisplay";
@@ -20,7 +20,6 @@ type Props = {
 
 export default function AdminInventoryAddItemForm(props: Props) {
 
-    const { t, i18n } = useTranslation();
     const [form] = useForm<CreateInventoryItem>();
     const [loading, setLoading] = useState<boolean>(false);
 

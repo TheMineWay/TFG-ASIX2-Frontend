@@ -1,5 +1,5 @@
 import { Result } from "antd";
-import { useTranslation } from 'react-i18next';
+import { t } from "i18next";
 import { useEffect } from "react";
 import { UseDiskRequest } from "../../../hooks/diskRequest/useDiskRequest";
 import Loading from "../../shared/Loading";
@@ -10,7 +10,6 @@ type Props = {
 
 export default function DiskRequestFinish(props: Props) {
 
-    const { t, i18n } = useTranslation();
     useEffect(() => {
         props.diskRequest.request();
     }, []);

@@ -1,8 +1,8 @@
 import { IdcardOutlined } from '@ant-design/icons';
 import { Col, Form, FormInstance, Row, Space } from 'antd';
+import { t } from 'i18next';
 import moment from 'moment';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import useAuthState from '../../hooks/auth/useAuthState';
 import AuthService from '../../services/auth/AuthService';
@@ -35,8 +35,6 @@ export type SignupRequest = {
 }
 
 export default function RegisterForm(props: Props) {
-
-    const { t } = useTranslation();
 
     const [loading, setLoading] = useState<boolean>(false);
     const [, setAuthState] = useAuthState();

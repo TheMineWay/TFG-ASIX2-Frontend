@@ -1,8 +1,8 @@
 import { PhoneOutlined } from '@ant-design/icons';
 import { Form, Input } from 'antd';
 import { isPhoneNumber } from 'class-validator';
+import { t } from 'i18next';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 type Props = {
     name: string;
@@ -11,8 +11,6 @@ type Props = {
 }
 
 export default function PhoneFormItem(props: Props) {
-
-    const { t } = useTranslation();
 
     const [ value, setValue ] = useState<string>('');
 

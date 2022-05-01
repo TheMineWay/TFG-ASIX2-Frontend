@@ -1,11 +1,8 @@
 import { Button, Result } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 import { Link } from 'react-router-dom';
 
 export default function Error404() {
-
-    const { t } = useTranslation();
-
     return (
         <Result
             status="404"

@@ -1,6 +1,6 @@
 import { RightOutlined } from "@ant-design/icons";
 import { Button, Col, Row } from "antd";
-import { useTranslation } from 'react-i18next';
+import { t } from "i18next";
 import { useState } from "react";
 import { InventoryItem } from "../../../hooks/inventory/useInventory";
 import DiskBuilderTabs from "./DiskBuilderTabs";
@@ -26,7 +26,6 @@ export const defaultDiskRequest: DiskBuilderFormValues = {
 
 export default function DiskBuilderTool(props: Props) {
 
-    const { t, i18n } = useTranslation();
     const inventory = props.inventory;
 
     // Disks pagination

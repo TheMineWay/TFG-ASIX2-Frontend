@@ -1,5 +1,5 @@
 import { Col, Row } from "antd";
-import { useTranslation } from 'react-i18next';
+import { t } from "i18next";
 import ResetFormItem from "./ResetFormItem";
 import SubmitFormItem from "./SubmitFormItem";
 
@@ -9,8 +9,6 @@ type Props = {
 }
 
 export default function DrawerFormActions(props: Props) {
-    const { t, i18n } = useTranslation();
-
     return (
         <Row gutter={[12, 12]}>
             {

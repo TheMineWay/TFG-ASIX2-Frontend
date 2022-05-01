@@ -1,5 +1,5 @@
 import { Table, Tooltip } from "antd";
-import { useTranslation } from 'react-i18next';
+import { t } from "i18next";
 import moment from "moment";
 import useGeolocation from "../../hooks/geolocation/useGeolocation";
 import useSessionHistory, { Session } from "../../hooks/sessions/useSessionHistory";
@@ -10,8 +10,6 @@ const { Column } = Table;
 
 export default function ViewSessionHistory() {
 
-    const { t, i18n } = useTranslation();
-    
     const sessions = useSessionHistory();
     const geo = useGeolocation();
 

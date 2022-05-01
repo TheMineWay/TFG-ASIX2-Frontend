@@ -1,7 +1,7 @@
 import { SaveOutlined } from '@ant-design/icons';
 import { Col, Form, Row } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
-import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 import useAuthState from '../../../hooks/auth/useAuthState';
 import AuthService from '../../../services/auth/AuthService';
 import notificationErrorDisplay from '../../errors/display/NotificationErrorDisplay';
@@ -20,8 +20,6 @@ type Props = {
 }
 
 export default function PasswordEditForm(props: Props) {
-
-    const { t } = useTranslation();
 
     const [form] = useForm<PasswordEditFormValues>();
     const [ authState ] = useAuthState();

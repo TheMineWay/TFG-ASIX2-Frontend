@@ -1,11 +1,9 @@
 import { Button } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 import { useNavigate } from 'react-router-dom';
 import ImageSidedCard from '../shared/ImageSidedCard';
 
 export default function SessionsHistoryProfileCard() {
-
-    const { t } = useTranslation();
 
     const navigate = useNavigate();
 

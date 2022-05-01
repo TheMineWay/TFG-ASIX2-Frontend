@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import i18n from 'i18next';
-import { Languages } from '../i18n/configureI18n';
+import initI18n, { Languages } from '../i18n/configureI18n';
 
 type Props = {
     children: JSX.Element;
@@ -17,10 +16,8 @@ export default function LanguageContext(props: Props) {
     }, []);
 
     const updateLang = async (lang: Languages) => {
-        console.log(i18n);
-        await i18n.changeLanguage('es');
+        await initI18n(lang);
         setLanguage(lang);
-        console.log(lang);
     }
 
     return (

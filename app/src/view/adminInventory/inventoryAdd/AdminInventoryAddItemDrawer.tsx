@@ -1,5 +1,5 @@
 import { Drawer } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 import { AdminInventory } from '../../../hooks/inventory/useAdminInventory';
 import AdminInventoryAddItemForm from './AdminInventoryAddItemForm';
 
@@ -10,9 +10,6 @@ type Props = {
 }
 
 export default function AdminInventoryAddItemDrawer(props: Props) {
-    
-    const { t } = useTranslation();
-
     return (
         <Drawer
             onClose={props.hide}

@@ -1,5 +1,5 @@
 import { Button, Col, Drawer, Row } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 import useLanguage from '../../../hooks/language/useLanguage';
 import { Languages } from '../../../i18n/configureI18n';
 
@@ -21,8 +21,6 @@ const languages: {
 ];
 
 export default function LanguageDrawer(props: Props) {
-
-    const { t } = useTranslation();
 
     const { language, setLanguage } = useLanguage();
 

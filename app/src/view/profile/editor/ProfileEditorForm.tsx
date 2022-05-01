@@ -1,15 +1,16 @@
-import { SaveOutlined } from '@ant-design/icons';
-import { Col, Form, Row } from 'antd';
-import { useForm } from 'antd/lib/form/Form';
-import { useTranslation } from 'react-i18next';
+import { SaveOutlined } from '@ant-design/icons'
+import { Col, Form, Row } from 'antd'
+import { useForm } from 'antd/lib/form/Form'
+import { t } from 'i18next';
 import useUserProfile from '../../../hooks/user/useUserProfile';
+import { UserModel } from '../../../services/auth/User.model'
 import notificationErrorDisplay from '../../errors/display/NotificationErrorDisplay';
 import DateFormItem from '../../form/DateFormItem';
-import EmailFormItem from '../../form/EmailFormItem';
-import PhoneFormItem from '../../form/PhoneFormItem';
-import ResetFormItem from '../../form/ResetFormItem';
-import SubmitFormItem from '../../form/SubmitFormItem';
-import TextFormItem from '../../form/TextFormItem';
+import EmailFormItem from '../../form/EmailFormItem'
+import PhoneFormItem from '../../form/PhoneFormItem'
+import ResetFormItem from '../../form/ResetFormItem'
+import SubmitFormItem from '../../form/SubmitFormItem'
+import TextFormItem from '../../form/TextFormItem'
 import UsernameFormItem from '../../form/UsernameFormItem';
 
 export type UserEditFormValues = {
@@ -22,8 +23,6 @@ export type UserEditFormValues = {
 }
 
 export default function ProfileEditorForm() {
-
-    const { t } = useTranslation();
 
     const userProfile = useUserProfile();
 

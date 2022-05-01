@@ -1,6 +1,6 @@
 import { Table } from 'antd';
 import Column from 'antd/lib/table/Column';
-import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 import useCoins from '../../hooks/coins/useCoins';
 import usePayments from '../../hooks/payments/usePayments';
 import useUsers from '../../hooks/user/useUsers';
@@ -8,8 +8,6 @@ import DateDisplay from '../shared/DateDisplay';
 import UserDisplay from '../shared/UserDisplay';
 
 export default function ViewAdminPaymentsList() {
-
-    const { t } = useTranslation();
 
     const users = useUsers();
     const { DisplayPrice } = useCoins();

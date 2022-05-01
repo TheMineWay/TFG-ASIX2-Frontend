@@ -1,14 +1,12 @@
 import { EditOutlined, FileImageOutlined, KeyOutlined } from '@ant-design/icons';
 import { Button, Card, Space } from 'antd';
+import { t } from 'i18next';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import AvatarEditorModal from './avatarEditor/AvatarEditorModal';
 import ProfileEditorDrawer from './editor/ProfileEditorDrawer';
 import PasswordEditModal from './passwordEditor/PasswordEditModal';
 
 export default function ProfileUserCard() {
-
-    const { t } = useTranslation();
 
     const [isEditing, setEdit] = useState<null | 'profile' | 'password' | 'avatar'>(null);
 

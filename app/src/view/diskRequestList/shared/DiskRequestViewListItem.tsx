@@ -39,8 +39,12 @@ export default function DiskRequestViewListItem(props: Props) {
             hoverable
             extra={<StateTag />}
             title={<DisplayPrice price={props.item.amount}/>}
+            bodyStyle={{
+                textAlign: 'justify',
+            }}
         >
-            <>{t('view.diskRequestList.list.item.DeliveryDate')} <DateDisplay>{moment(props.item.createdAt).add(10, 'days').toDate()}</DateDisplay></>
+            <p>{t('view.diskRequestList.list.item.DeliveryDate')} <DateDisplay>{moment(props.item.createdAt).add(10, 'days').toDate()}</DateDisplay>.</p>
+            <p>{t('view.diskRequestList.list.item.DeliveryAddress')} {props.item.address}.</p>
         </Card>
     );
 }

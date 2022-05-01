@@ -256,7 +256,8 @@
                     }
                 },
                 "item": {
-                    "DeliveryDate": "Entrega prevista per al"
+                    "DeliveryDate": "Entrega prevista per al",
+                    "DeliveryAddress": "L'adreça on es realitzarà l'entrega és"
                 }
             }
         }

@@ -14,7 +14,7 @@ export type DiskRequestListItem = {
     amount: number;
 }
 
-type RawDiskRequestListItem = {
+export type RawDiskRequestListItem = {
     id: string;
     user: string;
     createdAt: string;

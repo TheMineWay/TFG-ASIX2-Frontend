@@ -3,7 +3,7 @@ import request from "../../services/api/Request";
 import notificationErrorDisplay from "../../view/errors/display/NotificationErrorDisplay";
 import useAuthState from "../auth/useAuthState";
 
-export type DiskRequestState = 'pending';
+export type DiskRequestState = 'pending' | 'processing' | 'delivered' | 'sent';
 
 export type DiskRequestListItem = {
     id: string;

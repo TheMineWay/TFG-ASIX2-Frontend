@@ -237,6 +237,27 @@
                     }
                 }
             }
+        },
+        "diskRequestList": {
+            "list": {
+                "states": {
+                    "pending": {
+                        "Title": "Pendent"
+                    },
+                    "processing": {
+                        "Title": "Processant"
+                    },
+                    "sent": {
+                        "Title": "Enviat"
+                    },
+                    "delivered": {
+                        "Title": "Entregat"
+                    }
+                },
+                "item": {
+                    "DeliveryDate": "Entrega prevista per al"
+                }
+            }
         }
     },
     "errors": {

@@ -54,6 +54,11 @@ const routes: Route[] = [
         path: '/disk-request',
         loader: () => import('../view/diskRequest/DiskRequestViewPage'),
         requiresAuth: true,
+    },
+    {
+        path: '/disk-request/list',
+        loader: () => import('../view/diskRequestList/DiskRequestListViewPage'),
+        requiresAuth: true,
     }
 ];
 

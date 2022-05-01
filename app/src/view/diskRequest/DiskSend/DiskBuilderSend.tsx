@@ -1,7 +1,7 @@
 import { RightOutlined } from "@ant-design/icons";
 import { Form } from "antd";
 import { useForm } from "antd/lib/form/Form";
-import { t } from "i18next";
+import { useTranslation } from 'react-i18next';
 import { InventoryItem } from "../../../hooks/inventory/useInventory"
 import notificationErrorDisplay from "../../errors/display/NotificationErrorDisplay";
 import FullAddressFormItem from "../../form/FullAddressFormItem";
@@ -23,6 +23,7 @@ export type DiskSendOption = {
 
 export default function DiskBuilderSend(props: Props) {
 
+    const { t, i18n } = useTranslation();
     const [form] = useForm<DiskSendOption>();
 
     const submit = (values: DiskSendOption) => {

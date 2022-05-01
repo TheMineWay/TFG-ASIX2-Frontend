@@ -1,7 +1,7 @@
 import { IdcardOutlined, SaveOutlined } from '@ant-design/icons';
-import { Divider, Form, Row } from 'antd';
+import { Divider, Form } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import { UserAdmin } from '../../../hooks/user/useUserAdmin';
 import { UserModel } from '../../../services/auth/User.model';
 import notificationErrorDisplay from '../../errors/display/NotificationErrorDisplay';
@@ -31,6 +31,8 @@ export type AdminUserEditValues = {
 }
 
 export default function AdminUserProfileEditorForm(props: Props) {
+
+    const { t } = useTranslation();
 
     const user = props.user;
 

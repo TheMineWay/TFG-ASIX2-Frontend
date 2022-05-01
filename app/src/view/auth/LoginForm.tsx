@@ -1,7 +1,7 @@
 import { Form, FormInstance, Space } from 'antd';
-import { t } from 'i18next';
 import { useState } from 'react';
 import { useCookies } from 'react-cookie';
+import { useTranslation } from 'react-i18next';
 import useAuthState from '../../hooks/auth/useAuthState';
 import AuthService from '../../services/auth/AuthService';
 import notificationErrorDisplay from '../errors/display/NotificationErrorDisplay';
@@ -23,6 +23,8 @@ export type LoginRequest = {
 }
 
 export default function LoginForm(props: Props) {
+
+    const { t } = useTranslation();
 
     const [loading, setLoading] = useState<boolean>(false);
     const [authState, setAuthState] = useAuthState();

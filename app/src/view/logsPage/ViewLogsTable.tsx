@@ -1,7 +1,7 @@
 import { Table, Tooltip } from 'antd';
 import Column from 'antd/lib/table/Column';
-import { t } from 'i18next';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 import useGeolocation from '../../hooks/geolocation/useGeolocation';
 import useLogs, { LogAction } from '../../hooks/logsViewer/useLogs';
 import useUsers from '../../hooks/user/useUsers';
@@ -17,6 +17,8 @@ export default function ViewLogsTable(props: Props) {
     const geo = useGeolocation();
 
     const logActions: LogAction[] = [LogAction.login, LogAction.register];
+
+    const { t } = useTranslation();
 
     return (
         <Table

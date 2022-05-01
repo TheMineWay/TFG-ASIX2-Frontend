@@ -1,8 +1,8 @@
 import { Form, Transfer } from 'antd';
 import { TransferItem } from 'antd/lib/transfer';
 import { PaginationType } from 'antd/lib/transfer/interface';
-import { t } from 'i18next';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
     name: string;
@@ -16,6 +16,8 @@ type Props = {
 }
 
 export default function TransferFormItem(props: Props) {
+
+    const { t } = useTranslation();
 
     const [selected, setSelected] = useState<string[]>(props.initial ?? []);
     const [target, setTarget] = useState<string[]>(props.initial ?? []);

@@ -1,8 +1,8 @@
 import { MailOutlined } from '@ant-design/icons';
 import { Form, Input } from 'antd';
 import { isEmail } from 'class-validator';
-import { t } from 'i18next';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
     name: string;
@@ -11,6 +11,9 @@ type Props = {
 }
 
 export default function EmailFormItem(props: Props) {
+
+    const { t } = useTranslation();
+
     const [ value, setValue ] = useState<string>('');
 
     const isValid: boolean = isEmail(value);

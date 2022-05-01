@@ -1,7 +1,7 @@
 import { CommentOutlined, LoginOutlined, LogoutOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import { Header } from "antd/lib/layout/layout";
-import { t } from "i18next";
+import { useTranslation } from 'react-i18next';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthState from "../../hooks/auth/useAuthState";
@@ -15,6 +15,7 @@ const { Item, SubMenu } = Menu;
 
 export default function BaseHeader() {
 
+    const { t, i18n } = useTranslation();
     const navigate = useNavigate();
     const [authState, setAuthState] = useAuthState();
     const [userState] = useUserState();

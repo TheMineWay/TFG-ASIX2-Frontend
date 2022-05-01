@@ -1,4 +1,4 @@
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import PasswordStrengthBar from 'react-password-strength-bar';
 
 type Props = {
@@ -6,6 +6,9 @@ type Props = {
 }
 
 export default function PasswordStrengthIndicator(props: Props) {
+
+    const { t } = useTranslation();
+
     return (
         <PasswordStrengthBar
             password={props.password}

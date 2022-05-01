@@ -1,7 +1,7 @@
 import { Card, List } from "antd";
 import { GeoLocation } from "../../hooks/geolocation/useGeolocation";
 import { Marker, ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
-import { t } from "i18next";
+import { useTranslation } from 'react-i18next';
 
 const { Item } = List;
 
@@ -12,6 +12,8 @@ type Props = {
 }
 
 export default function GeoCard(props: Props) {
+
+    const { t, i18n } = useTranslation();
 
     const GeoInfo = () => (
         <List style={{ width: props.width }}>

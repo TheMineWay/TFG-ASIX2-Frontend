@@ -1,6 +1,6 @@
 import { Card, Divider, Table } from "antd";
 import { ExpandableConfig } from "antd/lib/table/interface";
-import { t } from "i18next";
+import { useTranslation } from 'react-i18next';
 import useCoins from "../../hooks/coins/useCoins";
 import { DiskRequestObj, generateDiskRequestBill } from "../../hooks/diskRequest/useDiskRequest";
 import { InventoryItem } from "../../hooks/inventory/useInventory";
@@ -14,6 +14,7 @@ type DisksTable = { name: string, price: number, items: (InventoryItem | undefin
 
 export default function DiskRequestSummary(props: Props) {
 
+    const { t, i18n } = useTranslation();
     const { DisplayPrice } = useCoins();
 
     const inventory = props.inventory;

@@ -1,6 +1,6 @@
 import { UserOutlined } from '@ant-design/icons';
 import { Form, Input } from 'antd';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
     name: string;
@@ -10,6 +10,9 @@ type Props = {
 }
 
 export default function UsernameFormItem(props: Props) {
+
+    const { t } = useTranslation();
+
     const placeholderUsernames: string[] = ['john', 'toni'];
 
     return (

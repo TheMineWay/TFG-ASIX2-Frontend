@@ -1,5 +1,5 @@
 import { Tabs } from "antd";
-import { t } from "i18next";
+import { useTranslation } from 'react-i18next';
 import { InventoryItem } from "../../../hooks/inventory/useInventory";
 import DiskBuilderForm from "./DiskBuilderForm";
 import { DiskBuilderFormValues } from "./DiskBuilderTool";
@@ -18,6 +18,7 @@ type Props = {
 
 export default function DiskBuilderTabs(props: Props) {
 
+    const { t, i18n } = useTranslation();
     const onEdit = (e: string | React.MouseEvent | React.KeyboardEvent, action: 'add' | 'remove') => {
         if(action === 'add') props.add();
 

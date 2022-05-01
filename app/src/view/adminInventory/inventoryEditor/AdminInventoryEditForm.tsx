@@ -1,7 +1,7 @@
 import { SaveOutlined } from '@ant-design/icons';
 import { Form } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import { AdminInventory } from '../../../hooks/inventory/useAdminInventory';
 import { InventoryItem } from '../../../hooks/inventory/useInventory';
 import CheckFormItem from '../../form/CheckFormItem';
@@ -19,6 +19,8 @@ type Props = {
 }
 
 export default function AdminInventoryEditForm(props: Props) {
+
+    const { t } = useTranslation();
 
     const item = props.item;
     const [form] = useForm<InventoryItem>();

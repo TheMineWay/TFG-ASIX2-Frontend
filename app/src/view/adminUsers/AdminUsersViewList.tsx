@@ -1,7 +1,7 @@
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Card, Col, Input, Popconfirm, Row, Space, Table } from 'antd';
-import { t as tr } from 'i18next';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { UserAdmin } from '../../hooks/user/useUserAdmin';
 import { UserModel } from '../../services/auth/User.model';
 import { listFilter } from '../../services/filters/genericFilter';
@@ -14,6 +14,10 @@ type Props = {
 }
 
 export default function AdminUsersViewList(props: Props) {
+
+    const ut = useTranslation();
+
+    const tr = (id: string) => ut.t(id);
 
     const t = (id: string): string => tr(`view.userAdmin.userTable.headers.${id}`);
 

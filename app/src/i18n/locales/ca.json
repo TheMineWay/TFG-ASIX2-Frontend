@@ -239,6 +239,7 @@
             }
         },
         "diskRequestList": {
+            "Title": "Comandes realitzades",
             "list": {
                 "states": {
                     "pending": {
@@ -365,6 +366,9 @@
             "Timezone": "Zona horaria",
             "Yes": "Sí",
             "No": "No"
+        },
+        "empty": {
+            "Description": "No hi han dades"
         }
     }
 }

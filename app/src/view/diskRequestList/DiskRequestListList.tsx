@@ -8,10 +8,17 @@ type Props = {
 
 export default function DiskRequestListList(props: Props) {
     return (
-        <Row>
+        <Row
+            gutter={[24, 24]}
+        >
             {
                 props.list.map((item) => (
-                    <Col>
+                    <Col
+                        xs={24}
+                        sm={12}
+                        xl={8}
+                        xxl={6}
+                    >
                         <DiskRequestViewListItem
                             item={item}
                         />

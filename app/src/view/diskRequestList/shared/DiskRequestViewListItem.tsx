@@ -6,10 +6,10 @@ type Props = {
 }
 
 export default function DiskRequestViewListItem(props: Props) {
+
     return (
         <Card
             hoverable
-            title={props.item.id}
         >
             
         </Card>

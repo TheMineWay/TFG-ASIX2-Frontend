@@ -5,7 +5,7 @@ import useAuthState from "../auth/useAuthState";
 
 export type DiskRequestState = 'pending';
 
-type DiskRequestListItem = {
+export type DiskRequestListItem = {
     id: string;
     user: string;
     createdAt: Date;

@@ -40,6 +40,12 @@
             },
             "diskRequest": {
                 "Title": "Sol·licitar disc"
+            },
+            "requests": {
+                "Title": "Comandes"
+            },
+            "requestsList": {
+                "Title": "Comandes realitzades"
             }
         }
     },

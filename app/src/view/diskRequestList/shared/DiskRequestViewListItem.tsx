@@ -1,5 +1,5 @@
 import { CheckCircleOutlined, ClockCircleOutlined, PauseCircleOutlined, SendOutlined } from "@ant-design/icons";
-import { Card, Tag } from "antd";
+import { Button, Card, Tag } from "antd";
 import { t } from "i18next";
 import moment from "moment";
 import useCoins from "../../../hooks/coins/useCoins";
@@ -8,6 +8,7 @@ import DateDisplay from "../../shared/DateDisplay";
 
 type Props = {
     item: DiskRequestListItem;
+    setVisualizing: (id: string) => void;
 }
 
 export default function DiskRequestViewListItem(props: Props) {
@@ -35,16 +36,26 @@ export default function DiskRequestViewListItem(props: Props) {
     }
 
     return (
-        <Card
-            hoverable
-            extra={<StateTag />}
-            title={<DisplayPrice price={props.item.amount}/>}
-            bodyStyle={{
-                textAlign: 'justify',
-            }}
-        >
-            <p>{t('view.diskRequestList.list.item.DeliveryDate')} <DateDisplay>{moment(props.item.createdAt).add(10, 'days').toDate()}</DateDisplay>.</p>
-            <p>{t('view.diskRequestList.list.item.DeliveryAddress')} {props.item.address}.</p>
-        </Card>
+        <>
+            <Card
+                hoverable
+                extra={<StateTag />}
+                title={<DisplayPrice price={props.item.amount} />}
+                bodyStyle={{
+                    textAlign: 'justify',
+                }}
+                actions={[
+                    <Button
+                        type='link'
+                        onClick={() => {
+                            props.setVisualizing(props.item.id)
+                        }}
+                    >{t('view.diskRequestList.list.item.actions.ViewDetails')}</Button>
+                ]}
+            >
+                <p>{t('view.diskRequestList.list.item.DeliveryDate')} <DateDisplay>{moment(props.item.createdAt).add(10, 'days').toDate()}</DateDisplay>.</p>
+                <p>{t('view.diskRequestList.list.item.DeliveryAddress')} {props.item.address}.</p>
+            </Card>
+        </>
     );
 }

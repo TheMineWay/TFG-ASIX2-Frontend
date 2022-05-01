@@ -1,7 +1,9 @@
 import { Col, Row } from "antd";
+import { useState } from "react";
 import { DiskRequestListItem } from "../../hooks/diskRequest/useDiskRequestList";
 import DiskRequestViewListItem from "../diskRequestList/shared/DiskRequestViewListItem";
 import NoData from "../shared/NoData";
+import DiskRequestViewDetailsDrawer from "./shared/DiskRequestViewDetailsDrawer";
 
 type Props = {
     list: DiskRequestListItem[];
@@ -9,26 +11,35 @@ type Props = {
 
 export default function DiskRequestListList(props: Props) {
 
-    if(props.list.length <= 0) return <NoData/>;
+    const [visualizing, setVisualizing] = useState<string | null>(null);
+
+    if (props.list.length <= 0) return <NoData />;
 
     return (
-        <Row
-            gutter={[24, 24]}
-        >
-            {
-                props.list.map((item) => (
-                    <Col
-                        xs={24}
-                        sm={12}
-                        xl={8}
-                        xxl={6}
-                    >
-                        <DiskRequestViewListItem
-                            item={item}
-                        />
-                    </Col>
-                ))
-            }
-        </Row>
+        <>
+            <DiskRequestViewDetailsDrawer
+                onClose={() => setVisualizing(null)}
+                item={props.list.find((i) => i.id === visualizing) ?? undefined}
+            />
+            <Row
+                gutter={[24, 24]}
+            >
+                {
+                    props.list.map((item) => (
+                        <Col
+                            xs={24}
+                            sm={12}
+                            xl={8}
+                            xxl={6}
+                        >
+                            <DiskRequestViewListItem
+                                item={item}
+                                setVisualizing={setVisualizing}
+                            />
+                        </Col>
+                    ))
+                }
+            </Row>
+        </>
     );
 }

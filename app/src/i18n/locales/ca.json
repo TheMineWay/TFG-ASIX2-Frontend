@@ -257,7 +257,10 @@
                 },
                 "item": {
                     "DeliveryDate": "Entrega prevista per al",
-                    "DeliveryAddress": "L'adreça on es realitzarà l'entrega és"
+                    "DeliveryAddress": "L'adreça on es realitza l'entrega és",
+                    "actions": {
+                        "ViewDetails": "Veure detalls"
+                    }
                 }
             }
         }

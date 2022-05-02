@@ -255,6 +255,24 @@
                         "Title": "Entregat"
                     }
                 },
+                "itemDrawer": {
+                    "sections": {
+                        "amount": {
+                            "Title": "Detalls del pagament",
+                            "Total": "Cost total",
+                            "Card": "Targeta acabada en"
+                        },
+                        "state": {
+                            "Title": "Estat de la comanda",
+                            "states": {
+                                "delivered": "Comanda entregada",
+                                "pending": "Pendent de processar",
+                                "processing": "Comanda en procés",
+                                "sent": "Comanda en repartiment"
+                            }
+                        }
+                    }
+                },
                 "item": {
                     "DeliveryDate": "Entrega prevista per al",
                     "DeliveryAddress": "L'adreça on es realitza l'entrega és",

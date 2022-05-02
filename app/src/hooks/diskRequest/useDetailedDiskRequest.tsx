@@ -8,6 +8,7 @@ export type RawDiskRequestStateObject = {
     state: DiskRequestState;
     comment: string;
     createdAt: string;
+    id: string;
 }
 
 export type DiskRequestStateObject = {

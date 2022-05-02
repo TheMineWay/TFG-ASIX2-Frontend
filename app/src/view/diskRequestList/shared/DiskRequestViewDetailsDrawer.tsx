@@ -2,6 +2,7 @@ import { CheckOutlined, ClockCircleOutlined, CoffeeOutlined, SendOutlined } from
 import { Col, Divider, Drawer, Row, Skeleton, Timeline } from "antd";
 import { t } from "i18next";
 import moment from "moment";
+import QRCode from "react-qr-code";
 import useCoins from "../../../hooks/coins/useCoins";
 import useDetailedDiskRequest, { DiskRequestStateObject } from "../../../hooks/diskRequest/useDetailedDiskRequest";
 import { DiskRequestListItem } from "../../../hooks/diskRequest/useDiskRequestList";
@@ -62,11 +63,28 @@ export default function DiskRequestViewDetailsDrawer(props: Props) {
         )
     };
 
+    const Footer = () => (
+        <div
+            style={{
+                display:'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            {
+                props.item && (
+                    <QRCode value={`{"id":"${props.item!.id}","website":"plugandwork.cat"}`}/>
+                )
+            }
+        </div>
+    );
+
     return (
         <Drawer
             title={<><DateDisplay>{purchase?.purchase.createdAt}</DateDisplay></>}
             onClose={props.onClose}
             visible={props.item !== undefined}
+            footer={<Footer/>}
         >
             <Skeleton
                 loading={loading}

@@ -52,7 +52,8 @@ export default function DiskRequestViewDetailsDrawer(props: Props) {
                                     color={processStateColor(state)}
                                     dot={processStateIcon(state)}
                                 >
-                                    {t(`view.diskRequestList.list.itemDrawer.sections.state.states.${state.state}`)} - <DateDisplay>{state.createdAt}</DateDisplay>
+                                    <p>{t(`view.diskRequestList.list.itemDrawer.sections.state.states.${state.state}`)}</p>
+                                    <small><DateDisplay>{state.createdAt}</DateDisplay></small>
                                 </Timeline.Item>
                             )
                         })

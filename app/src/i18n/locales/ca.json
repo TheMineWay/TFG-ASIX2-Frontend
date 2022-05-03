@@ -284,6 +284,16 @@
                     }
                 }
             }
+        },
+        "diskRequestAdmin": {
+            "item": {
+                "states": {
+                    "Delivered": "Comanda entregada",
+                    "Pending": "Pendent de processar",
+                    "Processing": "Comanda en procés",
+                    "Sent": "Enviat"
+                }
+            }
         }
     },
     "errors": {

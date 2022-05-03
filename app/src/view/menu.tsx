@@ -1,4 +1,4 @@
-import { BuildOutlined, DollarOutlined, HomeOutlined, InboxOutlined, ThunderboltOutlined, ToolOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons";
+import { BarcodeOutlined, BuildOutlined, DollarOutlined, HomeOutlined, InboxOutlined, ThunderboltOutlined, ToolOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons";
 import { Permissions } from "../services/security/permissions";
 
 export type MenuOption = {
@@ -51,6 +51,13 @@ const menuOptions: MenuOption[] = [
                 key: 'logs',
                 icon: <ToolOutlined />,
                 permissions: [Permissions.viewLogs],
+            },
+            {
+                text: 'requests',
+                path: '/admin/disk-requests',
+                key: 'adminRequests',
+                icon: <BarcodeOutlined/>,
+                permissions: [Permissions.adminDiskRequests],
             },
         ],
     },

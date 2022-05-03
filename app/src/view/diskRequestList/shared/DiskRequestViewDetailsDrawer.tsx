@@ -82,8 +82,6 @@ export default function DiskRequestViewDetailsDrawer(props: Props) {
             }
         </div>
     );
-
-    console.log();
     
     const RequestedDiskList = () => (
         <Tree

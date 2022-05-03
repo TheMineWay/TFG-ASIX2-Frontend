@@ -1,12 +1,14 @@
 import { Col, Row } from "antd";
 import { useState } from "react";
 import { DiskRequestListItem } from "../../hooks/diskRequest/useDiskRequestList";
+import { UseInventory } from "../../hooks/inventory/useInventory";
 import DiskRequestViewListItem from "../diskRequestList/shared/DiskRequestViewListItem";
 import NoData from "../shared/NoData";
 import DiskRequestViewDetailsDrawer from "./shared/DiskRequestViewDetailsDrawer";
 
 type Props = {
     list: DiskRequestListItem[];
+    inventory: UseInventory;
 }
 
 export default function DiskRequestListList(props: Props) {
@@ -20,6 +22,7 @@ export default function DiskRequestListList(props: Props) {
             <DiskRequestViewDetailsDrawer
                 onClose={() => setVisualizing(null)}
                 item={props.list.find((i) => i.id === visualizing) ?? undefined}
+                inventory={props.inventory}
             />
             <Row
                 gutter={[24, 24]}

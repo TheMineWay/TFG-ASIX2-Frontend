@@ -1,19 +1,23 @@
 import { CheckOutlined, ClockCircleOutlined, CoffeeOutlined, SendOutlined } from "@ant-design/icons";
-import { Col, Collapse, Divider, Drawer, List, Row, Skeleton, Timeline } from "antd";
+import { Col, Divider, Drawer, Row, Skeleton, Timeline, Tree, TreeDataNode } from "antd";
 import { t } from "i18next";
 import moment from "moment";
 import QRCode from "react-qr-code";
 import useCoins from "../../../hooks/coins/useCoins";
 import useDetailedDiskRequest, { DiskRequestStateObject } from "../../../hooks/diskRequest/useDetailedDiskRequest";
 import { DiskRequestListItem } from "../../../hooks/diskRequest/useDiskRequestList";
+import { UseInventory } from "../../../hooks/inventory/useInventory";
 import DateDisplay from "../../shared/DateDisplay";
 
 type Props = {
     onClose: () => void;
     item?: DiskRequestListItem;
+    inventory: UseInventory;
 }
 
 export default function DiskRequestViewDetailsDrawer(props: Props) {
+
+    const { resolveInventoryItemById } = props.inventory;
 
     const { DisplayPrice } = useCoins();
     const { purchase, loading } = useDetailedDiskRequest(props.item?.id ?? null);
@@ -23,7 +27,7 @@ export default function DiskRequestViewDetailsDrawer(props: Props) {
     const StatesTimeline = () => {
 
         function processStateColor(state: DiskRequestStateObject): string {
-            switch(state.state) {
+            switch (state.state) {
                 case 'delivered': return 'green';
                 case 'pending': return 'red';
                 case 'processing': return 'orange';
@@ -33,11 +37,11 @@ export default function DiskRequestViewDetailsDrawer(props: Props) {
         }
 
         function processStateIcon(state: DiskRequestStateObject): JSX.Element | undefined {
-            switch(state.state) {
-                case 'delivered': return <CheckOutlined/>;
-                case 'pending': return <ClockCircleOutlined/>;
-                case 'processing': return <CoffeeOutlined/>;
-                case 'sent': return <SendOutlined/>;
+            switch (state.state) {
+                case 'delivered': return <CheckOutlined />;
+                case 'pending': return <ClockCircleOutlined />;
+                case 'processing': return <CoffeeOutlined />;
+                case 'sent': return <SendOutlined />;
                 default: return undefined;
             }
         }
@@ -66,42 +70,36 @@ export default function DiskRequestViewDetailsDrawer(props: Props) {
     const Footer = () => (
         <div
             style={{
-                display:'flex',
+                display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
             }}
         >
             {
                 props.item && (
-                    <QRCode value={`{"id":"${props.item!.id}","website":"plugandwork.cat"}`}/>
+                    <QRCode value={`{"id":"${props.item!.id}","website":"plugandwork.cat"}`} />
                 )
             }
         </div>
     );
 
-    console.log(purchase?.builds);
-
+    console.log();
+    
     const RequestedDiskList = () => (
-        <Collapse>
-            {
-                purchase?.builds.map((purchase, i) => (
-                    <Collapse.Panel
-                        header={purchase.build.disk}
-                        key={`collapse_${i}`}
-                    >
-                        <List>
-                            {
-                                purchase.items.map((item) => (
-                                    <List.Item>
-                                        {item}
-                                    </List.Item>
-                                ))
-                            }
-                        </List>
-                    </Collapse.Panel>
-                ))
-            }
-        </Collapse>
+        <Tree
+            treeData={purchase?.builds.map((p, i) => {
+                const diskItem = resolveInventoryItemById(p.build.disk);
+
+                return {
+                    title: typeof(diskItem) === 'string' ? diskItem : <>{diskItem.name} <DisplayPrice price={diskItem.price}/></>,
+                    key: `purchase_tree_${i}`,
+                    children: p.items.map(resolveInventoryItemById).map((item, j): TreeDataNode => ({
+                        title: typeof(item) === 'string' ? item : <>{item.name} <DisplayPrice price={item.price}/></>,
+                        key: `purchase_tree_${i}_${j}`
+                    }))
+                };
+            })}
+        />
     );
 
     return (
@@ -109,7 +107,7 @@ export default function DiskRequestViewDetailsDrawer(props: Props) {
             title={<><DateDisplay>{purchase?.purchase.createdAt}</DateDisplay></>}
             onClose={props.onClose}
             visible={props.item !== undefined}
-            footer={<Footer/>}
+            footer={<Footer />}
         >
             <Skeleton
                 loading={loading}
@@ -131,10 +129,10 @@ export default function DiskRequestViewDetailsDrawer(props: Props) {
                         <StatesTimeline />
                     </Col>
                     <Col>
-                        <Divider/>
+                        <Divider />
                         <h3>{t('view.diskRequestList.list.itemDrawer.sections.request.Title')}</h3>
-                        <br/>
-                        <RequestedDiskList/>
+                        <br />
+                        <RequestedDiskList />
                     </Col>
                 </Row>
             </Skeleton>

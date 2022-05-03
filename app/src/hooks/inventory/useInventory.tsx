@@ -41,7 +41,14 @@ export function processRawInventoryItem(raw: RawInventoryItem): InventoryItem {
     };
 }
 
-export default function useInventory() {
+export type UseInventory = {
+    fetch: () => Promise<void>;
+    loading: boolean;
+    inventory?: InventoryItem[];
+    resolveInventoryItemById: (id: string) => InventoryItem | string;
+}
+
+export default function useInventory(): UseInventory {
     const [inventory, setInventory] = useState<InventoryItem[]>();
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -62,9 +69,14 @@ export default function useInventory() {
         setLoading(false);
     }
 
+    function resolveInventoryItemById(id: string): InventoryItem | string {
+        return inventory?.find((i) => i.id === id) ?? id;
+    }
+
     return {
         loading,
         inventory,
         fetch,
+        resolveInventoryItemById,
     };
 }

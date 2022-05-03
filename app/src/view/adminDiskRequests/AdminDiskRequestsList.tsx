@@ -1,4 +1,4 @@
-import { Card, Col, Row, Select, Tree } from 'antd';
+import { Card, Col, Row, Select, Space, Switch, Tree } from 'antd';
 import { t } from 'i18next';
 import { useState } from 'react';
 import { FullDiskRequestPurchase } from '../../hooks/diskRequest/useDetailedDiskRequest';
@@ -40,11 +40,45 @@ export default function AdminDiskRequestsList(props: Props) {
         </Select>
     );
 
+    const StateSwitchFilter = (switchProps: { state: DiskRequestState }) => (
+        <Switch
+            checked={stateFilters.includes(switchProps.state)}
+            onChange={(v) => {
+                if(v && !stateFilters.includes(switchProps.state)) {
+                    setStateFilters([
+                        ...stateFilters,
+                        switchProps.state,
+                    ]);
+                } else if (true) {
+                    if(!v && stateFilters.includes(switchProps.state)) {
+                        const list = stateFilters;
+                        delete list[list.findIndex((i) => i === switchProps.state)];
+
+                        setStateFilters([
+                            ...list ?? stateFilters
+                        ]);
+                    }
+                }
+            }}
+        />
+    )
+
     return (
         <Row gutter={[24, 24]}>
             <Col span={24}>
                 <Card>
-                    
+                    <Row gutter={[6, 6]}>
+                        {
+                            (['sent', 'delivered', 'processing', 'pending'] as DiskRequestState[]).map((state) => (
+                                <Col>
+                                    <Space>
+                                        {t(`view.diskRequestAdmin.filters.${state[0].toUpperCase() + state.slice(1)}`)}
+                                        <StateSwitchFilter state={state} />
+                                    </Space>
+                                </Col>
+                            ))
+                        }
+                    </Row>
                 </Card>
             </Col>
             <Col span={24}>

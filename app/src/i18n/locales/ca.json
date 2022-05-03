@@ -293,6 +293,12 @@
                     "Processing": "Comanda en procés",
                     "Sent": "Enviat"
                 }
+            },
+            "filters": {
+                "Delivered": "Comandes entregades",
+                "Pending": "Pendents de processar",
+                "Processing": "Comandes en procés",
+                "Sent": "Enviades"
             }
         }
     },

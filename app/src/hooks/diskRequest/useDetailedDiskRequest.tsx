@@ -30,19 +30,31 @@ export type DiskRequestPayment = {
 }
 
 export type RawDiskRequestBuild = {
-    amount: string;
-    disk: string;
+    build: {
+        id: string;
+        amount: string;
+        disk: string;
+    },
+    items: string[];
 }
 
 export type DiskRequestBuild = {
-    amount: number;
-    disk: string;
+    build: {
+        id: string;
+        amount: number;
+        disk: string;
+    },
+    items: string[];
 }
 
 export function processRawDiskRequestBuild(raw: RawDiskRequestBuild): DiskRequestBuild {
     return {
         ...raw,
-        amount: parseFloat(raw.amount),
+        build: {
+            id: raw.build.id,
+            amount: parseFloat(raw.build.amount),
+            disk: raw.build.disk,
+        },
     };
 }
 

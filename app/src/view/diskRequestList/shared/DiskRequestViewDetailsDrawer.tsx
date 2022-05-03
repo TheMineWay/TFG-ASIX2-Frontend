@@ -1,5 +1,5 @@
 import { CheckOutlined, ClockCircleOutlined, CoffeeOutlined, SendOutlined } from "@ant-design/icons";
-import { Col, Divider, Drawer, Row, Skeleton, Timeline } from "antd";
+import { Col, Collapse, Divider, Drawer, List, Row, Skeleton, Timeline } from "antd";
 import { t } from "i18next";
 import moment from "moment";
 import QRCode from "react-qr-code";
@@ -79,6 +79,31 @@ export default function DiskRequestViewDetailsDrawer(props: Props) {
         </div>
     );
 
+    console.log(purchase?.builds);
+
+    const RequestedDiskList = () => (
+        <Collapse>
+            {
+                purchase?.builds.map((purchase, i) => (
+                    <Collapse.Panel
+                        header={purchase.build.disk}
+                        key={`collapse_${i}`}
+                    >
+                        <List>
+                            {
+                                purchase.items.map((item) => (
+                                    <List.Item>
+                                        {item}
+                                    </List.Item>
+                                ))
+                            }
+                        </List>
+                    </Collapse.Panel>
+                ))
+            }
+        </Collapse>
+    );
+
     return (
         <Drawer
             title={<><DateDisplay>{purchase?.purchase.createdAt}</DateDisplay></>}
@@ -104,6 +129,12 @@ export default function DiskRequestViewDetailsDrawer(props: Props) {
                         <h3>{t('view.diskRequestList.list.itemDrawer.sections.state.Title')}</h3>
                         <br />
                         <StatesTimeline />
+                    </Col>
+                    <Col>
+                        <Divider/>
+                        <h3>{t('view.diskRequestList.list.itemDrawer.sections.request.Title')}</h3>
+                        <br/>
+                        <RequestedDiskList/>
                     </Col>
                 </Row>
             </Skeleton>

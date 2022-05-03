@@ -270,6 +270,9 @@
                                 "processing": "Comanda en procés",
                                 "sent": "Comanda en repartiment"
                             }
+                        },
+                        "request": {
+                            "Title": "Material sol·licitat"
                         }
                     }
                 },

@@ -57,6 +57,9 @@
                 "form": {
                     "Opinion": "Opinió",
                     "Submit": "Enviar opinió"
+                },
+                "close": {
+                    "DoShowAgain": "Vols que deixem de preguntar per la teva opinió?"
                 }
             }
         },

@@ -1,5 +1,7 @@
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Card, Carousel, Col, Row } from 'antd';
 import { t } from 'i18next';
+import '../../shared/styles/carousel.css';
 
 type MainPageCarouselSlide = {
     image: string;
@@ -23,7 +25,10 @@ export default function AnnouncesCarousel() {
             <Carousel
                 autoplay
                 effect='fade'
-                
+                autoplaySpeed={5000}
+                arrows={true}
+                prevArrow={<LeftOutlined size={5}/>}
+                nextArrow={<RightOutlined size={5}/>}
             >
                 {
                     slides.map((slide) => (

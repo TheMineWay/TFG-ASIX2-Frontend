@@ -1,7 +1,10 @@
-import React from 'react'
+
+import ViewPublicOpinions from './opinions/ViewPublicOpinions';
 
 export default function MainPage() {
     return (
-        <div>MainPage</div>
-    )
+        <>
+            <ViewPublicOpinions/>
+        </>
+    );
 }

@@ -2,6 +2,7 @@ import { Col as AntCol, Row } from 'antd';
 import useUserState from '../../hooks/user/useUserState';
 import Loading from '../shared/Loading';
 import UserAvatar from '../shared/UserAvatar';
+import OpinionProfileCard from './OpinionProfileCard';
 import ProfileUserCard from './ProfileUserCard';
 import SessionsHistoryProfileCard from './SessionsHistoryProfileCard';
 
@@ -32,6 +33,7 @@ export default function ViewUserProfilePage() {
                 [
                     <ProfileUserCard />,
                     <SessionsHistoryProfileCard />,
+                    <OpinionProfileCard/>
                 ].map((c) => (
                     <AntCol span={24}>{c}</AntCol>
                 ))

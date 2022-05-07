@@ -1,4 +1,4 @@
-import { Col, Form, notification, Row } from 'antd';
+import { Col, Form, message, notification, Row } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import { t } from 'i18next';
 import { useState } from 'react';
@@ -15,15 +15,17 @@ export type OpinionFormValues = {
 }
 
 type Props = {
-    authState: AuthCredentials;
+    authState?: AuthCredentials;
+    defaultValues?: OpinionFormValues;
+    center?: boolean;
 }
 
 export default function OpinionForm(props: Props) {
 
-    const [form] = useForm<{opinion: string}>();
+    const [form] = useForm<{ opinion: string }>();
 
     const [loading, setLoading] = useState<boolean>(false);
-    const [rating, setRating] = useState<number>();
+    const [rating, setRating] = useState<number | undefined>(props.defaultValues?.score ?? undefined);
 
     const submit = async (values: OpinionFormValues) => {
         setLoading(true);
@@ -33,6 +35,7 @@ export default function OpinionForm(props: Props) {
                 opinion: values.opinion ?? "",
             }, { authCredentials: props.authState });
             notification.close('opinion-notification');
+            message.success(t('view.opinions.notification.form.Success'))
         } catch (e: any) {
             notificationErrorDisplay(e);
         }
@@ -41,6 +44,7 @@ export default function OpinionForm(props: Props) {
 
     return (
         <Form
+            initialValues={props.defaultValues}
             form={form}
             layout='vertical'
             onFinish={(v) => {
@@ -52,10 +56,17 @@ export default function OpinionForm(props: Props) {
         >
             <Row gutter={[12, 12]}>
                 <Col span={24}>
-                    <OpinionRatingScoreSelector
-                        onChange={setRating}
-                        defaultValue={rating}
-                    />
+                    <div
+                        style={{
+                            display: 'flex',
+                            justifyContent: props.center ? 'center' : 'normal',
+                        }}
+                    >
+                        <OpinionRatingScoreSelector
+                            onChange={setRating}
+                            defaultValue={rating}
+                        />
+                    </div>
                 </Col>
                 {
                     rating && (

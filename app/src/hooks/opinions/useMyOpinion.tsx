@@ -7,12 +7,14 @@ type RawOpinion = {
     rating: string;
     opinion: string;
     createdAt: string;
+    isPublic: '1' | '0';
 }
 
 type OpinionObj = {
     score: number;
     opinion: string;
     createdAt: Date;
+    isPublic: boolean;
 }
 
 function processRawOpinion(raw: RawOpinion): OpinionObj {
@@ -20,6 +22,7 @@ function processRawOpinion(raw: RawOpinion): OpinionObj {
         ...raw,
         score: parseInt(raw.rating),
         createdAt: new Date(Date.parse(raw.createdAt)),
+        isPublic: raw.isPublic === '1',
     };
 }
 

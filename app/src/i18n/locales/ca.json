@@ -57,6 +57,7 @@
                 "form": {
                     "Opinion": "Opinió",
                     "Submit": "Enviar opinió",
+                    "IsPublic": "La opinió és pública",
                     "Success": "S'ha enviat la teva opinió"
                 },
                 "close": {

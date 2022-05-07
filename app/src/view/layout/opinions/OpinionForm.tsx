@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { AuthCredentials } from '../../../context/AuthContext';
 import request from '../../../services/api/Request';
 import notificationErrorDisplay from '../../errors/display/NotificationErrorDisplay';
+import CheckFormItem from '../../form/CheckFormItem';
 import SubmitFormItem from '../../form/SubmitFormItem';
 import TextAreaFormItem from '../../form/TextAreaFormItem';
 import OpinionRatingScoreSelector from './OpinionRatingScoreSelector';
@@ -12,6 +13,7 @@ import OpinionRatingScoreSelector from './OpinionRatingScoreSelector';
 export type OpinionFormValues = {
     score: number;
     opinion: string;
+    isPublic: boolean;
 }
 
 type Props = {
@@ -22,7 +24,7 @@ type Props = {
 
 export default function OpinionForm(props: Props) {
 
-    const [form] = useForm<{ opinion: string }>();
+    const [form] = useForm<{ opinion: string, isPublic: boolean }>();
 
     const [loading, setLoading] = useState<boolean>(false);
     const [rating, setRating] = useState<number | undefined>(props.defaultValues?.score ?? undefined);
@@ -33,6 +35,7 @@ export default function OpinionForm(props: Props) {
             request<{}>('post', '/actions/ratings/postRating', {
                 score: values.score ?? 1,
                 opinion: values.opinion ?? "",
+                isPublic: values.isPublic ?? false,
             }, { authCredentials: props.authState });
             notification.close('opinion-notification');
             message.success(t('view.opinions.notification.form.Success'))
@@ -78,6 +81,12 @@ export default function OpinionForm(props: Props) {
                                     showCount
                                     name='opinion'
                                     placeholder={t('view.opinions.notification.form.Opinion')}
+                                />
+                            </Col>
+                            <Col span={24}>
+                                <CheckFormItem
+                                    name='isPublic'
+                                    text={t('view.opinions.notification.form.IsPublic')}
                                 />
                             </Col>
                             <Col span={24}>

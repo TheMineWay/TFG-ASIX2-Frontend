@@ -8,7 +8,7 @@ type MainPageCarouselSlide = {
 
 const slides: MainPageCarouselSlide[] = [
     {
-        image: require('../../../resources/mainPage/slides/grand-opening.png'),
+        image: require('../../../resources/mainPage/slides/grand-opening.jpg'),
         id: 'grand-opening',
     }
 ];
@@ -27,9 +27,10 @@ export default function AnnouncesCarousel() {
                                 color: '#fff',
                                 lineHeight: '160px',
                                 textAlign: 'center',
-                                backgroundImage: `url("${slide.image}")`,
+                                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("${slide.image}")`,
                                 backgroundRepeat: 'no-repeat',
-                                backgroundSize: '100% auto',
+                                backgroundPosition: 'center center',
+                                backgroundSize: 'cover',
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',

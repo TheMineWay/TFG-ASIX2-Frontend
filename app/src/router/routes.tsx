@@ -43,7 +43,7 @@ const routes: Route[] = [
         path: '/admin/payments',
         loader: () => import('../view/adminPayments/ViewAdminPaymentsPage'),
         requiresAuth: true,
-        permissions: [Permissions.adminPayments]
+        permissions: [Permissions.adminPayments],
     },
     {
         path: '/user/session-history',
@@ -54,6 +54,17 @@ const routes: Route[] = [
         path: '/disk-request',
         loader: () => import('../view/diskRequest/DiskRequestViewPage'),
         requiresAuth: true,
+    },
+    {
+        path: '/disk-request/list',
+        loader: () => import('../view/diskRequestList/DiskRequestListViewPage'),
+        requiresAuth: true,
+    },
+    {
+        path: '/admin/disk-requests',
+        loader: () => import('../view/adminDiskRequests/AdminDiskRequestsViewPage'),
+        requiresAuth: true,
+        permissions: [Permissions.adminDiskRequests],
     }
 ];
 

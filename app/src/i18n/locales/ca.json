@@ -40,6 +40,12 @@
             },
             "diskRequest": {
                 "Title": "Sol·licitar disc"
+            },
+            "requests": {
+                "Title": "Comandes"
+            },
+            "requestsList": {
+                "Title": "Comandes realitzades"
             }
         }
     },
@@ -231,6 +237,69 @@
                     }
                 }
             }
+        },
+        "diskRequestList": {
+            "Title": "Comandes realitzades",
+            "list": {
+                "states": {
+                    "pending": {
+                        "Title": "Pendent"
+                    },
+                    "processing": {
+                        "Title": "Processant"
+                    },
+                    "sent": {
+                        "Title": "Enviat"
+                    },
+                    "delivered": {
+                        "Title": "Entregat"
+                    }
+                },
+                "itemDrawer": {
+                    "sections": {
+                        "amount": {
+                            "Title": "Detalls del pagament",
+                            "Total": "Cost total",
+                            "Card": "Targeta acabada en"
+                        },
+                        "state": {
+                            "Title": "Estat de la comanda",
+                            "states": {
+                                "delivered": "Comanda entregada",
+                                "pending": "Pendent de processar",
+                                "processing": "Comanda en procés",
+                                "sent": "Comanda en repartiment"
+                            }
+                        },
+                        "request": {
+                            "Title": "Material sol·licitat"
+                        }
+                    }
+                },
+                "item": {
+                    "DeliveryDate": "Entrega prevista per al",
+                    "DeliveryAddress": "L'adreça on es realitza l'entrega és",
+                    "actions": {
+                        "ViewDetails": "Veure detalls"
+                    }
+                }
+            }
+        },
+        "diskRequestAdmin": {
+            "item": {
+                "states": {
+                    "Delivered": "Comanda entregada",
+                    "Pending": "Pendent de processar",
+                    "Processing": "Comanda en procés",
+                    "Sent": "Enviat"
+                }
+            },
+            "filters": {
+                "Delivered": "Comandes entregades",
+                "Pending": "Pendents de processar",
+                "Processing": "Comandes en procés",
+                "Sent": "Enviades"
+            }
         }
     },
     "errors": {
@@ -338,6 +407,9 @@
             "Timezone": "Zona horaria",
             "Yes": "Sí",
             "No": "No"
+        },
+        "empty": {
+            "Description": "No hi han dades"
         }
     }
 }

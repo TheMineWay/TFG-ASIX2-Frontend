@@ -11,4 +11,6 @@ export enum Permissions {
     adminDiscounts = 'adminDiscounts',
     adminScreens = 'adminScreens',
     adminPayments = 'adminPayments',
+    adminDiskRequests = 'adminDiskRequests',
+    adminContactForm = 'adminContactForm',
 }

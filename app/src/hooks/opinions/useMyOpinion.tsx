@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import request from "../../services/api/Request";
 import notificationErrorDisplay from "../../view/errors/display/NotificationErrorDisplay";
 import useAuthState from "../auth/useAuthState";
 
-type RawOpinion = {
+export type RawOpinion = {
     rating: string;
     opinion: string;
     createdAt: string;
     isPublic: '1' | '0';
 }
 
-type OpinionObj = {
+export type OpinionObj = {
     score: number;
     opinion: string;
     createdAt: Date;
     isPublic: boolean;
 }
 
-function processRawOpinion(raw: RawOpinion): OpinionObj {
+export function processRawOpinion(raw: RawOpinion): OpinionObj {
     return {
         ...raw,
         score: parseInt(raw.rating),

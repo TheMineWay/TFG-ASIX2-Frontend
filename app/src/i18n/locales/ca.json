@@ -71,6 +71,10 @@
                     "grand-opening": {
                         "Title": "Gran obertura",
                         "Description": "Inaugurem el nostre servei oferint grans descomptes. Aprofita'ls!"
+                    },
+                    "we-make-it-look-easy": {
+                        "Title": "Més fàcil impossible",
+                        "Description": "Hem dedicat molt d'esforç a desenvolupar una interfície intuitiva i àgil."
                     }
                 }
             }

@@ -10,6 +10,10 @@ const slides: MainPageCarouselSlide[] = [
     {
         image: require('../../../resources/mainPage/slides/grand-opening.jpg'),
         id: 'grand-opening',
+    },
+    {
+        image: require('../../../resources/mainPage/slides/we-make-it-look-easy.jpg'),
+        id: 'we-make-it-look-easy',
     }
 ];
 
@@ -18,6 +22,8 @@ export default function AnnouncesCarousel() {
         <>
             <Carousel
                 autoplay
+                effect='fade'
+                
             >
                 {
                     slides.map((slide) => (

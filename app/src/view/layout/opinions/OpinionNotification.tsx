@@ -19,7 +19,9 @@ export default function OpinionNotification() {
             description: (
                 <>
                     <p>{t('view.opinions.notification.Description')}</p>
-                    <OpinionForm/>
+                    <OpinionForm
+                        authState={authState}
+                    />
                 </>
             ),
             duration: null,

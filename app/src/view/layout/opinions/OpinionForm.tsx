@@ -2,7 +2,7 @@ import { Col, Form, notification, Row } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import { t } from 'i18next';
 import { useState } from 'react';
-import useAuthState from '../../../hooks/auth/useAuthState';
+import { AuthCredentials } from '../../../context/AuthContext';
 import request from '../../../services/api/Request';
 import notificationErrorDisplay from '../../errors/display/NotificationErrorDisplay';
 import SubmitFormItem from '../../form/SubmitFormItem';
@@ -14,13 +14,13 @@ export type OpinionFormValues = {
     opinion: string;
 }
 
-type Props = {}
+type Props = {
+    authState: AuthCredentials;
+}
 
 export default function OpinionForm(props: Props) {
 
-    const [authState] = useAuthState();
-
-    const [form] = useForm<OpinionFormValues>();
+    const [form] = useForm<{opinion: string}>();
 
     const [loading, setLoading] = useState<boolean>(false);
     const [rating, setRating] = useState<number>();
@@ -28,7 +28,7 @@ export default function OpinionForm(props: Props) {
     const submit = async (values: OpinionFormValues) => {
         setLoading(true);
         try {
-            request<{}>('post', '/actions/ratings/postRating', values, { authCredentials: authState });
+            request<{}>('post', '/actions/ratings/postRating', values, { authCredentials: props.authState });
             notification.close('opinion-notification');
         } catch (e: any) {
             notificationErrorDisplay(e);
@@ -40,7 +40,12 @@ export default function OpinionForm(props: Props) {
         <Form
             form={form}
             layout='vertical'
-            onFinish={submit}
+            onFinish={(v) => {
+                submit({
+                    ...v,
+                    score: rating ?? 1,
+                });
+            }}
         >
             <Row gutter={[12, 12]}>
                 <Col span={24}>

@@ -18,20 +18,23 @@ export default function AdminDiskRequestsList(props: Props) {
 
     const users = useUsers();
     const { resolveInventoryItemById } = props.inventory;
-    const { requests } = props.diskRequestsAdmin;
+    const { requests, setPurchaseState, isLoading } = props.diskRequestsAdmin;
 
     const [stateFilters, setStateFilters] = useState<DiskRequestState[]>(['pending', 'processing', 'sent']);
 
-    const isLoading = props.diskRequestsAdmin.loading || props.inventory.loading;
-
-    if (isLoading) return <Loading />;
+    if (props.diskRequestsAdmin.loading || props.inventory.loading) return <Loading />;
 
     const SetStateDropdown = (dropProps: { request: FullDiskRequestPurchase }) => (
-        <Select
-            defaultValue='sent'
+        <Select<DiskRequestState>
+            defaultValue={dropProps.request.purchase.state}
             style={{
                 width: '100%',
             }}
+            onChange={async (v) => {
+                setPurchaseState(dropProps.request.purchase.id, v);
+            }}
+            loading={isLoading(dropProps.request.purchase.id)}
+            disabled={isLoading(dropProps.request.purchase.id)}
         >
             <Select.Option key='delivered'>{t('view.diskRequestAdmin.item.states.Delivered')}</Select.Option>
             <Select.Option key='sent'>{t('view.diskRequestAdmin.item.states.Sent')}</Select.Option>

@@ -29,7 +29,7 @@ export default function OpinionForm(props: Props) {
         setLoading(true);
         try {
             request<{}>('post', '/actions/ratings/postRating', values, { authCredentials: authState });
-            //notification.close('opinion-notification');
+            notification.close('opinion-notification');
         } catch (e: any) {
             notificationErrorDisplay(e);
         }

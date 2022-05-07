@@ -65,6 +65,16 @@
                 }
             }
         },
+        "mainPage": {
+            "carousel": {
+                "slides":{
+                    "grand-opening": {
+                        "Title": "Gran obertura",
+                        "Description": "Inaugurem el nostre servei oferint grans descomptes. Aprofita'ls!"
+                    }
+                }
+            }
+        },
         "login": {
             "Title": "Iniciar sessió"
         },

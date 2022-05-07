@@ -1,16 +1,15 @@
 import { Card, Carousel, Col, Row } from 'antd';
+import { t } from 'i18next';
 
 type MainPageCarouselSlide = {
     image: string;
-    title: string;
-    description: string;
+    id: string;
 }
 
 const slides: MainPageCarouselSlide[] = [
     {
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAUWlMyrVfcOfYVok9N1xfCqQqwwlAXSatbg&usqp=CAU',
-        title: "Main title",
-        description: "Some random text as the description"
+        image: require('../../../resources/mainPage/slides/grand-opening.png'),
+        id: 'grand-opening',
     }
 ];
 
@@ -49,9 +48,15 @@ export default function AnnouncesCarousel() {
                                         xl={8}
                                         xxl={6}
                                     >
-                                        <Card>
-                                            <h1>{slide.title}</h1>
-                                            <p>{slide.description}</p>
+                                        <Card
+                                            hoverable
+                                        >
+                                            <h1
+                                                style={{
+                                                    fontWeight: 'bold',
+                                                }}
+                                            >{t(`view.mainPage.carousel.slides.${slide.id}.Title`)}</h1>
+                                            <p>{t(`view.mainPage.carousel.slides.${slide.id}.Description`)}</p>
                                         </Card>
                                     </Col>
                                 </Row>

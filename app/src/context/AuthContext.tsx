@@ -1,7 +1,6 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
-import useUserState from '../hooks/user/useUserState';
 import { UserModel } from '../services/auth/User.model';
 
 type Props = {

@@ -37,6 +37,15 @@
             },
             "payments": {
                 "Title": "Pagaments"
+            },
+            "diskRequest": {
+                "Title": "Sol·licitar disc"
+            },
+            "requests": {
+                "Title": "Comandes"
+            },
+            "requestsList": {
+                "Title": "Comandes realitzades"
             }
         }
     },
@@ -70,6 +79,22 @@
                     "NewPassword": "Nova contrasenya",
                     "NewPasswordAgain": "Repeteix la nova contrasenya",
                     "UpdatePassword": "Modificar contrasenya"
+                }
+            },
+            "sessionHistory": {
+                "card": {
+                    "Message": "Coneix amb detall les sessions que s'han obert amb el teu compte al llarg de l'existència del teu compte. Fes servir les alertes i recomanacions per tal de descobrir activitats sospitoses que poden posar en perill la seguretat del compte. Pots actuar sobre les sessions que semblen sospitoses.",
+                    "actions": {
+                        "Go": "Anar a l'històric"
+                    }
+                },
+                "table": {
+                    "headers": {
+                        "Id": "Id",
+                        "CreatedAt": "Creat el",
+                        "Ip": "Direcció IP",
+                        "ExpiredAt": "Expirat el"
+                    }
                 }
             }
         },
@@ -117,7 +142,8 @@
                     "Actions": "Accions",
                     "DeletedAt": "Esborrat el",
                     "ImageUrl": "URL de la imatge",
-                    "Image": "Imatge"
+                    "Image": "Imatge",
+                    "IsDrive": "És suport d'emmagatzematge"
                 },
                 "actions": {
                     "Delete": "Esborrar",
@@ -142,6 +168,138 @@
                     "Last4Card": "4 dígits de la tarjeta"
                 }
             }
+        },
+        "diskRequest": {
+            "steps": {
+                "build": "Construir disc",
+                "send": "Métode d'enviament",
+                "payment": "Pagament",
+                "sent": "Enviat"
+            },
+            "tabs": {
+                "Tab": "Pàgina"
+            },
+            "summary": {
+                "table": {
+                    "headers": {
+                        "Name": "Nom",
+                        "Price": "Preu",
+                        "Amount": "Quantitat"
+                    }
+                }
+            },
+            "step": {
+                "build": {
+                    "NextBtn": "Següent (enviament)",
+                    "form": {
+                        "Amount": "Quantitat",
+                        "Items": "Ítems",
+                        "Disk": "Suport d'emmagatzematge"
+                    },
+                    "actions": {
+                        "FinishBuild": "Finalitzar personalització del disc",
+                        "SavePage": "Desar pàgina"
+                    },
+                    "messages": {
+                        "FinalPrice": "Preu total"
+                    },
+                    "titles": {
+                        "Available": "Disponible",
+                        "Selected": "Seleccionat"
+                    }
+                },
+                "send": {
+                    "NextBtn": "Següent (pagament)",
+                    "form": {
+                        "Country": "Pais",
+                        "City": "Ciutat",
+                        "PostalCode": "Codi postal",
+                        "Address": "Direcció"
+                    }
+                },
+                "pay": {
+                    "NextBtn": "Pagar",
+                    "form": {
+                        "Card": "Targeta",
+                        "Owner": "Propietari",
+                        "Pin": "CVC/PIN",
+                        "ExpiresAt": "Expira el"
+                    }
+                },
+                "finish": {
+                    "processing": {
+                        "Title": "Processant sol·licitud",
+                        "Subtitle": "S'està processant la teva compra. Esperi uns breus instants."
+                    },
+                    "processed": {
+                        "Title": "Comanda realitzada",
+                        "Subtitle": "S'ha realitzat correctament la comanda. Pots visualitzar-ne l'estat des de la web. "
+                    }
+                }
+            }
+        },
+        "diskRequestList": {
+            "Title": "Comandes realitzades",
+            "list": {
+                "states": {
+                    "pending": {
+                        "Title": "Pendent"
+                    },
+                    "processing": {
+                        "Title": "Processant"
+                    },
+                    "sent": {
+                        "Title": "Enviat"
+                    },
+                    "delivered": {
+                        "Title": "Entregat"
+                    }
+                },
+                "itemDrawer": {
+                    "sections": {
+                        "amount": {
+                            "Title": "Detalls del pagament",
+                            "Total": "Cost total",
+                            "Card": "Targeta acabada en"
+                        },
+                        "state": {
+                            "Title": "Estat de la comanda",
+                            "states": {
+                                "delivered": "Comanda entregada",
+                                "pending": "Pendent de processar",
+                                "processing": "Comanda en procés",
+                                "sent": "Comanda en repartiment"
+                            }
+                        },
+                        "request": {
+                            "Title": "Material sol·licitat"
+                        }
+                    }
+                },
+                "item": {
+                    "DeliveryDate": "Entrega prevista per al",
+                    "DeliveryAddress": "L'adreça on es realitza l'entrega és",
+                    "actions": {
+                        "ViewDetails": "Veure detalls"
+                    }
+                }
+            }
+        },
+        "diskRequestAdmin": {
+            "item": {
+                "states": {
+                    "Delivered": "Comanda entregada",
+                    "Pending": "Pendent de processar",
+                    "Processing": "Comanda en procés",
+                    "Sent": "Enviat"
+                }
+            },
+            "filters": {
+                "Delivered": "Comandes entregades",
+                "Pending": "Pendents de processar",
+                "Processing": "Comandes en procés",
+                "Sent": "Enviades"
+            }
         }
     },
     "errors": {
@@ -157,6 +315,10 @@
             "401": {
                 "Title": "No pots accedir a la pàgina",
                 "Subtitle": "Per poder accedir a aquesta pàgina necessites tenir permisos"
+            },
+            "406": {
+                "Title": "Error de format",
+                "Message": "El format de les dades no és correcte. Comprova que s'han emplenat correctament tols els camps"
             }
         },
         "auth": {
@@ -241,7 +403,13 @@
             "Add": "Afegir"
         },
         "other": {
-            "privacyPolicy": "polítiques de privacitat"
+            "privacyPolicy": "polítiques de privacitat",
+            "Timezone": "Zona horaria",
+            "Yes": "Sí",
+            "No": "No"
+        },
+        "empty": {
+            "Description": "No hi han dades"
         }
     }
 }

@@ -1,4 +1,4 @@
-import { DollarOutlined, HomeOutlined, InboxOutlined, ToolOutlined, UserOutlined } from "@ant-design/icons";
+import { BarcodeOutlined, BuildOutlined, DollarOutlined, HomeOutlined, InboxOutlined, ThunderboltOutlined, ToolOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons";
 import { Permissions } from "../services/security/permissions";
 
 export type MenuOption = {
@@ -7,6 +7,7 @@ export type MenuOption = {
     children?: MenuOption[];
     key: string;
     icon?: JSX.Element;
+    requiresAuth?: boolean;
     permissions?: Permissions[]
 }
 
@@ -50,6 +51,35 @@ const menuOptions: MenuOption[] = [
                 key: 'logs',
                 icon: <ToolOutlined />,
                 permissions: [Permissions.viewLogs],
+            },
+            {
+                text: 'requests',
+                path: '/admin/disk-requests',
+                key: 'adminRequests',
+                icon: <BarcodeOutlined/>,
+                permissions: [Permissions.adminDiskRequests],
+            },
+        ],
+    },
+    {
+        text: 'requests',
+        key: 'requests',
+        icon: <ThunderboltOutlined/>,
+        requiresAuth: true,
+        children: [
+            {
+                text: 'diskRequest',
+                path: '/disk-request',
+                key: 'disk-request',
+                icon: <BuildOutlined/>,
+                requiresAuth: true,
+            },
+            {
+                text: 'requestsList',
+                key: 'requestsList',
+                path: '/disk-request/list',
+                icon: <UnorderedListOutlined/>,
+                requiresAuth: true,
             },
         ],
     },

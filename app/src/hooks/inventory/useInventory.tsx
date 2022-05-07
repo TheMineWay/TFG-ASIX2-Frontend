@@ -14,6 +14,7 @@ export type RawInventoryItem = {
     createdAt: Date;
     updatedAt: Date;
     imageUrl: string;
+    isDrive: '1' | '0';
 }
 
 export type InventoryItem = {
@@ -27,6 +28,7 @@ export type InventoryItem = {
     createdAt: Date;
     updatedAt: Date;
     imageUrl: string;
+    isDrive: boolean;
 }
 
 export function processRawInventoryItem(raw: RawInventoryItem): InventoryItem {
@@ -35,10 +37,18 @@ export function processRawInventoryItem(raw: RawInventoryItem): InventoryItem {
         discount: parseFloat(raw.discount),
         price: parseFloat(raw.price),
         stock: parseInt(raw.stock),
+        isDrive: raw.isDrive === '1',
     };
 }
 
-export default function useInventory() {
+export type UseInventory = {
+    fetch: () => Promise<void>;
+    loading: boolean;
+    inventory?: InventoryItem[];
+    resolveInventoryItemById: (id: string) => InventoryItem | string;
+}
+
+export default function useInventory(): UseInventory {
     const [inventory, setInventory] = useState<InventoryItem[]>();
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -51,7 +61,7 @@ export default function useInventory() {
     async function fetch(): Promise<void> {
         setLoading(true);
         try {
-            const result = await request<{inventory: RawInventoryItem[]}>('post', '/actions/admin/inventory/inventoryList', {}, { authCredentials: authState });
+            const result = await request<{inventory: RawInventoryItem[]}>('post', '/actions/inventory/inventoryList', {}, { authCredentials: authState });
             setInventory(result.inventory.map(processRawInventoryItem));
         } catch (e: any) {
             notificationErrorDisplay(e);
@@ -59,9 +69,14 @@ export default function useInventory() {
         setLoading(false);
     }
 
+    function resolveInventoryItemById(id: string): InventoryItem | string {
+        return inventory?.find((i) => i.id === id) ?? id;
+    }
+
     return {
         loading,
         inventory,
         fetch,
+        resolveInventoryItemById,
     };
 }

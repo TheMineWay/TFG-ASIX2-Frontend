@@ -1,7 +1,6 @@
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, List, Tooltip } from "antd";
 import { UseUsers } from "../../hooks/user/useUsers";
-import { UserModel } from "../../services/auth/User.model";
 
 type Props = {
     id: string;

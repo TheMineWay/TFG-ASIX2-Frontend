@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { UserAdmin } from '../../hooks/user/useUserAdmin';
 import { UserModel } from '../../services/auth/User.model';
 import { listFilter } from '../../services/filters/genericFilter';
+import DateDisplay from '../shared/DateDisplay';
 import AdminUserProfileEditorDrawer from './userEditor/AdminUserProfileEditorDrawer';
 
 const { Column } = Table;
@@ -155,6 +156,7 @@ export default function AdminUsersViewList(props: Props) {
                         <Column
                             title={t('CreatedAt')}
                             dataIndex='createdAt'
+                            render={(d: Date) => <DateDisplay includeSeconds>{d}</DateDisplay>}
                         />
                         <Column
                             title={t('DeletedAt')}
@@ -171,6 +173,7 @@ export default function AdminUsersViewList(props: Props) {
                             ]}
                             onFilter={(v, r: UserModel) => (!r.deletedAt && v === 'neverDeleted') || (r.deletedAt && v === 'deleted') ? true : false}
                             defaultFilteredValue={['neverDeleted']}
+                            render={(d: Date) => <DateDisplay includeSeconds>{d}</DateDisplay>}
                         />
                         <Column
                             title={t('Actions')}

@@ -4,6 +4,7 @@ import { useForm } from 'antd/lib/form/Form';
 import { t } from 'i18next';
 import { AdminInventory } from '../../../hooks/inventory/useAdminInventory';
 import { InventoryItem } from '../../../hooks/inventory/useInventory';
+import CheckFormItem from '../../form/CheckFormItem';
 import DrawerFormActions from '../../form/DrawerFormActions';
 import ImageByUrlFormItem from '../../form/ImageByUrlFormItem';
 import NumberFormItem from '../../form/NumberFormItem';
@@ -71,6 +72,10 @@ export default function AdminInventoryEditForm(props: Props) {
                 label={t('view.inventory.list.headers.ImageUrl')}
                 min={1}
                 max={511}
+            />
+            <CheckFormItem
+                name="isDrive"
+                text={t('view.inventory.list.headers.IsDrive')}
             />
 
             <DrawerFormActions

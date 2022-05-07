@@ -50,6 +50,16 @@
         }
     },
     "view": {
+        "opinions": {
+            "notification": {
+                "Title": "Dóna'ns la teva opinió",
+                "Description": "Ens agradaria conèixer com avalues la teva experiencia amb la nostra web. Fes-nos arribar els teus comentaris!",
+                "form": {
+                    "Opinion": "Opinió",
+                    "Submit": "Enviar opinió"
+                }
+            }
+        },
         "login": {
             "Title": "Iniciar sessió"
         },

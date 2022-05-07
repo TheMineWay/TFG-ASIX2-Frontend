@@ -28,7 +28,10 @@ export default function OpinionForm(props: Props) {
     const submit = async (values: OpinionFormValues) => {
         setLoading(true);
         try {
-            request<{}>('post', '/actions/ratings/postRating', values, { authCredentials: props.authState });
+            request<{}>('post', '/actions/ratings/postRating', {
+                score: values.score ?? 1,
+                opinion: values.opinion ?? "",
+            }, { authCredentials: props.authState });
             notification.close('opinion-notification');
         } catch (e: any) {
             notificationErrorDisplay(e);

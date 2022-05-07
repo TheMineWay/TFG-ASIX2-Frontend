@@ -1,18 +1,22 @@
 import { notification } from "antd";
 import { t } from "i18next";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useAuthState from "../../../hooks/auth/useAuthState";
+import useMyOpinion from "../../../hooks/opinions/useMyOpinion";
 import OpinionForm from "./OpinionForm";
 
 export default function OpinionNotification() {
 
     const [authState] = useAuthState();
+    const { opinion } = useMyOpinion();
 
     useEffect(() => {
-        if(!authState) {
+        if(!authState || opinion === undefined) {
             notification.close('opinion-notification');
             return;
         }
+
+        if(opinion !== null && opinion !== undefined) return;
 
         notification.info({
             message: t('view.opinions.notification.Title'),
@@ -27,7 +31,7 @@ export default function OpinionNotification() {
             duration: null,
             key: 'opinion-notification',
         });
-    }, [authState]);
+    }, [authState, opinion]);
 
     return (<></>);
 }

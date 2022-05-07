@@ -29,13 +29,14 @@ export default function ViewPublicOpinions() {
                                     display: 'flex',
                                     justifyContent: 'center',
                                     flexWrap: 'wrap',
-                                    rowGap: 10
+                                    rowGap: 10,
                                 }}
                             >
                                 <Rate value={o.score} disabled />
                                 <blockquote
                                     style={{
                                         textAlign: 'center',
+                                        width: '100%',
                                     }}
                                 >
                                     {o.opinion}

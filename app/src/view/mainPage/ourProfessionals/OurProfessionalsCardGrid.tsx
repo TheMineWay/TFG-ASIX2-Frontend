@@ -57,7 +57,8 @@ const SocialIcons = (props: { social: Social[] }) => (
                 <Button
                     size='large'
                     style={{
-                        height: 50
+                        height: 50,
+                        fontSize: 25,
                     }}
                     type='link'
                     onClick={() => {
@@ -75,6 +76,7 @@ const ProfessionalCard = (props: { professional: Professional }) => (
 
     <Col
         xs={24}
+        sm={17}
         lg={12}
         xxl={7}
         style={{
@@ -149,7 +151,7 @@ const ProfessionalCard = (props: { professional: Professional }) => (
                         style={{
                             objectFit: 'cover',
                             height: '100%',
-                            maxHeight: 500,
+                            maxHeight: 525,
                         }}
                     />
                 </Col>

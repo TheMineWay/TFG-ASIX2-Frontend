@@ -24,6 +24,7 @@ export default function MainPage() {
             >
                 <Row
                     gutter={[24, 48]}
+                    justify='center'
                 >
                     {
                         sections.map((section) => (

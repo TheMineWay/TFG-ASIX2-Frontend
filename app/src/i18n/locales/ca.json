@@ -82,7 +82,11 @@
             },
             "sections": {
                 "weOffer": {
-                    "Title": "Què oferim?"
+                    "Title": "Què oferim?",
+                    "all-from-home": {
+                        "Title": "Un servei 100% online",
+                        "Description": "Sol·licita els teus discs fent servir l'eina online que pots trobar en aquesta web. No cal que vagis a recollir el teu disc a cap botiga física, nosaltres ens encarreguem de portar-te el disc a casa totalment de franc."
+                    }
                 },
                 "professionals": {
                     "Title": "Els nostres professionals",

@@ -86,10 +86,14 @@ const ProfessionalCard = (props: { professional: Professional }) => (
             bodyStyle={{
                 margin: 0,
                 padding: 0,
+                height: '100%',
             }}
         >
             <Row
                 gutter={[0, 0]}
+                style={{
+                    height: '100%',
+                }}
             >
                 <Col
                     xs={24}

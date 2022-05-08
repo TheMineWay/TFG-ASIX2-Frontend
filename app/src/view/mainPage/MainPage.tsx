@@ -1,6 +1,5 @@
 
 import { Col, Row } from 'antd';
-import Container from '../shared/Container';
 import AnnouncesCarousel from './anouncesCarousel/AnnouncesCarousel';
 import ViewPublicOpinions from './opinions/ViewPublicOpinions';
 import OurProfessionalsCardGrid from './ourProfessionals/OurProfessionalsCardGrid';
@@ -8,29 +7,37 @@ import WeOfferView from './weOffer/WeOfferView';
 
 const sections: JSX.Element[] = [
     <AnnouncesCarousel />,
-    <ViewPublicOpinions />,
-    <WeOfferView/>,
+    <WeOfferView />,
     <OurProfessionalsCardGrid />,
+    <ViewPublicOpinions />,
 ];
 
 export default function MainPage() {
     return (
-        <Container>
-            <Row
-            gutter={[24, 48]}
+        <Row
+            justify='center'
         >
-            {
-                sections.map((section) => (
-                    <Col
-                        span={24}
-                    >
-                        {
-                            section
-                        }
-                    </Col>
-                ))
-            }
+            <Col
+                xs={24}
+                lg={23}
+                xl={22}
+            >
+                <Row
+                    gutter={[24, 48]}
+                >
+                    {
+                        sections.map((section) => (
+                            <Col
+                                span={24}
+                            >
+                                {
+                                    section
+                                }
+                            </Col>
+                        ))
+                    }
+                </Row>
+            </Col>
         </Row>
-        </Container>
     );
 }

@@ -1,5 +1,5 @@
-import { GithubOutlined } from '@ant-design/icons';
-import { Card, Col, Row } from 'antd';
+import { GithubOutlined, LinkedinOutlined } from '@ant-design/icons';
+import { Button, Card, Col, Row } from 'antd';
 import { t } from 'i18next';
 import SectionTitle from '../../shared/SectionTitle';
 
@@ -39,9 +39,35 @@ const professionals: Professional[] = [
                 icon: <GithubOutlined />,
                 link: 'https://github.com/TheMineWay',
             },
+            {
+                id: 'linkedin',
+                icon: <LinkedinOutlined />,
+                link: 'https://www.linkedin.com/in/joelcamposoliva/',
+            },
         ],
     },
 ].sort((a, b) => Math.random() > Math.random() ? 1 : -1);
+
+const SocialIcons = (props: { social: Social[] }) => (
+    <>
+        {
+            props.social.map((item) => (
+                <Button
+                    size='large'
+                    style={{
+                        height: 50
+                    }}
+                    type='link'
+                    onClick={() => {
+                        window.open(item.link,'_blank');
+                    }}
+                >
+                    {item.icon}
+                </Button>
+            ))
+        }
+    </>
+)
 
 const ProfessionalCard = (props: { professional: Professional }) => (
 
@@ -66,6 +92,8 @@ const ProfessionalCard = (props: { professional: Professional }) => (
                     md={14}
                     style={{
                         padding: 25,
+                        display: 'flex',
+                        alignItems: 'stretch',
                     }}
                 >
                     <div
@@ -73,19 +101,27 @@ const ProfessionalCard = (props: { professional: Professional }) => (
                             display: 'flex',
                             alignContent: 'space-between',
                             justifyContent: 'center',
-                            flexWrap: 'nowrap',
+                            flexWrap: 'wrap',
                         }}
                     >
-                        <div>
+                        <div
+                            style={{ width: '100%' }}
+                        >
                             <h2
                                 style={{
-                                    textAlign: 'center',
+                                    textAlign: 'left',
                                     fontWeight: 'bold',
                                     fontSize: 25,
                                 }}
                             >
                                 {props.professional.name}
                             </h2>
+                            <p>
+                                {t(`view.mainPage.sections.professionals.list.${props.professional.id}.Description`)}
+                            </p>
+                        </div>
+                        <div style={{ width: '100%', minHeight: 50, display: 'flex', alignItems: 'flex-end' }}>
+                            <SocialIcons social={props.professional.social} />
                         </div>
                     </div>
                 </Col>

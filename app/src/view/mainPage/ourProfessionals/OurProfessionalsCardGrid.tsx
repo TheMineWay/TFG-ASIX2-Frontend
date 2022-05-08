@@ -24,12 +24,6 @@ const professionals: Professional[] = [
         social: [],
     },
     {
-        name: 'Iker Torres',
-        image: require('../../../resources/mainPage/professionals/juanjo-romero.jpeg'),
-        id: 'iker-torres',
-        social: [],
-    },
-    {
         name: 'Joel Campos',
         image: require('../../../resources/mainPage/professionals/juanjo-romero.jpeg'),
         id: 'joel-campos',
@@ -46,7 +40,14 @@ const professionals: Professional[] = [
             },
         ],
     },
-].sort((a, b) => Math.random() > Math.random() ? 1 : -1);
+    {
+        name: 'Iker Torres',
+        image: require('../../../resources/mainPage/professionals/juanjo-romero.jpeg'),
+        id: 'iker-torres',
+        social: [],
+    },
+]
+//.sort((a, b) => Math.random() > Math.random() ? 1 : -1);
 
 const SocialIcons = (props: { social: Social[] }) => (
     <>
@@ -73,14 +74,18 @@ const ProfessionalCard = (props: { professional: Professional }) => (
 
     <Col
         xs={24}
-        lg={13}
+        lg={12}
         xxl={7}
+        style={{
+            display: 'flex',
+            alignItems: 'stretch',
+        }}
     >
         <Card
             hoverable
             bodyStyle={{
                 margin: 0,
-                padding: 0
+                padding: 0,
             }}
         >
             <Row
@@ -133,6 +138,10 @@ const ProfessionalCard = (props: { professional: Professional }) => (
                     <img
                         src={props.professional.image}
                         width='100%'
+                        style={{
+                            objectFit: 'cover',
+                            height: '100%',
+                        }}
                     />
                 </Col>
             </Row>

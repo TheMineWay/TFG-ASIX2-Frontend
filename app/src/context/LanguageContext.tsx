@@ -20,8 +20,6 @@ export default function LanguageContext(props: Props) {
         setCookie('language', language, {
             expires: moment().add('year', 1).toDate(),
         });
-        // TODO: make optional
-        if(language !== cookies['language'] as Languages) window.location.reload();
     }, [language]);
 
     useEffect(() => {

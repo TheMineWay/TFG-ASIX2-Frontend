@@ -1,4 +1,4 @@
-import { Button, Col, Drawer, Row } from 'antd';
+import { Button, Col, Drawer, Popconfirm, Row } from 'antd';
 import { t } from 'i18next';
 import useLanguage from '../../../hooks/language/useLanguage';
 import { Languages } from '../../../i18n/configureI18n';
@@ -12,16 +12,16 @@ const languages: {
     lang: Languages,
     flag?: JSX.Element,
 }[] = [
-    {
-        lang: Languages.ca,
-    },
-    {
-        lang: Languages.es,
-    },
-    {
-        lang: Languages.en,
-    }
-];
+        {
+            lang: Languages.ca,
+        },
+        {
+            lang: Languages.es,
+        },
+        {
+            lang: Languages.en,
+        }
+    ];
 
 export default function LanguageDrawer(props: Props) {
 
@@ -37,17 +37,28 @@ export default function LanguageDrawer(props: Props) {
                 {
                     languages.map((l) => (
                         <Col span={24}>
-                            <Button
-                                type={l.lang === language ? 'primary' : 'default'}
-                                icon={l.flag}
-                                block
-                                onClick={() => {
+                            <Popconfirm
+                                okText={t('common.other.Yes')}
+                                cancelText={t('common.other.No')}
+                                title={(
+                                    <>
+                                        <p>{t('view.languageSelector.reloadPopConfirm.Title')}</p>
+                                        <p>{t('view.languageSelector.reloadPopConfirm.Description')}</p>
+                                    </>
+                                )}
+                                onConfirm={() => {
                                     setLanguage(l.lang);
                                     props.hide();
                                 }}
                             >
-                                {t(`languages.${l.lang}`)}
-                            </Button>
+                                <Button
+                                    type={l.lang === language ? 'primary' : 'default'}
+                                    icon={l.flag}
+                                    block
+                                >
+                                    {t(`languages.${l.lang}`)}
+                                </Button>
+                            </Popconfirm>
                         </Col>
                     ))
                 }

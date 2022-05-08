@@ -130,7 +130,11 @@
             }
         },
         "languageSelector": {
-            "Title": "Selector d'idioma"
+            "Title": "Selector d'idioma",
+            "reloadPopConfirm": {
+                "Title": "Vols aplicar l'idioma?",
+                "Description": "Si estàs emplenant un formulari perdràs les dades que no s'hagin enviat."
+            }
         },
         "userAdmin": {
             "userTable": {

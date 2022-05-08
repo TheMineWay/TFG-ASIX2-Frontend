@@ -9,9 +9,13 @@ type Offer = {
 
 const offers: Offer[] = [
     {
+        id: 'customized-disks',
+        image: require('../../../resources/mainPage/weOffer/customized-disks.jpg'),
+    },
+    {
         id: 'all-from-home',
         image: require('../../../resources/mainPage/weOffer/all-from-home.jpg'),
-    }
+    },
 ];
 
 export default function WeOfferView() {

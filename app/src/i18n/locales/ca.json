@@ -86,6 +86,10 @@
                     "all-from-home": {
                         "Title": "Un servei 100% online",
                         "Description": "Sol·licita els teus discs fent servir l'eina online que pots trobar en aquesta web. No cal que vagis a recollir el teu disc a cap botiga física, nosaltres ens encarreguem de portar-te el disc a casa totalment de franc."
+                    },
+                    "customized-disks": {
+                        "Title": "Discs personalitzats",
+                        "Description": "Crea el teu propi disc a partir del software del nostre inventari. No hauràs d'instal·lar tots els teus programes, nosaltres ens encarreguem de tot."
                     }
                 },
                 "professionals": {

@@ -90,6 +90,10 @@
                     "customized-disks": {
                         "Title": "Discs personalitzats",
                         "Description": "Crea el teu propi disc a partir del software del nostre inventari. No hauràs d'instal·lar tots els teus programes, nosaltres ens encarreguem de tot."
+                    },
+                    "any-device": {
+                        "Title": "Accesible desde tot arreu",
+                        "Description": "Accedeix al teu compte fent servir qualsevol navegador web, desde qualsevol dispositiu i desde qualsevol lloc del mon. A més a més, la web s'ha traduït a tres idiomes diferents."
                     }
                 },
                 "professionals": {

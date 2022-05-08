@@ -16,6 +16,10 @@ const offers: Offer[] = [
         id: 'all-from-home',
         image: require('../../../resources/mainPage/weOffer/all-from-home.jpg'),
     },
+    {
+        id: 'any-device',
+        image: require('../../../resources/mainPage/weOffer/any-device.jpg')
+    }
 ];
 
 export default function WeOfferView() {

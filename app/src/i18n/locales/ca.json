@@ -81,6 +81,9 @@
                 }
             },
             "sections": {
+                "weOffer": {
+                    "Title": "Què oferim?"
+                },
                 "professionals": {
                     "Title": "Els nostres professionals",
                     "list": {

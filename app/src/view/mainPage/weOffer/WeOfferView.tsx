@@ -97,6 +97,47 @@ export default function WeOfferView() {
                     }
                 </Row>
             </Col>
+            <Col
+                xs={24}
+                md={17}
+                lg={24}
+                xxl={15}
+            >
+                <Card
+                    hoverable
+                >
+                    <Row
+                        gutter={[24, 24]}
+                    >
+                        <Col
+                            xs={24}
+                            md={12}
+                        >
+                            <iframe
+                                width="100%"
+                                height="315"
+                                src="https://www.youtube.com/embed/BOLm1QMWi3c"
+                                title="YouTube video player"
+                                frameBorder={0}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </Col>
+                        <Col
+                            xs={24}
+                            md={12}
+                        >
+                            <h2
+                                style={{
+                                    fontSize: 25,
+                                    fontWeight: 'bold',
+                                }}
+                            >{t('view.mainPage.sections.video.Title')}</h2>
+                            <p>{t('view.mainPage.sections.video.Description')}</p>
+                        </Col>
+                    </Row>
+                </Card>
+            </Col>
         </Row>
     );
 }

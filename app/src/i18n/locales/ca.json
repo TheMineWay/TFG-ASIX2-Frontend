@@ -109,6 +109,10 @@
                             "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
                         }
                     }
+                },
+                "video": {
+                    "Title": "El nostre servei",
+                    "Description": "Coneix quins serveis oferim i com pots fer servir la web per sol·licitar-los."
                 }
             }
         },

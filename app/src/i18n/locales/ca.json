@@ -86,6 +86,12 @@
                     "list": {
                         "joel-campos": {
                             "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
+                        },
+                        "iker-torres": {
+                            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
+                        },
+                        "juanjo-romero": {
+                            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
                         }
                     }
                 }

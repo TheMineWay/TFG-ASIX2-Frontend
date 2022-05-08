@@ -48,7 +48,7 @@ const professionals: Professional[] = [
         social: [],
     },
 ]
-//.sort((a, b) => Math.random() > Math.random() ? 1 : -1);
+.sort((a, b) => Math.random() > Math.random() ? 1 : -1);
 
 const SocialIcons = (props: { social: Social[] }) => (
     <>

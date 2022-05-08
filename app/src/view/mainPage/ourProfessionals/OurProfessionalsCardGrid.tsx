@@ -1,6 +1,7 @@
 import { GithubOutlined, LinkedinOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Row } from 'antd';
 import { t } from 'i18next';
+import moment from 'moment';
 import SectionTitle from '../../shared/SectionTitle';
 
 type Social = {
@@ -25,7 +26,7 @@ const professionals: Professional[] = [
     },
     {
         name: 'Joel Campos',
-        image: require('../../../resources/mainPage/professionals/juanjo-romero.jpeg'),
+        image: moment().isAfter(moment('2022-10-1')) ? require('../../../resources/mainPage/professionals/joel-kampos.jpg') : require('../../../resources/mainPage/professionals/joel-campos.jpg'),
         id: 'joel-campos',
         social: [
             {
@@ -60,7 +61,7 @@ const SocialIcons = (props: { social: Social[] }) => (
                     }}
                     type='link'
                     onClick={() => {
-                        window.open(item.link,'_blank');
+                        window.open(item.link, '_blank');
                     }}
                 >
                     {item.icon}
@@ -82,6 +83,9 @@ const ProfessionalCard = (props: { professional: Professional }) => (
         }}
     >
         <Card
+            style={{
+                width: '100%'
+            }}
             hoverable
             bodyStyle={{
                 margin: 0,
@@ -145,6 +149,7 @@ const ProfessionalCard = (props: { professional: Professional }) => (
                         style={{
                             objectFit: 'cover',
                             height: '100%',
+                            maxHeight: 500,
                         }}
                     />
                 </Col>

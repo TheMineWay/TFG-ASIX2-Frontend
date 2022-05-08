@@ -79,6 +79,16 @@
                         "Description": "Hem dedicat molt d'esforç a desenvolupar una interfície intuitiva i àgil."
                     }
                 }
+            },
+            "sections": {
+                "professionals": {
+                    "Title": "Els nostres professionals",
+                    "list": {
+                        "joel-campos": {
+                            "Description": "Descripció de mi mismo ns"
+                        }
+                    }
+                }
             }
         },
         "login": {

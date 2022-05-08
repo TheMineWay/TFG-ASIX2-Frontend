@@ -1,0 +1,445 @@
+{
+    "languages": {
+        "ca": "Catalan",
+        "es": "Spanish"
+    },
+    "actions": {
+        "GoHome": "Go to the main page"
+    },
+    "menu": {
+        "options": {
+            "main": {
+                "Title": "Main page"
+            },
+            "logs": {
+                "Title": "Check logs"
+            },
+            "auth": {
+                "Title": "Account",
+                "login": {
+                    "Title": "Sign in"
+                },
+                "signup": {
+                    "Title": "Create account"
+                }
+            },
+            "lang": {
+                "Title": "Language"
+            },
+            "admin": {
+                "Title": "Manage"
+            },
+            "users": {
+                "Title": "Users"
+            },
+            "inventory": {
+                "Title": "Inventory"
+            },
+            "payments": {
+                "Title": "Payments"
+            },
+            "diskRequest": {
+                "Title": "Request disk"
+            },
+            "requests": {
+                "Title": "Orders"
+            },
+            "requestsList": {
+                "Title": "Orders placed"
+            }
+        }
+    },
+    "view": {
+        "opinions": {
+            "Title": "Community opinions",
+            "notification": {
+                "Title": "Give us your opinion",
+                "Description": "We would like to know about your experience using this web. Leave us a comment!",
+                "form": {
+                    "Opinion": "Opinion",
+                    "Submit": "Send opinion",
+                    "IsPublic": "The opinion is public",
+                    "Success": "Your opinion has been sent"
+                },
+                "close": {
+                    "DoShowAgain": "Do you want to stop being asked about your opinion?"
+                }
+            }
+        },
+        "mainPage": {
+            "carousel": {
+                "slides": {
+                    "grand-opening": {
+                        "Title": "Grand opening",
+                        "Description": "We inaugurate our service offering great discounts. Take advantage of them!"
+                    },
+                    "we-make-it-look-easy": {
+                        "Title": "We make it look easy",
+                        "Description": "We put a lot of effort in order to provide an intuitive and agile user interface."
+                    }
+                }
+            }
+        },
+        "login": {
+            "Title": "Sign in"
+        },
+        "signup": {
+            "Title": "Create an account",
+            "AcceptPP": "I have read and agree the"
+        },
+        "logs": {
+            "table": {
+                "columns": {
+                    "Id": "Id",
+                    "User": "User",
+                    "Action": "Action",
+                    "Date": "Date",
+                    "Ip": "IP address",
+                    "actions": {
+                        "login": "Sign in",
+                        "register": "Account creation"
+                    }
+                }
+            }
+        },
+        "profile": {
+            "editPassword": {
+                "form": {
+                    "OldPassword": "Current password",
+                    "NewPassword": "New password",
+                    "NewPasswordAgain": "Repeat the new password",
+                    "UpdatePassword": "Change password"
+                }
+            },
+            "sessionHistory": {
+                "card": {
+                    "Message": "Know in detail about the sessions that have been opened with your account throughout the existence of your account. Use alerts and recommendations to discover suspicious activities that may be suspicious.",
+                    "actions": {
+                        "Go": "Go to the registry"
+                    }
+                },
+                "table": {
+                    "headers": {
+                        "Id": "Id",
+                        "CreatedAt": "Created at",
+                        "Ip": "IP address",
+                        "ExpiredAt": "Expires at"
+                    }
+                }
+            }
+        },
+        "languageSelector": {
+            "Title": "Language selector"
+        },
+        "userAdmin": {
+            "userTable": {
+                "headers": {
+                    "Avatar": "Avatar",
+                    "Id": "Id",
+                    "Login": "login",
+                    "Name": "Name",
+                    "Email": "Email",
+                    "DeletedAt": "Deleted at",
+                    "CreatedAt": "Created at",
+                    "Actions": "Actions"
+                },
+                "filters": {
+                    "NeverDeleted": "Not deleted",
+                    "Deleted": "Deleted"
+                },
+                "actions": {
+                    "Delete": "Delete",
+                    "Edit": "Edit",
+                    "Recover": "Recover",
+                    "Ban": "Block",
+                    "Unban": "Pardon",
+                    "SureToDelete": "Are you sure you want to delete the user?",
+                    "SureToRecover": "Are you sure you want to recover the user?",
+                    "SureToBan": "Are you sure you want to block the user?",
+                    "SureToUnban": "Are you sure you want to pardon the user?"
+                }
+            }
+        },
+        "inventory": {
+            "list": {
+                "headers": {
+                    "Id": "Id",
+                    "Name": "Name",
+                    "Price": "Price",
+                    "Stock": "Stock",
+                    "Discount": "Discount",
+                    "Description": "Description",
+                    "Actions": "Actions",
+                    "DeletedAt": "Deleted at",
+                    "ImageUrl": "Image URL",
+                    "Image": "Image",
+                    "IsDrive": "Is drive"
+                },
+                "actions": {
+                    "Delete": "Delete",
+                    "Recover": "Recover",
+                    "SureToDelete": "Are you sure you want to delete the item?",
+                    "SureToRecover": "Are yoy sure tou want to recover the item?",
+                    "Add": "Add item"
+                },
+                "filters": {
+                    "NeverDeleted": "Not deleted",
+                    "Deleted": "Deleted"
+                }
+            }
+        },
+        "paymentsAdmin": {
+            "list": {
+                "headers": {
+                    "Id": "Id",
+                    "Amount": "Amount",
+                    "CreatedAt": "Created at",
+                    "User": "User",
+                    "Last4Card": "4 digits of the card"
+                }
+            }
+        },
+        "diskRequest": {
+            "steps": {
+                "build": "Build disk",
+                "send": "Delivery method",
+                "payment": "Payment",
+                "sent": "Sent"
+            },
+            "tabs": {
+                "Tab": "Page"
+            },
+            "summary": {
+                "table": {
+                    "headers": {
+                        "Name": "Name",
+                        "Price": "Price",
+                        "Amount": "Amount"
+                    }
+                }
+            },
+            "step": {
+                "build": {
+                    "NextBtn": "Next (send)",
+                    "form": {
+                        "Amount": "Amount",
+                        "Items": "Items",
+                        "Disk": "Drive"
+                    },
+                    "actions": {
+                        "FinishBuild": "End disk customization",
+                        "SavePage": "Save page"
+                    },
+                    "messages": {
+                        "FinalPrice": "Total price"
+                    },
+                    "titles": {
+                        "Available": "Available",
+                        "Selected": "Selected"
+                    }
+                },
+                "send": {
+                    "NextBtn": "Next (payment)",
+                    "form": {
+                        "Country": "Country",
+                        "City": "City",
+                        "PostalCode": "Postal code",
+                        "Address": "Address"
+                    }
+                },
+                "pay": {
+                    "NextBtn": "Pay",
+                    "form": {
+                        "Card": "Card",
+                        "Owner": "Owner",
+                        "Pin": "CVC/PIN",
+                        "ExpiresAt": "Expires at"
+                    }
+                },
+                "finish": {
+                    "processing": {
+                        "Title": "Processing request",
+                        "Subtitle": "Your purchase is being processed. Please, wait."
+                    },
+                    "processed": {
+                        "Title": "Order placed",
+                        "Subtitle": "The order has been placed successfully. You can view the status from the web. "
+                    }
+                }
+            }
+        },
+        "diskRequestList": {
+            "Title": "Orders placed",
+            "list": {
+                "states": {
+                    "pending": {
+                        "Title": "Pending"
+                    },
+                    "processing": {
+                        "Title": "Processing"
+                    },
+                    "sent": {
+                        "Title": "Sent"
+                    },
+                    "delivered": {
+                        "Title": "Delivered"
+                    }
+                },
+                "itemDrawer": {
+                    "sections": {
+                        "amount": {
+                            "Title": "Payment details",
+                            "Total": "Total cost",
+                            "Card": "The card ends with"
+                        },
+                        "state": {
+                            "Title": "Order status",
+                            "states": {
+                                "delivered": "Order delivered",
+                                "pending": "Pending of being processed",
+                                "processing": "Order in process",
+                                "sent": "Order in delivery"
+                            }
+                        },
+                        "request": {
+                            "Title": "Requested material"
+                        }
+                    }
+                },
+                "item": {
+                    "DeliveryDate": "Delivery expected to be the",
+                    "DeliveryAddress": "The delivery address is",
+                    "actions": {
+                        "ViewDetails": "View details"
+                    }
+                }
+            }
+        },
+        "diskRequestAdmin": {
+            "item": {
+                "states": {
+                    "Delivered": "Order delivered",
+                    "Pending": "Pending of being processed",
+                    "Processing": "Order in process",
+                    "Sent": "Sent"
+                }
+            },
+            "filters": {
+                "Delivered": "Delivered orders",
+                "Pending": "Pending of being processed",
+                "Processing": "Orders being processed",
+                "Sent": "Sent"
+            }
+        }
+    },
+    "errors": {
+        "frontend": {
+            "404": {
+                "Title": "Page not found",
+                "Subtitle": "The requested page is not available"
+            },
+            "403": {
+                "Title": "You can not access this page",
+                "Subtitle": "In order to access this page you need to be authenticated"
+            },
+            "401": {
+                "Title": "You can not access this page",
+                "Subtitle": "In order to access this page you need the appropriate permissions"
+            },
+            "406": {
+                "Title": "Format error",
+                "Message": "The data format is not correct. Check that all fields are properly filled up"
+            }
+        },
+        "auth": {
+            "404": {
+                "Title": "User not found",
+                "Message": "The provided user is not on the system."
+            },
+            "403": {
+                "Title": "Bad credentials",
+                "Message": "The credentials provided are incorrect."
+            },
+            "login-in-use": {
+                "Title": "Credentials in use",
+                "Message": "There is already a user using this login."
+            },
+            "email-in-use": {
+                "Title": "Credentials in use",
+                "Message": "An existing account is already using this email."
+            },
+            "401": {
+                "Title": "You cannot login",
+                "Message": "The login is unauthorized. It is possible that the account has been blocked."
+            }
+        },
+        "form": {
+            "passwords-no-match": {
+                "Title": "Passwords do not match",
+                "Message": "Passwords must match"
+            },
+            "must-accept-policy": {
+                "Title": "You have to accept the privacy policy",
+                "Message": "In order to be able to create an account you must accept the privacy policy."
+            }
+        },
+        "http": {
+            "406": {
+                "Title": "Format error",
+                "Message": "The server informs that the data format is not correct"
+            }
+        }
+    },
+    "common": {
+        "form": {
+            "Username": "Username",
+            "Password": "Password",
+            "RememberMe": "Remember me",
+            "RepeatPassword": "Repeat password",
+            "password": {
+                "TooShort": "Too short",
+                "TooWeak": "Too weak",
+                "Weak": "Weak",
+                "Okay": "Acceptable",
+                "Good": "Nice",
+                "Strong": "Strong"
+            },
+            "Name": "Name",
+            "LastName": "Surname",
+            "Email": "Email",
+            "Phone": "Phone",
+            "upload": {
+                "generic": {
+                    "Title": "Press os drag files here to upload them"
+                }
+            },
+            "Birthdate": "Birthdate"
+        },
+        "actions": {
+            "Login": "Sign in",
+            "Reset": "Delete",
+            "Logout": "Log out",
+            "Signup": "Create account",
+            "Edit": "Edit",
+            "Save": "Save",
+            "ChangePassword": "Modify password",
+            "Ok": "Ok",
+            "Done": "Done",
+            "Cancel": "Cancel",
+            "Exit": "Exit",
+            "ChangeProfileImage": "Modify avatar",
+            "Send": "Send",
+            "Create": "Create",
+            "Add": "Add"
+        },
+        "other": {
+            "privacyPolicy": "privacy policy",
+            "Timezone": "Timezone",
+            "Yes": "Yes",
+            "No": "No"
+        },
+        "empty": {
+            "Description": "There is no data"
+        }
+    }
+}

@@ -1,7 +1,8 @@
 {
     "languages": {
         "ca": "Català",
-        "es": "Espanyol"
+        "es": "Espanyol",
+        "en": "Anglés"
     },
     "actions": {
         "GoHome": "Torna a la pàgina principal"

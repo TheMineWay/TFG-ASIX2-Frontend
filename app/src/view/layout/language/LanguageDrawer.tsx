@@ -17,6 +17,9 @@ const languages: {
     },
     {
         lang: Languages.es,
+    },
+    {
+        lang: Languages.en,
     }
 ];
 

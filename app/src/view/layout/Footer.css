@@ -9,4 +9,5 @@
 .footerSocial:hover {
     transform: scale(1.25);
     cursor: pointer;
+    color: var(--ant-primary-color);
 }

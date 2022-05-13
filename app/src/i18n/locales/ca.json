@@ -489,5 +489,8 @@
     "share": {
         "Title": "Comparteix la web",
         "Text": "Fes arribar la nostra web a tots els teus contactes!"
+    },
+    "footer": {
+        "Privacy": "Polítiques de privacitat"
     }
 }

@@ -1,5 +1,7 @@
 import { FacebookFilled, InstagramOutlined, TwitterOutlined, YoutubeFilled, LinkedinFilled, ShareAltOutlined } from "@ant-design/icons";
 import { Button, Col, Layout, Row } from "antd";
+import { t } from "i18next";
+import { Link } from "react-router-dom";
 import shareWebsite, { canShare } from "../../services/share/ShareService";
 import { Social } from "../mainPage/ourProfessionals/OurProfessionalsCardGrid";
 import './Footer.css';
@@ -92,7 +94,15 @@ export default function Footer() {
                     xs={24}
                     sm={8}
                 >
-
+                    <Link
+                        to={'/privacy'}
+                        target='_blank'
+                        style={{
+                            color: 'white',
+                        }}
+                    >
+                        {t('footer.Privacy')}
+                    </Link>
                 </Col>
             </Row>
         </AntdFooter>

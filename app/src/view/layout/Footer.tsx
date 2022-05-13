@@ -1,5 +1,6 @@
-import { FacebookFilled, InstagramOutlined, TwitterOutlined, YoutubeFilled, LinkedinFilled } from "@ant-design/icons";
-import { Layout } from "antd";
+import { FacebookFilled, InstagramOutlined, TwitterOutlined, YoutubeFilled, LinkedinFilled, ShareAltOutlined } from "@ant-design/icons";
+import { Button, Col, Layout, Row } from "antd";
+import shareWebsite, { canShare } from "../../services/share/ShareService";
 import { Social } from "../mainPage/ourProfessionals/OurProfessionalsCardGrid";
 import './Footer.css';
 
@@ -13,22 +14,22 @@ const social: Social[] = [
     },
     {
         id: 'twitter',
-        icon: <TwitterOutlined/>,
+        icon: <TwitterOutlined />,
         link: 'https://www.twitter.com',
     },
     {
         id: 'facebook',
-        icon: <FacebookFilled/>,
+        icon: <FacebookFilled />,
         link: 'https://www.facebook.com',
     },
     {
         id: 'youtube',
-        icon: <YoutubeFilled/>,
+        icon: <YoutubeFilled />,
         link: 'https://www.youtube.com',
     },
     {
         id: 'linkedintwitter',
-        icon: <LinkedinFilled/>,
+        icon: <LinkedinFilled />,
         link: 'https://www.linkedin.com',
     },
 ];
@@ -40,26 +41,60 @@ export default function Footer() {
                 backgroundColor: '#001529'
             }}
         >
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                }}
+            <Row
+                justify="center"
             >
-                {
-                    social.map((s) => (
-                        <div
-                            key={s.id}
-                            className="footerSocial"
-                            onClick={() => {
-                                window.open(s.link, '_blank')?.focus();
-                            }}
-                        >
-                            {s.icon}
-                        </div>
-                    ))
-                }
-            </div>
+                <Col
+                    xs={24}
+                    sm={8}
+                >
+                    {
+                        canShare() && (
+                            <Button
+                                icon={<ShareAltOutlined />}
+                                type='ghost'
+                                style={{
+                                    color: 'white'
+                                }}
+                                onClick={() => shareWebsite()}
+                            >
+                                Share
+                            </Button>
+                        )
+                    }
+                </Col>
+                <Col
+                    xs={24}
+                    sm={8}
+                >
+                    <div
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        {
+                            social.map((s) => (
+                                <div
+                                    key={s.id}
+                                    className="footerSocial"
+                                    onClick={() => {
+                                        window.open(s.link, '_blank')?.focus();
+                                    }}
+                                >
+                                    {s.icon}
+                                </div>
+                            ))
+                        }
+                    </div>
+                </Col>
+                <Col
+                    xs={24}
+                    sm={8}
+                >
+
+                </Col>
+            </Row>
         </AntdFooter>
     );
 }

@@ -13,6 +13,13 @@ export function decomposeString(_text: string): string {
 
     text = replacer(text, ['à','á','ä','â','4'], 'a');
     text = replacer(text, ['è','é','ë','ê','3'], 'e');
+    text = replacer(text, ['ì','í','ï','î','1'], 'i');
+    text = replacer(text, ['ò','ó','ö','ô','0'], 'o');
+    text = replacer(text, ['ù','ú','ü','û'], 'u');
+    text = replacer(text, ['ñ'], 'n');
+    text = replacer(text, ['ç'], 'c');
+    text = replacer(text, ['¿','!','¡','|'], '?');
+    text = replacer(text, ['\\'], '/');
 
     return text;
 }

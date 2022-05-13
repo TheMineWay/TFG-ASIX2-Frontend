@@ -100,7 +100,7 @@
                     "Title": "Els nostres professionals",
                     "list": {
                         "joel-campos": {
-                            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
+                            "Description": "Sóc el Junior DevOps de l'equip. M'encarrego del manteniment i actualització de l'aplicació web. Tinc experiència amb cloud computing services, llenguatges de programació i metodologies."
                         },
                         "iker-torres": {
                             "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
@@ -112,7 +112,7 @@
                 },
                 "video": {
                     "Title": "El nostre servei",
-                    "Description": "Coneix quins serveis oferim i com pots fer servir la web per sol·licitar-los."
+                    "Description": "Coneix quins serveis oferim i com pots fer servir la web per sol·licitar-los veient aquest video. Al canal hi trobaràs molts videos relacionats amb el servei (novetats, noticies, actualitzacions, etc)."
                 }
             }
         },

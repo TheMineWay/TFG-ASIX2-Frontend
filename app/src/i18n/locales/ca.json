@@ -94,6 +94,10 @@
                     "any-device": {
                         "Title": "Accesible desde tot arreu",
                         "Description": "Accedeix al teu compte fent servir qualsevol navegador web, desde qualsevol dispositiu i desde qualsevol lloc del mon. A més a més, la web s'ha traduït a tres idiomes diferents."
+                    },
+                    "business": {
+                        "Title": "Serveis per a empreses",
+                        "Description": "Oferim un tracte especial per a empreses. Si la teva empresa necessita sol·licitar els nostres serveis pot fer-ho a través de la web o pot contactar amb nosaltres. Oferim descomptes, agilitat amb els tràmits i confiança."
                     }
                 },
                 "professionals": {

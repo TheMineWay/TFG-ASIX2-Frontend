@@ -18,8 +18,12 @@ const offers: Offer[] = [
     },
     {
         id: 'any-device',
-        image: require('../../../resources/mainPage/weOffer/any-device.jpg')
-    }
+        image: require('../../../resources/mainPage/weOffer/any-device.jpg'),
+    },
+    {
+        id: 'business',
+        image: require('../../../resources/mainPage/weOffer/business.jpg'),
+    },
 ];
 
 export default function WeOfferView() {

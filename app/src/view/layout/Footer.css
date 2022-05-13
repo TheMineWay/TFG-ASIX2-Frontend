@@ -1,0 +1,12 @@
+.footerSocial {
+    transition: all .2s ease-in-out;
+    scale: 1.5;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+}
+
+.footerSocial:hover {
+    transform: scale(1.25);
+    cursor: pointer;
+}

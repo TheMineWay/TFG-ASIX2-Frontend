@@ -1,0 +1,16 @@
+img.logo {
+    float: left;
+    width: auto;
+    height: 35px;
+    margin: 16px 24px 16px 0;
+    transition: all .2s ease-in-out;
+}
+
+img.logo:hover {
+    transform: scale(1.25);
+}
+
+.ant-row-rtl #components-layout-demo-top img.logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+}

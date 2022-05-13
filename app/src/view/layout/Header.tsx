@@ -10,8 +10,11 @@ import useUserState from "../../hooks/user/useUserState";
 import AuthModal from "../auth/AuthModal";
 import menuOptions, { MenuOption } from "../menu";
 import LanguageDrawer from "./language/LanguageDrawer";
+import './Header.css';
 
 const { Item, SubMenu } = Menu;
+
+const brand = require('../../resources/brand/logo.PNG');
 
 export default function BaseHeader() {
 
@@ -21,7 +24,7 @@ export default function BaseHeader() {
     const [securityState] = useSecurityState();
 
     const [authModal, setAuthModal] = useState<'login' | 'register' | null>(null);
-    const [ languageDrawer, setLanguageDrawer ] = useState<boolean>(false);
+    const [languageDrawer, setLanguageDrawer] = useState<boolean>(false);
 
     function constructOption(option: MenuOption): JSX.Element | null {
         if (option.permissions) {
@@ -57,11 +60,15 @@ export default function BaseHeader() {
             />
 
             <Header>
+                <img
+                    className="logo"
+                    src={brand}
+                />
                 <Menu theme="dark" mode="horizontal" key={"mainMenu"}>
                     {
                         menuOptions
-                        .filter((opt) => !opt.requiresAuth || (opt.requiresAuth && authState))
-                        .map(constructOption)
+                            .filter((opt) => !opt.requiresAuth || (opt.requiresAuth && authState))
+                            .map(constructOption)
                     }
 
                     {/* USER DROPDOWN */}

@@ -1,7 +1,8 @@
 {
     "languages": {
         "ca": "Català",
-        "es": "Espanyol"
+        "es": "Espanyol",
+        "en": "Anglés"
     },
     "actions": {
         "GoHome": "Torna a la pàgina principal"
@@ -51,6 +52,7 @@
     },
     "view": {
         "opinions": {
+            "Title": "Opinions de la comunitat",
             "notification": {
                 "Title": "Dóna'ns la teva opinió",
                 "Description": "Ens agradaria conèixer com avalues la teva experiencia amb la nostra web. Fes-nos arribar els teus comentaris!",
@@ -62,6 +64,59 @@
                 },
                 "close": {
                     "DoShowAgain": "Vols que deixem de preguntar per la teva opinió?"
+                }
+            }
+        },
+        "mainPage": {
+            "carousel": {
+                "slides":{
+                    "grand-opening": {
+                        "Title": "Gran obertura",
+                        "Description": "Inaugurem el nostre servei oferint grans descomptes. Aprofita'ls!"
+                    },
+                    "we-make-it-look-easy": {
+                        "Title": "Més fàcil impossible",
+                        "Description": "Hem dedicat molt d'esforç a desenvolupar una interfície intuitiva i àgil."
+                    }
+                }
+            },
+            "sections": {
+                "weOffer": {
+                    "Title": "Què oferim?",
+                    "all-from-home": {
+                        "Title": "Un servei 100% online",
+                        "Description": "Sol·licita els teus discs fent servir l'eina online que pots trobar en aquesta web. No cal que vagis a recollir el teu disc a cap botiga física, nosaltres ens encarreguem de portar-te el disc a casa totalment de franc."
+                    },
+                    "customized-disks": {
+                        "Title": "Discs personalitzats",
+                        "Description": "Crea el teu propi disc a partir del software del nostre inventari. No hauràs d'instal·lar tots els teus programes, nosaltres ens encarreguem de tot."
+                    },
+                    "any-device": {
+                        "Title": "Accesible desde tot arreu",
+                        "Description": "Accedeix al teu compte fent servir qualsevol navegador web, desde qualsevol dispositiu i desde qualsevol lloc del mon. A més a més, la web s'ha traduït a tres idiomes diferents."
+                    },
+                    "business": {
+                        "Title": "Serveis per a empreses",
+                        "Description": "Oferim un tracte especial per a empreses. Si la teva empresa necessita sol·licitar els nostres serveis pot fer-ho a través de la web o pot contactar amb nosaltres. Oferim descomptes, agilitat amb els tràmits i confiança."
+                    }
+                },
+                "professionals": {
+                    "Title": "Els nostres professionals",
+                    "list": {
+                        "joel-campos": {
+                            "Description": "Sóc el Junior DevOps de l'equip. M'encarrego del manteniment i actualització de l'aplicació web. Tinc experiència amb cloud computing services, llenguatges de programació i metodologies."
+                        },
+                        "iker-torres": {
+                            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
+                        },
+                        "juanjo-romero": {
+                            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
+                        }
+                    }
+                },
+                "video": {
+                    "Title": "El nostre servei",
+                    "Description": "Coneix quins serveis oferim i com pots fer servir la web per sol·licitar-los veient aquest video. Al canal hi trobaràs molts videos relacionats amb el servei (novetats, noticies, actualitzacions, etc)."
                 }
             }
         },
@@ -114,7 +169,11 @@
             }
         },
         "languageSelector": {
-            "Title": "Selector d'idioma"
+            "Title": "Selector d'idioma",
+            "reloadPopConfirm": {
+                "Title": "Vols aplicar l'idioma?",
+                "Description": "Si estàs emplenant un formulari perdràs les dades que no s'hagin enviat."
+            }
         },
         "userAdmin": {
             "userTable": {

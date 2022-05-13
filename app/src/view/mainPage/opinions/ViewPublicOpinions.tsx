@@ -1,6 +1,8 @@
 import { Card, Col, Rate, Row } from "antd";
+import { t } from "i18next";
 import usePublicOpinions from "../../../hooks/opinions/usePublicOpinions";
 import DateDisplay from "../../shared/DateDisplay";
+import SectionTitle from "../../shared/SectionTitle";
 
 export default function ViewPublicOpinions() {
 
@@ -23,6 +25,9 @@ export default function ViewPublicOpinions() {
             justify="center"
             gutter={[24, 24]}
         >
+            <Col span={24}>
+                <SectionTitle>{t('view.opinions.Title')}</SectionTitle>
+            </Col>
             {
                 opinionsToVisualize.map((o) => (
                     <Col

@@ -40,10 +40,46 @@
             },
             "diskRequest": {
                 "Title": "Solicitar disco"
+            },
+            "requests": {
+                "Title": "Pedidos"
+            },
+            "requestsList": {
+                "Title": "Pedidos realizados"
             }
         }
     },
     "view": {
+        "opinions": {
+            "Title": "Opiniones de la comunidad",
+            "notification": {
+                "Title": "Danos tu opinión",
+                "Description": "Nos gustaría conocer cómo evalúas tu experiencia con nuestra web. ¡Haznos llegar tus comentarios!",
+                "form": {
+                    "Opinion": "Opinión",
+                    "Submit": "Enviar opinión",
+                    "IsPublic": "La opinión es pública",
+                    "Success": "Se ha enviado tu opinión"
+                },
+                "close": {
+                    "DoShowAgain": "¿Quieres que dejemos de preguntar por tu opinión?"
+                }
+            }
+        },
+        "mainPage": {
+            "carousel": {
+                "slides": {
+                    "grand-opening": {
+                        "Title": "Gran apertura",
+                        "Description": "Inauguramos nuestro servicio ofreciendo grandes descuentos. ¡Aprovéchalos!"
+                    },
+                    "we-make-it-look-easy": {
+                        "Title": "Más fácil imposible",
+                        "Description": "Hemos dedicado mucho esfuerzo a desarrollar una interfaz intuitiva y ágil."
+                    }
+                }
+            }
+        },
         "login": {
             "Title": "Iniciar sesión"
         },
@@ -207,17 +243,92 @@
                     "form": {
                         "Country": "País",
                         "City": "Ciudad",
-                        "PostalCode": "Código postal"
+                        "PostalCode": "Código postal",
+                        "Address": "Dirección"
                     }
                 },
                 "pay": {
+                    "NextBtn": "Pagar",
                     "form": {
                         "Card": "Tarjeta",
                         "Owner": "Propietario",
                         "Pin": "CVC/PIN",
                         "ExpiresAt": "Expira el"
                     }
+                },
+                "finish": {
+                    "processing": {
+                        "Title": "Procesando solicitud",
+                        "Subtitle": "Se está procesando su compra. Espere unos breves instantes."
+                    },
+                    "processed": {
+                        "Title": "Pedido realizado",
+                        "Subtitle": "Se ha realizado correctamente el pedido. Puedes visualizar su estado desde la web. "
+                    }
                 }
+            }
+        },
+        "diskRequestList": {
+            "Title": "Pedidos realizados",
+            "list": {
+                "states": {
+                    "pending": {
+                        "Title": "Pendiente"
+                    },
+                    "processing": {
+                        "Title": "Procesando"
+                    },
+                    "sent": {
+                        "Title": "Enviado"
+                    },
+                    "delivered": {
+                        "Title": "Entregando"
+                    }
+                },
+                "itemDrawer": {
+                    "sections": {
+                        "amount": {
+                            "Title": "Detalles del pago",
+                            "Total": "Coste total",
+                            "Card": "Tarjeta acabada en"
+                        },
+                        "state": {
+                            "Title": "Estado del pedido",
+                            "states": {
+                                "delivered": "Pedido entregado",
+                                "pending": "Pendiente de procesar",
+                                "processing": "Pedido en proceso",
+                                "sent": "Pedido en reparto"
+                            }
+                        },
+                        "request": {
+                            "Title": "Material solicitado"
+                        }
+                    }
+                },
+                "item": {
+                    "DeliveryDate": "Entrega prevista para el",
+                    "DeliveryAddress": "La dirección donde se realiza la entrega es",
+                    "actions": {
+                        "ViewDetails": "Ver detalles"
+                    }
+                }
+            }
+        },
+        "diskRequestAdmin": {
+            "item": {
+                "states": {
+                    "Delivered": "Pedido entregado",
+                    "Pending": "Pendiente de procesar",
+                    "Processing": "Pedido en proceso",
+                    "Sent": "Enviado"
+                }
+            },
+            "filters": {
+                "Delivered": "Pedidos entregados",
+                "Pending": "Pendientes de procesar",
+                "Processing": "Pedidos en proceso",
+                "Sent": "Enviados"
             }
         }
     },
@@ -326,6 +437,9 @@
             "Timezone": "Zona horaria",
             "Yes": "Sí",
             "No": "No"
+        },
+        "empty": {
+            "Description": "No hay datos"
         }
     }
 }

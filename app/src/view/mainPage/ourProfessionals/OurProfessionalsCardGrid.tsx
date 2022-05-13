@@ -5,7 +5,7 @@ import moment from 'moment';
 import { useState } from 'react';
 import SectionTitle from '../../shared/SectionTitle';
 
-type Social = {
+export type Social = {
     id: string;
     link: string;
     icon: JSX.Element;

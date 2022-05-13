@@ -12,7 +12,7 @@ type Props = {
 
 export default function PhoneFormItem(props: Props) {
 
-    const [ value, setValue ] = useState<string>('');
+    const [value, setValue] = useState<string>('');
 
     const isValid: boolean = isPhoneNumber(value);
 
@@ -20,16 +20,18 @@ export default function PhoneFormItem(props: Props) {
         <Form.Item
             name={props.name}
             label={t('common.form.Phone')}
-            required={props.required && !props.requiredInvisibility}
+            requiredMark={!props.requiredInvisibility}
+            required={props.required}
             validateStatus={value ? (isValid ? 'success' : 'error') : 'validating'}
         >
             <Input
                 value={value}
                 onChange={((e) => setValue(e.target.value))}
-                prefix={<PhoneOutlined/>}
+                prefix={<PhoneOutlined />}
                 type='text'
                 required={props.required}
                 placeholder='+34 555 55 55'
+                maxLength={12}
             />
         </Form.Item>
     );

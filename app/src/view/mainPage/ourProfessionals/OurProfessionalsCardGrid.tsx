@@ -28,7 +28,7 @@ const professionals: Professional[] = [
     },
     {
         name: 'Joel Campos',
-        image: moment().isAfter(moment('2022-10-1')) ? require('../../../resources/mainPage/professionals/joel-kampos.jpg') : require('../../../resources/mainPage/professionals/joel-campos.jpg'),
+        image: moment().isAfter(moment('2022-8-1')) ? require('../../../resources/mainPage/professionals/joel-kampos.jpg') : require('../../../resources/mainPage/professionals/joel-campos.jpg'),
         id: 'joel-campos',
         social: [
             {

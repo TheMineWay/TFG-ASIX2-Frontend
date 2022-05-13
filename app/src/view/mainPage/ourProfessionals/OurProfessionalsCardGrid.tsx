@@ -15,6 +15,7 @@ type Professional = {
     image: string;
     id: string;
     social: Social[];
+    imageOnClicks?: string;
 }
 
 const professionals: Professional[] = [
@@ -43,7 +44,7 @@ const professionals: Professional[] = [
     },
     {
         name: 'Iker Torres',
-        image: require('../../../resources/mainPage/professionals/juanjo-romero.jpeg'),
+        image: require('../../../resources/mainPage/professionals/iker-torres.PNG'),
         id: 'iker-torres',
         social: [],
     },

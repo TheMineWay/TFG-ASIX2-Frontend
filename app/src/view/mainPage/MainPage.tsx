@@ -1,5 +1,5 @@
 
-import { Col, Row } from 'antd';
+import { BackTop, Col, Row } from 'antd';
 import AnnouncesCarousel from './anouncesCarousel/AnnouncesCarousel';
 import ViewPublicOpinions from './opinions/ViewPublicOpinions';
 import OurProfessionalsCardGrid from './ourProfessionals/OurProfessionalsCardGrid';
@@ -14,31 +14,34 @@ const sections: JSX.Element[] = [
 
 export default function MainPage() {
     return (
-        <Row
-            justify='center'
-        >
-            <Col
-                xs={24}
-                lg={23}
-                xl={22}
+        <>
+            <BackTop/>
+            <Row
+                justify='center'
             >
-                <Row
-                    gutter={[24, 48]}
-                    justify='center'
+                <Col
+                    xs={24}
+                    lg={23}
+                    xl={22}
                 >
-                    {
-                        sections.map((section) => (
-                            <Col
-                                span={24}
-                            >
-                                {
-                                    section
-                                }
-                            </Col>
-                        ))
-                    }
-                </Row>
-            </Col>
-        </Row>
+                    <Row
+                        gutter={[24, 48]}
+                        justify='center'
+                    >
+                        {
+                            sections.map((section) => (
+                                <Col
+                                    span={24}
+                                >
+                                    {
+                                        section
+                                    }
+                                </Col>
+                            ))
+                        }
+                    </Row>
+                </Col>
+            </Row>
+        </>
     );
 }

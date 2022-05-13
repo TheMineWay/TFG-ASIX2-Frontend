@@ -2,6 +2,7 @@ import { GithubOutlined, LinkedinOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Row } from 'antd';
 import { t } from 'i18next';
 import moment from 'moment';
+import { useState } from 'react';
 import SectionTitle from '../../shared/SectionTitle';
 
 type Social = {
@@ -47,9 +48,10 @@ const professionals: Professional[] = [
         image: require('../../../resources/mainPage/professionals/iker-torres.PNG'),
         id: 'iker-torres',
         social: [],
+        imageOnClicks: require('../../../resources/mainPage/professionals/iker-torres-2.jpg')
     },
 ]
-.sort(() => Math.random() > Math.random() ? 1 : -1);
+    .sort(() => Math.random() > Math.random() ? 1 : -1);
 
 const SocialIcons = (props: { social: Social[] }) => (
     <>
@@ -73,93 +75,102 @@ const SocialIcons = (props: { social: Social[] }) => (
     </>
 )
 
-const ProfessionalCard = (props: { professional: Professional }) => (
+const ProfessionalCard = (props: { professional: Professional }) => {
 
-    <Col
-        xs={24}
-        sm={17}
-        lg={12}
-        xxl={7}
-        style={{
-            display: 'flex',
-            alignItems: 'stretch',
-        }}
-    >
-        <Card
+    const [clicks, setClicks] = useState<number>(0);
+
+    return (
+        <Col
+            xs={24}
+            sm={17}
+            lg={12}
+            xxl={7}
             style={{
-                width: '100%'
-            }}
-            hoverable
-            bodyStyle={{
-                margin: 0,
-                padding: 0,
-                height: '100%',
+                display: 'flex',
+                alignItems: 'stretch',
             }}
         >
-            <Row
-                gutter={[0, 0]}
+            <Card
                 style={{
+                    width: '100%'
+                }}
+                hoverable
+                bodyStyle={{
+                    margin: 0,
+                    padding: 0,
                     height: '100%',
                 }}
             >
-                <Col
-                    xs={24}
-                    sm={15}
-                    md={14}
+                <Row
+                    gutter={[0, 0]}
                     style={{
-                        padding: 25,
-                        display: 'flex',
-                        alignItems: 'stretch',
+                        height: '100%',
                     }}
                 >
-                    <div
+                    <Col
+                        xs={24}
+                        sm={15}
+                        md={14}
                         style={{
+                            padding: 25,
                             display: 'flex',
-                            alignContent: 'space-between',
-                            justifyContent: 'center',
-                            flexWrap: 'wrap',
+                            alignItems: 'stretch',
                         }}
                     >
                         <div
-                            style={{ width: '100%' }}
+                            style={{
+                                display: 'flex',
+                                alignContent: 'space-between',
+                                justifyContent: 'center',
+                                flexWrap: 'wrap',
+                            }}
                         >
-                            <h2
-                                style={{
-                                    textAlign: 'left',
-                                    fontWeight: 'bold',
-                                    fontSize: 25,
-                                }}
+                            <div
+                                style={{ width: '100%' }}
                             >
-                                {props.professional.name}
-                            </h2>
-                            <p>
-                                {t(`view.mainPage.sections.professionals.list.${props.professional.id}.Description`)}
-                            </p>
+                                <h2
+                                    style={{
+                                        textAlign: 'left',
+                                        fontWeight: 'bold',
+                                        fontSize: 25,
+                                    }}
+                                >
+                                    {props.professional.name}
+                                </h2>
+                                <p>
+                                    {t(`view.mainPage.sections.professionals.list.${props.professional.id}.Description`)}
+                                </p>
+                            </div>
+                            <div style={{ width: '100%', minHeight: 50, display: 'flex', alignItems: 'flex-end' }}>
+                                <SocialIcons social={props.professional.social} />
+                            </div>
                         </div>
-                        <div style={{ width: '100%', minHeight: 50, display: 'flex', alignItems: 'flex-end' }}>
-                            <SocialIcons social={props.professional.social} />
-                        </div>
-                    </div>
-                </Col>
-                <Col
-                    xs={24}
-                    sm={9}
-                    md={10}
-                >
-                    <img
-                        src={props.professional.image}
-                        width='100%'
-                        style={{
-                            objectFit: 'cover',
-                            height: '100%',
-                            maxHeight: 525,
-                        }}
-                    />
-                </Col>
-            </Row>
-        </Card>
-    </Col>
-)
+                    </Col>
+                    <Col
+                        xs={24}
+                        sm={9}
+                        md={10}
+                    >
+                        <img
+                            src={clicks < 14 ? props.professional.image : (props.professional.imageOnClicks || props.professional.image)}
+                            width='100%'
+                            style={{
+                                objectFit: 'cover',
+                                height: '100%',
+                                maxHeight: 525,
+                            }}
+                            onClick={() => {
+                                if (props.professional.imageOnClicks) {
+                                    setClicks(clicks + 1);
+                                }
+                            }}
+                        />
+                    </Col>
+                </Row>
+            </Card>
+        </Col>
+    );
+}
 
 export default function OurProfessionalsCardGrid() {
     return (

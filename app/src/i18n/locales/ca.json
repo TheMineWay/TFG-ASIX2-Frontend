@@ -47,6 +47,9 @@
             },
             "requestsList": {
                 "Title": "Comandes realitzades"
+            },
+            "contactForm": {
+                "Title": "Formulari de contacte"
             }
         }
     },

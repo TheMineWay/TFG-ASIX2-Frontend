@@ -65,7 +65,13 @@ const routes: Route[] = [
         loader: () => import('../view/adminDiskRequests/AdminDiskRequestsViewPage'),
         requiresAuth: true,
         permissions: [Permissions.adminDiskRequests],
-    }
+    },
+    {
+        path: '/admin/contact-form',
+        loader: () => import('../view/contactForm/admin/AdminContactFormViewPage'),
+        requiresAuth: true,
+        permissions: [Permissions.adminContactForm],
+    },
 ];
 
 export default routes;

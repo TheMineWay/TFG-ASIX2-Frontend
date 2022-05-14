@@ -1,12 +1,15 @@
 import { DeleteOutlined, EyeOutlined, RollbackOutlined } from "@ant-design/icons";
-import { Button, Card, Col, Row, Space, Popconfirm } from "antd";
+import { Button, Card, Col, Row, Space, Popconfirm, Switch } from "antd";
 import { t } from "i18next";
+import { useState } from "react";
 import useAdminContactForm, { ContactFormItem } from "../../../hooks/contactForm/useAdminContactForm";
 import DateDisplay from "../../shared/DateDisplay";
 import Loading from "../../shared/Loading";
 import NoData from "../../shared/NoData";
 
 export default function AdminContactFormViewPage() {
+
+    const [showDeleted, setShowDeleted] = useState<boolean>(false);
 
     const {
         markAsRead,
@@ -19,6 +22,8 @@ export default function AdminContactFormViewPage() {
     } = useAdminContactForm();
 
     if (loading) return <Loading />;
+
+    const items = formItems?.filter((item) => showDeleted || item.deletedAt === null) ?? [];
 
     const Item = (props: { item: ContactFormItem }) => {
         const item = props.item;
@@ -92,11 +97,28 @@ export default function AdminContactFormViewPage() {
         <Row
             gutter={[24, 24]}
         >
+            <Col
+                span={24}
+            >
+                <Card>
+                    <div
+                        style={{
+                            display: 'flex',
+                            columnGap: 15,
+                        }}
+                    >
+                        <p>{t('view.contactForm.admin.filters.ShowDeleted')}</p>
+                        <Switch
+                            onChange={setShowDeleted}
+                        />
+                    </div>
+                </Card>
+            </Col>
             {
-                (formItems ?? []).length <= 0 ? (
+                items.length <= 0 ? (
                     <NoData />
                 ) : (
-                    formItems?.map((item) => <Item item={item} />)
+                    items.map((item) => <Item item={item} />)
                 )
             }
         </Row>

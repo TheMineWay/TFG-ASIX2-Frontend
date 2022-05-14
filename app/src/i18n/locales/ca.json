@@ -63,6 +63,11 @@
                     "Name": "Nom",
                     "Message": "Missatge",
                     "Submit": "Enviar"
+                },
+                "result": {
+                    "Title": "Missatge enviat correctament",
+                    "Subtitle": "El teu missatge s'ha enviat correctament i el revisarem aviat",
+                    "SendAnother": "Enviar un altre"
                 }
             }
         },

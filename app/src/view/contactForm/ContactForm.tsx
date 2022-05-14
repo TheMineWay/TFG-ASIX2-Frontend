@@ -98,7 +98,7 @@ export default function ContactForm() {
                         name='message'
                         required
                         showCount
-                        max={1000}
+                        max={450}
                     />
                 </Col>
                 <Col

@@ -74,13 +74,19 @@
                 }
             },
             "admin": {
+                "states": {
+                    "Read": "Llegit",
+                    "NotRead": "No llegit"
+                },
                 "actions": {
                     "delete": {
                         "Title": "Segur que vols esborrar l'element?"
                     },
                     "recover": {
                         "Title": "Segur que vols recuperar l'element?"
-                    }
+                    },
+                    "MarkAsOpened": "Marcar com a llegit",
+                    "MarkAsUnopened": "Marcar com a no llegit"
                 },
                 "filters": {
                     "ShowDeleted": "Veure esborrats"

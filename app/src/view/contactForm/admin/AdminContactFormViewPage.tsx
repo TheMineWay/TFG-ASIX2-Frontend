@@ -1,5 +1,5 @@
 import { DeleteOutlined, EyeOutlined, RollbackOutlined } from "@ant-design/icons";
-import { Button, Card, Col, Row, Space, Popconfirm, Switch } from "antd";
+import { Button, Card, Col, Row, Space, Popconfirm, Switch, Tag } from "antd";
 import { t } from "i18next";
 import { useState } from "react";
 import useAdminContactForm, { ContactFormItem } from "../../../hooks/contactForm/useAdminContactForm";
@@ -11,7 +11,7 @@ import AdminContactFormViewItemDrawer from "./AdminContactFormViewItemDrawer";
 export default function AdminContactFormViewPage() {
 
     const [showDeleted, setShowDeleted] = useState<boolean>(false);
-    const [selectedItem, setSelectedItem] = useState<ContactFormItem>();
+    const [selectedItemId, setSelectedItemId] = useState<string>();
 
     const {
         markAsRead,
@@ -32,7 +32,8 @@ export default function AdminContactFormViewPage() {
 
         return (
             <Col
-                xs={12}
+                xs={24}
+                sm={12}
                 lg={8}
                 xl={6}
                 style={{
@@ -55,9 +56,20 @@ export default function AdminContactFormViewPage() {
                             }}
                         >
                             <Space>
+                                {
+                                    item.opened ? (
+                                        <Tag
+                                            color='green'
+                                        >{t('view.contactForm.admin.states.Read')}</Tag>
+                                    ) : (
+                                        <Tag
+                                            color='blue'
+                                        >{t('view.contactForm.admin.states.NotRead')}</Tag>
+                                    )
+                                }
                                 <Button
                                     icon={<EyeOutlined />}
-                                    onClick={() => setSelectedItem(item)}
+                                    onClick={() => setSelectedItemId(item.id)}
                                 />
                                 {
                                     item.deletedAt ? (
@@ -89,7 +101,11 @@ export default function AdminContactFormViewPage() {
                     ]
                     }
                 >
-                    <h3>{item.email}</h3>
+                    <h3
+                        style={{
+                            overflow: 'hidden',
+                        }}
+                    >{item.email}</h3>
                     <><DateDisplay>{item.createdAt}</DateDisplay></>
                 </Card >
             </Col >
@@ -99,8 +115,11 @@ export default function AdminContactFormViewPage() {
     return (
         <>
             <AdminContactFormViewItemDrawer
-                hide={() => setSelectedItem(undefined)}
-                item={selectedItem}
+                markAsOpened={markAsRead}
+                unmarkAsOpened={markAsUnread}
+                hide={() => setSelectedItemId(undefined)}
+                item={selectedItemId}
+                items={formItems ?? []}
             />
             <Row
                 gutter={[24, 24]}

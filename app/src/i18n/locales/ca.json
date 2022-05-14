@@ -77,6 +77,9 @@
                 "actions": {
                     "delete": {
                         "Title": "Segur que vols esborrar l'element?"
+                    },
+                    "recover": {
+                        "Title": "Segur que vols recuperar l'element?"
                     }
                 }
             }

@@ -53,6 +53,11 @@
     "view": {
         "contactForm": {
             "Title": "Contacta amb nosaltres",
+            "brand": {
+                "Title": "Volem saber de tu",
+                "MessageL1": "Ens agrada conèixer les teves inquietuds per tal d'ajudar-te sempre que sigui possible. Fes servir el nostre formulari de contacte per er-nos arribar un missatge. No cal que disposis d'un compre a la web per poder fer-lo servir.",
+                "MessageL2": "Acostumem a trigar pocs dies a contestar-te, però tingues en compte que, depenent de la consulta realitzada, podem trigar més temps."
+            },
             "form": {
                 "fields": {
                     "Name": "Nom",

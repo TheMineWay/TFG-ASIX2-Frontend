@@ -78,6 +78,8 @@ export default function ContactForm() {
                         icon={<UserOutlined />}
                         label={t('view.contactForm.form.fields.Name')}
                         name='name'
+                        min={2}
+                        max={55}
                         required
                     />
                 </Col>

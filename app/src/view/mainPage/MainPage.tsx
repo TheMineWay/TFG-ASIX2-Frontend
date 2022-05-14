@@ -1,5 +1,6 @@
 
 import { BackTop, Col, Row } from 'antd';
+import ContactFormWithBrand from './ContactForm/ContactFormWithBrand';
 import AnnouncesCarousel from './anouncesCarousel/AnnouncesCarousel';
 import ViewPublicOpinions from './opinions/ViewPublicOpinions';
 import OurProfessionalsCardGrid from './ourProfessionals/OurProfessionalsCardGrid';
@@ -9,6 +10,7 @@ const sections: JSX.Element[] = [
     <AnnouncesCarousel />,
     <WeOfferView />,
     <OurProfessionalsCardGrid />,
+    <ContactFormWithBrand/>,
     <ViewPublicOpinions />,
 ];
 

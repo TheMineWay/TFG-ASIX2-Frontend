@@ -47,10 +47,57 @@
             },
             "requestsList": {
                 "Title": "Comandes realitzades"
+            },
+            "contactForm": {
+                "Title": "Formulari de contacte"
             }
         }
     },
     "view": {
+        "contactForm": {
+            "Title": "Contacta amb nosaltres",
+            "brand": {
+                "Title": "Volem saber de tu",
+                "MessageL1": "Ens agrada conèixer les teves inquietuds per tal d'ajudar-te sempre que sigui possible. Fes servir el nostre formulari de contacte per er-nos arribar un missatge. No cal que disposis d'un compre a la web per poder fer-lo servir.",
+                "MessageL2": "Acostumem a trigar pocs dies a contestar-te, però tingues en compte que, depenent de la consulta realitzada, podem trigar més temps."
+            },
+            "form": {
+                "fields": {
+                    "Name": "Nom",
+                    "Message": "Missatge",
+                    "Submit": "Enviar"
+                },
+                "result": {
+                    "Title": "Missatge enviat correctament",
+                    "Subtitle": "El teu missatge s'ha enviat correctament i el revisarem aviat",
+                    "SendAnother": "Enviar un altre"
+                }
+            },
+            "admin": {
+                "states": {
+                    "Read": "Llegit",
+                    "NotRead": "No llegit"
+                },
+                "actions": {
+                    "delete": {
+                        "Title": "Segur que vols esborrar l'element?"
+                    },
+                    "recover": {
+                        "Title": "Segur que vols recuperar l'element?"
+                    },
+                    "MarkAsOpened": "Marcar com a llegit",
+                    "MarkAsUnopened": "Marcar com a no llegit"
+                },
+                "filters": {
+                    "ShowDeleted": "Veure esborrats"
+                },
+                "viewItem": {
+                    "Email": "Email",
+                    "Name": "Nom",
+                    "Message": "Missatge"
+                }
+            }
+        },
         "opinions": {
             "Title": "Opinions de la comunitat",
             "notification": {
@@ -491,6 +538,7 @@
         "Text": "Fes arribar la nostra web a tots els teus contactes!"
     },
     "footer": {
-        "Privacy": "Polítiques de privacitat"
+        "Privacy": "Polítiques de privacitat",
+        "Share": "Compartir"
     }
 }

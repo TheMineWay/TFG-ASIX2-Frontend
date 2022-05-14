@@ -26,7 +26,7 @@ export default function CookiesAlert() {
         setTimeout(() => {
             notification.info({
                 key: 'cookies-alert',
-                message: t('view.cookiesMessage.Title'),
+                message: <p>{t('view.cookiesMessage.Title')} 🍪</p>,
                 description: (
                     <>
                         <p

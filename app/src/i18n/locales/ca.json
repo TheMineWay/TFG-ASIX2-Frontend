@@ -491,6 +491,7 @@
         "Text": "Fes arribar la nostra web a tots els teus contactes!"
     },
     "footer": {
-        "Privacy": "Polítiques de privacitat"
+        "Privacy": "Polítiques de privacitat",
+        "Share": "Compartir"
     }
 }

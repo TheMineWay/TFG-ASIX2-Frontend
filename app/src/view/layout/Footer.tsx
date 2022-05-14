@@ -45,10 +45,15 @@ export default function Footer() {
         >
             <Row
                 justify="center"
+                gutter={[12,12]}
             >
                 <Col
                     xs={24}
                     sm={8}
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                    }}
                 >
                     {
                         canShare() && (
@@ -60,7 +65,7 @@ export default function Footer() {
                                 }}
                                 onClick={() => shareWebsite()}
                             >
-                                Share
+                                {t('footer.Share')}
                             </Button>
                         )
                     }
@@ -93,6 +98,10 @@ export default function Footer() {
                 <Col
                     xs={24}
                     sm={8}
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                    }}
                 >
                     <Link
                         to={'/privacy'}

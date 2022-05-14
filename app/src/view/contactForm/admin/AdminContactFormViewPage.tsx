@@ -6,10 +6,12 @@ import useAdminContactForm, { ContactFormItem } from "../../../hooks/contactForm
 import DateDisplay from "../../shared/DateDisplay";
 import Loading from "../../shared/Loading";
 import NoData from "../../shared/NoData";
+import AdminContactFormViewItemDrawer from "./AdminContactFormViewItemDrawer";
 
 export default function AdminContactFormViewPage() {
 
     const [showDeleted, setShowDeleted] = useState<boolean>(false);
+    const [selectedItem, setSelectedItem] = useState<ContactFormItem>();
 
     const {
         markAsRead,
@@ -55,6 +57,7 @@ export default function AdminContactFormViewPage() {
                             <Space>
                                 <Button
                                     icon={<EyeOutlined />}
+                                    onClick={() => setSelectedItem(item)}
                                 />
                                 {
                                     item.deletedAt ? (
@@ -94,33 +97,39 @@ export default function AdminContactFormViewPage() {
     }
 
     return (
-        <Row
-            gutter={[24, 24]}
-        >
-            <Col
-                span={24}
+        <>
+            <AdminContactFormViewItemDrawer
+                hide={() => setSelectedItem(undefined)}
+                item={selectedItem}
+            />
+            <Row
+                gutter={[24, 24]}
             >
-                <Card>
-                    <div
-                        style={{
-                            display: 'flex',
-                            columnGap: 15,
-                        }}
-                    >
-                        <p>{t('view.contactForm.admin.filters.ShowDeleted')}</p>
-                        <Switch
-                            onChange={setShowDeleted}
-                        />
-                    </div>
-                </Card>
-            </Col>
-            {
-                items.length <= 0 ? (
-                    <NoData />
-                ) : (
-                    items.map((item) => <Item item={item} />)
-                )
-            }
-        </Row>
+                <Col
+                    span={24}
+                >
+                    <Card>
+                        <div
+                            style={{
+                                display: 'flex',
+                                columnGap: 15,
+                            }}
+                        >
+                            <p>{t('view.contactForm.admin.filters.ShowDeleted')}</p>
+                            <Switch
+                                onChange={setShowDeleted}
+                            />
+                        </div>
+                    </Card>
+                </Col>
+                {
+                    items.length <= 0 ? (
+                        <NoData />
+                    ) : (
+                        items.map((item) => <Item item={item} />)
+                    )
+                }
+            </Row>
+        </>
     );
 }

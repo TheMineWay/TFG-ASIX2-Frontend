@@ -54,6 +54,14 @@
         }
     },
     "view": {
+        "cookiesMessage": {
+            "Title": "Avís de cookies",
+            "Message": "Aquest lloc web fa servir cookies per tal de funcionar i poder proporcionar el millor servei. També les vem servir per recolectar estadístiques, pots deshabilitar-les si ho prefereixes.",
+            "actions": {
+                "Allow": "Permetre",
+                "Deny": "Rebutjar"
+            }
+        },
         "contactForm": {
             "Title": "Contacta amb nosaltres",
             "brand": {

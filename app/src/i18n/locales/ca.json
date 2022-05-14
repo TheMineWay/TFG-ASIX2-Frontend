@@ -84,6 +84,11 @@
                 },
                 "filters": {
                     "ShowDeleted": "Veure esborrats"
+                },
+                "viewItem": {
+                    "Email": "Email",
+                    "Name": "Nom",
+                    "Message": "Missatge"
                 }
             }
         },

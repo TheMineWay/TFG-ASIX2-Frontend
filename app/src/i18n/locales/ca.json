@@ -72,6 +72,13 @@
                     "Subtitle": "El teu missatge s'ha enviat correctament i el revisarem aviat",
                     "SendAnother": "Enviar un altre"
                 }
+            },
+            "admin": {
+                "actions": {
+                    "delete": {
+                        "Title": "Segur que vols esborrar l'element?"
+                    }
+                }
             }
         },
         "opinions": {

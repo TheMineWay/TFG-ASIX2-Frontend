@@ -51,6 +51,16 @@
         }
     },
     "view": {
+        "contactForm": {
+            "Title": "Contacta amb nosaltres",
+            "form": {
+                "fields": {
+                    "Name": "Nom",
+                    "Message": "Missatge",
+                    "Submit": "Enviar"
+                }
+            }
+        },
         "opinions": {
             "Title": "Opinions de la comunitat",
             "notification": {

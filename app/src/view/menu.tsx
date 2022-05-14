@@ -1,4 +1,4 @@
-import { BarcodeOutlined, BuildOutlined, DollarOutlined, HomeOutlined, InboxOutlined, ThunderboltOutlined, ToolOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons";
+import { BarcodeOutlined, BuildOutlined, ContainerOutlined, DollarOutlined, HomeOutlined, InboxOutlined, ThunderboltOutlined, ToolOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons";
 import { Permissions } from "../services/security/permissions";
 
 export type MenuOption = {
@@ -59,6 +59,13 @@ const menuOptions: MenuOption[] = [
                 icon: <BarcodeOutlined/>,
                 permissions: [Permissions.adminDiskRequests],
             },
+            {
+                text: 'contactForm',
+                path: '/admin/contact-form',
+                key: 'contactForm',
+                icon: <ContainerOutlined/>,
+                permissions: [Permissions.adminContactForm],
+            }
         ],
     },
     {

@@ -1,7 +1,7 @@
 import { t } from "i18next";
 
 export default function shareWebsite(): void {
-    if(navigator.canShare()) {
+    if(navigator.share) {
         navigator.share({
             title: t('share.Title'),
             text: t('share.Text'),
@@ -12,9 +12,8 @@ export default function shareWebsite(): void {
 
 export function canShare(): boolean {
     try {
-        return navigator.canShare() ?? false;
+        return (typeof navigator.share === 'function') ?? false;
     } catch(e: any) {
         return false;
     }
-    return false;
 }

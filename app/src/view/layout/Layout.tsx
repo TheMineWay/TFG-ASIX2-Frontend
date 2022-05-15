@@ -24,7 +24,7 @@ export default function BaseLayout(props: Props) {
     return (
         <Layout>
             <BaseHeader/>
-            <Content style={{minHeight: window.innerHeight}}>
+            <Content style={{height: window.innerHeight - 135}}>
                 <div
                     className="site-layout-content"
                 >

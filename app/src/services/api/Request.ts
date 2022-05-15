@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { getBaseUrl } from "../../conf/conf";
 import { AuthCredentials } from "../../context/AuthContext";
 

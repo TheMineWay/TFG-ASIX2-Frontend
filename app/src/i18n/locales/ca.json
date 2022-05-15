@@ -172,6 +172,9 @@
                 "video": {
                     "Title": "El nostre servei",
                     "Description": "Coneix quins serveis oferim i com pots fer servir la web per sol·licitar-los veient aquest video. Al canal hi trobaràs molts videos relacionats amb el servei (novetats, noticies, actualitzacions, etc)."
+                },
+                "customers": {
+                    "Title": "Clients reconeguts"
                 }
             }
         },

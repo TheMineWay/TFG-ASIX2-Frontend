@@ -20,7 +20,6 @@ export default function PhoneFormItem(props: Props) {
         <Form.Item
             name={props.name}
             label={t('common.form.Phone')}
-            requiredMark={!props.requiredInvisibility}
             required={props.required}
             validateStatus={value ? (isValid ? 'success' : 'error') : 'validating'}
         >

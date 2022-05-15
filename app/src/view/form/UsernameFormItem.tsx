@@ -13,7 +13,7 @@ export default function UsernameFormItem(props: Props) {
     const placeholderUsernames: string[] = ['john', 'toni'];
 
     return (
-        <Form.Item name={props.name} label={t('common.form.Username')} required={props.required && !props.requiredInvisibility}>
+        <Form.Item name={props.name} label={t('common.form.Username')} required={props.required}>
             <Input
                 prefix={<UserOutlined/>}
                 type='text'

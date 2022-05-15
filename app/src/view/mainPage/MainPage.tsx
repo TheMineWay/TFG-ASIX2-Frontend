@@ -5,6 +5,7 @@ import AnnouncesCarousel from './anouncesCarousel/AnnouncesCarousel';
 import ViewPublicOpinions from './opinions/ViewPublicOpinions';
 import OurProfessionalsCardGrid from './ourProfessionals/OurProfessionalsCardGrid';
 import WeOfferView from './weOffer/WeOfferView';
+import Customers from './customers/Customers';
 
 const sections: JSX.Element[] = [
     <AnnouncesCarousel />,
@@ -12,6 +13,7 @@ const sections: JSX.Element[] = [
     <OurProfessionalsCardGrid />,
     <ContactFormWithBrand/>,
     <ViewPublicOpinions />,
+    <Customers/>,
 ];
 
 export default function MainPage() {

@@ -54,11 +54,52 @@
         }
     },
     "view": {
+        "policies": {
+            "Title": "Polítiques de privacitat",
+            "sections": {
+                "provided-info": {
+                    "Title": "Informació que ens porporciones",
+                    "P-1": "Per utilitzar alguns dels nostres productes i serveis, cal que tingueu un compte, i per crear-ne un, ens heu de proporcionar certa informació. De la mateixa manera, si utilitzeu els nostres productes i serveis de pagament, no us els podem proporcionar sense obtenir informació de pagament. Bàsicament, certa informació és necessària si voleu utilitzar molts dels nostres productes i serveis.",
+                    "li": {
+                        "1": {
+                            "Label": "Comptes personals",
+                            "Text": "Si creeu un compte, haureu de proporcionar-nos alguna informació perquè puguem oferir-vos els nostres serveis. Això inclou un nom de visualització; un nom d'usuari (per exemple, @RoxieHart); una contrasenya; una adreça de correu electrònic o un número de telèfon; una data de naixement; el vostre idioma de visualització; i informació d'inici de sessió únic de tercers (si trieu aquest mètode d'inici de sessió). També podeu optar per compartir la vostra ubicació al vostre perfil i als tuits, i penjar la vostra llibreta d'adreces a Twitter per ajudar a trobar persones que potser coneixeu. La informació del vostre perfil, que inclou el vostre nom de visualització i nom d'usuari, sempre és pública, però podeu utilitzar el vostre nom real o un pseudònim. I recordeu que podeu crear diversos comptes de Twitter, per exemple, per expressar diferents parts de la vostra identitat, professional o no."
+                        },
+                        "2": {
+                            "Label": "Informació dels pagaments",
+                            "Text": "Per comprar haureu de proporcionar-nos informació de pagament, inclòs el vostre número de targeta de crèdit o dèbit, la data de caducitat de la targeta, el codi CVV i l'adreça de facturació. Aquestes dades mai s'emmagatzemen sense xifrar i no són accesibles pel personal de Plugandwork."
+                        }
+                    }
+                },
+                "use-of-info": {
+                    "Title": "Ús de la informació proporcionada",
+                    "P-1": "Quan utilitzeu els nostres serveis, recopilem informació sobre com feu servir els nostres serveis i generar estadístiques. Utilitzem aquesta informació per oferir-vos productes i serveis, per ajudar a mantenir Plugandwork més segur i respectuós per a tothom, i més rellevant per a vosaltres. Informació que recollim:",
+                    "li": {
+                        "1": {
+                            "Label": "Tecnologia",
+                            "Text": "Recopilem la versió del sistema operatiu, el model del telèfon, les característiques diferenciadores del dispositiu, l'idioma del sistema, la ubicació i informació demogràfica. Això ens permet prendre decisions com per exemple, amb quins dispositius hem de fer proves, etc."
+                        },
+                        "2": {
+                            "Label": "Direcció IP",
+                            "Text": "Per motius de seguretat, algunes accions com per exemple els inicis de sessió emmagatzemen la direcció IP per tal de poder conèixer qui realitza aquestes accions."
+                        }
+                    }
+                }
+            }
+        },
+        "cookiesMessage": {
+            "Title": "Avís de cookies",
+            "Message": "Aquest lloc web fa servir cookies per tal de funcionar i poder proporcionar el millor servei. També les fem servir per recolectar estadístiques, pots deshabilitar-les si ho prefereixes.",
+            "actions": {
+                "Allow": "Permetre",
+                "Deny": "Rebutjar"
+            }
+        },
         "contactForm": {
             "Title": "Contacta amb nosaltres",
             "brand": {
                 "Title": "Volem saber de tu",
-                "MessageL1": "Ens agrada conèixer les teves inquietuds per tal d'ajudar-te sempre que sigui possible. Fes servir el nostre formulari de contacte per er-nos arribar un missatge. No cal que disposis d'un compre a la web per poder fer-lo servir.",
+                "MessageL1": "Ens agrada conèixer les teves inquietuds per tal d'ajudar-te sempre que sigui possible. Fes servir el nostre formulari de contacte per fer-nos arribar un missatge. No cal que disposis d'un compre a la web per poder fer-lo servir.",
                 "MessageL2": "Acostumem a trigar pocs dies a contestar-te, però tingues en compte que, depenent de la consulta realitzada, podem trigar més temps."
             },
             "form": {
@@ -164,6 +205,9 @@
                 "video": {
                     "Title": "El nostre servei",
                     "Description": "Coneix quins serveis oferim i com pots fer servir la web per sol·licitar-los veient aquest video. Al canal hi trobaràs molts videos relacionats amb el servei (novetats, noticies, actualitzacions, etc)."
+                },
+                "customers": {
+                    "Title": "Clients reconeguts"
                 }
             }
         },

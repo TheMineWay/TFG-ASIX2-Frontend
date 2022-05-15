@@ -20,7 +20,7 @@ export default function PasswordFormItem(props: Props) {
             <Form.Item
                 name={props.name}
                 label={props.label === null ? undefined : props.label ?? t('common.form.Password')}
-                required={props.required && !props.requiredInvisibility}
+                required={props.required}
             >
                 <Input.Password
                     prefix={<LockOutlined />}

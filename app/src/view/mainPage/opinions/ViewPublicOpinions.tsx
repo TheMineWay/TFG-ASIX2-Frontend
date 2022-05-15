@@ -35,6 +35,11 @@ export default function ViewPublicOpinions() {
                         sm={12}
                         lg={8}
                         xxl={6}
+                        style={{
+                            display: 'flex',
+                            alignItems: 'stretch',
+                            width: '100%',
+                        }}
                     >
                         <Card
                             hoverable
@@ -42,6 +47,11 @@ export default function ViewPublicOpinions() {
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',
+                                height: '100%',
+                            }}
+                            style={{
+                                width: '100%',
+                                height: '100%',
                             }}
                         >
                             <div
@@ -49,21 +59,45 @@ export default function ViewPublicOpinions() {
                                     display: 'flex',
                                     justifyContent: 'center',
                                     flexWrap: 'wrap',
+                                    alignContent: 'space-between',
                                     rowGap: 10,
+                                    width: '100%',
+                                    height: '100%',
                                 }}
                             >
-                                <Rate value={o.score} disabled />
-                                <blockquote
+                                <div
                                     style={{
-                                        textAlign: 'center',
                                         width: '100%',
                                     }}
                                 >
-                                    {o.opinion}
-                                </blockquote>
-                                <small>
-                                    <DateDisplay>{o.createdAt}</DateDisplay>
-                                </small>
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                        }}
+                                    >
+                                        <Rate value={o.score} disabled />
+                                    </div>
+                                    <blockquote
+                                        style={{
+                                            textAlign: 'center',
+                                            width: '100%',
+                                        }}
+                                    >
+                                        {o.opinion}
+                                    </blockquote>
+                                </div>
+                                <div
+                                    style={{
+                                        width: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    <small>
+                                        <DateDisplay>{o.createdAt}</DateDisplay>
+                                    </small>
+                                </div>
                             </div>
                         </Card>
                     </Col>

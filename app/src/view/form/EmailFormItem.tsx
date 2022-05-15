@@ -19,7 +19,7 @@ export default function EmailFormItem(props: Props) {
         <Form.Item
             name={props.name}
             label={t('common.form.Email')}
-            required={props.required && !props.requiredInvisibility}
+            required={props.required}
             validateStatus={value ? (isValid ? 'success' : 'error') : 'validating'}
         >
             <Input

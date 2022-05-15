@@ -72,6 +72,10 @@ const routes: Route[] = [
         requiresAuth: true,
         permissions: [Permissions.adminContactForm],
     },
+    {
+        path: '/privacy',
+        loader: () => import('../view/policies/PoliciesViewPage'),
+    },
 ];
 
 export default routes;

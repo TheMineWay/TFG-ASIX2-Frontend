@@ -54,11 +54,19 @@
         }
     },
     "view": {
+        "cookiesMessage": {
+            "Title": "Avís de cookies",
+            "Message": "Aquest lloc web fa servir cookies per tal de funcionar i poder proporcionar el millor servei. També les fem servir per recolectar estadístiques, pots deshabilitar-les si ho prefereixes.",
+            "actions": {
+                "Allow": "Permetre",
+                "Deny": "Rebutjar"
+            }
+        },
         "contactForm": {
             "Title": "Contacta amb nosaltres",
             "brand": {
                 "Title": "Volem saber de tu",
-                "MessageL1": "Ens agrada conèixer les teves inquietuds per tal d'ajudar-te sempre que sigui possible. Fes servir el nostre formulari de contacte per er-nos arribar un missatge. No cal que disposis d'un compre a la web per poder fer-lo servir.",
+                "MessageL1": "Ens agrada conèixer les teves inquietuds per tal d'ajudar-te sempre que sigui possible. Fes servir el nostre formulari de contacte per fer-nos arribar un missatge. No cal que disposis d'un compre a la web per poder fer-lo servir.",
                 "MessageL2": "Acostumem a trigar pocs dies a contestar-te, però tingues en compte que, depenent de la consulta realitzada, podem trigar més temps."
             },
             "form": {

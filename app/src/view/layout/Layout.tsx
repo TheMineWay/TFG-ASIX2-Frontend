@@ -7,6 +7,7 @@ import ReactGA from 'react-ga';
 import { useLocation } from 'react-router-dom'
 import OpinionNotification from "./opinions/OpinionNotification";
 import Footer from "./Footer";
+import CookiesAlert from "./CookiesAlert";
 
 type Props = {
     children: JSX.Element;
@@ -31,6 +32,7 @@ export default function BaseLayout(props: Props) {
                 </div>
             </Content>
             <OpinionNotification/>
+            <CookiesAlert/>
             <Footer/>
         </Layout>
     );

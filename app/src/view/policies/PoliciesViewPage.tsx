@@ -1,10 +1,26 @@
-import { Card, Col, Row } from "antd";
+import { Card, Col, List, Row } from "antd";
 import { t } from "i18next";
 
 type PolicySection = {
-    title: string;
-    text: string;
+    id: string;
+    text: JSX.Element;
+    image: string;
 }
+
+const sections: PolicySection[] = [
+    {
+        id: 'provided-info',
+        text: (
+            <>
+                <p>{t('view.policies.sections.provided-info.P-1')}</p>
+                <List>
+                    <List.Item><b>{t('view.policies.sections.provided-info.li.1.Label')}: </b>{t('view.policies.sections.provided-info.li.1.Text')}</List.Item>
+                </List>
+            </>
+        ),
+        image: '',
+    }
+];
 
 export default function PoliciesViewPage() {
 
@@ -32,21 +48,63 @@ export default function PoliciesViewPage() {
                 fontSize: 35,
             }}
         >{props.children}</h1>
-    )
+    );
+
+    const Title = (props: { children: string }) => (
+        <h2
+            style={{
+                color: 'var(--ant-primary-color)',
+                fontWeight: 'bold',
+                fontSize: 25,
+            }}
+        >{props.children}</h2>
+    );
 
     return (
         <PolicyContainer>
-            <Card>
-                <Row
-                    gutter={[12, 12]}
+            <Row
+                gutter={[12, 12]}
+            >
+                <Col
+                    span={24}
                 >
-                    <Col
-                        span={24}
-                    >
-                        <BigTitle>{t('view.policies.Title')}</BigTitle>
-                    </Col>
-                </Row>
-            </Card>
+                    <BigTitle>{t('view.policies.Title')}</BigTitle>
+                </Col>
+                {
+                    sections.map((section) => (
+                        <Col span={24}>
+                            <Card
+                                hoverable
+                                bodyStyle={{
+                                    padding: 0,
+                                    margin: 0,
+                                }}
+                            >
+                                <Row
+                                    gutter={[0, 0]}
+                                >
+                                    <Col
+                                        xs={24}
+                                    >
+                                        <div
+                                            style={{
+                                                padding: 25,
+                                            }}
+                                        >
+                                            <Title>{t(`view.policies.sections.${section.id}.Title`)}</Title>
+                                            <p
+                                                style={{
+                                                    textAlign: 'justify',
+                                                }}
+                                            >{section.text}</p>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </Card>
+                        </Col>
+                    ))
+                }
+            </Row>
         </PolicyContainer>
     );
 }

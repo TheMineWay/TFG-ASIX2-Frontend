@@ -64,6 +64,10 @@
                         "1": {
                             "Label": "Comptes personals",
                             "Text": "Si creeu un compte, haureu de proporcionar-nos alguna informació perquè puguem oferir-vos els nostres serveis. Això inclou un nom de visualització; un nom d'usuari (per exemple, @RoxieHart); una contrasenya; una adreça de correu electrònic o un número de telèfon; una data de naixement; el vostre idioma de visualització; i informació d'inici de sessió únic de tercers (si trieu aquest mètode d'inici de sessió). També podeu optar per compartir la vostra ubicació al vostre perfil i als tuits, i penjar la vostra llibreta d'adreces a Twitter per ajudar a trobar persones que potser coneixeu. La informació del vostre perfil, que inclou el vostre nom de visualització i nom d'usuari, sempre és pública, però podeu utilitzar el vostre nom real o un pseudònim. I recordeu que podeu crear diversos comptes de Twitter, per exemple, per expressar diferents parts de la vostra identitat, professional o no."
+                        },
+                        "2": {
+                            "Label": "Informació dels pagaments",
+                            "Text": "Per comprar haureu de proporcionar-nos informació de pagament, inclòs el vostre número de targeta de crèdit o dèbit, la data de caducitat de la targeta, el codi CVV i l'adreça de facturació. Aquestes dades mai s'emmagatzemen sense xifrar i no són accesibles pel personal de Plugandwork."
                         }
                     }
                 }

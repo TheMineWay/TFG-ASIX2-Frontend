@@ -1,11 +1,21 @@
-import { Card, Col, List, Row } from "antd";
+import { Card, Col, Row } from "antd";
 import { t } from "i18next";
 
 type PolicySection = {
     id: string;
     text: JSX.Element;
-    image: string;
+    image?: string;
 }
+
+const GenerateList = (props: { id: string, ids: string[], liId?: string }) => (
+    <ul>
+        {
+            props.ids.map((i) => (
+                <li><b>{t(`view.policies.sections.${props.id}.${props.liId ?? 'li'}.${i}.Label`)}: </b>{t(`view.policies.sections.${props.id}.${props.liId ?? 'li'}.${i}.Text`)}</li>
+            ))
+        }
+    </ul>
+);
 
 const sections: PolicySection[] = [
     {
@@ -13,12 +23,13 @@ const sections: PolicySection[] = [
         text: (
             <>
                 <p>{t('view.policies.sections.provided-info.P-1')}</p>
-                <List>
-                    <List.Item><b>{t('view.policies.sections.provided-info.li.1.Label')}: </b>{t('view.policies.sections.provided-info.li.1.Text')}</List.Item>
-                </List>
+                <GenerateList
+                    id="provided-info"
+                    ids={['1', '2']}
+                />
             </>
         ),
-        image: '',
+        image: require('../../resources/policy/data-store.jpg'),
     }
 ];
 
@@ -85,6 +96,7 @@ export default function PoliciesViewPage() {
                                 >
                                     <Col
                                         xs={24}
+                                        lg={section.image ? 16 : 24}
                                     >
                                         <div
                                             style={{
@@ -99,6 +111,23 @@ export default function PoliciesViewPage() {
                                             >{section.text}</p>
                                         </div>
                                     </Col>
+                                    {
+                                        section.image && (
+                                            <Col
+                                                xs={0}
+                                                lg={8}
+                                            >
+                                                <img
+                                                    src={section.image}
+                                                    style={{
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        objectFit: 'cover',
+                                                    }}
+                                                />
+                                            </Col>
+                                        )
+                                    }
                                 </Row>
                             </Card>
                         </Col>

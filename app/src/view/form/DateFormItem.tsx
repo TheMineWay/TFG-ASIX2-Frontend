@@ -11,7 +11,7 @@ type Props = {
 
 export default function DateFormItem(props: Props) {
     return (
-        <Form.Item name={props.name} label={props.label} required={props.required && !props.requiredInvisibility}>
+        <Form.Item name={props.name} label={props.label} required={props.required}>
             <DatePicker
                 style={{width: '100%'}}
                 disabledDate={(d) => !d || (!!props.min && d.isBefore(props.min)) || (!!props.max && d.isAfter(props.max))}

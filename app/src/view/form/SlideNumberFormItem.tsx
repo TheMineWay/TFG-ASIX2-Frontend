@@ -11,7 +11,7 @@ type Props = {
 
 export default function SlideNumberFormItem(props: Props) {
     return (
-        <Form.Item name={props.name} label={props.label} required={props.required && !props.requiredInvisibility}>
+        <Form.Item name={props.name} label={props.label} required={props.required}>
             <Slider
                 style={{width: '100%'}}
                 min={props.min ?? 0}

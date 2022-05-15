@@ -13,7 +13,7 @@ type Props = {
 
 export default function TextAreaFormItem(props: Props) {
     return (
-        <Form.Item name={props.name} label={props.label} required={props.required && !props.requiredInvisibility}>
+        <Form.Item name={props.name} label={props.label} required={props.required}>
             <Input.TextArea
                 placeholder={props.placeholder}
                 showCount={props.showCount}

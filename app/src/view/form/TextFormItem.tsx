@@ -14,7 +14,7 @@ type Props = {
 
 export default function TextFormItem(props: Props) {
     return (
-        <Form.Item name={props.name} label={props.label} required={props.required} requiredMark={!props.requiredInvisibility}>
+        <Form.Item name={props.name} label={props.label} required={props.required}>
             <Input
                 showCount={props.showCount}
                 prefix={props.icon}

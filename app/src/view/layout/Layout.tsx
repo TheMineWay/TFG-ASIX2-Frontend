@@ -1,6 +1,6 @@
 import { Layout } from "antd";
 import { Content } from "antd/lib/layout/layout";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import BaseHeader from "./Header";
 import './layout.css';
 import ReactGA from 'react-ga';
@@ -16,7 +16,12 @@ type Props = {
 export default function BaseLayout(props: Props) {
 
     const location = useLocation();
+    const [height, setHeight] = useState<number>(window.innerHeight);
     
+    useEffect(() => {
+        window.addEventListener('resize', () => setHeight(window.innerHeight));
+    }, []);
+
     useEffect(() => {
         ReactGA.pageview(location.pathname);
     }, [location.pathname]);
@@ -24,7 +29,7 @@ export default function BaseLayout(props: Props) {
     return (
         <Layout>
             <BaseHeader/>
-            <Content style={{minHeight: window.innerHeight - 135}}>
+            <Content style={{minHeight: height - 135}}>
                 <div
                     className="site-layout-content"
                 >

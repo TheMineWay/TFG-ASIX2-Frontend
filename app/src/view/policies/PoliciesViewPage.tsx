@@ -30,7 +30,20 @@ const sections: PolicySection[] = [
             </>
         ),
         image: require('../../resources/policy/data-store.jpg'),
-    }
+    },
+    {
+        id: 'use-of-info',
+        text: (
+            <>
+                <p>{t('view.policies.sections.use-of-info.P-1')}</p>
+                <GenerateList
+                    id="use-of-info"
+                    ids={['1', '2']}
+                />
+            </>
+        ),
+        image: require('../../resources/policy/stats.jpg'),
+    },
 ];
 
 export default function PoliciesViewPage() {

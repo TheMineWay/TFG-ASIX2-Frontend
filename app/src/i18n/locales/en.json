@@ -1,7 +1,8 @@
 {
     "languages": {
         "ca": "Catalan",
-        "es": "Spanish"
+        "es": "Spanish",
+        "en": "English"
     },
     "actions": {
         "GoHome": "Go to the main page"
@@ -46,10 +47,65 @@
             },
             "requestsList": {
                 "Title": "Orders placed"
+            },
+            "contactForm": {
+                "Title": "Contact form"
             }
         }
     },
     "view": {
+        "cookiesMessage": {
+            "Title": "Cookies notice",
+            "Message": "Aquest lloc web fa servir cookies per tal de funcionar i poder proporcionar el millor servei. També les vem servir per recolectar estadístiques, pots deshabilitar-les si ho prefereixes.",
+            "actions": {
+                "Allow": "Allow",
+                "Deny": "Reject"
+            }
+        },
+        "contactForm": {
+            "Title": "Contact with us",
+            "brand": {
+                "Title": "We want to know about you",
+                "MessageL1": "Ens agrada conèixer les teves inquietuds per tal d'ajudar-te sempre que sigui possible. Fes servir el nostre formulari de contacte per er-nos arribar un missatge. No cal que disposis d'un compre a la web per poder fer-lo servir.",
+                "MessageL2": "Acostumem a trigar pocs dies a contestar-te, però tingues en compte que, depenent de la consulta realitzada, podem trigar més temps."
+            },
+            "form": {
+                "fields": {
+                    "Name": "Name",
+                    "Message": "Message",
+                    "Submit": "Send"
+                },
+                "result": {
+                    "Title": "Message sent",
+                    "Subtitle": "Your message has been sent and will be revised soon",
+                    "SendAnother": "Send another"
+                }
+            },
+            "admin": {
+                "states": {
+                    "Read": "Read",
+                    "NotRead": "Not read"
+                },
+                "actions": {
+                    "delete": {
+                        "Title": "Are you sure you want to delete the item?"
+                    },
+                    "recover": {
+                        "Title": "Are you sure you want to recover the item?"
+                    },
+                    "MarkAsOpened": "Mark as read",
+                    "MarkAsUnopened": "Mark as unread"
+                },
+                "filters": {
+                    "ShowDeleted": "Display deleted"
+                },
+                "viewItem": {
+                    "Email": "Email",
+                    "Name": "Name",
+                    "Message": "Message"
+                }
+            }
+        },
         "opinions": {
             "Title": "Community opinions",
             "notification": {
@@ -77,6 +133,45 @@
                         "Title": "We make it look easy",
                         "Description": "We put a lot of effort in order to provide an intuitive and agile user interface."
                     }
+                }
+            },
+            "sections": {
+                "weOffer": {
+                    "Title": "What do we offer?",
+                    "all-from-home": {
+                        "Title": "A 100% online service",
+                        "Description": "Sol·licita els teus discs fent servir l'eina online que pots trobar en aquesta web. No cal que vagis a recollir el teu disc a cap botiga física, nosaltres ens encarreguem de portar-te el disc a casa totalment de franc."
+                    },
+                    "customized-disks": {
+                        "Title": "Customized disks",
+                        "Description": "Crea el teu propi disc a partir del software del nostre inventari. No hauràs d'instal·lar tots els teus programes, nosaltres ens encarreguem de tot."
+                    },
+                    "any-device": {
+                        "Title": "Accessible from anywhere",
+                        "Description": "Accedeix al teu compte fent servir qualsevol navegador web, desde qualsevol dispositiu i desde qualsevol lloc del mon. A més a més, la web s'ha traduït a tres idiomes diferents."
+                    },
+                    "business": {
+                        "Title": "Service for businesses",
+                        "Description": "Oferim un tracte especial per a empreses. Si la teva empresa necessita sol·licitar els nostres serveis pot fer-ho a través de la web o pot contactar amb nosaltres. Oferim descomptes, agilitat amb els tràmits i confiança."
+                    }
+                },
+                "professionals": {
+                    "Title": "Our professionals",
+                    "list": {
+                        "joel-campos": {
+                            "Description": "Sóc el Junior DevOps de l'equip. M'encarrego del manteniment i actualització de l'aplicació web. Tinc experiència amb cloud computing services, llenguatges de programació i metodologies."
+                        },
+                        "iker-torres": {
+                            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
+                        },
+                        "juanjo-romero": {
+                            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
+                        }
+                    }
+                },
+                "video": {
+                    "Title": "Our service",
+                    "Description": "Coneix quins serveis oferim i com pots fer servir la web per sol·licitar-los veient aquest video. Al canal hi trobaràs molts videos relacionats amb el servei (novetats, noticies, actualitzacions, etc)."
                 }
             }
         },
@@ -129,7 +224,11 @@
             }
         },
         "languageSelector": {
-            "Title": "Language selector"
+            "Title": "Language selector",
+            "reloadPopConfirm": {
+                "Title": "Do you want to apply the language?",
+                "Description": "If you are filling a form you will lose all data that has not been sent."
+            }
         },
         "userAdmin": {
             "userTable": {
@@ -441,5 +540,13 @@
         "empty": {
             "Description": "There is no data"
         }
+    },
+    "share": {
+        "Title": "Share website",
+        "Text": "Share our website with all your contacts!"
+    },
+    "footer": {
+        "Privacy": "Privacy policy",
+        "Share": "Share"
     }
 }

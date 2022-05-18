@@ -50,6 +50,9 @@
             },
             "contactForm": {
                 "Title": "Formulari de contacte"
+            },
+            "roles": {
+                "Title": "Administrar rols"
             }
         }
     },

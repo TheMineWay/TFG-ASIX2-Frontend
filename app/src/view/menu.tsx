@@ -1,4 +1,4 @@
-import { BarcodeOutlined, BuildOutlined, ContainerOutlined, DollarOutlined, HomeOutlined, InboxOutlined, ThunderboltOutlined, ToolOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons";
+import { AuditOutlined, BarcodeOutlined, BuildOutlined, ContainerOutlined, DollarOutlined, HomeOutlined, InboxOutlined, ThunderboltOutlined, ToolOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons";
 import { Permissions } from "../services/security/permissions";
 
 export type MenuOption = {
@@ -35,7 +35,7 @@ const menuOptions: MenuOption[] = [
                 text: 'payments',
                 path: '/admin/payments',
                 key: 'adminPayments',
-                icon: <DollarOutlined/>,
+                icon: <DollarOutlined />,
                 permissions: [Permissions.adminPayments],
             },
             {
@@ -44,6 +44,13 @@ const menuOptions: MenuOption[] = [
                 key: 'users',
                 icon: <UserOutlined />,
                 permissions: [Permissions.adminUsers],
+            },
+            {
+                text: 'roles',
+                path: '/admin/roles',
+                key: 'roles',
+                icon: <AuditOutlined />,
+                permissions: [Permissions.adminRoles],
             },
             {
                 text: 'logs',
@@ -56,36 +63,36 @@ const menuOptions: MenuOption[] = [
                 text: 'requests',
                 path: '/admin/disk-requests',
                 key: 'adminRequests',
-                icon: <BarcodeOutlined/>,
+                icon: <BarcodeOutlined />,
                 permissions: [Permissions.adminDiskRequests],
             },
             {
                 text: 'contactForm',
                 path: '/admin/contact-form',
                 key: 'contactForm',
-                icon: <ContainerOutlined/>,
+                icon: <ContainerOutlined />,
                 permissions: [Permissions.adminContactForm],
-            }
+            },
         ],
     },
     {
         text: 'requests',
         key: 'requests',
-        icon: <ThunderboltOutlined/>,
+        icon: <ThunderboltOutlined />,
         requiresAuth: true,
         children: [
             {
                 text: 'diskRequest',
                 path: '/disk-request',
                 key: 'disk-request',
-                icon: <BuildOutlined/>,
+                icon: <BuildOutlined />,
                 requiresAuth: true,
             },
             {
                 text: 'requestsList',
                 key: 'requestsList',
                 path: '/disk-request/list',
-                icon: <UnorderedListOutlined/>,
+                icon: <UnorderedListOutlined />,
                 requiresAuth: true,
             },
         ],

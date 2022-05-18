@@ -1,6 +1,8 @@
 import { Col, Drawer, Row, Switch } from 'antd';
+import useAuthState from '../../../hooks/auth/useAuthState';
 import useRoles, { Role } from '../../../hooks/roles/useRoles';
 import useUsers from '../../../hooks/user/useUsers';
+import request from '../../../services/api/Request';
 import Loading from '../../shared/Loading';
 import UserDisplay from '../../shared/UserDisplay';
 
@@ -14,10 +16,10 @@ export default function AdminUserRolesEditorDrawer(props: Props) {
     const users = useUsers();
     const roles = useRoles();
 
+    const [authState] = useAuthState();
+
     const loading = roles.loading;
 
-    console.log(roles.roles);
-    console.log(props.user?.roles);
     const RoleSelect = (p: { role: Role }) => (
         <Col
             span={12}
@@ -27,12 +29,22 @@ export default function AdminUserRolesEditorDrawer(props: Props) {
             }}
         >
             <Switch
-                onChange={(v) => { }}
+                onChange={async (v) => {
+                    await setRole(p.role.id, v);
+                }}
                 defaultChecked={props.user?.roles.includes(p.role.id)}
             />
             <p>{p.role.name}</p>
         </Col>
     );
+
+    async function setRole(roleId: string, action: boolean) {
+        await request<{}>('post', '/actions/admin/users/setUserRole', {
+            userId: props.user!.user,
+            roleId,
+            action: action ? '1' : '0',
+        }, { authCredentials: authState });
+    }
 
     return (
         <Drawer

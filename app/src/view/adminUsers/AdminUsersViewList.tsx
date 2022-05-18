@@ -10,6 +10,7 @@ import { listFilter } from '../../services/filters/genericFilter';
 import DateDisplay from '../shared/DateDisplay';
 import RoleTag from '../shared/RoleTag';
 import AdminUserProfileEditorDrawer from './userEditor/AdminUserProfileEditorDrawer';
+import AdminUserRolesEditorDrawer from './userEditor/AdminUserRolesEditorDrawer';
 
 const { Column } = Table;
 
@@ -29,6 +30,7 @@ export default function AdminUsersViewList(props: Props) {
     const loading = props.userAdmin.loading || userRoles.loading;
 
     const [userEditor, setUserEditor] = useState<UserModel>();
+    const [userRoleEditor, setUserRoleEditor] = useState<{user: string, roles: string[]}>();
 
     const Filters = (): JSX.Element => {
 
@@ -109,6 +111,18 @@ export default function AdminUsersViewList(props: Props) {
             </Popconfirm>
         );
 
+        const EditRoles = () => (
+            <Button
+                type='link'
+                onClick={() => {
+                    setUserRoleEditor({
+                        user: props.row.id,
+                        roles: userRoles?.userRoles[props.row.id]?.map((r) => r.role) ?? [],
+                    });
+                }}
+            >{tr('view.userAdmin.userTable.actions.EditRoles')}</Button>
+        );
+
         return (
             <Space>
                 <Button type='link'
@@ -116,6 +130,7 @@ export default function AdminUsersViewList(props: Props) {
                 >{tr('view.userAdmin.userTable.actions.Edit')}</Button>
                 <Delete />
                 <Ban />
+                <EditRoles/>
             </Space>
         );
     };
@@ -128,6 +143,11 @@ export default function AdminUsersViewList(props: Props) {
                 hide={() => setUserEditor(undefined)}
             />
 
+            <AdminUserRolesEditorDrawer
+                user={userRoleEditor}
+                hide={() => setUserRoleEditor(undefined)}
+            />
+
             <Row gutter={[24, 24]}>
                 <Col span={24}>
                     <Card>
@@ -138,6 +158,7 @@ export default function AdminUsersViewList(props: Props) {
                     <Table
                         dataSource={usersList}
                         loading={loading}
+                        scroll={{x: '100%'}}
                     >
                         <Column
                             title={t('Avatar')}
@@ -193,6 +214,7 @@ export default function AdminUsersViewList(props: Props) {
                             render={(d: Date) => <DateDisplay includeSeconds>{d}</DateDisplay>}
                         />
                         <Column
+                            fixed='right'
                             title={t('Actions')}
                             render={(v, row: UserModel) => <UserActions row={row} />}
                         />

@@ -2,10 +2,13 @@ import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Card, Col, Input, Popconfirm, Row, Space, Table } from 'antd';
 import { t as tr } from 'i18next';
 import { useState } from 'react';
+import useRoles from '../../hooks/roles/useRoles';
 import { UserAdmin } from '../../hooks/user/useUserAdmin';
+import useUserRoles from '../../hooks/user/useUserRoles';
 import { UserModel } from '../../services/auth/User.model';
 import { listFilter } from '../../services/filters/genericFilter';
 import DateDisplay from '../shared/DateDisplay';
+import RoleTag from '../shared/RoleTag';
 import AdminUserProfileEditorDrawer from './userEditor/AdminUserProfileEditorDrawer';
 
 const { Column } = Table;
@@ -18,9 +21,12 @@ export default function AdminUsersViewList(props: Props) {
 
     const t = (id: string): string => tr(`view.userAdmin.userTable.headers.${id}`);
 
+    const userRoles = useUserRoles();
+    const roles = useRoles();
+
     const [searchFilter, setSearchFilter] = useState<string>('');
     const usersList = props.userAdmin.userList.list?.filter((u) => listFilter([u.name, u.lastName, u.email, u.login], searchFilter));
-    const loading = props.userAdmin.loading;
+    const loading = props.userAdmin.loading || userRoles.loading;
 
     const [userEditor, setUserEditor] = useState<UserModel>();
 
@@ -157,6 +163,17 @@ export default function AdminUsersViewList(props: Props) {
                             title={t('CreatedAt')}
                             dataIndex='createdAt'
                             render={(d: Date) => <DateDisplay includeSeconds>{d}</DateDisplay>}
+                        />
+                        <Column
+                            title={t('Roles')}
+                            dataIndex='id'
+                            render={(id: string) => (
+                                <>
+                                    {
+                                        userRoles.userRoles[id]?.map((role) => <RoleTag name={roles.roles?.find((r) => r.id === role.role)?.name}/>)
+                                    }
+                                </>
+                            )}
                         />
                         <Column
                             title={t('DeletedAt')}

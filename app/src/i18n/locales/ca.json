@@ -279,7 +279,8 @@
                     "Email": "Correu electrònic",
                     "DeletedAt": "Esborrat el",
                     "CreatedAt": "Creat el",
-                    "Actions": "Accions"
+                    "Actions": "Accions",
+                    "Roles": "Rols"
                 },
                 "filters": {
                     "NeverDeleted": "No esborrats",

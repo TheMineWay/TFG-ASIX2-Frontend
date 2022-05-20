@@ -1,6 +1,6 @@
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import { Card, Col, Row, Select, Switch } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAdminRoles from "../../hooks/roles/useAdminRoles";
 import Loading from "../shared/Loading";
 import NoData from "../shared/NoData";
@@ -12,6 +12,17 @@ export default function AdminRolesViewPage() {
     } = useAdminRoles();
 
     const [selectedRole, setSelectedRole] = useState<string | undefined>();
+    const [selectedPerms, setSelectedPerms] = useState<string[]>([]);
+
+    useEffect(() => {
+        const role = roles?.find((r) => r.id === selectedRole);
+        if(!role) {
+            setSelectedPerms([]);
+            return;
+        }
+
+        setSelectedPerms(role.permissions);
+    }, [selectedRole]);
 
     if (!roles || !permissions) return <Loading />
 
@@ -65,6 +76,7 @@ export default function AdminRolesViewPage() {
                             <Switch
                                 checkedChildren={<CheckOutlined />}
                                 unCheckedChildren={<CloseOutlined />}
+                                checked={selectedPerms.includes(perm.id)}
                             />
                             <>{perm.name}</>
                         </Card>

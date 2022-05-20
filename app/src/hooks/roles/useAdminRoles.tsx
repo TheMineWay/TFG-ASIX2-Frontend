@@ -51,7 +51,8 @@ export default function useAdminRoles() {
     }
 
     async function deleteRole(id: string) {
-
+        await request<{}>('post', '/actions/admin/roles/delete', { id }, { authCredentials: authState });
+        await fetchRoles();
     }
 
     return {

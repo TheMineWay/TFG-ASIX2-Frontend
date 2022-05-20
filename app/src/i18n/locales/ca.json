@@ -58,6 +58,9 @@
     },
     "view": {
         "adminRoles": {
+            "confirmDelete": {
+                "Title": "Segur que vols esborrar el rol?"
+            },
             "create": {
                 "Title": "Crear rol",
                 "form": {
@@ -583,7 +586,8 @@
             "ChangeProfileImage": "Modificar avatar",
             "Send": "Enviar",
             "Create": "Crear",
-            "Add": "Afegir"
+            "Add": "Afegir",
+            "Delete": "Esborrar"
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat",

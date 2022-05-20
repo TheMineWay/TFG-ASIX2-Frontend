@@ -1,10 +1,11 @@
-import { CheckOutlined, CloseOutlined, PlusOutlined, SaveOutlined } from "@ant-design/icons";
+import { CheckOutlined, CloseOutlined, DeleteOutlined, PlusOutlined, SaveOutlined } from "@ant-design/icons";
 import { Button, Card, Col, Row, Select, Space, Switch } from "antd";
 import { t } from "i18next";
 import { useEffect, useState } from "react";
 import useAdminRoles from "../../hooks/roles/useAdminRoles";
 import Loading from "../shared/Loading";
 import NoData from "../shared/NoData";
+import Popconfirm from "../shared/Popconfirm";
 import AdminRolesCreateRoleDrawer from "./AdminRolesCreateRoleDrawer";
 
 export default function AdminRolesViewPage() {
@@ -155,6 +156,22 @@ export default function AdminRolesViewPage() {
                                     >
                                         {t('common.actions.Save')}
                                     </Button>
+                                    <Popconfirm
+                                        disabled={!selectedRole}
+                                        onOk={async () => {
+                                            await deleteRole(selectedRole ?? '');
+                                            setSelectedRole(undefined);
+                                        }}
+                                        title={t('view.adminRoles.confirmDelete.Title')}
+                                    >
+                                        <Button
+                                            disabled={!selectedRole}
+                                            icon={<DeleteOutlined />}
+                                            type='primary'
+                                        >
+                                            {t('common.actions.Delete')}
+                                        </Button>
+                                    </Popconfirm>
                                     <Button
                                         icon={<PlusOutlined />}
                                         type='primary'

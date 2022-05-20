@@ -9,7 +9,7 @@ import useRoles from "./useRoles";
 export default function useAdminRoles() {
 
     const { permissions, convertByPermissionId } = usePermissions();
-    const { roles } = useRoles();
+    const { roles, fetch: fetchRoles } = useRoles();
     const [loadingState, setLoadingState] = useState<{ [role: string]: boolean }>({});
 
     function isLoading(id: string): boolean {
@@ -46,7 +46,8 @@ export default function useAdminRoles() {
     }
 
     async function createRole(name: string) {
-        
+        await request<{}>('post', '/actions/admin/roles/create', { name }, { authCredentials: authState });
+        await fetchRoles();
     }
 
     async function deleteRole(id: string) {

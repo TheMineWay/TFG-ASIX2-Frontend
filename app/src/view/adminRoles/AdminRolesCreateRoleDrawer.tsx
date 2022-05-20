@@ -21,7 +21,8 @@ export default function AdminRolesCreateRoleDrawer(props: Props) {
     const submit = async (values: { name: string }) => {
         setLoading(true);
         try {
-            props.createRole(values.name);
+            await props.createRole(values.name);
+            props.hide();
         } catch(e: any) {
             notificationErrorDisplay(e);
         }

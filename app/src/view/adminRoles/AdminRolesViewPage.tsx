@@ -77,6 +77,21 @@ export default function AdminRolesViewPage() {
                                 checkedChildren={<CheckOutlined />}
                                 unCheckedChildren={<CloseOutlined />}
                                 checked={selectedPerms.includes(perm.id)}
+                                onChange={(v) => {
+                                    if(v) {
+                                        const list = selectedPerms;
+                                        list.push(perm.id);
+
+                                        setSelectedPerms([
+                                            ...list,
+                                        ]);
+                                    } else {
+                                        const list = selectedPerms.filter((p) => p !== perm.id);
+                                        setSelectedPerms([
+                                            ...list,
+                                        ]);
+                                    }
+                                }}
                             />
                             <>{perm.name}</>
                         </Card>

@@ -1,10 +1,11 @@
-import { CheckOutlined, CloseOutlined, SaveOutlined } from "@ant-design/icons";
-import { Button, Card, Col, Row, Select, Switch } from "antd";
+import { CheckOutlined, CloseOutlined, PlusOutlined, SaveOutlined } from "@ant-design/icons";
+import { Button, Card, Col, Row, Select, Space, Switch } from "antd";
 import { t } from "i18next";
 import { useEffect, useState } from "react";
 import useAdminRoles from "../../hooks/roles/useAdminRoles";
 import Loading from "../shared/Loading";
 import NoData from "../shared/NoData";
+import AdminRolesCreateRoleDrawer from "./AdminRolesCreateRoleDrawer";
 
 export default function AdminRolesViewPage() {
     const {
@@ -12,10 +13,13 @@ export default function AdminRolesViewPage() {
         roles,
         setRolePermissions,
         isLoading,
+        createRole,
+        deleteRole,
     } = useAdminRoles();
 
     const [selectedRole, setSelectedRole] = useState<string | undefined>();
     const [selectedPerms, setSelectedPerms] = useState<string[]>([]);
+    const [createVisible, setCreateVisible] = useState<boolean>(false);
 
     useEffect(() => {
         const role = roles?.find((r) => r.id === selectedRole);
@@ -39,14 +43,14 @@ export default function AdminRolesViewPage() {
         >
             {
                 roles
-                .filter((role) => !role.superadmin)
-                .map((role) => (
-                    <Select.Option
-                        key={role.id}
-                    >
-                        {role.name}
-                    </Select.Option>
-                ))
+                    .filter((role) => !role.superadmin)
+                    .map((role) => (
+                        <Select.Option
+                            key={role.id}
+                        >
+                            {role.name}
+                        </Select.Option>
+                    ))
             }
         </Select>
     );
@@ -107,56 +111,72 @@ export default function AdminRolesViewPage() {
     );
 
     const onSave = async () => {
-        if(!selectedRole || !selectedPerms) return;
+        if (!selectedRole || !selectedPerms) return;
         await setRolePermissions(selectedRole, selectedPerms);
     }
 
     return (
-        <Row
-            gutter={[24, 24]}
-        >
-            <Col span={24}>
-                <Card>
-                    <Row
-                        gutter={[12, 12]}
-                        justify='center'
-                    >
-                        <Col
-                            xs={24}
-                            sm={12}
-                            lg={6}
-                            xl={4}
+        <>
+            <AdminRolesCreateRoleDrawer
+                visible={createVisible}
+                hide={() => setCreateVisible(false)}
+                createRole={createRole}
+            />
+            <Row
+                gutter={[24, 24]}
+            >
+                <Col span={24}>
+                    <Card>
+                        <Row
+                            gutter={[12, 12]}
+                            justify='center'
                         >
-                            <RolesSelect />
-                        </Col>
-                        <Col
-                            xs={24}
-                            sm={12}
-                            lg={6}
-                            xl={4}
-                        >
-                            <Button
-                                disabled={!selectedRole}
-                                icon={<SaveOutlined/>}
-                                type='primary'
-                                onClick={onSave}
-                                loading={isLoading(selectedRole ?? '')}
+                            <Col
+                                xs={24}
+                                sm={12}
+                                lg={6}
+                                xl={4}
                             >
-                                {t('common.actions.Save')}
-                            </Button>
+                                <RolesSelect />
+                            </Col>
+                            <Col
+                                xs={24}
+                                sm={12}
+                                lg={6}
+                                xl={4}
+                            >
+                                <Space>
+                                    <Button
+                                        disabled={!selectedRole}
+                                        icon={<SaveOutlined />}
+                                        type='primary'
+                                        onClick={onSave}
+                                        loading={isLoading(selectedRole ?? '')}
+                                    >
+                                        {t('common.actions.Save')}
+                                    </Button>
+                                    <Button
+                                        icon={<PlusOutlined />}
+                                        type='primary'
+                                        onClick={() => setCreateVisible(true)}
+                                    >
+                                        {t('common.actions.Create')}
+                                    </Button>
+                                </Space>
+                            </Col>
+                        </Row>
+                    </Card>
+                </Col>
+                {
+                    selectedRole ? (
+                        <Col span={24}>
+                            <PermissionSelector />
                         </Col>
-                    </Row>
-                </Card>
-            </Col>
-            {
-                selectedRole ? (
-                    <Col span={24}>
-                        <PermissionSelector />
-                    </Col>
-                ) : (
-                    <NoData />
-                )
-            }
-        </Row>
+                    ) : (
+                        <NoData />
+                    )
+                }
+            </Row>
+        </>
     );
 }

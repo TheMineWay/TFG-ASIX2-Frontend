@@ -57,6 +57,15 @@
         }
     },
     "view": {
+        "adminRoles": {
+            "create": {
+                "Title": "Crear rol",
+                "form": {
+                    "Name": "Nom del rol",
+                    "Create": "Crear"
+                }
+            }
+        },
         "policies": {
             "Title": "Polítiques de privacitat",
             "sections": {

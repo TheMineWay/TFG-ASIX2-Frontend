@@ -45,11 +45,21 @@ export default function useAdminRoles() {
         setLoading(role, false);
     }
 
+    async function createRole(name: string) {
+        
+    }
+
+    async function deleteRole(id: string) {
+
+    }
+
     return {
         permissionsByRole,
         roles,
         permissions,
         setRolePermissions,
         isLoading,
+        createRole,
+        deleteRole,
     }
 }

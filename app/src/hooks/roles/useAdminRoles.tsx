@@ -35,10 +35,10 @@ export default function useAdminRoles() {
         return r.permissions.map(convertByPermissionId);
     }
 
-    async function setRolePermissions(role: string, permissions: Permission[]) {
+    async function setRolePermissions(role: string, permissions: string[]) {
         setLoading(role);
         try {
-            await request<{}>('post', '/actions/admin/roles/setPermissions', { role, permissions: permissions.map((p) => p.id) }, { authCredentials: authState });
+            await request<{}>('post', '/actions/admin/roles/setPermissions', { role, permissions }, { authCredentials: authState });
         } catch (e: any) {
             notificationErrorDisplay(e);
         }
@@ -50,5 +50,6 @@ export default function useAdminRoles() {
         roles,
         permissions,
         setRolePermissions,
+        isLoading,
     }
 }

@@ -47,13 +47,13 @@ export default function AdminDiskRequestsList(props: Props) {
         <Switch
             checked={stateFilters.includes(switchProps.state)}
             onChange={(v) => {
-                if(v && !stateFilters.includes(switchProps.state)) {
+                if (v && !stateFilters.includes(switchProps.state)) {
                     setStateFilters([
                         ...stateFilters,
                         switchProps.state,
                     ]);
                 } else if (true) {
-                    if(!v && stateFilters.includes(switchProps.state)) {
+                    if (!v && stateFilters.includes(switchProps.state)) {
                         const list = stateFilters;
                         delete list[list.findIndex((i) => i === switchProps.state)];
 
@@ -69,7 +69,11 @@ export default function AdminDiskRequestsList(props: Props) {
     return (
         <Row gutter={[24, 24]}>
             <Col span={24}>
-                <Card>
+                <Card
+                    style={{
+
+                    }}
+                >
                     <Row gutter={[6, 6]}>
                         {
                             (['sent', 'delivered', 'processing', 'pending'] as DiskRequestState[]).map((state) => (
@@ -98,8 +102,16 @@ export default function AdminDiskRequestsList(props: Props) {
                                         xs={24}
                                         lg={12}
                                         xxl={6}
+                                        style={{
+                                            display: 'flex',
+                                            width: '100%',
+                                            alignItems: 'stretch',
+                                        }}
                                     >
                                         <Card
+                                            style={{
+                                                width: '100%',
+                                            }}
                                             hoverable
                                             title={
                                                 <Row

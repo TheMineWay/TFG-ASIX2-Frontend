@@ -1,5 +1,6 @@
-import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
-import { Card, Col, Row, Select, Switch } from "antd";
+import { CheckOutlined, CloseOutlined, SaveOutlined } from "@ant-design/icons";
+import { Button, Card, Col, Row, Select, Switch } from "antd";
+import { t } from "i18next";
 import { useEffect, useState } from "react";
 import useAdminRoles from "../../hooks/roles/useAdminRoles";
 import Loading from "../shared/Loading";
@@ -9,6 +10,8 @@ export default function AdminRolesViewPage() {
     const {
         permissions,
         roles,
+        setRolePermissions,
+        isLoading,
     } = useAdminRoles();
 
     const [selectedRole, setSelectedRole] = useState<string | undefined>();
@@ -16,7 +19,7 @@ export default function AdminRolesViewPage() {
 
     useEffect(() => {
         const role = roles?.find((r) => r.id === selectedRole);
-        if(!role) {
+        if (!role) {
             setSelectedPerms([]);
             return;
         }
@@ -78,7 +81,7 @@ export default function AdminRolesViewPage() {
                                 unCheckedChildren={<CloseOutlined />}
                                 checked={selectedPerms.includes(perm.id)}
                                 onChange={(v) => {
-                                    if(v) {
+                                    if (v) {
                                         const list = selectedPerms;
                                         list.push(perm.id);
 
@@ -101,6 +104,11 @@ export default function AdminRolesViewPage() {
         </Row>
     );
 
+    const onSave = async () => {
+        if(!selectedRole || !selectedPerms) return;
+        await setRolePermissions(selectedRole, selectedPerms);
+    }
+
     return (
         <Row
             gutter={[24, 24]}
@@ -119,6 +127,22 @@ export default function AdminRolesViewPage() {
                         >
                             <RolesSelect />
                         </Col>
+                        <Col
+                            xs={24}
+                            sm={12}
+                            lg={6}
+                            xl={4}
+                        >
+                            <Button
+                                disabled={!selectedRole}
+                                icon={<SaveOutlined/>}
+                                type='primary'
+                                onClick={onSave}
+                                loading={isLoading(selectedRole ?? '')}
+                            >
+                                {t('common.actions.Save')}
+                            </Button>
+                        </Col>
                     </Row>
                 </Card>
             </Col>
@@ -128,7 +152,7 @@ export default function AdminRolesViewPage() {
                         <PermissionSelector />
                     </Col>
                 ) : (
-                    <NoData/>
+                    <NoData />
                 )
             }
         </Row>

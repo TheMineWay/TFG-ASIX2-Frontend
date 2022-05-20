@@ -38,7 +38,9 @@ export default function AdminRolesViewPage() {
             value={selectedRole}
         >
             {
-                roles.map((role) => (
+                roles
+                .filter((role) => !role.superadmin)
+                .map((role) => (
                     <Select.Option
                         key={role.id}
                     >

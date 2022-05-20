@@ -7,16 +7,21 @@ type RawRole = {
     id: string;
     name: string;
     permissions: string[];
+    superadmin: "1" | "0";
 }
 
 export type Role = {
     id: string;
     name: string;
     permissions: string[];
+    superadmin: boolean;
 }
 
 export function processRawRole(raw: RawRole): Role {
-    return raw;
+    return {
+        ...raw,
+        superadmin: raw.superadmin === '1',
+    };
 }
 
 export default function useRoles() {

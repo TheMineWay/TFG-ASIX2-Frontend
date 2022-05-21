@@ -1,13 +1,13 @@
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { Form, Upload } from 'antd';
-import { UploadChangeParam } from 'antd/lib/upload';
 import { useState } from 'react';
+import { getBaseUrl } from '../../conf/conf';
 import useAuthState from '../../hooks/auth/useAuthState';
-import request from '../../services/api/Request';
 import notificationErrorDisplay from '../errors/display/NotificationErrorDisplay';
 
 type Props = {
     name: string;
+    url?: string;
 }
 
 export default function AvatarFormItem(props: Props) {
@@ -42,16 +42,10 @@ export default function AvatarFormItem(props: Props) {
         </div>
     );
 
-    const handleChange = (data: UploadChangeParam): void => {
-        console.log(data);
-    }
+    const actionUrl = () => {
+        if(!props.url) return undefined;
 
-    const submit = async (values: any): Promise<void> => {
-        await request('post', '/me/updateAvatar', {
-            file: values
-        }, {
-            authCredentials: authState,
-        });
+        return getBaseUrl() + props.url;
     }
 
     return (
@@ -64,8 +58,7 @@ export default function AvatarFormItem(props: Props) {
                 className="avatar-uploader"
                 showUploadList={false}
                 beforeUpload={beforeUpload}
-                onChange={handleChange}
-                customRequest={submit}
+                action={actionUrl()}
             >
                 {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
             </Upload>

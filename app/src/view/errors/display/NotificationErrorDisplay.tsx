@@ -1,6 +1,5 @@
-import { notification } from 'antd'
+import { notification } from 'antd';
 import { t } from 'i18next';
-import React from 'react'
 import { ErrorResponse } from '../../../services/api/Request';
 
 export default function notificationErrorDisplay(error: ErrorResponse) {

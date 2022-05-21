@@ -50,10 +50,25 @@
             },
             "contactForm": {
                 "Title": "Formulari de contacte"
+            },
+            "roles": {
+                "Title": "Administrar rols"
             }
         }
     },
     "view": {
+        "adminRoles": {
+            "confirmDelete": {
+                "Title": "Segur que vols esborrar el rol?"
+            },
+            "create": {
+                "Title": "Crear rol",
+                "form": {
+                    "Name": "Nom del rol",
+                    "Create": "Crear"
+                }
+            }
+        },
         "policies": {
             "Title": "Polítiques de privacitat",
             "sections": {
@@ -276,7 +291,8 @@
                     "Email": "Correu electrònic",
                     "DeletedAt": "Esborrat el",
                     "CreatedAt": "Creat el",
-                    "Actions": "Accions"
+                    "Actions": "Accions",
+                    "Roles": "Rols"
                 },
                 "filters": {
                     "NeverDeleted": "No esborrats",
@@ -291,7 +307,8 @@
                     "SureToDelete": "Segur que vols esborrar l'usuari?",
                     "SureToRecover": "Segur que vols restaurar l'usuari?",
                     "SureToBan": "Segur que vols bloquejar l'usuari?",
-                    "SureToUnban": "Segur que vols desbloquejar l'usuari?"
+                    "SureToUnban": "Segur que vols desbloquejar l'usuari?",
+                    "EditRoles": "Editar rols"
                 }
             }
         },
@@ -522,6 +539,10 @@
             "406": {
                 "Title": "Error de format",
                 "Message": "El servidor informa de que el format de les dades no és correcte"
+            },
+            "403": {
+                "Title": "Petició no autoritzada",
+                "Message": "Prova a recarregar la pàgina i torna-ho a intentar"
             }
         }
     },
@@ -565,7 +586,8 @@
             "ChangeProfileImage": "Modificar avatar",
             "Send": "Enviar",
             "Create": "Crear",
-            "Add": "Afegir"
+            "Add": "Afegir",
+            "Delete": "Esborrar"
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat",

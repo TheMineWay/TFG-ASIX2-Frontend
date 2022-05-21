@@ -2,11 +2,15 @@ import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Card, Col, Input, Popconfirm, Row, Space, Table } from 'antd';
 import { t as tr } from 'i18next';
 import { useState } from 'react';
+import useRoles from '../../hooks/roles/useRoles';
 import { UserAdmin } from '../../hooks/user/useUserAdmin';
+import useUserRoles from '../../hooks/user/useUserRoles';
 import { UserModel } from '../../services/auth/User.model';
 import { listFilter } from '../../services/filters/genericFilter';
 import DateDisplay from '../shared/DateDisplay';
+import RoleTag from '../shared/RoleTag';
 import AdminUserProfileEditorDrawer from './userEditor/AdminUserProfileEditorDrawer';
+import AdminUserRolesEditorDrawer from './userEditor/AdminUserRolesEditorDrawer';
 
 const { Column } = Table;
 
@@ -18,11 +22,15 @@ export default function AdminUsersViewList(props: Props) {
 
     const t = (id: string): string => tr(`view.userAdmin.userTable.headers.${id}`);
 
+    const userRoles = useUserRoles();
+    const roles = useRoles();
+
     const [searchFilter, setSearchFilter] = useState<string>('');
     const usersList = props.userAdmin.userList.list?.filter((u) => listFilter([u.name, u.lastName, u.email, u.login], searchFilter));
-    const loading = props.userAdmin.loading;
+    const loading = props.userAdmin.loading || userRoles.loading;
 
     const [userEditor, setUserEditor] = useState<UserModel>();
+    const [userRoleEditor, setUserRoleEditor] = useState<{user: string, roles: string[]}>();
 
     const Filters = (): JSX.Element => {
 
@@ -103,6 +111,18 @@ export default function AdminUsersViewList(props: Props) {
             </Popconfirm>
         );
 
+        const EditRoles = () => (
+            <Button
+                type='link'
+                onClick={() => {
+                    setUserRoleEditor({
+                        user: props.row.id,
+                        roles: userRoles?.userRoles[props.row.id]?.map((r) => r.role) ?? [],
+                    });
+                }}
+            >{tr('view.userAdmin.userTable.actions.EditRoles')}</Button>
+        );
+
         return (
             <Space>
                 <Button type='link'
@@ -110,6 +130,7 @@ export default function AdminUsersViewList(props: Props) {
                 >{tr('view.userAdmin.userTable.actions.Edit')}</Button>
                 <Delete />
                 <Ban />
+                <EditRoles/>
             </Space>
         );
     };
@@ -122,6 +143,11 @@ export default function AdminUsersViewList(props: Props) {
                 hide={() => setUserEditor(undefined)}
             />
 
+            <AdminUserRolesEditorDrawer
+                user={userRoleEditor}
+                hide={() => setUserRoleEditor(undefined)}
+            />
+
             <Row gutter={[24, 24]}>
                 <Col span={24}>
                     <Card>
@@ -132,6 +158,7 @@ export default function AdminUsersViewList(props: Props) {
                     <Table
                         dataSource={usersList}
                         loading={loading}
+                        scroll={{x: '100%'}}
                     >
                         <Column
                             title={t('Avatar')}
@@ -159,6 +186,17 @@ export default function AdminUsersViewList(props: Props) {
                             render={(d: Date) => <DateDisplay includeSeconds>{d}</DateDisplay>}
                         />
                         <Column
+                            title={t('Roles')}
+                            dataIndex='id'
+                            render={(id: string) => (
+                                <>
+                                    {
+                                        userRoles.userRoles[id]?.map((role) => <RoleTag name={roles.roles?.find((r) => r.id === role.role)?.name}/>)
+                                    }
+                                </>
+                            )}
+                        />
+                        <Column
                             title={t('DeletedAt')}
                             dataIndex='deletedAt'
                             filters={[
@@ -176,6 +214,7 @@ export default function AdminUsersViewList(props: Props) {
                             render={(d: Date) => <DateDisplay includeSeconds>{d}</DateDisplay>}
                         />
                         <Column
+                            fixed='right'
                             title={t('Actions')}
                             render={(v, row: UserModel) => <UserActions row={row} />}
                         />

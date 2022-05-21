@@ -546,6 +546,12 @@
             }
         }
     },
+    "warnings": {
+        "cors": {
+            "Title": "Incompatibilitat amb CORS",
+            "Message": "Aquesta funcionalitat és icompatible amb el CORS establert. En un futur funcionarà. Disculpeu-nos!"
+        }
+    },
     "common": {
         "form": {
             "Username": "Nom d'usuari",

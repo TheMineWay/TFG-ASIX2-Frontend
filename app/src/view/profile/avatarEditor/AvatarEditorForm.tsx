@@ -19,6 +19,7 @@ export default function AvatarEditorForm() {
         >
             <AvatarFormItem
                 name='avatar'
+                url='/actions/me/uploadAvatar'
             />
         </Form>
     );

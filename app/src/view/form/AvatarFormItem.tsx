@@ -1,5 +1,6 @@
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import { Form, Upload } from 'antd';
+import { Alert, Form, Upload } from 'antd';
+import { t } from 'i18next';
 import { useState } from 'react';
 import { getBaseUrl } from '../../conf/conf';
 import useAuthState from '../../hooks/auth/useAuthState';
@@ -43,7 +44,7 @@ export default function AvatarFormItem(props: Props) {
     );
 
     const actionUrl = () => {
-        if(!props.url) return undefined;
+        if (!props.url) return undefined;
 
         return getBaseUrl() + props.url;
     }
@@ -52,7 +53,19 @@ export default function AvatarFormItem(props: Props) {
         <Form.Item
             name={props.name}
         >
+            <Alert
+                type='warning'
+                showIcon
+                message={(
+                    <>
+                        <b>{t('warnings.cors.Title')}</b>
+                        <p>{t('warnings.cors.Message')}</p>
+                    </>
+                )}
+            />
+            <br/>
             <Upload
+                disabled
                 name="avatar"
                 listType="picture-card"
                 className="avatar-uploader"

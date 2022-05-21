@@ -53,6 +53,9 @@
             },
             "roles": {
                 "Title": "Administrar rols"
+            },
+            "aboutUs": {
+                "Title": "Sobre nosaltres"
             }
         }
     },

@@ -81,7 +81,11 @@ const routes: Route[] = [
         loader: () => import('../view/adminRoles/AdminRolesViewPage'),
         requiresAuth: true,
         permissions: [Permissions.adminRoles],
-    }
+    },
+    {
+        path: '/about-us',
+        loader: () => import('../view/aboutUs/AboutUsViewPage'),
+    },
 ];
 
 export default routes;

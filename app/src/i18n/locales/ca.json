@@ -599,7 +599,8 @@
             "privacyPolicy": "polítiques de privacitat",
             "Timezone": "Zona horaria",
             "Yes": "Sí",
-            "No": "No"
+            "No": "No",
+            "WithoutIva": "Sense IVA"
         },
         "empty": {
             "Description": "No hi han dades"

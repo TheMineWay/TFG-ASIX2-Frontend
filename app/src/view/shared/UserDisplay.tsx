@@ -1,5 +1,6 @@
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, List, Tooltip } from "antd";
+import { getBaseUrl } from "../../conf/conf";
 import { UseUsers } from "../../hooks/user/useUsers";
 
 type Props = {
@@ -21,7 +22,7 @@ export default function UserDisplay(props: Props) {
                     >
                         <List.Item>
                             <List.Item.Meta
-                                avatar={<Avatar icon={<UserOutlined/>}/>}
+                                avatar={<Avatar src={getBaseUrl() + "/uploads/avatars/" + user.id} icon={<UserOutlined/>}/>}
                                 title={`${user?.name} ${user?.lastName}`}
                                 description={`${user?.email}`}
                             />

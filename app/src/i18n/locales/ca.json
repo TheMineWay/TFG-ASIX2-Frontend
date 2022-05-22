@@ -562,7 +562,7 @@
     "warnings": {
         "cors": {
             "Title": "Incompatibilitat amb CORS",
-            "Message": "Aquesta funcionalitat és icompatible amb el CORS establert. En un futur funcionarà. Disculpeu-nos!"
+            "Message": "Aquesta funcionalitat és icompatible amb el CORS establert. És per això que la pujada de l'avatar es fa a través d'un formulari incrustat. Disculpeu les molèsties."
         }
     },
     "common": {

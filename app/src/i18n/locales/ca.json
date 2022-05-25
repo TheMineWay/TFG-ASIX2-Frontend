@@ -65,7 +65,7 @@
                 "Title": "Què oferim?",
                 "content": {
                     "p1": "Oferim un servei de personalització i distribució de discs i imatges de sistema. És un servei que, inicialment, pot semblar el mateix que ofereixen empreses de consultoria, res més lluny, ja que el nostre servei es caracteritza per la simplicitat i familiaritat d’ús.",
-                    "p2": "Per sol·licitar el nostre servei, només cal dirigir-se al nostre portal web on, mitjançant una interfície visual i User friendly (no calen coneixements avançats per fer-la servir), els nostres usuaris poden escollir el software (sistema operatiu, programes d’ús general, drivers que poden necessitar, etc) i el hardware (principalment el tipus de disc: HDD, SSD, M.2, etc).",
+                    "p2": "Per sol·licitar el nostre servei, només us heu de dirigir al nostre portal web on, mitjançant una interfície visual i User friendly (no calen coneixements avançats per fer-la servir), els nostres usuaris poden escollir el software (sistema operatiu, programes d’ús general, drivers que poden necessitar, etc) i el hardware (principalment el tipus de disc: HDD, SSD, M.2, etc).",
                     "p3": "Les despeses d'enviament sempre corren a càrrect nostre."
                 }
             }
@@ -185,7 +185,7 @@
         },
         "mainPage": {
             "carousel": {
-                "slides":{
+                "slides": {
                     "grand-opening": {
                         "Title": "Gran obertura",
                         "Description": "Inaugurem el nostre servei oferint grans descomptes. Aprofita'ls!"
@@ -208,12 +208,12 @@
                         "Description": "Crea el teu propi disc a partir del software del nostre inventari. No hauràs d'instal·lar tots els teus programes, nosaltres ens encarreguem de tot."
                     },
                     "any-device": {
-                        "Title": "Accesible desde tot arreu",
-                        "Description": "Accedeix al teu compte fent servir qualsevol navegador web, desde qualsevol dispositiu i desde qualsevol lloc del mon. A més a més, la web s'ha traduït a tres idiomes diferents."
+                        "Title": "Accesible des de tot arreu",
+                        "Description": "Accedeix al teu compte fent servir qualsevol navegador web, des de qualsevol dispositiu i des de qualsevol lloc del mon. A més a més, la web s'ha traduït a tres idiomes diferents."
                     },
                     "business": {
                         "Title": "Serveis per a empreses",
-                        "Description": "Oferim un tracte especial per a empreses. Si la teva empresa necessita sol·licitar els nostres serveis pot fer-ho a través de la web o pot contactar amb nosaltres. Oferim descomptes, agilitat amb els tràmits i confiança."
+                        "Description": "Oferim condicions especials per a empreses. Si la teva empresa necessita sol·licitar els nostres serveis pot fer-ho a través de la web o pot contactar amb nosaltres. Oferim descomptes, agilitat amb els tràmits i confiança."
                     }
                 },
                 "professionals": {
@@ -313,7 +313,7 @@
                 },
                 "actions": {
                     "Delete": "Esborrar",
-                    "Edit":"Editar",
+                    "Edit": "Editar",
                     "Recover": "Recuperar",
                     "Ban": "Bloquejar",
                     "Unban": "Desbloquejar",
@@ -625,6 +625,7 @@
     },
     "footer": {
         "Privacy": "Polítiques de privacitat",
-        "Share": "Compartir"
+        "Share": "Compartir",
+        "Edu": "Aquesta web s'ha creat com a projecte de final de grau. Els serveis oferits a la web són ficticis. No compartim les teves dades amb ningú."
     }
 }

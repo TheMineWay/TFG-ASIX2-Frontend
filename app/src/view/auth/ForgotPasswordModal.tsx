@@ -2,6 +2,7 @@ import { Button, Form, Modal, Space } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import { t } from 'i18next';
 import { useEffect, useState } from 'react';
+import request from '../../services/api/Request';
 import notificationErrorDisplay from '../errors/display/NotificationErrorDisplay';
 import EmailFormItem from '../form/EmailFormItem';
 import SubmitFormItem from '../form/SubmitFormItem';
@@ -23,7 +24,7 @@ export default function ForgotPasswordModal(props: Props) {
     const submit = async (values: { email: string }) => {
         setLoading(true);
         try {
-
+            const result = await request<{}>('post', '/actions/auth/recoverPassword', values);
         } catch(e: any) {
             notificationErrorDisplay(e);
         }
@@ -42,7 +43,7 @@ export default function ForgotPasswordModal(props: Props) {
                 onFinish={submit}
             >
                 <EmailFormItem
-                    name={t('common.form.Email')}
+                    name='email'
                     required
                 />
                 <p

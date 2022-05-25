@@ -536,6 +536,10 @@
             "401": {
                 "Title": "No es pot iniciar sessió",
                 "Message": "No s'ha autoritzat l'inici de sessió. Es possible que el compte estigui bloquejat."
+            },
+            "429": {
+                "Title": "Has realitzat massa sol·licituds",
+                "Message": "Has d'esperar un temps abans de tornar a realitzar aquesta sol·licitud ja que l'has realitzada massa vegades."
             }
         },
         "form": {

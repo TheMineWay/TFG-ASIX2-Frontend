@@ -606,14 +606,17 @@
             "Send": "Enviar",
             "Create": "Crear",
             "Add": "Afegir",
-            "Delete": "Esborrar"
+            "Delete": "Esborrar",
+            "Recover": "Recuperar"
         },
         "other": {
             "privacyPolicy": "polítiques de privacitat",
             "Timezone": "Zona horaria",
             "Yes": "Sí",
             "No": "No",
-            "WithoutIva": "Sense IVA"
+            "WithoutIva": "Sense IVA",
+            "ForgotPassword": "Has oblidat la teva contrasenya?",
+            "ForgotPasswordInfo": "S'enviarà un correu electrònic a l'adreça indicada amb un enllaç per recuperar el compte."
         },
         "empty": {
             "Description": "No hi han dades"

@@ -86,6 +86,10 @@ const routes: Route[] = [
         path: '/about-us',
         loader: () => import('../view/aboutUs/AboutUsViewPage'),
     },
+    {
+        path: '/recover/:token',
+        loader: () => import('../view/mainPage/MainPage'),
+    },
 ];
 
 export default routes;

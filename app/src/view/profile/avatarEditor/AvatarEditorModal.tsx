@@ -36,6 +36,9 @@ export default function AvatarEditorModal(props: Props) {
             />
             <br />
             <iframe
+                style={{
+                    width: '100%'
+                }}
                 src={getBaseUrl() + `/actions/me/uploadAvatarForm.php?&session=${authState?.session}`}
             />
         </Modal>

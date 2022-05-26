@@ -90,6 +90,10 @@ const routes: Route[] = [
         path: '/recover/:token',
         loader: () => import('../view/mainPage/MainPage'),
     },
+    {
+        path: '/products',
+        loader: () => import('../view/products/ProductsViewPage'),
+    },
 ];
 
 export default routes;

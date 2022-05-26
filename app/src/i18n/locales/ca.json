@@ -56,6 +56,9 @@
             },
             "aboutUs": {
                 "Title": "Sobre nosaltres"
+            },
+            "products": {
+                "Title": "Productes"
             }
         }
     },
@@ -226,7 +229,7 @@
                             "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
                         },
                         "juanjo-romero": {
-                            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
+                            "Description": "Activitats dirigides a analitzar, dissenyar, desenvolupar, instal·lar i mantenir programari d'aplicació prenent com a base els requeriments de l'usuari."
                         }
                     }
                 },

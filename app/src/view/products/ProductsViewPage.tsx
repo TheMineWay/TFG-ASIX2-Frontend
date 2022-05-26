@@ -15,8 +15,6 @@ export default function InventoryViewPage() {
 
     const [keyword, setKeyword] = useState<string>();
 
-    if (loading) return <Loading />;
-
     const filteredInventory = inventory?.sort((a, b) => a.description.length > b.description.length ? -1 : 1).filter((v) => listFilter([v.description, v.name], keyword ?? ''));
 
     const TypeBadge = (props: { isDrive: boolean, children: JSX.Element }) => {
@@ -53,7 +51,10 @@ export default function InventoryViewPage() {
                     </Card>
                 </Col>
                 {
-                    filteredInventory?.map((item) => (
+                    loading ? (
+                        <Loading/>
+                    )
+                    : ( filteredInventory?.map((item) => (
                         <Col
                             xs={12}
                             lg={6}
@@ -123,7 +124,7 @@ export default function InventoryViewPage() {
                                 </Card>
                             </TypeBadge>
                         </Col>
-                    ))
+                    )))
                 }
             </Row>
         </Container>

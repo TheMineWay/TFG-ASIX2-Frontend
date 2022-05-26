@@ -6,8 +6,15 @@ type Props = {
 
 export default function Loading(props: Props) {
     return (
-        <Spin
-            size={props.size}
-        />
+        <div
+            style={{
+                width: '100%',
+                textAlign: 'center',
+            }}
+        >
+            <Spin
+                size={props.size}
+            />
+        </div>
     );
 }

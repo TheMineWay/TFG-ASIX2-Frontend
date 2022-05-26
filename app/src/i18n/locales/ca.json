@@ -85,6 +85,10 @@
                     "build": {
                         "Title": "Muntatge del disc",
                         "Text": "El nostre equip de professionals s'encarrega d'instal·lar i configurar el disc sol·licitat. És un procés de dureació variable (depén de les característiques de la sol·licitud)."
+                    },
+                    "send": {
+                        "Title": "Enviament",
+                        "Text": "El disc s'envia a la direcció indicada durant la sol·licitud del disc. Les despeses d'enviament sempre corren a càrrec nostre."
                     }
                 }
             }

@@ -20,6 +20,10 @@ export default function AboutUsServiceSteps() {
             key: 'build',
             image: require('../../resources/aboutUs/serviceSteps/build.jpg'),
         },
+        {
+            key: 'send',
+            image: require('../../resources/aboutUs/serviceSteps/send.jpg'),
+        },
     ];
 
     return (
@@ -57,7 +61,11 @@ export default function AboutUsServiceSteps() {
                                                 fontWeight: 'bold',
                                             }}
                                         >{t(`view.aboutUs.serviceSteps.steps.${i.key}.Title`)}</h3>
-                                        <p>{t(`view.aboutUs.serviceSteps.steps.${i.key}.Text`)}</p>
+                                        <p
+                                            style={{
+                                                textAlign: 'justify',
+                                            }}
+                                        >{t(`view.aboutUs.serviceSteps.steps.${i.key}.Text`)}</p>
                                     </div>
                                 </Col>
                                 <Col

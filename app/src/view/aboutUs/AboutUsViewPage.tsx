@@ -3,6 +3,7 @@ import { t } from "i18next";
 import Container from "../shared/Container";
 import SectionTitle from "../shared/SectionTitle";
 import AboutUsServiceSteps from "./AboutUsServiceSteps";
+import './AboutUsViewPage.css';
 
 export default function AboutUsViewPage() {
     return (

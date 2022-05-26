@@ -2,6 +2,7 @@ import { Col, Row } from "antd";
 import { t } from "i18next";
 import Container from "../shared/Container";
 import SectionTitle from "../shared/SectionTitle";
+import AboutUsServiceSteps from "./AboutUsServiceSteps";
 
 export default function AboutUsViewPage() {
     return (
@@ -46,6 +47,22 @@ export default function AboutUsViewPage() {
                                     height: '100%',
                                 }}
                             />
+                        </Col>
+                    </Row>
+                </Col>
+                <Col
+                    span={24}
+                >
+                    <Row
+                        gutter={[24, 24]}
+                    >
+                        <Col span={24}>
+                            <SectionTitle>{t('view.aboutUs.serviceSteps.Title')}</SectionTitle>
+                        </Col>
+                        <Col
+                            span={24}
+                        >
+                            <AboutUsServiceSteps />
                         </Col>
                     </Row>
                 </Col>

@@ -74,6 +74,19 @@
                     "p2": "Per sol·licitar el nostre servei, només us heu de dirigir al nostre portal web on, mitjançant una interfície visual i User friendly (no calen coneixements avançats per fer-la servir), els nostres usuaris poden escollir el software (sistema operatiu, programes d’ús general, drivers que poden necessitar, etc) i el hardware (principalment el tipus de disc: HDD, SSD, M.2, etc).",
                     "p3": "Les despeses d'enviament sempre corren a càrrect nostre."
                 }
+            },
+            "serviceSteps": {
+                "Title": "Com funciona el nostre servei?",
+                "steps": {
+                    "request": {
+                        "Title": "Sol·licitud del disc",
+                        "Text": "Mitjançant la nostra eina web pots sol·licitar un disc personalitzat que s'adapti a les teves necesistats. Molts dels seleccionables són gratuïts."
+                    },
+                    "build": {
+                        "Title": "Muntatge del disc",
+                        "Text": "El nostre equip de professionals s'encarrega d'instal·lar i configurar el disc sol·licitat. És un procés de dureació variable (depén de les característiques de la sol·licitud)."
+                    }
+                }
             }
         },
         "adminRoles": {

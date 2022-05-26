@@ -63,6 +63,9 @@
         }
     },
     "view": {
+        "products": {
+            "Title": "Productes disponibles"
+        },
         "aboutUs": {
             "service": {
                 "Title": "Què oferim?",

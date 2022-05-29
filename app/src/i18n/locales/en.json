@@ -58,13 +58,13 @@
                 "Title": "About us"
             },
             "products": {
-                "Title": "Productes"
+                "Title": "Products"
             }
         }
     },
     "view": {
         "products": {
-            "Title": "Productes disponibles"
+            "Title": "Available products"
         },
         "aboutUs": {
             "service": {
@@ -76,19 +76,19 @@
                 }
             },
             "serviceSteps": {
-                "Title": "Com funciona el nostre servei?",
+                "Title": "How does our service work?",
                 "steps": {
                     "request": {
-                        "Title": "Sol·licitud del disc",
-                        "Text": "Mitjançant la nostra eina web pots sol·licitar un disc personalitzat que s'adapti a les teves necesistats. Molts dels seleccionables són gratuïts."
+                        "Title": "Request disk",
+                        "Text": "With our web tool you can request a custom disc that suits your needs. Many of the selectable ones are free."
                     },
                     "build": {
-                        "Title": "Muntatge del disc",
-                        "Text": "El nostre equip de professionals s'encarrega d'instal·lar i configurar el disc sol·licitat. És un procés de dureació variable (depén de les característiques de la sol·licitud)."
+                        "Title": "Disk assembly",
+                        "Text": "Our team of professionals is responsible for installing and configuring the requested disk. It is a process of variable duration (depending on the characteristics of the application)."
                     },
                     "send": {
-                        "Title": "Enviament",
-                        "Text": "El disc s'envia a la direcció indicada durant la sol·licitud del disc. Les despeses d'enviament sempre corren a càrrec nostre."
+                        "Title": "Shipping",
+                        "Text": "The disc is sent to the address indicated during the disc request. Shipping costs are always borne by us."
                     }
                 }
             }
@@ -246,10 +246,10 @@
                             "Description": "I'm the Junior DevOps of the team. I take care of the maintenance and updating of the web application. I have experience with cloud computing services, programming languages ​​and methodologies."
                         },
                         "iker-torres": {
-                            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
+                            "Description": "I'm Iker, the team's networking technician. I am in charge of maintaining the network and managing the backups of our customers."
                         },
                         "juanjo-romero": {
-                            "Description": "Activitats dirigides a analitzar, dissenyar, desenvolupar, instal·lar i mantenir programari d'aplicació prenent com a base els requeriments de l'usuari."
+                            "Description": "Activities aimed at analyzing, designing, developing, installing and maintaining application software based on user requirements."
                         }
                     }
                 },

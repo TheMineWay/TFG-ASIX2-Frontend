@@ -58,7 +58,7 @@ export default function InventoryViewPage() {
                         <Col
                             xs={12}
                             lg={6}
-                            xl={4}
+                            xxl={4}
                             style={{
                                 display: 'flex',
                                 alignItems: 'stretch',
@@ -79,9 +79,11 @@ export default function InventoryViewPage() {
                                     )}
                                     style={{
                                         height: '100%',
+                                        width: '100%',
                                     }}
                                     bodyStyle={{
                                         maxHeight: '100%',
+                                        width: '100%',
                                     }}
                                 >
                                     <div

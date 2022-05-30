@@ -45,8 +45,8 @@ export default async function request<T>(method: 'get' | 'post', route: string, 
         };
 
         if(error.section === 'sess') {
-            document.cookie = "authCredentials=";
-            window.location.reload();
+            //document.cookie = "authCredentials=";
+            //window.location.reload();
         }
 
         throw error;

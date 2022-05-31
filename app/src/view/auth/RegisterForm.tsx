@@ -117,6 +117,7 @@ export default function RegisterForm(props: Props) {
                         label={t('common.form.Birthdate')}
                         required requiredInvisibility
                         max={moment().subtract(14, 'years').toDate()}
+                        min={moment().subtract(130, 'years').toDate()}
                     />
                 </Col>
             </Row>

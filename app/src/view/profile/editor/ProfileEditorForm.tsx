@@ -2,6 +2,7 @@ import { SaveOutlined } from '@ant-design/icons'
 import { Col, Form, Row } from 'antd'
 import { useForm } from 'antd/lib/form/Form'
 import { t } from 'i18next';
+import moment from 'moment';
 import useUserProfile from '../../../hooks/user/useUserProfile';
 import { UserModel } from '../../../services/auth/User.model'
 import notificationErrorDisplay from '../../errors/display/NotificationErrorDisplay';
@@ -68,6 +69,8 @@ export default function ProfileEditorForm() {
                 <DateFormItem
                     name='birthdate'
                     label={t('common.form.Birthdate')}
+                    max={moment().subtract(14, 'years').toDate()}
+                    min={moment().subtract(130, 'years').toDate()}
                 />
 
                 <Row gutter={[12, 12]}>

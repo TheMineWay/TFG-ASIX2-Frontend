@@ -1,6 +1,7 @@
 import { SaveOutlined } from '@ant-design/icons'
 import { Col, Form, Row } from 'antd'
 import { useForm } from 'antd/lib/form/Form'
+import { isPhoneNumber } from 'class-validator';
 import { t } from 'i18next';
 import moment from 'moment';
 import useUserProfile from '../../../hooks/user/useUserProfile';
@@ -31,6 +32,12 @@ export default function ProfileEditorForm() {
 
     const submit = async (values: UserEditFormValues): Promise<void> => {
         try {
+            if(!isPhoneNumber(values.phone)) {
+                throw {
+                    section: 'frontend',
+                    code: '406'
+                };
+            }
             await userProfile.update(values);
         } catch (e: any) {
             notificationErrorDisplay(e);

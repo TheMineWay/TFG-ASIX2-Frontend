@@ -1,5 +1,6 @@
 import { IdcardOutlined } from '@ant-design/icons';
 import { Col, Form, FormInstance, Row, Space } from 'antd';
+import { isPhoneNumber } from 'class-validator';
 import { t } from 'i18next';
 import moment from 'moment';
 import { useState } from 'react';
@@ -42,6 +43,14 @@ export default function RegisterForm(props: Props) {
     const submit = async (values: SignupRequest) => {
         setLoading(true);
         try {
+
+            if(!isPhoneNumber(values.phone)) {
+                throw {
+                    section: 'frontend',
+                    code: '406'
+                };
+            }
+
             if (!values.policy) {
                 throw {
                     code: 'must-accept-policy',

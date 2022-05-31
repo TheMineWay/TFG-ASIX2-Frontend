@@ -29,7 +29,7 @@ export default function PhoneFormItem(props: Props) {
                 prefix={<PhoneOutlined />}
                 type='text'
                 required={props.required}
-                placeholder='+34 555 55 55'
+                placeholder='+34555555555'
                 maxLength={12}
             />
         </Form.Item>

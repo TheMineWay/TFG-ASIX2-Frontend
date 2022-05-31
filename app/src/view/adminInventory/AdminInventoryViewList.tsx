@@ -142,6 +142,8 @@ export default function AdminInventoryViewList() {
                             onFilter={(v, row: InventoryItem) => ((v === 'deleted' && row.deletedAt) || (v === 'neverDeleted' && !row.deletedAt)) ? true : false}
                         />
                         <Column
+                            fixed='right'
+                            width={150}
                             title={t('view.inventory.list.headers.Actions')}
                             render={(v: any, row: InventoryItem) => <Actions item={row} />}
                         />

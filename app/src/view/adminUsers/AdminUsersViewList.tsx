@@ -159,7 +159,6 @@ export default function AdminUsersViewList(props: Props) {
                     <Table
                         dataSource={usersList}
                         loading={loading}
-                        scroll={{x: '100%'}}
                     >
                         <Column
                             title={t('Avatar')}
@@ -216,7 +215,6 @@ export default function AdminUsersViewList(props: Props) {
                             render={(d: Date) => <DateDisplay includeSeconds>{d}</DateDisplay>}
                         />
                         <Column
-                            fixed='right'
                             title={t('Actions')}
                             render={(v, row: UserModel) => <UserActions row={row} />}
                         />

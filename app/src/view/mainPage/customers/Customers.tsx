@@ -14,13 +14,18 @@ const customers: Customer[] = [
         link: 'https://theportalwiki.com/wiki/Main_Page',
         name: 'Aperture Laboratories',
     },
+    {
+        logo: require('../../../resources/mainPage/customers/nft-seekers.png'),
+        link: 'http://seekersnft.000webhostapp.com/',
+        name: 'NFT Seekers',
+    },
 ];
 
 export default function Customers() {
     return (
         <Row
             justify="center"
-            gutter={[24, 24]}
+            gutter={[48, 48]}
         >
             <Col span={24}>
                 <SectionTitle>{t('view.mainPage.sections.customers.Title')}</SectionTitle>

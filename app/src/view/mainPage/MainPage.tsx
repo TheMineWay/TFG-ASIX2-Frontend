@@ -6,6 +6,8 @@ import ViewPublicOpinions from './opinions/ViewPublicOpinions';
 import OurProfessionalsCardGrid from './ourProfessionals/OurProfessionalsCardGrid';
 import WeOfferView from './weOffer/WeOfferView';
 import Customers from './customers/Customers';
+import { useParams } from 'react-router-dom';
+import RecoverPasswordModal from '../auth/RecoverPasswordModal';
 
 const sections: JSX.Element[] = [
     <AnnouncesCarousel />,
@@ -17,8 +19,14 @@ const sections: JSX.Element[] = [
 ];
 
 export default function MainPage() {
+
+    const { token } = useParams();
+
     return (
         <>
+            <RecoverPasswordModal
+                token={token}
+            />
             <BackTop/>
             <Row
                 justify='center'

@@ -1,5 +1,5 @@
 import { FacebookFilled, InstagramOutlined, TwitterOutlined, YoutubeFilled, LinkedinFilled, ShareAltOutlined } from "@ant-design/icons";
-import { Button, Col, Layout, Row } from "antd";
+import { Alert, Button, Col, Layout, Row } from "antd";
 import { t } from "i18next";
 import { Link } from "react-router-dom";
 import shareWebsite, { canShare } from "../../services/share/ShareService";
@@ -112,6 +112,16 @@ export default function Footer() {
                     >
                         {t('footer.Privacy')}
                     </Link>
+                </Col>
+                <Col
+                    span={24}
+                >
+                    <Alert
+                        message={t('footer.Edu')}
+                        type='info'
+                        showIcon
+                        closable
+                    />
                 </Col>
             </Row>
         </AntdFooter>

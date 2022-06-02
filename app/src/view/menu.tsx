@@ -1,4 +1,4 @@
-import { AuditOutlined, BarcodeOutlined, BuildOutlined, ContainerOutlined, DollarOutlined, HomeOutlined, InboxOutlined, ThunderboltOutlined, ToolOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons";
+import { AuditOutlined, BarcodeOutlined, BuildOutlined, ContainerOutlined, DollarOutlined, HddOutlined, HomeOutlined, InboxOutlined, ReadOutlined, ThunderboltOutlined, ToolOutlined, UnorderedListOutlined, UserOutlined } from "@ant-design/icons";
 import { Permissions } from "../services/security/permissions";
 
 export type MenuOption = {
@@ -17,6 +17,18 @@ const menuOptions: MenuOption[] = [
         path: '/',
         key: 'main',
         icon: <HomeOutlined />,
+    },
+    {
+        text: 'aboutUs',
+        path: '/about-us',
+        key: 'aboutUs',
+        icon: <ReadOutlined/>,
+    },
+    {
+        text: 'products',
+        path: '/products',
+        key: 'products',
+        icon: <HddOutlined/>,
     },
     {
         text: 'admin',

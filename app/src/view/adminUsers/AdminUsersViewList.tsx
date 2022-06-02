@@ -2,6 +2,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Card, Col, Input, Popconfirm, Row, Space, Table } from 'antd';
 import { t as tr } from 'i18next';
 import { useState } from 'react';
+import { getBaseUrl } from '../../conf/conf';
 import useRoles from '../../hooks/roles/useRoles';
 import { UserAdmin } from '../../hooks/user/useUserAdmin';
 import useUserRoles from '../../hooks/user/useUserRoles';
@@ -158,11 +159,11 @@ export default function AdminUsersViewList(props: Props) {
                     <Table
                         dataSource={usersList}
                         loading={loading}
-                        scroll={{x: '100%'}}
                     >
                         <Column
                             title={t('Avatar')}
-                            render={() => <Avatar icon={<UserOutlined />} />}
+                            dataIndex='id'
+                            render={(id: string) => <Avatar src={getBaseUrl() + "/uploads/avatars/" + id} icon={<UserOutlined />} />}
                         />
                         <Column
                             title={t('Id')}
@@ -214,7 +215,6 @@ export default function AdminUsersViewList(props: Props) {
                             render={(d: Date) => <DateDisplay includeSeconds>{d}</DateDisplay>}
                         />
                         <Column
-                            fixed='right'
                             title={t('Actions')}
                             render={(v, row: UserModel) => <UserActions row={row} />}
                         />

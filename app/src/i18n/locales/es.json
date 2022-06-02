@@ -50,13 +50,97 @@
             },
             "contactForm": {
                 "Title": "Formulario de contacto"
+            },
+            "roles": {
+                "Title": "Administrar roles"
+            },
+            "aboutUs": {
+                "Title": "Sobre nosotros"
+            },
+            "products": {
+                "Title": "Productos"
             }
         }
     },
     "view": {
+        "products": {
+            "Title": "Productos disponibles"
+        },
+        "aboutUs": {
+            "service": {
+                "Title": "¿Qué ofrecemos?",
+                "content": {
+                    "p1": "Ofrecemos un servicio de personalización y distribución de discos e imágenes de sistema. Es un servicio que, inicialmente, puede parecer el mismo que ofrecen empresas de consultoría, nada más lejos, puesto que nuestro servicio se caracteriza por la simplicidad y familiaridad de uso.",
+                    "p2": "Para solicitar nuestro servicio, sólo tiene que dirigirse a nuestro portal web donde, mediante una interfaz visual y User friendly (no hacen falta conocimientos avanzados para utilizarla), nuestros usuarios pueden escoger el software (sistema operativo, programas uso general, drivers que pueden necesitar, etc) y el hardware (principalmente el tipo de disco: HDD, SSD, M.2, etc).",
+                    "p3": "Los gastos de envío siempre corren a nuestro cargo."
+                }
+            },
+            "serviceSteps": {
+                "Title": "¿Cómo funciona nuestro servicio?",
+                "steps": {
+                    "request": {
+                        "Title": "Solicitud de disco",
+                        "Text": "Mediante nuestra herramienta web puedes solicitar un disco personalizado que se adapte a tus necesidades. Muchos de los seleccionables son gratuitos."
+                    },
+                    "build": {
+                        "Title": "Montaje del disco",
+                        "Text": "Nuestro equipo de profesionales se encarga de instalar y configurar el disco solicitado. Es un proceso de dureación variable (depende de las características de la solicitud)."
+                    },
+                    "send": {
+                        "Title": "Envío",
+                        "Text": "El disco se envía a la dirección indicada durante la solicitud del disco. Los gastos de envío siempre corren a nuestro cargo."
+                    }
+                }
+            }
+        },
+        "adminRoles": {
+            "confirmDelete": {
+                "Title": "¿Seguro que quieres borrar el rol?"
+            },
+            "create": {
+                "Title": "Crear rol",
+                "form": {
+                    "Name": "Nombre del rol",
+                    "Create": "Crear"
+                }
+            }
+        },
+        "policies": {
+            "Title": "Políticas de privacidad",
+            "sections": {
+                "provided-info": {
+                    "Title": "Información que nos proporcionas",
+                    "P-1": "Para utilizar algunos de nuestros productos y servicios, es necesario que tenga una cuenta, y para crear una, debe proporcionarnos cierta información. Del mismo modo, si utiliza nuestros productos y servicios de pago, no podemos proporcionarlos sin obtener información de pago. Básicamente, cierta información es necesaria si desea utilizar muchos de nuestros productos y servicios.",
+                    "li": {
+                        "1": {
+                            "Label": "Cuentas personales",
+                            "Text": "Si crea una cuenta, deberá proporcionarnos alguna información para que podamos ofrecerle nuestros servicios. Esto incluye un nombre de visualización; un nombre de usuario (por ejemplo, @RoxieHart); una contraseña; una dirección de correo electrónico o un número de teléfono; una fecha de nacimiento; su idioma de visualización; e información de inicio de sesión único de terceros (si elige este método de inicio de sesión). También puede optar por compartir su ubicación en su perfil y en los tuits, y colgar su libreta de direcciones en Twitter para ayudar a encontrar a personas que puede conocer. La información de su perfil, que incluye su nombre de visualización y nombre de usuario, siempre es pública, pero puede utilizar su nombre real o un seudónimo. Y recuerde que puede crear varias cuentas de Twitter, por ejemplo, para expresar diferentes partes de su identidad, profesional o no."
+                        },
+                        "2": {
+                            "Label": "Información de los pagos",
+                            "Text": "Para comprar deberá proporcionarnos información de pago, incluido su número de tarjeta de crédito o débito, la fecha de caducidad de la tarjeta, el código CVV y la dirección de facturación. Estos datos nunca se almacenan sin cifrar y no son accesibles por el personal de Plugandwork."
+                        }
+                    }
+                },
+                "use-of-info": {
+                    "Title": "Uso de la información proporcionada",
+                    "P-1": "Cuando utiliza nuestros servicios, recopilamos información sobre cómo utiliza nuestros servicios y generar estadísticas. Utilizamos esta información para ofrecerle productos y servicios, para ayudar a mantener Plugandwork más seguro y respetuoso para todos, y más relevante para ustedes. Información que recopilamos:",
+                    "li": {
+                        "1": {
+                            "Label": "Tecnología",
+                            "Text": "Recopilamos la versión del sistema operativo, el modelo del teléfono, las características diferenciadoras del dispositivo, el idioma del sistema, la ubicación e información demográfica. Esto nos permite tomar decisiones como por ejemplo, con qué dispositivos debemos realizar pruebas, etc."
+                        },
+                        "2": {
+                            "Label": "Dirección IP",
+                            "Text": "Por motivos de seguridad, algunas acciones como por ejemplo los inicios de sesión almacenan la dirección IP para poder conocer quién realiza estas acciones."
+                        }
+                    }
+                }
+            }
+        },
         "cookiesMessage": {
             "Title": "Aviso de cookies",
-            "Message": "Este sitio web utiliza cookies para poder funcionar i poder proporcionar el mejor servicio posible. También las utilizamos para recolectar estadísticas, puedes deshabilitarlas si lo prefieres.",
+            "Message": "Este sitio web utiliza cookies para funcionar y poder proporcionar el mejor servicio. También las utilizamos para recolectar estadísticas, puedes deshabilitarlas si lo prefieres.",
             "actions": {
                 "Allow": "Permitir",
                 "Deny": "Rechazar"
@@ -140,38 +224,41 @@
                     "Title": "¿Qué ofrecemos?",
                     "all-from-home": {
                         "Title": "Un servicio 100% online",
-                        "Description": "Sol·licita els teus discs fent servir l'eina online que pots trobar en aquesta web. No cal que vagis a recollir el teu disc a cap botiga física, nosaltres ens encarreguem de portar-te el disc a casa totalment de franc."
+                        "Description": "Solicita tus discos utilizando la herramienta online que puedes encontrar en esta web. No hace falta que vayas a recoger tu disco a ninguna tienda física, nosotros nos encargamos de llevarte el disco a casa totalmente gratis."
                     },
                     "customized-disks": {
                         "Title": "Discos personalizados",
-                        "Description": "Crea el teu propi disc a partir del software del nostre inventari. No hauràs d'instal·lar tots els teus programes, nosaltres ens encarreguem de tot."
+                        "Description": "Crea tu propio disco a partir del software de nuestro inventario. No tendrás que instalar todos tus programas, nosotros nos encargamos de todo."
                     },
                     "any-device": {
-                        "Title": "Accesible desde cualquier sitio",
-                        "Description": "Accedeix al teu compte fent servir qualsevol navegador web, desde qualsevol dispositiu i desde qualsevol lloc del mon. A més a més, la web s'ha traduït a tres idiomes diferents."
+                        "Title": "Accesible desde todas partes",
+                        "Description": "Accede a tu cuenta utilizando cualquier navegador web, desde cualquier dispositivo y desde cualquier sitio del mundo. Además, la web se ha traducido a tres idiomas distintos."
                     },
                     "business": {
                         "Title": "Servicio para empresas",
-                        "Description": "Oferim un tracte especial per a empreses. Si la teva empresa necessita sol·licitar els nostres serveis pot fer-ho a través de la web o pot contactar amb nosaltres. Oferim descomptes, agilitat amb els tràmits i confiança."
+                        "Description": "Ofrecemos condiciones especiales para empresas. Si tu empresa necesita solicitar nuestros servicios, puede hacerlo a través de la web o puede contactar con nosotros. Ofrecemos descuentos, agilidad con los trámites y confianza."
                     }
                 },
                 "professionals": {
                     "Title": "Nuestros profesionales",
                     "list": {
                         "joel-campos": {
-                            "Description": "Sóc el Junior DevOps de l'equip. M'encarrego del manteniment i actualització de l'aplicació web. Tinc experiència amb cloud computing services, llenguatges de programació i metodologies."
+                            "Description": "Soy el Junior DevOps del equipo. Me encargo del mantenimiento y actualización de la aplicación web. Tengo experiencia con cloud computing services, lenguajes de programación y metodologías."
                         },
                         "iker-torres": {
-                            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
+                            "Description": "Soy Íker, el técnico en redes del equipo. Me encargo del mantenimiento de la red y de la gestión de las copias de seguridad de nuestros clientes."
                         },
                         "juanjo-romero": {
-                            "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur auctor urna ac libero pretium, id sagittis augue aliquam. Mauris pulvinar viverra ligula at pellentesque."
+                            "Description": "Actividades dirigidas a analizar, diseñar, desarrollar, instalar y mantener software de aplicación tomando como base los requerimientos del usuario."
                         }
                     }
                 },
                 "video": {
                     "Title": "Nuestro servicio",
-                    "Description": "Coneix quins serveis oferim i com pots fer servir la web per sol·licitar-los veient aquest video. Al canal hi trobaràs molts videos relacionats amb el servei (novetats, noticies, actualitzacions, etc)."
+                    "Description": "Conoce qué servicios ofrecemos y cómo puedes utilizar la web para solicitarlos viendo este vídeo. En el canal encontrarás muchos vídeos relacionados con el servicio (novedades, noticias, actualizaciones, etc.)."
+                },
+                "customers": {
+                    "Title": "Clientes reconocidos"
                 }
             }
         },
@@ -227,7 +314,7 @@
             "Title": "Selector de idioma",
             "reloadPopConfirm": {
                 "Title": "¿Quieres aplicar el idioma?",
-                "Description": "Si estàs emplenant un formulari perdràs les dades que no s'hagin enviat."
+                "Description": "Si estás rellenando un formulario perderás los datos que no se hayan enviado."
             }
         },
         "userAdmin": {
@@ -240,7 +327,8 @@
                     "Email": "Correo electrónico",
                     "DeletedAt": "Borrado el",
                     "CreatedAt": "Creado el",
-                    "Actions": "Acciones"
+                    "Actions": "Acciones",
+                    "Roles": "Roles"
                 },
                 "filters": {
                     "NeverDeleted": "No eliminados",
@@ -255,7 +343,8 @@
                     "SureToDelete": "¿Está seguro que desea eliminar este usuario?",
                     "SureToRecover": "¿Seguro que quieres restaurar el usuario?",
                     "SureToBan": "¿Seguro que quieres bloquear al usuario?",
-                    "SureToUnban": "¿Seguro que quieres desbloquear al usuario?"
+                    "SureToUnban": "¿Seguro que quieres desbloquear al usuario?",
+                    "EditRoles": "Editar roles"
                 }
             }
         },
@@ -470,6 +559,10 @@
             "401": {
                 "Title": "No se puede iniciar sesión",
                 "Message": "No se ha autorizado el inicio de sesión. Es posible que la cuenta esté bloqueada."
+            },
+            "429": {
+                "Title": "Has realizado demasiadas solicitudes",
+                "Message": "Tienes que esperar un tiempo antes de volver a realizar esta solicitud ya que la has realizado demasiadas veces."
             }
         },
         "form": {
@@ -486,7 +579,17 @@
             "406": {
                 "Title": "Error de formato",
                 "Message": "El servidor informa de que el formato de los datos no es correcto"
+            },
+            "403": {
+                "Title": "Petición no autorizada",
+                "Message": "Prueba a recargar la página y vuelve a intentarlo"
             }
+        }
+    },
+    "warnings": {
+        "cors": {
+            "Title": "Incompatibilidad con CORS",
+            "Message": "Esta funcionalidad es icompatible con el CORS establecido. Es por eso que la subida del avatar se realiza a través de un formulario incrustado. Disculpad las molestias."
         }
     },
     "common": {
@@ -529,13 +632,18 @@
             "ChangeProfileImage": "Modificar avatar",
             "Send": "Enviar",
             "Create": "Crear",
-            "Add": "Añadir"
+            "Add": "Añadir",
+            "Delete": "Borrar",
+            "Recover": "Recuperar"
         },
         "other": {
             "privacyPolicy": "políticas de privacidad",
             "Timezone": "Zona horaria",
             "Yes": "Sí",
-            "No": "No"
+            "No": "No",
+            "WithoutIva": "Sin IVA",
+            "ForgotPassword": "¿Olvidaste tu contraseña?",
+            "ForgotPasswordInfo": "Se enviará un correo electrónico a la dirección indicada con un vínculo para recuperar la cuenta."
         },
         "empty": {
             "Description": "No hay datos"
@@ -543,10 +651,11 @@
     },
     "share": {
         "Title": "Compartir la web",
-        "Text": "Fes arribar la nostra web a tots els teus contactes!"
+        "Text": "¡Haz llegar nuestra web a todos tus contactos!"
     },
     "footer": {
         "Privacy": "Políticas de privacidad",
-        "Share": "Compartir"
+        "Share": "Compartir",
+        "Edu": "Esta web se ha creado como proyecto de fin de grado. Los servicios ofrecidos en la web son ficticios. No compartimos tus datos con nadie."
     }
 }

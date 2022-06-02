@@ -1,4 +1,4 @@
-import { Form, FormInstance, Space } from 'antd';
+import { Button, Form, FormInstance, Space } from 'antd';
 import { t } from 'i18next';
 import { useState } from 'react';
 import { useCookies } from 'react-cookie';
@@ -10,6 +10,7 @@ import PasswordFormItem from '../form/PasswordFormItem';
 import ResetFormItem from '../form/ResetFormItem';
 import SubmitFormItem from '../form/SubmitFormItem';
 import UsernameFormItem from '../form/UsernameFormItem';
+import ForgotPasswordModal from './ForgotPasswordModal';
 
 type Props = {
     form: FormInstance;
@@ -27,6 +28,8 @@ export default function LoginForm(props: Props) {
     const [loading, setLoading] = useState<boolean>(false);
     const [authState, setAuthState] = useAuthState();
 
+    const [forgotPasswordModal, setForgotPasswordModal] = useState<boolean>(false);
+
     const [cookies, setCookie] = useCookies();
 
     const submit = async (data: LoginRequest) => {
@@ -39,8 +42,8 @@ export default function LoginForm(props: Props) {
                 expiresAt: result.expiresAt,
             });
 
-            if(data.remember) {
-                setCookie('authCredentials', { session: result.token, expiresAt: result.expiresAt }, {expires: result.expiresAt});
+            if (data.remember) {
+                setCookie('authCredentials', { session: result.token, expiresAt: result.expiresAt }, { expires: result.expiresAt });
             }
 
             props.hide();
@@ -50,8 +53,17 @@ export default function LoginForm(props: Props) {
         setLoading(false);
     }
 
+    const forgotPassword = () => {
+        props.hide();
+        setForgotPasswordModal(true);
+    }
+
     return (
         <>
+            <ForgotPasswordModal
+                visible={forgotPasswordModal}
+                hide={() => setForgotPasswordModal(false)}
+            />
             <Form
                 form={props.form}
                 layout='vertical'
@@ -77,7 +89,13 @@ export default function LoginForm(props: Props) {
                         text={t('common.actions.Login')}
                         loading={loading}
                     />
-                    <ResetFormItem/>
+                    <ResetFormItem />
+                    <Button
+                        type='link'
+                        onClick={forgotPassword}
+                    >
+                        {t('common.other.ForgotPassword')}
+                    </Button>
                 </Space>
             </Form>
         </>
